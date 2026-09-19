@@ -29,7 +29,7 @@ If Codex usage stops, resume this task, inspect `git status`, read this file, ve
 | Phase | Scope | Status | Checkpoint |
 |---|---|---|---|
 | 0 | Isolated workspace, source baseline, exclusions, repair workflow | Complete | `checkpoint-phase-0` |
-| 1 | Dependency and data-preservation inventory | Pending | — |
+| 1 | Dependency and data-preservation inventory | Complete | `checkpoint-phase-1` |
 | 2 | Security, settings, contact handling, and removal of local career uploads | Pending | — |
 | 3 | Shared navigation, popup, project pages, media logic, and integration resilience | Pending | — |
 | 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Pending | — |
@@ -57,6 +57,8 @@ If Codex usage stops, resume this task, inspect `git status`, read this file, ve
 - Inventory database tables and media relationships without changing production data.
 - Design safe migrations that preserve accounts, blogs, projects, testimonials, services, and subscribers.
 - Confirm Google Tag Manager/Analytics, Zoho Bigin, Zoho SalesIQ, MapLibre, fonts, and social links.
+
+Completed in `docs/PHASE_1_DEPENDENCY_AUDIT.md`. No runtime files or database rows were changed. The audit records active dependencies, dormant CMS bindings, legacy candidates, local row counts, media fields, migration hazards, missing assets, static-source exposure, external services, and non-destructive migration rules.
 
 ### Phase 2 — Security and backend correctness
 
@@ -133,3 +135,4 @@ This phase begins only after:
 |---|---|---|---|---|
 | 2026-09-19 | Baseline | `d9ffde1` | Archive SHA-256 recorded | Original ZIP remains untouched |
 | 2026-09-19 | Phase 0 | `checkpoint-phase-0` | Django checks, migration check, 32 blog tests, and JavaScript syntax checks passed | Isolated repair workflow ready |
+| 2026-09-19 | Phase 1 | `checkpoint-phase-1` | Dependency trace, local data/media inventory, migration plan, Django checks, migration check, Python/npm dependency checks, 32 blog tests, JavaScript syntax, and static-reference scan | Audit only; no application behavior changed |
