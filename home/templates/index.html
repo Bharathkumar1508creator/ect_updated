@@ -1,0 +1,1424 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include 'components/google_tag.html' %}
+  {% include 'components/favicon.html' %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Business Technology &amp; Digital Solutions</title>
+  <meta name="description" content="Transform your business with smart technology and digital solutions. Get expert website, software, Zoho, HR, marketing, and IT infrastructure services today.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=79">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Inter:wght@400&family=Outfit:wght@400&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  {% include 'components/navbar.html' %}
+
+  <!-- ================= MOBILE PANEL ================= -->
+  
+
+  <!-- ============================================================
+       HERO SECTION  (self-contained & reusable)
+
+       How to reuse on any page:
+       1. Copy this whole <section> into your page
+       2. Include style.css and script.js
+       3. Replace the <source src="..."> with your video file
+       That's it — all classes are scoped under .ect-hero,
+       and script.js auto-initialises every [data-ect-hero].
+       ============================================================ -->
+
+  <main>
+    <section class="hero" aria-label="Hero">
+      <div class="hero__container">
+
+        <div class="hero__content">
+          <h1 class="hero__heading">
+            Turn Business <span class="hero__accent">Bottlenecks</span><br />
+            into Scalable Growth Systems.
+          </h1>
+          <p class="hero__paragraph">
+            ECT helps growing businesses identify operational gaps, connect
+            people and processes, and implement the right digital systems for
+            greater control, visibility and accountability.
+          </p>
+          <p class="hero__eyebrow">Best suited for</p>
+          <ul class="hero__pills" role="list">
+            <li class="pill">1 crore+ turnover</li>
+            <li class="pill">10+ employees</li>
+            <li class="pill">Growth-focused SMEs</li>
+          </ul>
+
+          <div class="dropdown" id="challengeDropdown">
+            <div class="dropdown__shell">
+              <button class="dropdown__toggle" id="dropdownToggle" type="button" aria-haspopup="listbox"
+                aria-expanded="false" aria-controls="dropdownList">
+                <span class="dropdown__label" id="dropdownLabel" data-placeholder="true">Select a business
+                  challenge...</span>
+                <span class="dropdown__arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fff" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 5 12 11 18 5"></polyline>
+                    <polyline points="6 11 12 17 18 11"></polyline>
+                    <polyline points="6 17 12 23 18 17"></polyline>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <ul class="dropdown__list" id="dropdownList" role="listbox" aria-labelledby="dropdownLabel" tabindex="-1">
+              <li class="dropdown__option" role="option" tabindex="-1" style="--d:0.00s" data-url="{% url 'zoho' %}" onclick="window.location.href=this.getAttribute('data-url');">Leads arrive, but follow-up is
+                inconsistent<svg class="opt-check" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12.5l4.5 4.5L19 7" />
+                </svg></li>
+              <li class="dropdown__option" role="option" tabindex="-1" style="--d:0.05s" data-url="{% url 'software' %}" onclick="window.location.href=this.getAttribute('data-url');">Our operations are mostly
+                manual<svg class="opt-check" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12.5l4.5 4.5L19 7" />
+                </svg></li>
+              <li class="dropdown__option" role="option" tabindex="-1" style="--d:0.10s" data-url="{% url 'digital' %}" onclick="window.location.href=this.getAttribute('data-url');">We need stronger visibility and
+                qualified enquiries<svg class="opt-check" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12.5l4.5 4.5L19 7" />
+                </svg></li>
+              <li class="dropdown__option" role="option" tabindex="-1" style="--d:0.15s" data-url="{% url 'hr' %}" onclick="window.location.href=this.getAttribute('data-url');">Our team lacks role clarity and
+                accountability<svg class="opt-check" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12.5l4.5 4.5L19 7" />
+                </svg></li>
+              <li class="dropdown__option" role="option" tabindex="-1" style="--d:0.20s" data-url="{% url 'website' %}" onclick="window.location.href=this.getAttribute('data-url');">The business depends too much
+                on the owner<svg class="opt-check" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12.5l4.5 4.5L19 7" />
+                </svg></li>
+            </ul>
+          </div>
+
+          <div class="hero__ctas">
+            <a href="#" class="btn btn--primary" data-contact-trigger>Book a Business Consultation</a>
+            <a href="{% url 'about' %}" class="btn btn--secondary">See how ECT works</a>
+          </div>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="orbit">
+            <div class="orbit__glow"></div>
+
+            <div class="orbit__ring orbit__ring--inner"></div>
+            <div class="orbit__ring orbit__ring--mid"></div>
+            <div class="orbit__ring orbit__ring--outer"></div>
+
+            <div class="orbit__track orbit__track--inner">
+              <span class="orbit-pill" style="--angle:-165.5deg; --radius:var(--ring-inner);"><span>Sales</span></span>
+              <span class="orbit-pill" style="--angle:7deg; --radius:var(--ring-inner);"><span>Market</span></span>
+            </div>
+
+            <div class="orbit__track orbit__track--mid">
+              <span class="orbit-pill" style="--angle:-91.6deg; --radius:var(--ring-mid);"><span>People</span></span>
+              <span class="orbit-pill" style="--angle:88.3deg; --radius:var(--ring-mid);"><span>Process</span></span>
+            </div>
+
+            <div class="orbit__track orbit__track--outer">
+              <span class="orbit-pill" style="--angle:-81deg; --radius:var(--ring-outer);"><span>Tech</span></span>
+              <span class="orbit-pill" style="--angle:100.2deg; --radius:var(--ring-outer);"><span>Data</span></span>
+            </div>
+
+            <div class="orbit__center">
+              <img src="{% static 'img/circleicon.png' %}" alt="ECT logo" width="120" height="120" />
+            </div>
+
+            <div class="float-card float-card--tl">
+              <p class="float-card__label"><span class="dot"></span>Lead follow-up</p>
+              <p class="float-card__value">Visible</p>
+            </div>
+            <div class="float-card float-card--bl">
+              <p class="float-card__label"><span class="dot"></span>Management view</p>
+              <p class="float-card__value">Connected</p>
+            </div>
+            <div class="float-card float-card--r">
+              <p class="float-card__label"><span class="dot"></span>Team ownership</p>
+              <p class="float-card__value">Clear</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <!-- ================== /HERO SECTION ================== -->
+
+
+  <!-- ===== FEATURES SECTION ===== -->
+  <section class="features" id="features">
+    <div class="features__container">
+
+      <div class="features__header">
+        <div class="features__header-left">
+          <span class="features__subtitle">Does this look like your business?</span>
+          <h2 class="features__heading"><span>Growth is happening.</span> <br class="features__responsive-break"><span>But the system is struggling to keep up.</span></h2>
+        </div>
+        <div class="features__header-right">
+          <p class="features__description features__description--desktop">
+            Your business may not need more tools or more people.
+            It may need the right systems working together.
+          </p>
+        </div>
+      </div>
+
+      <div class="features__grid">
+        <div class="features__column features__column--left">
+          <article class="feature-card feature-card--left" data-reveal
+            data-image="{% static 'img/Owner dependency.png' %}">
+            <svg class="feature-card__shape" viewBox="0 0 397 130" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path class="feature-card__shape-surface"
+                d="M321 0C329.837 0 337 7.16344 337 16V44C337 52.8366 344.163 60 353 60H381C389.837 60 397 67.1634 397 76V114C397 122.837 389.837 130 381 130H16C7.16345 130 0 122.837 0 114V16C0 7.16344 7.16344 0 16 0H321Z" />
+            </svg>
+            <button class="feature-card__action feature-card__action--tr" type="button"
+              aria-label="Learn more about owner dependency">
+              <svg class="feature-card__action-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <circle cx="25" cy="25" r="24.5" stroke="#0C3C01" />
+                <path d="M17.9299 24.8848L32.0702 25.1152M26.6812 30.3314L32.0702 25.1152L26.8539 19.7262"
+                  stroke="#0C3C01" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="feature-card__content">
+              <h3 class="feature-card__title">Owner dependency</h3>
+              <p class="feature-card__desc">Every important decision, approval and update still depends on you.</p>
+            </div>
+          </article>
+          <article class="feature-card feature-card--left" data-reveal
+            data-image="{% static 'img/Missed follow-ups.png' %}">
+            <svg class="feature-card__shape" viewBox="0 0 397 130" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path class="feature-card__shape-surface"
+                d="M321 0C329.837 0 337 7.16344 337 16V44C337 52.8366 344.163 60 353 60H381C389.837 60 397 67.1634 397 76V114C397 122.837 389.837 130 381 130H16C7.16345 130 0 122.837 0 114V16C0 7.16344 7.16344 0 16 0H321Z" />
+            </svg>
+            <button class="feature-card__action feature-card__action--tr" type="button"
+              aria-label="Learn more about missed follow-ups">
+              <svg class="feature-card__action-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <circle cx="25" cy="25" r="24.5" stroke="#0C3C01" />
+                <path d="M17.9299 24.8848L32.0702 25.1152M26.6812 30.3314L32.0702 25.1152L26.8539 19.7262"
+                  stroke="#0C3C01" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="feature-card__content">
+              <h3 class="feature-card__title">Missed follow-ups</h3>
+              <p class="feature-card__desc">Leads arrive, but ownership, response and conversion are unclear.</p>
+            </div>
+          </article>
+          <article class="feature-card feature-card--left" data-reveal
+            data-image="{% static 'img/Manual operations.png' %}">
+            <svg class="feature-card__shape" viewBox="0 0 397 130" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path class="feature-card__shape-surface"
+                d="M321 0C329.837 0 337 7.16344 337 16V44C337 52.8366 344.163 60 353 60H381C389.837 60 397 67.1634 397 76V114C397 122.837 389.837 130 381 130H16C7.16345 130 0 122.837 0 114V16C0 7.16344 7.16344 0 16 0H321Z" />
+            </svg>
+            <button class="feature-card__action feature-card__action--tr" type="button"
+              aria-label="Learn more about manual operations">
+              <svg class="feature-card__action-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <circle cx="25" cy="25" r="24.5" stroke="#0C3C01" />
+                <path d="M17.9299 24.8848L32.0702 25.1152M26.6812 30.3314L32.0702 25.1152L26.8539 19.7262"
+                  stroke="#0C3C01" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="feature-card__content">
+              <h3 class="feature-card__title">Manual operations</h3>
+              <p class="feature-card__desc">Excel, WhatsApp and memory have become the operating system.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="features__image-wrapper" data-reveal>
+          <img id="featuresImage" src="{% static 'img/Owner dependency.png' %}"
+            alt="Business professional reviewing documents" class="features__image" loading="lazy">
+        </div>
+
+        <div class="features__column features__column--right">
+          <article class="feature-card feature-card--right" data-reveal
+            data-image="{% static 'img/Unclear accountability.png' %}">
+            <svg class="feature-card__shape" viewBox="0 0 397 130" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <g transform="translate(397 0) scale(-1 1)">
+                <path class="feature-card__shape-surface"
+                  d="M321 0C329.837 0 337 7.16344 337 16V44C337 52.8366 344.163 60 353 60H381C389.837 60 397 67.1634 397 76V114C397 122.837 389.837 130 381 130H16C7.16345 130 0 122.837 0 114V16C0 7.16344 7.16344 0 16 0H321Z" />
+              </g>
+            </svg>
+            <button class="feature-card__action feature-card__action--tl" type="button"
+              aria-label="Learn more about unclear accountability">
+              <svg class="feature-card__action-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <g transform="translate(50 0) scale(-1 1)">
+                  <circle cx="25" cy="25" r="24.5" stroke="#0C3C01" />
+                  <path d="M17.9299 24.8848L32.0702 25.1152M26.6812 30.3314L32.0702 25.1152L26.8539 19.7262"
+                    stroke="#0C3C01" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+              </svg>
+            </button>
+            <div class="feature-card__content">
+              <h3 class="feature-card__title">Unclear accountability</h3>
+              <p class="feature-card__desc">People are busy, but role ownership and measurable output are weak.</p>
+            </div>
+          </article>
+          <article class="feature-card feature-card--right" data-reveal
+            data-image="{% static 'img/Disconnected departments.png' %}">
+            <svg class="feature-card__shape" viewBox="0 0 397 130" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <g transform="translate(397 0) scale(-1 1)">
+                <path class="feature-card__shape-surface"
+                  d="M321 0C329.837 0 337 7.16344 337 16V44C337 52.8366 344.163 60 353 60H381C389.837 60 397 67.1634 397 76V114C397 122.837 389.837 130 381 130H16C7.16345 130 0 122.837 0 114V16C0 7.16344 7.16344 0 16 0H321Z" />
+              </g>
+            </svg>
+            <button class="feature-card__action feature-card__action--tl" type="button"
+              aria-label="Learn more about disconnected departments">
+              <svg class="feature-card__action-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <g transform="translate(50 0) scale(-1 1)">
+                  <circle cx="25" cy="25" r="24.5" stroke="#0C3C01" />
+                  <path d="M17.9299 24.8848L32.0702 25.1152M26.6812 30.3314L32.0702 25.1152L26.8539 19.7262"
+                    stroke="#0C3C01" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+              </svg>
+            </button>
+            <div class="feature-card__content">
+              <h3 class="feature-card__title">Disconnected departments</h3>
+              <p class="feature-card__desc">Every important decision, approval and update still depends on you.</p>
+            </div>
+          </article>
+          <article class="feature-card feature-card--right" data-reveal
+            data-image="{% static 'img/Limited visibility.png' %}">
+            <svg class="feature-card__shape" viewBox="0 0 397 130" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <g transform="translate(397 0) scale(-1 1)">
+                <path class="feature-card__shape-surface"
+                  d="M321 0C329.837 0 337 7.16344 337 16V44C337 52.8366 344.163 60 353 60H381C389.837 60 397 67.1634 397 76V114C397 122.837 389.837 130 381 130H16C7.16345 130 0 122.837 0 114V16C0 7.16344 7.16344 0 16 0H321Z" />
+              </g>
+            </svg>
+            <button class="feature-card__action feature-card__action--tl" type="button"
+              aria-label="Learn more about limited visibility">
+              <svg class="feature-card__action-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true">
+                <g transform="translate(50 0) scale(-1 1)">
+                  <circle cx="25" cy="25" r="24.5" stroke="#0C3C01" />
+                  <path d="M17.9299 24.8848L32.0702 25.1152M26.6812 30.3314L32.0702 25.1152L26.8539 19.7262"
+                    stroke="#0C3C01" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+              </svg>
+            </button>
+            <div class="feature-card__content">
+              <h3 class="feature-card__title">Limited visibility</h3>
+              <p class="feature-card__desc">Reports arrive late and management cannot see real-time status.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <p class="features__description features__description--responsive">
+        Your business may not need more tools or more people. It may need the right systems working together.
+      </p>
+
+    </div>
+  </section>
+
+  <section class="ect-hero">
+    <!-- Replace src with your video file -->
+    <video class="ect-hero__video" autoplay muted loop playsinline>
+      <source src="{% static 'video/homebg.mp4' %}" type="video/mp4">
+    </video>
+
+    <div class="ect-hero__overlay"></div>
+
+    <div class="ect-hero__content">
+      <p class="ect-hero__eyebrow">The ECT Business Growth Diagnostic</p>
+      <h2 class="ect-hero__title"><span>We diagnose the gap before</span> <br class="ect-hero__responsive-break"><span>Recommending the tool.</span></h2>
+      <p class="ect-hero__desc">ECT studies six connected areas of the business. The result is a clear view of what is
+        slowing growth, where opportunities are leaking and what should be fixed first.</p>
+      <a href="{% url 'contact' %}"><button class="ect-hero__btn">Explore the diagnostic</button></a>
+    </div>
+  </section>
+
+
+
+
+
+
+  <section class="cbs-section" aria-labelledby="cbs-heading">
+
+    <div class="cbs-header" id="cbsHeader">
+      <div>
+        <p class="cbs-label">Connected Business Solutions</p>
+        <h2 class="cbs-heading cbs-heading--desktop" id="cbs-heading" data-split>Three systems. One<br>growth objective.</h2>
+        <h2 class="cbs-heading cbs-heading--responsive">Three systems.<br>One growth objective.</h2>
+      </div>
+      <p class="cbs-intro cbs-intro--desktop">
+        ECT combines market growth, automation and people-performance solutions
+        instead of treating every department as an isolated problem.
+      </p>
+    </div>
+
+    <div class="cbs-grid">
+
+      <!-- LEFT -->
+      <div class="cbs-col cbs-col--side" style="--d:0s">
+        <div class="cbs-media" data-tilt data-parallax>
+          <img src="{% static 'img/Rectangle 1753.png' %}" alt="Social media apps on a phone">
+        </div>
+        <div class="cbs-content">
+          <p class="cbs-category">Growth &amp; Market Systems</p>
+          <h3 class="cbs-title">Build visibility and qualified demand.</h3>
+          <p class="cbs-desc">Website, digital strategy, content, campaigns, SEO and lead capture designed around business action.</p>
+          <a class="cbs-link" href="{% url 'digital' %}">Explore growth systems
+            <span class="arrow-box"><span>→</span><span>→</span></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- MIDDLE -->
+      <div class="cbs-col cbs-col--middle" style="--d:.15s">
+        <div class="cbs-content">
+          <p class="cbs-category">Automation &amp; Technology</p>
+          <h3 class="cbs-title">Turn manual work into connected execution.</h3>
+          <p class="cbs-desc">Zoho CRM, custom software, workflow, dashboards and managed IT infrastructure.</p>
+          <a class="cbs-link" href="{% url 'zoho' %}">Explore growth systems
+            <span class="arrow-box"><span>→</span><span>→</span></span>
+          </a>
+        </div>
+        <div class="cbs-media" data-tilt data-parallax>
+          <img src="{% static 'img/Rectangle 1753 (1).png' %}" alt="Server infrastructure">
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="cbs-col cbs-col--side" style="--d:.3s">
+        <div class="cbs-media" data-tilt data-parallax>
+          <img src="{% static 'img/Rectangle 1753 (2).png' %}" alt="Laptop workspace on a desk">
+        </div>
+        <div class="cbs-content">
+          <p class="cbs-category">People &amp; Performance Systems</p>
+          <h3 class="cbs-title">Build clearer ownership and accountability.</h3>
+          <p class="cbs-desc">Recruitment, roles, KPI, onboarding, training and practical HR systems for growing teams.</p>
+          <a class="cbs-link" href="{% url 'hr' %}">Explore growth systems
+            <span class="arrow-box"><span>→</span><span>→</span></span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="cbs-intro cbs-intro--responsive">
+      ECT combines market growth, automation and people-performance solutions instead of treating every department as an isolated problem.
+    </p>
+  </section>
+
+
+
+
+
+  <!-- WHAT ECT DELIVER | Figma node 3050:6476 -->
+  <section class="ect-services" id="services" aria-labelledby="ect-services-title">
+    <div class="ect-services__container">
+
+      <header class="ect-services__header">
+        <div class="ect-services__intro">
+          <p class="ect-services__eyebrow">WHAT ECT DELIVER</p>
+          <h2 class="ect-services__title" id="ect-services-title">
+            Building Technology<br>
+            That Drives Business Success
+          </h2>
+        </div>
+
+        <p class="ect-services__summary">
+          Whether you're building your online presence, automating business processes,
+          modernizing infrastructure, or expanding digitally, ECT provides complete
+          technology solutions tailored to your business.
+        </p>
+      </header>
+
+      <div class="ect-services__grid">
+        <div class="ect-services__column ect-services__column--wide-gap" data-service-column>
+
+          <article class="service-card service-card--website" tabindex="0" aria-expanded="false" data-service-card
+            data-default-active="false">
+            <span class="service-card__notch" aria-hidden="true"></span>
+
+            <button class="service-card__arrow" type="button" aria-label="Open Website Development">
+              <span class="service-card__arrow-core" aria-hidden="true"></span>
+              <svg class="service-card__arrow-icon service-card__arrow-icon--light" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+              <svg class="service-card__arrow-icon service-card__arrow-icon--dark" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </button>
+
+            <img class="service-card__icon service-card__icon--website" src="{% static 'img/webdevelopment.png' %}"
+              alt="" aria-hidden="true">
+
+            <h3 class="service-card__title">Website Development</h3>
+
+            <p class="service-card__description service-card__description--full">
+              Conversion-focused websites that build credibility, communicate your value clearly, and turn visitors into
+              qualified enquiries through strategic design, seamless user experience, and optimized performance.
+            </p>
+
+            <p class="service-card__description service-card__description--compact">
+              Conversion-focused websites that strengthen credibility, clarify your value, and support enquiry
+              generation. <span>MORE...</span>
+            </p>
+
+            <p class="service-card__description service-card__description--responsive">
+              Conversion-focused websites that strengthen credibility, clarify your value, and support enquiry
+              generation.
+            </p>
+
+            <a class="service-card__link" href="{% url 'website' %}">
+              <span>Explore Service</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </a>
+            <a class="service-card__mobile-link" href="{% url 'website' %}"
+              aria-label="Open Website Development"></a>
+          </article>
+
+          <article class="service-card service-card--software is-active" tabindex="0" aria-expanded="true"
+            data-service-card data-default-active="true">
+            <span class="service-card__notch" aria-hidden="true"></span>
+
+            <button class="service-card__arrow" type="button" aria-label="Open Software Development">
+              <span class="service-card__arrow-core" aria-hidden="true"></span>
+              <svg class="service-card__arrow-icon service-card__arrow-icon--light" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+              <svg class="service-card__arrow-icon service-card__arrow-icon--dark" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </button>
+
+            <img class="service-card__icon service-card__icon--software" src="{% static 'img/softwaredevelopment.png' %}"
+              alt="" aria-hidden="true">
+
+            <h3 class="service-card__title">Software Development</h3>
+
+            <p class="service-card__description service-card__description--full">
+              Practical software and workflow automation designed around your unique business processes to improve
+              efficiency, streamline operations, and support sustainable growth.
+            </p>
+
+            <p class="service-card__description service-card__description--compact">
+              Practical software and workflow automation built around the way your business actually operates.
+              <span>MORE...</span>
+            </p>
+
+            <p class="service-card__description service-card__description--responsive">
+              Practical software and workflow automation designed around your unique business processes to improve
+              efficiency, streamline operations, and support sustainable growth.
+            </p>
+
+            <a class="service-card__link" href="{% url 'software' %}">
+              <span>Explore Service</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </a>
+            <a class="service-card__mobile-link" href="{% url 'software' %}"
+              aria-label="Open Software Development"></a>
+          </article>
+        </div>
+        <div class="ect-services__column" data-service-column>
+
+          <article class="service-card service-card--zoho is-active" tabindex="0" aria-expanded="true" data-service-card
+            data-default-active="true">
+            <span class="service-card__notch" aria-hidden="true"></span>
+
+            <button class="service-card__arrow" type="button" aria-label="Open Zoho Consulting">
+              <span class="service-card__arrow-core" aria-hidden="true"></span>
+              <svg class="service-card__arrow-icon service-card__arrow-icon--light" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+              <svg class="service-card__arrow-icon service-card__arrow-icon--dark" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </button>
+
+            <img class="service-card__icon service-card__icon--zoho" src="{% static 'img/ZOHO-logo.png' %}"
+              alt="" aria-hidden="true">
+
+            <h3 class="service-card__title">Zoho Consulting</h3>
+
+            <p class="service-card__description service-card__description--full">
+              Connect sales, finance, HR, and operations with integrated Zoho applications and automated workflows to
+              improve collaboration, streamline processes, increase productivity, and drive smarter business decisions.
+            </p>
+
+            <p class="service-card__description service-card__description--compact">
+              Integrated Zoho applications and workflows that connect sales, finance, HR, and operations.
+              <span>MORE...</span>
+            </p>
+
+            <p class="service-card__description service-card__description--responsive">
+              Connect sales, finance, HR, and operations with integrated Zoho applications and automated workflows to
+              improve collaboration, streamline processes, increase productivity, and drive smarter business decisions.
+            </p>
+
+            <a class="service-card__link" href="{% url 'zoho' %}">
+              <span>Explore Service</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </a>
+            <a class="service-card__mobile-link" href="{% url 'zoho' %}"
+              aria-label="Open Zoho Consulting"></a>
+          </article>
+
+          <article class="service-card service-card--hr" tabindex="0" aria-expanded="false" data-service-card
+            data-default-active="false">
+            <span class="service-card__notch" aria-hidden="true"></span>
+
+            <button class="service-card__arrow" type="button" aria-label="Open HR Consulting">
+              <span class="service-card__arrow-core" aria-hidden="true"></span>
+              <svg class="service-card__arrow-icon service-card__arrow-icon--light" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+              <svg class="service-card__arrow-icon service-card__arrow-icon--dark" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </button>
+
+            <img class="service-card__icon service-card__icon--hr" src="{% static 'img/hr.png' %}"
+              alt="" aria-hidden="true">
+
+            <h3 class="service-card__title">HR Consulting</h3>
+
+            <p class="service-card__description service-card__description--full">
+              Recruitment, role clarity, KPI, onboarding, and people systems designed to create stronger ownership,
+              accountability, and performance across growing teams.
+            </p>
+
+            <p class="service-card__description service-card__description--compact">
+              Recruitment, role clarity, KPI and people systems designed for growing teams. <span>MORE...</span>
+            </p>
+
+            <p class="service-card__description service-card__description--responsive">
+              Recruitment, role clarity, KPI and people systems designed for growing teams.
+            </p>
+
+            <a class="service-card__link" href="{% url 'hr' %}">
+              <span>Explore Service</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </a>
+            <a class="service-card__mobile-link" href="{% url 'hr' %}"
+              aria-label="Open HR Consulting"></a>
+          </article>
+        </div>
+        <div class="ect-services__column" data-service-column>
+
+          <article class="service-card service-card--digital" tabindex="0" aria-expanded="false" data-service-card
+            data-default-active="false">
+            <span class="service-card__notch" aria-hidden="true"></span>
+
+            <button class="service-card__arrow" type="button" aria-label="Open Digital Marketing">
+              <span class="service-card__arrow-core" aria-hidden="true"></span>
+              <svg class="service-card__arrow-icon service-card__arrow-icon--light" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+              <svg class="service-card__arrow-icon service-card__arrow-icon--dark" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </button>
+
+            <img class="service-card__icon service-card__icon--digital" src="{% static 'img/digitalmarketing.png' %}"
+              alt="" aria-hidden="true">
+
+            <h3 class="service-card__title">Digital Marketing</h3>
+
+            <p class="service-card__description service-card__description--full">
+              Strategy-led digital marketing that combines visibility, compelling content, and targeted campaigns with
+              seamless lead management to generate measurable business growth and lasting customer engagement.
+            </p>
+
+            <p class="service-card__description service-card__description--compact">
+              Strategy-led visibility, content and campaigns connected to lead handling and measurable business action.
+              <span>MORE...</span>
+            </p>
+
+            <p class="service-card__description service-card__description--responsive">
+              Strategy-led visibility, content and campaigns connected to lead handling and measurable business action.
+            </p>
+
+            <a class="service-card__link" href="{% url 'digital' %}">
+              <span>Explore Service</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </a>
+            <a class="service-card__mobile-link" href="{% url 'digital' %}"
+              aria-label="Open Digital Marketing"></a>
+          </article>
+
+          <article class="service-card service-card--infrastructure is-active" tabindex="0" aria-expanded="true"
+            data-service-card data-default-active="true">
+            <span class="service-card__notch" aria-hidden="true"></span>
+
+            <button class="service-card__arrow" type="button" aria-label="Open IT Infrastructure Services">
+              <span class="service-card__arrow-core" aria-hidden="true"></span>
+              <svg class="service-card__arrow-icon service-card__arrow-icon--light" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+              <svg class="service-card__arrow-icon service-card__arrow-icon--dark" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </button>
+
+            <img class="service-card__icon service-card__icon--infrastructure" src="{% static 'img/it.png' %}"
+              alt="" aria-hidden="true">
+
+            <h3 class="service-card__title">IT Infrastructure Services</h3>
+
+            <p class="service-card__description service-card__description--full">
+              Cloud workspace, domain, hosting, and IT infrastructure solutions with secure management, clear ownership,
+              reliable partner support, and seamless business continuity.
+            </p>
+
+            <p class="service-card__description service-card__description--compact">
+              Cloud workspace, domain, hosting and infrastructure coordination with clear ownership and partner support.
+              <span>MORE...</span>
+            </p>
+
+            <p class="service-card__description service-card__description--responsive">
+              Cloud workspace, domain, hosting, and IT infrastructure solutions with secure management, clear ownership,
+              reliable partner support, and seamless business continuity.
+            </p>
+
+            <a class="service-card__link" href="{% url 'it_infrastructure' %}">
+              <span>Explore Service</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </a>
+            <a class="service-card__mobile-link" href="{% url 'it_infrastructure' %}"
+              aria-label="Open IT Infrastructure Services"></a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= CONNECTED BUSINESS SOLUTIONS SECTION START ================= -->
+  <section class="custom-cbs-section">
+    <div class="custom-cbs-inner">
+
+      <div class="custom-cbs-image-wrap">
+        <video src="{% static 'video/connected_busi.mp4' %}" class="custom-cbs-image" autoplay loop muted
+          playsinline></video>
+      </div>
+
+      <div class="custom-cbs-content">
+        <p class="custom-cbs-eyebrow">CONNECTED BUSINESS SOLUTIONS</p>
+        <h2 class="custom-cbs-headline">Practical systems—not theory presented as consulting.</h2>
+        <p class="custom-cbs-description">ECT's approach was shaped through the real challenges of building teams,
+          managing sales, monitoring inventory, improving follow-up and creating management visibility inside the ECOG
+          business ecosystem.</p>
+
+        <ul class="custom-cbs-features">
+          <li>
+            <svg class="custom-cbs-check-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="8" fill="#0C3C01" />
+              <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.3" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>CRM and sales visibility</span>
+          </li>
+          <li>
+            <svg class="custom-cbs-check-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="8" fill="#0C3C01" />
+              <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.3" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Continuous HR consulting and workforce support.</span>
+          </li>
+          <li>
+            <svg class="custom-cbs-check-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="8" fill="#0C3C01" />
+              <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.3" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Tailored HR solutions for every business.</span>
+          </li>
+          <li>
+            <svg class="custom-cbs-check-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="8" fill="#0C3C01" />
+              <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.3" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Streamlined, efficient HR operations.</span>
+          </li>
+        </ul>
+
+        <a href="{% url 'about' %}"><button class="custom-cbs-cta-btn" type="button">Discover the ECT story</button></a>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    /* ============ DESKTOP BASE (1024px+) - COMPLETELY UNCHANGED ============ */
+    .custom-cbs-section {
+      font-family: 'Montserrat', sans-serif;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 80px 20px;
+      box-sizing: border-box;
+      background: var(--ect-bg-page, #FFFFFF);
+    }
+
+    .custom-cbs-section * {
+      box-sizing: border-box;
+    }
+
+    .custom-cbs-inner {
+      position: relative;
+      width: 1123px;
+      max-width: 100%;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    /* LEFT IMAGE */
+    .custom-cbs-image-wrap {
+      width: 544px;
+      max-width: 100%;
+      height: 448px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #e9e9e9;
+      flex-shrink: 0;
+    }
+
+    .custom-cbs-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* RIGHT CONTENT */
+    .custom-cbs-content {
+      width: 555px;
+      max-width: 100%;
+      flex: 1 1 400px;
+    }
+
+    .custom-cbs-eyebrow {
+      font-weight: 500;
+      font-size: 13.33px;
+      line-height: 125%;
+      letter-spacing: 0.5px;
+      color: #000;
+      margin: 0 0 9px 0;
+    }
+
+    .custom-cbs-headline {
+      font-weight: 600;
+      font-size: 36.05px;
+      line-height: 125%;
+      color: #000000;
+      margin: 0 0 18px 0;
+    }
+
+    .custom-cbs-description {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #000;
+      margin: 0 0 24px 0;
+    }
+
+    .custom-cbs-features {
+      list-style: none;
+      margin: 0 0 24px 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .custom-cbs-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .custom-cbs-check-icon {
+      width: 15.24px;
+      height: 15.24px;
+      flex: none;
+    }
+
+    .custom-cbs-features span {
+      font-weight: 500;
+      font-size: 15.24px;
+      line-height: 125%;
+      color: #000;
+    }
+
+    .custom-cbs-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 10px;
+      width: 199px;
+      height: 36px;
+      background: #0C3C01;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 125%;
+      color: #FFFFFF;
+      text-align: center;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .custom-cbs-cta-btn:hover {
+      background: #0a2f01;
+    }
+
+    .custom-cbs-cta-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* ============ TABLET RESPONSIVE (768px - 1023px) ============ */
+    @media (max-width: 1023px) and (min-width: 768px) {
+      .custom-cbs-section {
+        padding: 60px 24px;
+      }
+
+      .custom-cbs-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+      }
+
+      .custom-cbs-image-wrap {
+        width: 100%;
+        height: 360px;
+        border-radius: 16px;
+        order: 3;
+        margin: 24px 0;
+      }
+
+      .custom-cbs-content {
+        display: contents;
+      }
+
+      .custom-cbs-eyebrow {
+        order: 1;
+        font-size: 15px;
+        letter-spacing: 0.4px;
+        margin: 0 0 8px 0;
+      }
+
+      .custom-cbs-headline {
+        order: 2;
+        font-size: clamp(27px, 3.8vw, 31px);
+        line-height: 1.2;
+        margin: 0 0 16px 0;
+      }
+
+      .custom-cbs-description {
+        order: 4;
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0 0 20px 0;
+      }
+
+      .custom-cbs-features {
+        order: 5;
+        gap: 16px;
+        margin: 0 0 20px 0;
+      }
+
+      .custom-cbs-features span {
+        font-size: 15px;
+        line-height: 1.4;
+      }
+
+      .custom-cbs-check-icon {
+        width: 14px;
+        height: 14px;
+      }
+
+      .custom-cbs-cta-btn {
+        padding: 10px 16px;
+        width: auto;
+        min-height: 48px;
+        height: auto;
+        font-size: 15px;
+      }
+
+      .custom-cbs-content > a {
+        order: 6;
+      }
+    }
+
+    /* ============ MOBILE RESPONSIVE (< 768px) ============ */
+    @media (max-width: 767px) {
+      .custom-cbs-section {
+        padding: 40px 16px;
+      }
+
+      .custom-cbs-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+      }
+
+      .custom-cbs-image-wrap {
+        width: 100%;
+        height: 240px;
+        border-radius: 12px;
+        order: 3;
+        margin: 20px 0;
+      }
+
+      .custom-cbs-content {
+        display: contents;
+      }
+
+      .custom-cbs-eyebrow {
+        order: 1;
+        font-size: 14px;
+        letter-spacing: 0.3px;
+        margin: 0 0 6px 0;
+        text-transform: uppercase;
+      }
+
+      .custom-cbs-headline {
+        order: 2;
+        font-size: clamp(22px, 7vw, 26px);
+        line-height: 1.2;
+        margin: 0 0 12px 0;
+      }
+
+      .custom-cbs-description {
+        order: 4;
+        font-size: clamp(14px, 3.8vw, 15px);
+        line-height: 1.6;
+        margin: 0 0 16px 0;
+      }
+
+      .custom-cbs-features {
+        order: 5;
+        gap: 12px;
+        margin: 0 0 16px 0;
+      }
+
+      .custom-cbs-features li {
+        gap: 10px;
+      }
+
+      .custom-cbs-features span {
+        font-size: clamp(14px, 3.8vw, 15px);
+        line-height: 1.5;
+      }
+
+      .custom-cbs-check-icon {
+        width: 12px;
+        height: 12px;
+      }
+
+      .custom-cbs-cta-btn {
+        padding: 8px 14px;
+        width: auto;
+        min-height: 48px;
+        height: auto;
+        font-size: 14px;
+      }
+
+      .custom-cbs-content > a {
+        order: 6;
+      }
+    }
+  </style>
+
+  <script>
+    (function () {
+      document.querySelectorAll('.custom-cbs-cta-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          // Replace with your desired action: open modal, navigate, etc.
+          console.log('Discover the ECT story clicked');
+          // window.location.href = '/contact';
+        });
+      });
+    })();
+  </script>
+  <!-- ================= CONNECTED BUSINESS SOLUTIONS SECTION END ================= --> <!-- ============================================================
+     SECTION: Why Businesses Choose ECT
+     ============================================================ -->
+
+
+
+
+
+  <!-- ============================================================
+       BUSINESS SOLUTIONS SECTION
+       Two product cards: ECT CRM + Executive Digital Profile
+       ============================================================ -->
+
+  <section class="ect-products">
+    <div class="ect-products__inner">
+      <div class="ect-products__header">
+        <div class="ect-products__header-left">
+          <p class="ect-products__eyebrow">ECT BUSINESS SOLUTIONS</p>
+          <h2 class="ect-products__headline">Powerful Digital<br>Products for Modern Businesses</h2>
+        </div>
+        <div class="ect-products__header-right">
+          <p class="ect-products__desc">Discover ECT's business products designed to simplify operations, improve
+            productivity, and accelerate sustainable business growth through innovation with intelligent digital
+            solutions today.</p>
+        </div>
+      </div>
+      <div class="ect-products__grid">
+
+        <!-- Card 1 — ECT CRM -->
+        <article class="ect-pcard">
+          <div class="ect-pcard__body">
+
+            <!-- Replace the <span> below with:
+               <img class="ect-pcard__img" src="YOUR-SCREENSHOT.png" alt="ECT CRM preview"> -->
+            <div class="ect-pcard__imgwrap">
+              <img class="ect-pcard__img" src="{% static 'img/crm1.png' %}" alt="ECT CRM preview">
+            </div>
+
+            <div class="ect-pcard__content">
+              <h3 class="ect-pcard__title">ECT CRM</h3>
+              <p class="ect-pcard__tagline">Manage your business from one powerful platform.</p>
+              <p class="ect-pcard__desc">
+                Organize leads, manage customers, automate workflows, track<br>
+                sales, and gain real-time business insights with a<br>
+                fully customizable CRM solution
+              </p>
+            </div>
+
+            <svg class="ect-pcard__notch" viewBox="0 0 212 128" preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+
+            <div class="ect-pcard__cta">
+              <a href="{% url 'under' %}"><button class="ect-btn-explore" data-product="crm">Explore CRM</button></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 — Executive Digital Profile -->
+        <article class="ect-pcard">
+          <div class="ect-pcard__body">
+
+            <!-- Replace the <span> below with:
+               <img class="ect-pcard__img" src="YOUR-SCREENSHOT.png" alt="Executive Digital Profile preview"> -->
+            <div class="ect-pcard__imgwrap">
+              <img class="ect-pcard__img" src="{% static 'img/crm2.png' %}" alt="Executive Digital Profile preview">
+            </div>
+
+            <div class="ect-pcard__content">
+              <h3 class="ect-pcard__title">Executive Digital Profile</h3>
+              <p class="ect-pcard__tagline">Your story. Your achievements. One professional profile.</p>
+              <p class="ect-pcard__desc">
+                Build a personalized executive profile that showcases your<br>
+                leadership experience, career milestones, awards,<br>
+                publications, and professional background.
+              </p>
+            </div>
+
+            <svg class="ect-pcard__notch" viewBox="0 0 212 128" preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+
+            <div class="ect-pcard__cta">
+            <a href="{% url 'under' %}"><button class="ect-btn-explore" data-product="profile">Explore Profile</button></a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="ect-products__desc ect-products__desc--responsive">
+        Discover ECT's business products designed to simplify operations, improve productivity, and accelerate
+        sustainable business growth through innovation with intelligent digital solutions today.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- business section end -->
+
+  <section class="work">
+    <div class="work__inner">
+      <div class="work__head">
+        <div class="work__head-left">
+          <p class="work__label">ECT WORK</p>
+          <h2 class="work__title">Websites Built for<br>Real Business Success</h2>
+        </div>
+
+        <p class="work__description work__description--desktop">
+          Every project combines strategy, innovation, and measurable
+          results, helping businesses transform operations, strengthen
+          digital presence, and achieve sustainable growth.
+        </p>
+      </div>
+
+      <div class="work__grid">
+
+        {% for project in work_projects %}
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              {% if project.hero_image %}
+              <img class="card__img" src="{{ project.hero_image.url }}" alt="{{ project.title }}">
+              {% endif %}
+              <div class="card__overlay">
+                <p><b>{{ project.title }}</b> <span>- {{ project.short_description }}</span></p>
+              </div>
+            </div>
+
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta"><a href="{% url 'project_detail' project.slug %}"><button class="btn-view">View Project</button></a></div>
+          </div>
+        </article>
+        {% empty %}
+        <p>Our work is coming soon.</p>
+        {% endfor %}
+
+      </div>
+
+      <p class="work__description work__description--responsive">
+        Every project combines strategy, innovation, and measurable
+        results, helping businesses transform operations, strengthen
+        digital presence, and achieve sustainable growth.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- BLOG -->
+
+
+
+  <!-- ECT Clients Section -->
+  {% if testimonials %}
+  <section class="clients-section" aria-labelledby="clients-heading">
+    <div class="clients-container">
+      <div class="clients-header">
+        <p class="clients-label">ECT Clients</p>
+        <h2 class="clients-heading" id="clients-heading">Partnerships<br>That Drive Growth.</h2>
+      </div>
+
+      <p class="clients-intro">
+        Our clients trust us to deliver innovative technology solutions that streamline operations,
+        drive growth, improve efficiency, and create measurable, long-term business success.
+      </p>
+
+      <div class="clients-viewport" id="clientsViewport">
+        <div class="clients-track" id="clientsTrack">
+          <article class="client-card" data-slot="0">
+            <div class="client-card__top">
+              <span class="client-card__avatar"></span>
+              <div>
+                <p class="client-card__name"></p>
+                <p class="client-card__company"></p>
+              </div>
+            </div>
+            <p class="client-card__quote"></p>
+          </article>
+
+          <article class="client-card" data-slot="1">
+            <div class="client-card__top">
+              <span class="client-card__avatar"></span>
+              <div>
+                <p class="client-card__name"></p>
+                <p class="client-card__company"></p>
+              </div>
+            </div>
+            <p class="client-card__quote"></p>
+          </article>
+
+          <article class="client-card client-card--active client-card--shape" data-slot="2">
+            <div class="client-card__top">
+              <span class="client-card__avatar"></span>
+              <div>
+                <p class="client-card__name"></p>
+                <p class="client-card__company"></p>
+              </div>
+            </div>
+            <p class="client-card__quote"></p>
+          </article>
+
+          <article class="client-card" data-slot="3">
+            <div class="client-card__top">
+              <span class="client-card__avatar"></span>
+              <div>
+                <p class="client-card__name"></p>
+                <p class="client-card__company"></p>
+              </div>
+            </div>
+            <p class="client-card__quote"></p>
+          </article>
+
+          <article class="client-card" data-slot="4">
+            <div class="client-card__top">
+              <span class="client-card__avatar"></span>
+              <div>
+                <p class="client-card__name"></p>
+                <p class="client-card__company"></p>
+              </div>
+            </div>
+            <p class="client-card__quote"></p>
+          </article>
+        </div>
+      </div>
+
+      <div class="clients-mobile-track" id="clientsMobileTrack"></div>
+
+      <div class="clients-nav">
+        <button class="clients-arrow clients-arrow--prev" type="button" id="clientsPrev" aria-label="Previous testimonial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <button class="clients-arrow clients-arrow--next" type="button" id="clientsNext" aria-label="Next testimonial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+    {{ testimonials_json|json_script:"clients-data" }}
+  </section>
+  {% endif %}
+
+  <!-- BUSINESS GROWTH INSIGHTS — latest blog posts, pulled live from the blog app -->
+  {% if latest_blogs %}
+  <section class="insights-section" aria-labelledby="insights-heading">
+    <div class="insights-container">
+      <div class="insights-header">
+        <p class="insights-label">Business Growth Insights</p>
+        <h2 class="insights-heading" id="insights-heading">Practical guidance for<br>businesses moving to the next level</h2>
+      </div>
+
+      <p class="insights-intro">
+        Our clients trust us to deliver innovative technology solutions that streamline operations,
+        drive growth, improve efficiency, and create measurable, long-term business success.
+      </p>
+
+      <div class="insights-grid">
+        {% for blog in latest_blogs %}
+        <article class="insight-card">
+          <div class="insight-card__media">
+            {% if blog.hero_image %}
+            <img src="{{ blog.hero_image.url }}" alt="{{ blog.hero_image_alt|default:blog.title }}" loading="lazy">
+            {% endif %}
+          </div>
+          <p class="insight-card__meta">
+            <span class="insight-card__dot" aria-hidden="true"></span>
+            {{ blog.publish_date|date:"d F Y" }}
+          </p>
+          <h3 class="insight-card__title">{{ blog.title }}</h3>
+          <a class="insight-card__link" href="{{ blog.get_absolute_url }}">
+            <span>Read Article</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <script src="{% static 'js/base.js' %}?v=52"></script>
+  <script src="{% static 'js/ripple.js' %}"></script>
+
+
+
+
+  {% include 'footer.html' %}
+  {% include 'components/contact_popup.html' %}
+
+  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+{% include 'components/zoho_salesiq.html' %}
+
+<!-- ================= UNIFORM 100PX SECTION GAPS (home page only) =================
+     Each boundary below is pure padding: 50px on the way out of a section +
+     50px on the way into the next = 100px, so it renders the same everywhere
+     regardless of the shared base.css defaults these classes normally carry
+     on other pages. Scoped to this template only — nothing here touches
+     base.css, so hr.html / digital.html / career.html etc. are unaffected. -->
+<style>
+  .hero__container { padding-bottom: 50px; }
+  .features { padding-top: 50px; padding-bottom: 50px; }
+  .ect-hero { padding: 50px 0; }
+  .cbs-section { padding-top: 50px; padding-bottom: 50px; margin-bottom: 0; }
+  .ect-services { padding-top: 50px; padding-bottom: 50px; }
+  .custom-cbs-section { padding-top: 50px; padding-bottom: 50px; }
+  .ect-products { padding-top: 50px; padding-bottom: 50px; }
+  .work { padding-top: 50px; }
+</style>
+
+<!-- Mobile/tablet only: the uniform 100px-per-boundary gap above was
+     deliberately fixed at every width for desktop. Below 900px that's
+     too much for a phone/tablet screen, so shrink each boundary here.
+     Desktop (the block above) is untouched. -->
+<style>
+  @media (max-width: 900px) {
+    .hero__container { padding-bottom: 24px !important; }
+    .features { padding-top: 24px !important; padding-bottom: 24px !important; }
+    .ect-hero { padding: 24px 0 !important; }
+    .cbs-section { padding-top: 24px !important; padding-bottom: 24px !important; }
+    .ect-services { padding-top: 24px !important; padding-bottom: 24px !important; }
+    .custom-cbs-section { padding-top: 24px !important; padding-bottom: 24px !important; }
+    .ect-products { padding-top: 24px !important; padding-bottom: 24px !important; }
+    .work { padding-top: 24px !important; }
+  }
+</style>
+</body>
+
+</html>

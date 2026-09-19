@@ -1,0 +1,2703 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: #ffffff !important;
+  color: #0a0a0a;
+}
+
+/* =========================================================
+   IT INFRASTRUCTURE HERO — FIGMA NODE 2751:4572
+   ========================================================= */
+.infra-figma-hero,
+.infra-figma-hero * {
+  box-sizing: border-box;
+}
+
+.infra-figma-hero {
+  width: min(1240px, calc(100% - 48px));
+  max-width: 1240px;
+  margin: 136px auto 100px;
+  padding: 0;
+  background: #ffffff;
+  text-align: center;
+}
+
+.infra-figma-hero .infra-figma-hero__title {
+  width: min(765px, 100%);
+  min-height: 122px;
+  margin: 0 auto;
+  padding: 0;
+  color: #000000 !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 48.83px !important;
+  font-style: normal;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.infra-figma-hero__subtitle {
+  width: min(699px, 100%);
+  height: 24px;
+  margin: 16px auto 0;
+  padding: 0;
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+}
+
+.infra-figma-hero__cta {
+  display: inline-flex;
+  width: 190px;
+  height: 40px;
+  margin-top: 24px;
+  padding: 8px 10px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background:
+    linear-gradient(#0c3c01, #0c3c01) padding-box,
+    radial-gradient(50% 130% at 50% 50%, #f1f1ef 0%, #5b6d49 100%) border-box;
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    filter 250ms ease;
+}
+
+.infra-figma-hero__cta:hover {
+  box-shadow: 0 8px 20px rgba(12, 60, 1, 0.18);
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+.infra-figma-hero__cta:active {
+  transform: translateY(0);
+}
+
+.infra-figma-hero__cta:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.3);
+  outline-offset: 4px;
+}
+
+.infra-figma-hero__video-frame {
+  width: 100%;
+  height: 699px;
+  margin-top: 32px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #d9d9d9;
+  line-height: 0;
+}
+
+.infra-figma-hero__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
+#infra-cloud-services {
+  scroll-margin-top: 96px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .infra-figma-hero {
+    width: calc(100% - 48px);
+    margin-top: 112px;
+  }
+
+  .infra-figma-hero .infra-figma-hero__title {
+    min-height: auto;
+    font-size: 40px !important;
+  }
+
+  .infra-figma-hero__subtitle {
+    height: auto;
+  }
+
+  .infra-figma-hero__video-frame {
+    height: auto;
+    aspect-ratio: 1240 / 699;
+    border-radius: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .infra-figma-hero {
+    width: calc(100% - 32px);
+    margin-top: 92px;
+    margin-bottom: 72px;
+  }
+
+  .infra-figma-hero .infra-figma-hero__title {
+    font-size: 30px !important;
+    line-height: 1.25 !important;
+  }
+
+  .infra-figma-hero__break {
+    display: none;
+  }
+
+  .infra-figma-hero__subtitle {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .infra-figma-hero__cta {
+    margin-top: 20px;
+  }
+
+  .infra-figma-hero__video-frame {
+    aspect-ratio: 4 / 3;
+    margin-top: 28px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .infra-figma-hero .infra-figma-hero__title {
+    font-size: 27px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .infra-figma-hero__cta {
+    transition: none;
+  }
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Outfit:wght@400;500;600&display=swap");
+
+
+
+
+.ect-web-solutions,
+.ect-web-solutions *,
+.ect-web-solutions *::before,
+.ect-web-solutions *::after {
+  box-sizing: border-box;
+}
+
+.ect-web-solutions {
+  --ect-primary: #0C3C01;
+  --ect-secondary: #5B6D49;
+  --ect-accent: #A2AC82;
+  --ect-light-background: #F5F5F3;
+  --ect-muted-background: #F9F9F7;
+  --ect-white: #FFFFFF;
+  --ect-black: #000000;
+
+  position: relative;
+  width: 1240px;
+  height: 600px;
+  margin: 100px auto 0;
+  overflow-x: clip;
+  color: var(--ect-black);
+  font-family: "Montserrat";
+}
+
+
+
+.ect-web-solutions__eyebrow,
+.ect-web-solutions__heading,
+.ect-web-solutions__content-title,
+.ect-web-solutions__description,
+.ect-web-solutions__perfect-label,
+.ect-web-solutions__audience {
+  margin: 0;
+}
+
+.ect-web-solutions__header {
+  position: relative;
+  height: 92px;
+}
+
+.ect-web-solutions__eyebrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 327px;
+  height: 24px;
+  color: #000000;
+  font-family: "Montserrat";
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.ect-web-solutions__heading {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  width: 629px;
+  height: 78px;
+  color: var(--ect-black);
+  font-family: "Montserrat", sans-serif;
+  font-size: 31px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.ect-web-solutions__controls {
+  position: absolute;
+  top: 50px;
+  right: 5px;
+  display: flex;
+  width: 100px;
+  gap: 16px;
+  z-index: 4;
+}
+
+.ect-web-solutions__arrow {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ect-primary);
+  color: var(--ect-white);
+  cursor: pointer;
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.ect-web-solutions__arrow svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.ect-web-solutions__arrow:hover {
+  background: #0f4a02;
+  transform: translateY(-1px);
+}
+
+.ect-web-solutions__arrow:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.26);
+  outline-offset: 3px;
+}
+
+/* 
+.ect-web-solutions__component {
+  width: 1240px;
+  height: 760px;
+}
+
+
+.ect-web-solutions__tabs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 379px;
+  height: 760px;
+}
+
+.ect-web-solutions__tab {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 292px;
+  height: 100px;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: var(--ect-muted-background);
+  color: var(--ect-black);
+  cursor: pointer;
+  overflow: visible;
+  text-align: left;
+  transition: background-color 220ms ease, color 220ms ease, transform 220ms ease;
+  z-index: 1;
+}
+
+.ect-web-solutions__tab:nth-child(1) {
+  top: 0;
+}
+
+.ect-web-solutions__tab:nth-child(2) {
+  top: 126px;
+}
+
+.ect-web-solutions__tab:nth-child(3) {
+  top: 253px;
+}
+
+.ect-web-solutions__tab:nth-child(4) {
+  top: 379px;
+}
+
+.ect-web-solutions__tab:nth-child(5) {
+  top: 528px;
+}
+
+.ect-web-solutions__tab:nth-child(6) {
+  top: 660px;
+}
+
+.ect-web-solutions__tab:hover {
+  background: #f0f0ec;
+}
+
+.ect-web-solutions__tab:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.24);
+  outline-offset: 4px;
+}
+
+.ect-web-solutions__tab.is-active {
+  width: 379px;
+  background: var(--ect-light-background);
+  color: var(--ect-secondary);
+  z-index: 2;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.ect-web-solutions__tab-label {
+  display: block;
+  width: 292px;
+  padding: 0 14px;
+  color: inherit;
+  font-family: "Montserrat";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  white-space: pre-line;
+}
+/* 
+.ect-web-solutions__panel {
+  position: absolute;
+  top: 0;
+  left: 318px;
+  width: 922px;
+  height: 760px;
+  border-radius: 24px;
+  background: var(--ect-light-background);
+  overflow: hidden;
+  z-index: 3;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 240ms ease, transform 240ms ease;
+} */
+
+
+
+.ect-web-solutions__panel {
+  position: absolute;
+  top: 0;
+  left: 318px;
+  width: 922px;
+  height: 479px;
+  border-radius: 24px;
+  background: var(--ect-light-background);
+  overflow: hidden;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 240ms ease, transform 240ms ease, visibility 240ms ease;
+}
+
+.ect-web-solutions__panel.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* 
+.ect-web-solutions__media {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 874px;
+  height: 502px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--ect-white);
+} */
+
+
+
+.ect-web-solutions__media {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 438px;
+  height: 431px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--ect-white);
+}
+
+
+.ect-web-solutions__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+
+.ect-web-solutions__content-title {
+  position: absolute;
+  top: 47px;
+  left: 478px;
+  width: 283px;
+  min-height: 30px;
+  color: #000000;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.ect-web-solutions__description {
+  position: absolute;
+  top: 81px;
+  left: 478px;
+  width: 438px;
+  min-height: 96px;
+  color: #000000;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-web-solutions__services-label {
+  position: absolute;
+  top: 201px;
+  left: 478px;
+  min-height: 20px;
+  color: #000000;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.ect-web-solutions__services-text {
+  position: absolute;
+  top: 225px;
+  left: 478px;
+  width: 427px;
+  min-height: 24px;
+  color: #000000;
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-web-solutions__perfect-label {
+  position: absolute;
+  top: 297px;
+  left: 478px;
+  min-height: 20px;
+  color: #000000;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.ect-web-solutions__audience {
+  position: absolute;
+  top: 321px;
+  left: 478px;
+  width: 427px;
+  min-height: 24px;
+  color: #000000;
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-web-solutions__cta {
+  position: absolute;
+  top: 393px;
+  left: 478px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 40px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0C3C01;
+  color: #FFFFFF;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.ect-web-solutions__cta:hover {
+  background: #0f4a02;
+  transform: translateY(-2px);
+}
+
+.ect-web-solutions__cta:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.26);
+  outline-offset: 3px;
+}
+
+@media (min-width: 1441px) {
+  .ect-web-solutions {
+    width: 1240px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .ect-web-solutions {
+    width: min(1240px, calc(100% - clamp(32px, 5vw, 64px)));
+    max-width: 1240px;
+    height: auto;
+    margin-top: clamp(64px, 7vw, 84px);
+  }
+
+  .ect-web-solutions__header {
+    height: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px 20px;
+    align-items: end;
+  }
+
+  .ect-web-solutions__eyebrow,
+  .ect-web-solutions__heading,
+  .ect-web-solutions__controls {
+    position: static;
+  }
+
+  .ect-web-solutions__eyebrow {
+    width: 100%;
+    grid-column: 1 / -1;
+  }
+
+  .ect-web-solutions__heading {
+    width: min(100%, 720px);
+    height: auto;
+    grid-column: 1;
+  }
+
+  .ect-web-solutions__controls {
+    width: 100px;
+    margin-left: auto;
+    grid-column: 2;
+    justify-self: end;
+    align-self: end;
+  }
+
+  .ect-web-solutions__component {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-top: clamp(24px, 3vw, 32px);
+  }
+
+  .ect-web-solutions__tabs {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .ect-web-solutions__tab,
+  .ect-web-solutions__tab.is-active {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 96px;
+  }
+
+  .ect-web-solutions__tab-label {
+    width: 100%;
+    font-size: 20px;
+    line-height: 1.35;
+    white-space: normal;
+  }
+
+  .ect-web-solutions__panel {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-top: clamp(20px, 3vw, 28px);
+    padding: clamp(20px, 3vw, 28px);
+  }
+
+  .ect-web-solutions__media {
+    position: static;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 438 / 431;
+  }
+
+  .ect-web-solutions__content-title,
+  .ect-web-solutions__description,
+  .ect-web-solutions__perfect-label,
+  .ect-web-solutions__audience,
+  .ect-web-solutions__cta {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 100%;
+  }
+
+  .ect-web-solutions__content-title {
+    margin-top: 18px;
+  }
+
+  .ect-web-solutions__description {
+    margin-top: 8px;
+  }
+
+  .ect-web-solutions__perfect-label {
+    margin-top: 16px;
+  }
+
+  .ect-web-solutions__audience {
+    margin-top: 6px;
+  }
+
+  .ect-web-solutions__cta {
+    width: fit-content;
+    margin-top: 18px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .ect-web-solutions__heading {
+    font-size: clamp(26px, 3.4vw, 28px);
+    line-height: 1.3;
+  }
+
+  .ect-web-solutions__tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ect-web-solutions__tab-label {
+    font-size: 17px;
+  }
+
+  .ect-web-solutions__panel {
+    padding: 20px;
+  }
+
+  .ect-web-solutions__content-title {
+    font-size: 18px;
+  }
+
+  .ect-web-solutions__description,
+  .ect-web-solutions__perfect-label,
+  .ect-web-solutions__audience {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .ect-web-solutions {
+    width: calc(100% - 32px);
+    margin-top: 56px;
+  }
+
+  .ect-web-solutions__header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .ect-web-solutions__heading {
+    width: 100%;
+    font-size: clamp(26px, 7vw, 30px);
+    line-height: 1.2;
+  }
+
+  .ect-web-solutions__controls {
+    position: static;
+    width: 100%;
+    gap: 12px;
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .ect-web-solutions__arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ect-web-solutions__arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .ect-web-solutions__component {
+    margin-top: 20px;
+  }
+
+  .ect-web-solutions__tabs {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .ect-web-solutions__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ect-web-solutions__tab,
+  .ect-web-solutions__tab.is-active {
+    flex: 0 0 auto;
+    width: min(78vw, 220px);
+    min-height: 86px;
+    border-radius: 20px;
+    scroll-snap-align: start;
+  }
+
+  .ect-web-solutions__tab-label {
+    font-size: 17px;
+  }
+
+  .ect-web-solutions__panel {
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .ect-web-solutions__content-title {
+    font-size: 17px;
+  }
+
+  .ect-web-solutions__description,
+  .ect-web-solutions__perfect-label,
+  .ect-web-solutions__audience {
+    font-size: 14px;
+  }
+
+  .ect-web-solutions__media {
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 374.98px) {
+  .ect-web-solutions {
+    width: calc(100% - 24px);
+  }
+
+  .ect-web-solutions__heading {
+    font-size: 24px;
+  }
+
+  .ect-web-solutions__tab,
+  .ect-web-solutions__tab.is-active {
+    width: min(82vw, 210px);
+  }
+
+  .ect-web-solutions__tab-label {
+    font-size: 16px;
+  }
+
+  .ect-web-solutions__panel {
+    padding: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ect-web-solutions__arrow,
+  .ect-web-solutions__tab,
+  .ect-web-solutions__panel,
+  .ect-web-solutions__cta {
+    transition: none;
+  }
+}
+
+
+
+
+/* ========================================
+   ECT Banner Styles
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.ect-banner {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-top: 100px;
+  overflow: hidden;
+  border: 1px solid gray;
+}
+
+.ect-banner__inner {
+  position: relative;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-image:
+    linear-gradient(to right,
+      #fbfbfc 0%,
+      #fbfbfc 42%,
+      rgba(251, 251, 252, 0.85) 52%,
+      rgba(251, 251, 252, 0.15) 68%,
+      rgba(251, 251, 252, 0) 78%),
+    url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.ect-banner__content {
+  position: relative;
+  z-index: 2;
+  padding: 0 0 0 60px;
+  max-width: 460px;
+}
+
+.ect-banner__title {
+  font-family: "Montserrat";
+  font-size: 26px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.2px;
+  line-height: 1.25;
+}
+
+.ect-banner__subtitle {
+  font-family: "Montserrat";
+  font-size: 19px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 14px 0;
+}
+
+.ect-banner__accent {
+  color: #1b5e2e;
+  font-weight: 700;
+}
+
+.ect-banner__desc {
+  font-family: "Montserrat";
+  font-size: 13.5px;
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin: 0 0 22px 0;
+  max-width: 340px;
+}
+
+.ect-banner__cta {
+  display: inline-block;
+  background-color: #1b3a1f;
+  color: #ffffff;
+  font-family: "Montserrat";
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.ect-banner__cta:hover {
+  background-color: #142d17;
+}
+
+/* ----------------------------------------
+   Responsive
+   ---------------------------------------- */
+
+@media (max-width: 700px) {
+  .ect-banner__inner {
+    height: auto;
+    padding: 40px 0;
+    background-image:
+      linear-gradient(to bottom,
+        #fbfbfc 0%,
+        #fbfbfc 55%,
+        rgba(251, 251, 252, 0.4) 75%,
+        rgba(251, 251, 252, 0) 100%),
+      url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop');
+    background-position: center 20%;
+  }
+
+  .ect-banner__content {
+    padding: 0 30px;
+    max-width: 100%;
+  }
+}
+
+
+
+
+
+
+/* ============================================
+   ZOHO IMPLEMENTATION SECTION
+   ============================================ */
+
+:root {
+  --zoho-green: #1e5c1e;
+  --zoho-dark: #0f1a0f;
+  --zoho-text: #3a3f3a;
+  --zoho-border: #dfe3da;
+  --zoho-bg: #ffffff;
+}
+
+.zoho-implementation {
+  padding: 48px 56px;
+  font-family: "Montserrat";
+  background: var(--zoho-bg);
+  color: var(--zoho-text);
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.zoho-implementation__eyebrow {
+  font-family: "Montserrat";
+  font-size: 16px !important;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #000000 !important;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.zoho-implementation__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.zoho-implementation__title {
+  font-family: "Montserrat";
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--zoho-dark);
+  max-width: 420px;
+}
+
+.zoho-implementation__subtitle {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--zoho-text);
+  max-width: 330px;
+}
+
+.zoho-implementation__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--zoho-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.zoho-implementation__cell {
+  position: relative;
+  padding: 38px 42px 42px 42px;
+  transition: background 0.3s ease;
+}
+
+.zoho-implementation__cell:hover {
+  background: #f8faf6;
+}
+
+.zoho-implementation__cell:nth-child(1) {
+  border-right: 1px solid var(--zoho-border);
+  border-bottom: 1px solid var(--zoho-border);
+}
+
+.zoho-implementation__cell:nth-child(2) {
+  border-bottom: 1px solid var(--zoho-border);
+}
+
+.zoho-implementation__cell:nth-child(3) {
+  border-right: 1px solid var(--zoho-border);
+}
+
+.zoho-implementation__cell:nth-child(1)::after,
+.zoho-implementation__cell:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -11px;
+  width: 22px;
+  height: 22px;
+  transform: translateY(-50%) rotate(45deg);
+  background: #fff;
+  border-top: 1px solid var(--zoho-border);
+  border-right: 1px solid var(--zoho-border);
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.zoho-implementation__cell:nth-child(1):hover::after,
+.zoho-implementation__cell:nth-child(3):hover::after {
+  background: #f8faf6;
+}
+
+.zoho-implementation__icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zoho-implementation__icon svg {
+  width: 46px;
+  height: 46px;
+  stroke: var(--zoho-green);
+  fill: none;
+  stroke-width: 1.8;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.zoho-implementation__cell.is-animated .zoho-implementation__icon svg {
+  animation: zoho-spin 2s ease-in-out infinite;
+}
+
+@keyframes zoho-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  35% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.zoho-implementation__step-label {
+  font-family: "Montserrat";
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--zoho-dark);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.zoho-implementation__cell-title {
+  font-family: "Montserrat";
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--zoho-dark);
+  margin-bottom: 10px;
+}
+
+.zoho-implementation__cell-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--zoho-text);
+  max-width: 440px;
+}
+
+@media (max-width: 992px) {
+  .zoho-implementation {
+    padding: 40px 30px;
+  }
+
+  .zoho-implementation__cell {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 760px) {
+  .zoho-implementation {
+    padding: 32px 20px;
+  }
+
+  .zoho-implementation__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .zoho-implementation__cell {
+    border-right: none !important;
+    border-bottom: 1px solid var(--zoho-border) !important;
+    padding: 24px 20px;
+  }
+
+  .zoho-implementation__icon {
+    margin-bottom: 24px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .zoho-implementation__icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .zoho-implementation__cell:last-child {
+    border-bottom: none !important;
+  }
+
+  .zoho-implementation__cell::after {
+    display: none !important;
+  }
+
+  .zoho-implementation__title {
+    font-size: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zoho-implementation__cell.is-animated .zoho-implementation__icon svg {
+    animation: none;
+  }
+}
+
+
+
+
+
+
+
+/* ===== TRUSTED BY SECTION ===== */
+
+.tb-section {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 48px 0 56px;
+  background: #ffffff;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* border:2px solid red; */
+}
+
+/* â”€â”€ TOP ROW â”€â”€ */
+.tb-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 48px;
+  margin-bottom: 32px;
+  gap: 40px;
+
+  /* Animation: top â†’ bottom */
+  opacity: 0;
+  transform: translateY(-28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.tb-section.tb-visible .tb-top {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tb-heading {
+  font-family: "Montserrat";
+  font-size: 24px;
+  font-weight: 500;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.tb-tagline {
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.65;
+  margin: 0;
+  text-align: left;
+  max-width: 460px;
+  /* Slight delay so heading animates first */
+  transition-delay: 0.12s;
+}
+
+/* ── TRACK WRAPPER ── */
+.tb-track-wrapper {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto 24px auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.tb-track-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+/* ── TRACK ── */
+.tb-track {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px 40px;
+  width: 100%;
+}
+
+/* ── ITEM ── */
+.tb-item {
+  width: 180px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (hover: hover) {
+  .tb-item:hover {
+    border-color: #d1d1d1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* Real image style */
+.tb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 16px;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* ── TABLET ── */
+@media (max-width: 1023px) and (min-width: 600px) {
+  .tb-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .tb-top {
+    padding: 0 28px;
+  }
+
+  .tb-heading {
+    font-size: 22px;
+  }
+
+  .tb-tagline {
+    font-size: 13px;
+  }
+
+  .tb-item {
+    width: 180px;
+    height: 115px;
+  }
+}
+
+/* â”€â”€ MOBILE â”€â”€ */
+@media (max-width: 599px) {
+  .tb-section {
+    padding: 32px 0 24px;
+  }
+
+  .tb-top {
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .tb-heading {
+    font-size: 20px;
+  }
+
+  .tb-tagline {
+    text-align: left;
+    font-size: 12.5px;
+    max-width: 100%;
+  }
+
+  .tb-track-wrapper {
+    width: calc(100% - 32px);
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .tb-item {
+    width: 100px;
+    height: 80px;
+  }
+
+  .tb-track {
+    gap: 4px;
+  }
+
+  .tb-img {
+    padding: 4px;
+  }
+}
+
+/* â”€â”€ Reduced motion â”€â”€ */
+@media (prefers-reduced-motion: reduce) {
+  .tb-top {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .tb-item {
+    transition: none !important;
+  }
+}
+
+
+
+
+/* FAQ */
+
+:root {
+  --bg: #f7f7f5;
+  --card: #ffffff;
+  --ink: #111312;
+  --ink-soft: #5b5f5c;
+  --line: #e6e6e2;
+  --accent: #1f6f54;
+  --accent-soft: #e7f2ed;
+  --radius: 14px;
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --ease-spring: cubic-bezier(.34, 1.4, .44, 1);
+}
+
+.faq-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 20px 96px;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent !important;
+}
+
+.faq-section::before {
+  display: none !important;
+}
+
+/* Header */
+.faq-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.faq-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px !important;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #000000 !important;
+  font-weight: 600;
+  margin-bottom: 14px;
+  font-family: "Montserrat";
+}
+
+.faq-eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: var(--accent);
+  display: none !important;
+  transform-origin: left;
+  animation: faq-grow .8s var(--ease) both .2s;
+}
+
+@keyframes faq-grow {
+  from {
+    transform: scaleX(0)
+  }
+
+  to {
+    transform: scaleX(1)
+  }
+}
+
+.faq-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 31px;
+  color: #000000;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+  max-width: 560px;
+  margin: 0;
+}
+
+.faq-title span {
+  color: var(--accent)
+}
+
+.faq-sub {
+  max-width: 340px;
+  color: var(--ink-soft);
+  font-size: .95rem;
+  margin: 0;
+}
+
+/* Grid */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+  align-items: start;
+}
+
+/* Item */
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(26px);
+  transition: border-color .3s var(--ease), box-shadow .35s var(--ease), transform .35s var(--ease);
+  will-change: transform, opacity;
+}
+
+.faq-item.faq-in-view {
+  animation: faq-rise .65s var(--ease) forwards;
+}
+
+@keyframes faq-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+.faq-item:hover {
+  border-color: rgba(31, 111, 84, .35);
+  box-shadow: 0 12px 32px -12px rgba(17, 19, 18, .12);
+  transform: translateY(-2px);
+}
+
+.faq-item.open {
+  border-color: var(--accent);
+  box-shadow: 0 16px 40px -14px rgba(31, 111, 84, .22);
+}
+
+/* Question button */
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: "Montserrat";
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--ink);
+  transition: color .25s var(--ease);
+}
+
+.faq-item.open .faq-q {
+  color: var(--accent)
+}
+
+/* Icon */
+.faq-icon {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  transition: transform .45s var(--ease-spring), background .3s var(--ease), color .3s var(--ease);
+}
+
+.faq-icon svg {
+  width: 15px;
+  height: 15px;
+  transition: transform .45s var(--ease-spring);
+}
+
+.faq-item:hover .faq-icon {
+  transform: scale(1.08)
+}
+
+.faq-item.open .faq-icon {
+  background: var(--accent);
+  color: #fff;
+  transform: rotate(180deg);
+}
+
+/* Answer */
+.faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .5s var(--ease);
+}
+
+.faq-item.open .faq-a {
+  grid-template-rows: 1fr
+}
+
+.faq-a-inner {
+  overflow: hidden
+}
+
+.faq-a-inner p {
+  padding: 0 22px 22px;
+  color: var(--ink-soft);
+  font-size: .92rem;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .4s var(--ease) .1s, transform .4s var(--ease) .1s;
+}
+
+.faq-item.open .faq-a-inner p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bottom accent bar */
+.faq-item::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #5cbf9a);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .55s var(--ease);
+}
+
+.faq-item.open::after {
+  transform: scaleX(1)
+}
+
+/* Focus */
+.faq-q:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  border-radius: var(--radius);
+}
+
+/* Responsive */
+@media (max-width:900px) {
+  .faq-grid {
+    grid-template-columns: 1fr
+  }
+
+  .faq-section {
+    padding: 56px 18px 72px
+  }
+}
+
+@media (max-width:560px) {
+  .faq-head {
+    margin-bottom: 34px
+  }
+
+  .faq-q {
+    padding: 17px 16px;
+    font-size: .9rem
+  }
+
+  .faq-a-inner p {
+    padding: 0 16px 18px
+  }
+
+  .faq-icon {
+    flex-basis: 30px;
+    width: 30px;
+    height: 30px
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .faq-section::before {
+    animation: none !important
+  }
+
+  .faq-eyebrow::before {
+    animation: none !important
+  }
+
+  .faq-item {
+    opacity: 1;
+    transform: none;
+    transition: none !important
+  }
+
+  .faq-item.faq-in-view {
+    animation: none !important
+  }
+
+  .faq-q,
+  .faq-icon,
+  .faq-icon svg,
+  .faq-a,
+  .faq-a-inner p,
+  .faq-item::after {
+    transition: none !important
+  }
+}
+
+/* ===== IT INFRASTRUCTURE BANNER ===== */
+.ect-it-banner {
+  position: relative;
+  width: 1240px;
+  height: 384px;
+  margin: 100px auto;
+}
+
+.ect-it-banner__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #F5F5F3;
+  border-radius: 24px;
+}
+
+.ect-it-banner__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 550px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 60px;
+  z-index: 2;
+}
+
+.ect-it-banner__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 690px;
+  height: 384px;
+  /* Was background: url(../img/itcta1.png) ... — itcta1.png never existed
+     under home/img/ (a same-named file only exists as an unrelated
+     Django-uploaded media asset), so this permanently 404'd. The real
+     <img src="{% static 'img/iitcta.png' %}"> child fills this exact box
+     and fully covers it, so the fallback color below is what actually
+     shows either way. */
+  background: #D9D9D9;
+  border-radius: 0px 24px 24px 0px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 45%);
+  mask-image: linear-gradient(to right, transparent 0%, black 45%);
+}
+
+.ect-it-banner__title {
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 20px 0;
+}
+
+.ect-it-banner__desc {
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0 0 40px 0;
+}
+
+.ect-it-banner__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 44px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: #0C3C01;
+  color: #FFFFFF;
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 200ms ease;
+}
+
+.ect-it-banner__cta:hover {
+  background: #0f4a02;
+}
+
+/* ========================================================================
+   IT_INFRASTRUCTURE — PAGE-OWNED TABLET/MOBILE LAYOUT
+   Loaded after each page stylesheet. Desktop begins at 1025px and is not
+   changed by this file.
+   ======================================================================== */
+
+.service-mobile-media {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  /* ---------- Hero typography and alignment ---------- */
+  .website-figma-hero,
+  .software-figma-hero,
+  .zoho-figma-hero.zoho-figma-hero,
+  .infra-figma-hero,
+  body.hr-page .hero,
+  body.digital-page .hero {
+    text-align: center !important;
+  }
+
+  .website-figma-hero .website-figma-hero__title,
+  .software-figma-hero .software-figma-hero__title,
+  .zoho-figma-hero .zoho-figma-hero__title,
+  .infra-figma-hero .infra-figma-hero__title,
+  body.hr-page .hero__title,
+  body.digital-page .hero__title {
+    width: min(820px, 100%);
+    min-height: 0;
+    margin-inline: auto;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(36px, 4.3vw, 44px) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+
+  .website-figma-hero__break,
+  .software-figma-hero__break,
+  .zoho-figma-hero__desktop-break,
+  .infra-figma-hero__break,
+  body.hr-page .hero__break,
+  body.digital-page .hero__break {
+    display: block !important;
+  }
+
+  .website-figma-hero__subtitle,
+  .software-figma-hero__subtitle,
+  .zoho-figma-hero__subtitle,
+  .infra-figma-hero__subtitle,
+  body.hr-page .hero__subtitle,
+  body.digital-page .hero__subtitle {
+    width: min(700px, 100%);
+    height: auto;
+    margin-inline: auto;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+  }
+
+  .website-figma-hero__cta,
+  .software-figma-hero__cta,
+  .zoho-figma-hero__cta,
+  .infra-figma-hero__cta,
+  body.hr-page .hero__cta,
+  body.digital-page .hero__cta {
+    min-height: 44px;
+    font-family: "Outfit", sans-serif;
+    font-size: 16px !important;
+  }
+
+  /* ---------- Website/Software/Digital/Infrastructure topic sections ---------- */
+  .ect-web-solutions {
+    width: calc(100% - 48px) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 72px auto !important;
+    overflow: visible !important;
+  }
+
+  .ect-web-solutions__header {
+    position: relative !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 20px;
+    align-items: end;
+    margin-bottom: 28px;
+  }
+
+  .ect-web-solutions__eyebrow,
+  .ect-web-solutions__heading,
+  .ect-web-solutions__controls {
+    position: static !important;
+    inset: auto !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .ect-web-solutions__eyebrow {
+    grid-column: 1 / -1;
+    font-family: "Outfit", sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+  }
+
+  .ect-web-solutions__heading {
+    grid-column: 1;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(27px, 3.4vw, 31.25px) !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+
+  .ect-web-solutions__controls {
+    grid-column: 2;
+    display: flex !important;
+    gap: 10px;
+    align-self: end;
+  }
+
+  .ect-web-solutions__arrow {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px;
+  }
+
+  .ect-web-solutions__component {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .ect-web-solutions__tabs {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    gap: 12px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-inline: contain;
+    padding: 0 calc(50% - 130px) 12px !important;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    touch-action: pan-x;
+  }
+
+  .ect-web-solutions__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ect-web-solutions__tab,
+  .ect-web-solutions__tab.is-active {
+    position: relative !important;
+    inset: auto !important;
+    flex: 0 0 260px !important;
+    width: 260px !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    padding: 12px 18px !important;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .ect-web-solutions__tab-label {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+  }
+
+  .ect-web-solutions__panel,
+  .ect-web-solutions__panel.is-active {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 16px 0 0 !important;
+    padding: 28px !important;
+    border-radius: 20px !important;
+    background: var(--ect-muted-background, #f9f9f7) !important;
+  }
+
+  .ect-web-solutions__panel {
+    display: none !important;
+  }
+
+  .ect-web-solutions__panel.is-active,
+  body.digital-page .ect-web-solutions__panel {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .ect-web-solutions__content-title,
+  .ect-web-solutions__description,
+  .ect-web-solutions__services-label,
+  .ect-web-solutions__services-text,
+  .ect-web-solutions__perfect-label,
+  .ect-web-solutions__audience,
+  .ect-web-solutions__cta,
+  .ect-web-solutions__media {
+    position: static !important;
+    inset: auto !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+
+  .ect-web-solutions__content-title {
+    order: 1;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(22px, 2.7vw, 25px) !important;
+    line-height: 1.25 !important;
+  }
+
+  .ect-web-solutions__description {
+    order: 2;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  .ect-web-solutions__media {
+    order: 3;
+    overflow: hidden !important;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px !important;
+  }
+
+  .ect-web-solutions__image {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  .ect-web-solutions__services-label {
+    order: 4;
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 1.5 !important;
+  }
+
+  .ect-web-solutions__services-text {
+    order: 5;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  .ect-web-solutions__perfect-label {
+    order: 6;
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 1.5 !important;
+  }
+
+  .ect-web-solutions__audience {
+    order: 7;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  .ect-web-solutions__cta {
+    order: 8;
+    justify-self: start;
+    min-height: 44px !important;
+    padding: 10px 18px !important;
+    font-family: "Inter", "Montserrat", sans-serif !important;
+    font-size: 16px !important;
+  }
+
+  /* ---------- HR/Zoho moving-topic sections ---------- */
+  body.hr-page .software-section,
+  body:not(.hr-page) .software-section#zoho-services {
+    width: calc(100% - 48px) !important;
+    max-width: 1240px !important;
+    height: auto !important;
+    margin: 72px auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  body.hr-page .software-section .section-header,
+  .software-section#zoho-services .section-header {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 20px;
+    align-items: end !important;
+    margin-bottom: 28px !important;
+  }
+
+  body.hr-page .software-section .section-header > div:first-child,
+  .software-section#zoho-services .section-header > div:first-child {
+    min-width: 0;
+  }
+
+  body.hr-page .software-section .eyebrow,
+  .software-section#zoho-services .eyebrow {
+    margin: 0 0 10px !important;
+    padding: 0 !important;
+    font-family: "Outfit", sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0 !important;
+    text-align: left !important;
+  }
+
+  body.hr-page .software-section .eyebrow::before,
+  .software-section#zoho-services .eyebrow::before {
+    display: none !important;
+  }
+
+  body.hr-page .software-section .section-title,
+  .software-section#zoho-services .section-title {
+    margin: 0 !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(27px, 3.4vw, 31.25px) !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+
+  body.hr-page .software-section .nav-arrows,
+  .software-section#zoho-services .nav-arrows {
+    display: flex !important;
+    gap: 10px;
+    align-self: end;
+  }
+
+  body.hr-page .software-section .nav-arrows button,
+  .software-section#zoho-services .nav-arrows button {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px;
+  }
+
+  body.hr-page .software-section .tabs-wrapper,
+  .software-section#zoho-services .tabs-wrapper {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 0 16px !important;
+    overflow: hidden !important;
+    touch-action: pan-y;
+  }
+
+  body.hr-page .software-section .tabs-track,
+  .software-section#zoho-services .tabs-track {
+    display: flex !important;
+    gap: 12px !important;
+    width: max-content !important;
+    height: auto !important;
+    will-change: transform;
+  }
+
+  body.hr-page .software-section .tab,
+  body.hr-page .software-section .tab.active,
+  .software-section#zoho-services .tab,
+  .software-section#zoho-services .tab.active {
+    position: relative !important;
+    flex: 0 0 260px !important;
+    width: 260px !important;
+    min-height: 72px !important;
+    padding: 12px 18px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+    text-align: center;
+  }
+
+  body.hr-page .software-section .content-area,
+  .software-section#zoho-services .content-area {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.hr-page .software-section .content-image,
+  .software-section#zoho-services .content-image {
+    display: none !important;
+  }
+
+  body.hr-page .software-section .content-panel,
+  .software-section#zoho-services .content-panel {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.hr-page .software-section .panel,
+  .software-section#zoho-services .panel {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 28px !important;
+    border-radius: 20px !important;
+    background: #f9f9f7 !important;
+  }
+
+  body.hr-page .software-section .panel:not(.active),
+  .software-section#zoho-services .panel:not(.active) {
+    display: none !important;
+  }
+
+  body.hr-page .software-section .panel.active,
+  .software-section#zoho-services .panel.active {
+    display: block !important;
+  }
+
+  body.hr-page .software-section .panel h3,
+  .software-section#zoho-services .panel h3 {
+    margin: 0 0 12px !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(22px, 2.7vw, 25px) !important;
+    line-height: 1.25 !important;
+  }
+
+  body.hr-page .software-section .panel p,
+  .software-section#zoho-services .panel p,
+  body.hr-page .software-section .apps-list,
+  .software-section#zoho-services .apps-list {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  body.hr-page .software-section .panel h4,
+  .software-section#zoho-services .panel h4 {
+    margin: 18px 0 6px !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+
+  .service-mobile-media {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 18px 0;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #f5f5f3;
+  }
+
+  .service-mobile-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  body.hr-page .software-section .btn-demo,
+  .software-section#zoho-services .btn-demo {
+    min-height: 44px !important;
+    margin-top: 20px !important;
+    padding: 10px 18px !important;
+    font-family: "Inter", "Montserrat", sans-serif !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .website-figma-hero .website-figma-hero__title,
+  .software-figma-hero .software-figma-hero__title,
+  .zoho-figma-hero .zoho-figma-hero__title,
+  .infra-figma-hero .infra-figma-hero__title,
+  body.hr-page .hero__title,
+  body.digital-page .hero__title {
+    font-size: clamp(26px, 7.7vw, 32px) !important;
+  }
+
+  .website-figma-hero__subtitle,
+  .software-figma-hero__subtitle,
+  .zoho-figma-hero__subtitle,
+  .infra-figma-hero__subtitle,
+  body.hr-page .hero__subtitle,
+  body.digital-page .hero__subtitle {
+    font-size: 15px !important;
+  }
+
+  .ect-web-solutions,
+  body.hr-page .software-section,
+  body:not(.hr-page) .software-section#zoho-services {
+    width: calc(100% - 32px) !important;
+    margin: 56px auto !important;
+  }
+
+  .ect-web-solutions__header,
+  body.hr-page .software-section .section-header,
+  .software-section#zoho-services .section-header {
+    gap: 10px 12px;
+    margin-bottom: 22px !important;
+  }
+
+  .ect-web-solutions__eyebrow,
+  body.hr-page .software-section .eyebrow,
+  .software-section#zoho-services .eyebrow {
+    font-size: 14px !important;
+  }
+
+  .ect-web-solutions__heading,
+  body.hr-page .software-section .section-title,
+  .software-section#zoho-services .section-title {
+    font-size: clamp(22px, 6.5vw, 26px) !important;
+  }
+
+  .ect-web-solutions__arrow,
+  body.hr-page .software-section .nav-arrows button,
+  .software-section#zoho-services .nav-arrows button {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px;
+  }
+
+  .ect-web-solutions__tabs {
+    padding-inline: calc(50% - min(36vw, 120px)) !important;
+  }
+
+  .ect-web-solutions__tab,
+  .ect-web-solutions__tab.is-active,
+  body.hr-page .software-section .tab,
+  body.hr-page .software-section .tab.active,
+  .software-section#zoho-services .tab,
+  .software-section#zoho-services .tab.active {
+    flex-basis: min(72vw, 240px) !important;
+    width: min(72vw, 240px) !important;
+    min-height: 66px !important;
+    height: 66px !important;
+    font-size: 15px !important;
+  }
+
+  .ect-web-solutions__panel,
+  .ect-web-solutions__panel.is-active,
+  body.hr-page .software-section .panel,
+  .software-section#zoho-services .panel {
+    padding: 20px !important;
+    border-radius: 16px !important;
+  }
+
+  .ect-web-solutions__content-title,
+  body.hr-page .software-section .panel h3,
+  .software-section#zoho-services .panel h3 {
+    font-size: clamp(18px, 5.4vw, 22px) !important;
+  }
+
+  .ect-web-solutions__description,
+  .ect-web-solutions__services-text,
+  .ect-web-solutions__audience,
+  body.hr-page .software-section .panel p,
+  .software-section#zoho-services .panel p,
+  body.hr-page .software-section .apps-list,
+  .software-section#zoho-services .apps-list {
+    font-size: 15px !important;
+  }
+
+  .ect-web-solutions__services-label,
+  .ect-web-solutions__perfect-label,
+  .ect-web-solutions__cta,
+  body.hr-page .software-section .panel h4,
+  .software-section#zoho-services .panel h4,
+  body.hr-page .software-section .btn-demo,
+  .software-section#zoho-services .btn-demo {
+    font-size: 15px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 1024px) {
+  .ect-web-solutions__tabs {
+    scroll-behavior: auto;
+  }
+}
+
+/* INFRASTRUCTURE — FINAL PAGE-OWNED RESPONSIVE ALIGNMENT */
+@media (max-width: 1024px) {
+  .infra-figma-hero .infra-figma-hero__title {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(36px, 4.3vw, 44px) !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+
+  .infra-figma-hero__break { display: block !important; }
+  .ect-cloud-solutions .ect-web-solutions__header { grid-template-columns: minmax(0, 1fr) !important; }
+  .ect-cloud-solutions .ect-web-solutions__eyebrow,
+  .ect-cloud-solutions .ect-web-solutions__heading,
+  .ect-cloud-solutions .ect-web-solutions__controls { grid-column: 1 !important; }
+  .ect-cloud-solutions .ect-web-solutions__controls {
+    justify-self: end !important;
+    align-self: auto !important;
+    margin-top: 2px !important;
+  }
+  .ect-cloud-solutions .ect-web-solutions__eyebrow { font-size: 16px !important; }
+  .ect-cloud-solutions .ect-web-solutions__heading { font-size: clamp(36px, 4.3vw, 44px) !important; }
+}
+
+@media (max-width: 640px) {
+  .infra-figma-hero .infra-figma-hero__title {
+    font-size: clamp(17px, 5.3vw, 24px) !important;
+    letter-spacing: -0.02em !important;
+  }
+  .ect-cloud-solutions .ect-web-solutions__eyebrow { font-size: 15px !important; }
+  .ect-cloud-solutions .ect-web-solutions__heading { font-size: clamp(17px, 5.3vw, 24px) !important; }
+}
+
+/* APPROACH STEPS — tablet/mobile only; desktop remains unchanged */
+.zoho-implementation .zoho-implementation__closing {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .zoho-implementation .zoho-implementation__eyebrow {
+    display: block !important;
+    margin-bottom: 10px !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+  }
+
+  .zoho-implementation .zoho-implementation__header {
+    display: block !important;
+    margin-bottom: 24px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__title {
+    max-width: 100% !important;
+    margin: 0 !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(36px, 4.3vw, 44px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .zoho-implementation .zoho-implementation__subtitle:not(.zoho-implementation__subtitle--closing) {
+    display: none !important;
+  }
+
+  /* it_Infrastructure.css loads after zoho.css, so without this
+     exclusion its equal-specificity "hide the subtitle" rule above was
+     winning by source order and hiding the closing copy too (see
+     .zoho-implementation__subtitle--closing show rule in zoho.css). */
+  .zoho-implementation .zoho-implementation__subtitle--closing {
+    display: block !important;
+    margin: 24px 0 0 !important;
+    max-width: 100% !important;
+  }
+
+  .zoho-implementation .zoho-implementation__grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 36px !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell {
+    display: grid !important;
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+    grid-template-areas:
+      "step step"
+      "icon title"
+      "desc desc" !important;
+    column-gap: 14px !important;
+    row-gap: 10px !important;
+    align-items: center !important;
+    min-height: 0 !important;
+    padding: 20px !important;
+    overflow: visible !important;
+    border: 1px solid #dfe3da !important;
+    border-radius: 16px !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  .zoho-implementation .zoho-implementation__step-label {
+    grid-area: step;
+    margin: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+
+  .zoho-implementation .zoho-implementation__icon {
+    grid-area: icon;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell-title {
+    grid-area: title;
+    margin: 0 !important;
+    font-size: clamp(22px, 2.5vw, 25px) !important;
+    line-height: 1.25 !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell-desc {
+    grid-area: desc;
+    margin: 0 !important;
+    font-size: clamp(15px, 1.7vw, 16px) !important;
+    line-height: 1.6 !important;
+  }
+
+.zoho-implementation .zoho-implementation__cell:not(:last-child)::after {
+    content: "│\A▼" !important;
+    display: flex !important;
+    position: absolute !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: -30px !important;
+    left: 50% !important;
+    width: 24px !important;
+    height: 26px !important;
+    transform: translateX(-50%) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: pre !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 0.72 !important;
+    text-align: center !important;
+    color: #0b5d1e !important;
+    background: transparent !important;
+    border: 0 !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell:last-child::after {
+    display: none !important;
+  }
+
+  .zoho-implementation .zoho-implementation__closing {
+    display: block;
+    margin: 24px 0 0 !important;
+    max-width: 100% !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(15px, 1.7vw, 16px) !important;
+    line-height: 1.6 !important;
+    color: #3a3f3a !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .zoho-implementation {
+    padding: 24px 16px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__eyebrow {
+    font-size: 15px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__title {
+    font-size: clamp(17px, 5.3vw, 24px) !important;
+  }
+
+  .zoho-implementation .zoho-implementation__grid {
+    gap: 32px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell {
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    column-gap: 12px !important;
+    padding: 18px 16px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__icon {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell-title {
+    font-size: clamp(18px, 4.8vw, 22px) !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell-desc,
+  .zoho-implementation .zoho-implementation__closing {
+    font-size: clamp(14px, 3.7vw, 15px) !important;
+  }
+}
+
+/* IT INFRASTRUCTURE — remaining eyebrow/heading fixes (Technologies We Use section) */
+@media (max-width: 1024px) {
+  .tb-top .faq-eyebrow { font-size: 16px !important; }
+  .tb-top .faq-title { font-size: clamp(36px, 4.3vw, 44px) !important; }
+}
+
+@media (max-width: 640px) {
+  .tb-top .faq-eyebrow { font-size: 15px !important; }
+  .tb-top .faq-title { font-size: clamp(17px, 5.3vw, 24px) !important; }
+}
+
+/* ============================================================
+   IT INFRASTRUCTURE — CTA banner reorder (image on top, content
+   below), matching the HR page's "READY TO BUILD YOUR TEAM?"
+   pattern. Mobile/tablet only; desktop layout is untouched.
+============================================================ */
+@media (max-width: 1024px) {
+  .ect-it-banner { width: calc(100% - 48px) !important; height: auto !important; min-height: 0 !important; margin: 56px auto !important; }
+  .ect-it-banner__container { position: relative !important; display: flex !important; flex-direction: column !important; min-height: 0 !important; }
+  .ect-it-banner__image {
+    position: relative !important;
+    order: -1 !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: 0 !important;
+    padding-bottom: 62% !important;
+    background-position: center !important;
+    background-size: cover !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    border-radius: 24px 24px 0 0 !important;
+    overflow: hidden !important;
+  }
+  .ect-it-banner__image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+  }
+  .ect-it-banner__content { position: static !important; z-index: auto !important; width: 100% !important; height: auto !important; min-height: 0 !important; padding: 32px 24px !important; }
+  .ect-it-banner__title, .ect-it-banner__desc { max-width: 100% !important; }
+}
+
+@media (max-width: 640px) {
+  .ect-it-banner { width: calc(100% - 32px) !important; margin: 48px auto !important; }
+  .ect-it-banner__image { padding-bottom: 70% !important; border-radius: 20px 20px 0 0 !important; }
+  .ect-it-banner__content { padding: 28px 20px !important; }
+}
+
+/* ============================================================
+   IT INFRASTRUCTURE — move Technologies-We-Use tagline to end of
+   section, and FAQ sub-text to end of the FAQ section.
+   Mobile/tablet only; desktop keeps the original layout.
+============================================================ */
+.tb-tagline--bottom { display: none; }
+.faq-sub--bottom { display: none; }
+
+@media (max-width: 1024px) {
+  .tb-tagline--top { display: none !important; }
+  .tb-tagline--bottom {
+    display: block !important;
+    max-width: 100% !important;
+    margin: 24px 0 0 !important;
+    padding: 0 28px !important;
+    text-align: left !important;
+  }
+
+  .faq-sub--top { display: none !important; }
+  .faq-sub--bottom { display: block !important; max-width: 100% !important; margin: 24px 0 0 !important; }
+
+  /* Technologies We Use — single scrolling row, tablet/mobile only */
+  .tb-section .tb-track-wrapper { overflow: hidden !important; }
+  .tb-section .tb-track {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    width: max-content !important;
+  }
+  .tb-section .tb-item { flex: 0 0 auto !important; }
+}
+
+@media (max-width: 640px) {
+  .tb-tagline--bottom { padding: 0 20px !important; }
+}

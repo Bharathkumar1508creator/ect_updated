@@ -1,0 +1,141 @@
+"""Tests for the database-recovery fix: fresh-install blog bootstrap,
+media serving, diagnostics and link preservation.
+"""
+import io
+from importlib import reload
+
+import ect.urls as ect_urls
+from django.core.management import call_command
+from django.test import TestCase, override_settings
+from django.urls import clear_url_caches, reverse
+
+from .blog_seed import TARGET_SLUG
+from .models import Blog, BlogCategory
+from .utils import normalize_article_url
+
+
+class RequiredBlogBootstrapTests(TestCase):
+    def test_migrations_create_required_blog_on_a_fresh_database(self):
+        # The test database is built fresh from migrations for every test
+        # run, so this proves migration 0008 creates the article without
+        # needing any pre-existing legacy blog row.
+        blog = Blog.objects.filter(slug=TARGET_SLUG).first()
+        self.assertIsNotNone(blog, "migration 0008 must create the required blog on a fresh DB")
+        self.assertEqual(blog.status, "published")
+        self.assertTrue(blog.article_content)
+        self.assertEqual(
+            blog.canonical_url,
+            "https://ecogcoretechnologies.com/blog/website-development-guide-2026/",
+        )
+        self.assertEqual(blog.author, "Ragupathi Namachivayam")
+        self.assertTrue(blog.hero_image)
+        self.assertEqual(blog.tags.count(), 5)
+        self.assertEqual(blog.category.slug, "website")
+
+    def test_ensure_required_blog_command_is_idempotent(self):
+        call_command("ensure_required_blog")
+        call_command("ensure_required_blog")
+        self.assertEqual(Blog.objects.filter(slug=TARGET_SLUG).count(), 1)
+
+    def test_command_never_duplicates_even_after_manual_edits(self):
+        blog = Blog.objects.get(slug=TARGET_SLUG)
+        blog.meta_description = "A custom edit made by an editor."
+        blog.save()
+        call_command("ensure_required_blog")
+        self.assertEqual(Blog.objects.filter(slug=TARGET_SLUG).count(), 1)
+        blog.refresh_from_db()
+        # Re-running must not clobber an editor's later customization.
+        self.assertEqual(blog.meta_description, "A custom edit made by an editor.")
+        # But the hard invariants stay correct.
+        self.assertEqual(blog.status, "published")
+
+    def test_command_does_not_delete_categories_or_unrelated_blogs(self):
+        other = Blog.objects.create(
+            title="Some other real article",
+            category=BlogCategory.objects.create(name="Other"),
+            article_content="<p>Real content that must survive.</p>",
+        )
+        call_command("ensure_required_blog")
+        self.assertTrue(Blog.objects.filter(pk=other.pk).exists())
+
+    def test_diagnose_project_command_runs_and_hides_secrets(self):
+        out = io.StringIO()
+        call_command("diagnose_project", stdout=out)
+        output = out.getvalue()
+        self.assertIn(TARGET_SLUG, output)
+        self.assertIn("published", output)
+        self.assertNotIn("1234", output)  # DB password must never be printed
+
+
+class RequiredBlogPublicPageTests(TestCase):
+    def test_blog_listing_returns_200(self):
+        response = self.client.get(reverse("blog:blog_list"))
+        self.assertEqual(response.status_code, 200)
+
+    def test_blog_detail_returns_200(self):
+        response = self.client.get(f"/blog/{TARGET_SLUG}/")
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Ragupathi Namachivayam")
+
+    def test_hero_image_is_served_and_returns_200(self):
+        # The test runner forces DEBUG=False, which is when ect/urls.py skips
+        # registering the local media-serving route (by design, matching
+        # production). Reload it under DEBUG=True to exercise the same route
+        # `runserver` uses locally, then restore it exactly as it was.
+        blog = Blog.objects.get(slug=TARGET_SLUG)
+        with override_settings(DEBUG=True):
+            clear_url_caches()
+            reload(ect_urls)
+            try:
+                response = self.client.get(blog.hero_image.url)
+            finally:
+                clear_url_caches()
+                reload(ect_urls)
+        self.assertEqual(response.status_code, 200)
+
+    def test_toc_h2_anchor_links_are_present(self):
+        blog = Blog.objects.get(slug=TARGET_SLUG)
+        self.assertTrue(blog.toc_items, "article must expose H2 headings for the TOC")
+        response = self.client.get(f"/blog/{TARGET_SLUG}/")
+        first_anchor = blog.toc_items[0]["id"]
+        self.assertContains(response, f'href="#{first_anchor}"')
+
+    def test_lists_render_in_article_content(self):
+        blog = Blog.objects.get(slug=TARGET_SLUG)
+        self.assertTrue("<ul" in blog.article_content or "<ol" in blog.article_content)
+
+
+class InternalLinkPreservationTests(TestCase):
+    @override_settings(SITE_URL="https://ecogcoretechnologies.com")
+    def test_supported_link_formats_survive_normalization(self):
+        cases = {
+            "/website/": "/website/",
+            "blog/what-is-seo/": "/blog/what-is-seo/",
+            "127.0.0.1:8000/website/": "/website/",
+            "https://ecogcoretechnologies.com/website/": "/website/",
+        }
+        for raw, expected in cases.items():
+            with self.subTest(raw=raw):
+                self.assertEqual(normalize_article_url(raw), expected)
+
+    @override_settings(SITE_URL="https://ecogcoretechnologies.com")
+    def test_external_links_are_preserved(self):
+        self.assertEqual(
+            normalize_article_url("https://example.com/resource/"),
+            "https://example.com/resource/",
+        )
+
+    def test_href_survives_a_full_save_round_trip(self):
+        category = BlogCategory.objects.create(name="Link Test")
+        blog = Blog.objects.create(
+            title="Link preservation check",
+            category=category,
+            article_content=(
+                '<p>See <a href="/website/">our website service</a> and '
+                '<a href="blog/what-is-seo/">this guide</a> and '
+                '<a href="https://example.com" target="_blank">an external source</a>.</p>'
+            ),
+        )
+        self.assertIn('href="/website/"', blog.article_content)
+        self.assertIn('href="/blog/what-is-seo/"', blog.article_content)
+        self.assertIn('href="https://example.com"', blog.article_content)

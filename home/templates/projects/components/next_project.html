@@ -1,0 +1,7 @@
+<section class="next-project py-5 text-center bg-light">
+    <div class="container">
+        <h4 class="mb-3 text-muted">Next Project</h4>
+        <h2 class="mb-4">{{ next_project.title }}</h2>
+        <a href="{% url 'project_detail' next_project.slug %}" class="btn btn-outline-primary btn-lg">View Next Project &rarr;</a>
+    </div>
+</section>

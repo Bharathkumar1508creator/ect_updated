@@ -1,0 +1,58 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+
+{% block extrahead %}
+  {{ block.super }}
+  {{ blog_editor_config|json_script:"blog-editor-config" }}
+{% endblock %}
+
+{% block field_sets %}
+  <div class="blog-admin-layout">
+    <div class="blog-admin-main">
+      {{ block.super }}
+    </div>
+    <aside class="blog-editor-sidebar" aria-label="Article editor tools">
+      <section class="blog-tool-card">
+        <h2>Add content</h2>
+        <div class="blog-block-buttons">
+          <button type="button" data-blog-block="p">Paragraph +</button>
+          <button type="button" data-blog-block="h2">H2 +</button>
+          <button type="button" data-blog-block="h3">H3 +</button>
+          <button type="button" data-blog-block="h4">H4 +</button>
+          <button type="button" data-blog-block="h5">H5 +</button>
+          <button type="button" data-blog-block="h6">H6 +</button>
+          <button type="button" data-blog-action="image">Image +</button>
+          <button type="button" data-blog-action="internal-link">Internal link</button>
+          <button type="button" data-blog-action="external-link">External link</button>
+        </div>
+        <p class="blog-tool-help">Select words before adding a link. The article title is already the H1.</p>
+      </section>
+
+      <section class="blog-tool-card">
+        <h2>Draft tools</h2>
+        <div class="blog-sidebar-actions">
+          {% if blog_editor_config.previewUrl %}<a href="{{ blog_editor_config.previewUrl }}" target="_blank" rel="noopener">Preview article</a>{% endif %}
+          <a href="{{ blog_editor_config.guideUrl }}" target="_blank" rel="noopener">Open admin guide</a>
+          <button type="button" id="blogSaveLocalDraft">Save browser backup</button>
+          <button type="button" id="blogRestoreDraft" hidden>Restore browser backup</button>
+        </div>
+        <p id="blogAutosaveStatus" class="blog-tool-help" aria-live="polite">A browser backup is created every 10 seconds while editing.</p>
+      </section>
+
+      <section class="blog-tool-card">
+        <h2>Live TOC preview</h2>
+        <ol id="blogTocPreview" class="blog-toc-preview">
+          <li class="empty">Add an H2 to create the table of contents.</li>
+        </ol>
+      </section>
+
+      <section class="blog-tool-card">
+        <h2>Live SEO check</h2>
+        <div class="blog-live-score"><span id="blogSeoScore">0</span>%</div>
+        <ul id="blogSeoChecks" class="blog-seo-checks"></ul>
+        <button type="button" class="blog-link-check" id="blogLinkCheck">Check article links</button>
+        <p id="blogLinkResult" class="blog-tool-help" aria-live="polite"></p>
+      </section>
+    </aside>
+  </div>
+{% endblock %}

@@ -1,0 +1,704 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include 'components/google_tag.html' %}
+  {% include 'components/favicon.html' %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR Consulting Services for Business Growth</title>
+  <meta name="description" content="Build a stronger workforce with strategic HR consulting. Improve recruitment, onboarding, employee performance, productivity, and long-term business growth.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Outfit:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
+  <link rel="stylesheet" href="{% static 'css/hr.css' %}?v=22">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+</head>
+
+<body class="hr-page">
+
+  <!-- ================= NAVBAR — MATCHED TO ZOHO ================= -->
+  {% include 'components/navbar.html' %}
+
+  <!-- ================= MOBILE PANEL ================= -->
+  
+
+  <!-- hero section -->
+
+  <section class="hero">
+    <h1 class="hero__title">
+      Build High-Performing Teams<br class="hero__break">with the Right Talent
+    </h1>
+    <p class="hero__subtitle">Find, hire, and manage top talent with expert HR solutions.</p>
+    <a href="#hr-services" class="hero__cta" data-smooth-scroll>Explore HR Services</a>
+
+    <div class="hero__image-wrap">
+      <video class="hero__image" src="{% static 'video/hr.mp4' %}" autoplay loop muted playsinline>
+      </video>
+    </div>
+  </section>
+
+  <!-- ===== CUSTOM SOFTWARE / SOLUTIONS TABS SECTION (duplicated) ===== -->
+  <section class="software-section" id="hr-services">
+
+    <div class="section-header">
+      <div>
+        <div class="eyebrow">ECT HR Consulting Services</div>
+        <h2 class="section-title">Complete HR<br>Solutions for Every Business</h2>
+      </div>
+      <div class="nav-arrows">
+        <button id="prevBtn" aria-label="Previous">&#8592;</button>
+        <button id="nextBtn" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="tabs-wrapper" id="tabsWrapper">
+      <div class="tabs-track" id="tabsTrack">
+        <div class="tab" data-index="0">Permanent Talent Acquisition</div>
+        <div class="tab" data-index="1">Executive Search &amp; Leadership Hiring</div>
+        <div class="tab" data-index="2">Strategic HR Consulting</div>
+        <div class="tab" data-index="3">HR Operations &amp; Process Management</div>
+        <div class="tab" data-index="4">Training &amp; Development</div>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="content-image" id="contentImage">
+        <img src="{% static 'img/Build High-Performing Teams.png' %}" alt="Permanent Talent Acquisition"
+          class="service-feature-image" width="608" height="435" decoding="async">
+      </div>
+
+      <div class="content-panel" id="contentPanel">
+
+        <!-- <div class="panel" data-index="0" data-image="{% static 'img/HR People &n Operations 2.png' %}"> -->
+        <div class="panel" data-index="0" data-image="{% static 'img/Build High-Performing Teams.png' %}">
+          <h3>Build High-Performing Teams</h3>
+          <p>Identify, attract, and hire qualified professionals who match your business goals, company culture, and
+            long-term vision, helping you build a skilled workforce that drives sustainable business growth, improves
+            productivity, strengthens teams, and delivers lasting organizational success through strategic hiring and
+            expert talent acquisition.</p>
+          <h4>Perfect For</h4>
+          <!-- <div class="apps-list">Enterprises · Corporate Companies · Manufacturing · Healthcare · Financial Services · Growing Businesses</div> -->
+          <div class="apps-list">
+            • Enterprises • Corporate Companies • Manufacturing • Healthcare • Financial Services • Growing Businesses
+          </div>
+          <button class="btn-demo popup-trigger">Hire Talent</button>
+        </div>
+
+        <!-- <div class="panel" data-index="1" data-image="{% static 'img/HR People &n Operations 2.png' %}"> -->
+        <div class="panel" data-index="1" data-image="{% static 'img/Hire Exceptional Leaders.png' %}">
+          <h3>Hire Exceptional Leaders</h3>
+          <p>Find experienced executives and leadership professionals who bring strategic vision, inspire
+            high-performing teams, and strengthen organizational decision-making. Our executive search process
+            identifies leaders who align with your business goals, culture, and long-term vision.</p>
+          <h4>Perfect For</h4>
+          <!-- <div class="apps-list">Enterprises · Corporate Companies · Manufacturing · Healthcare · Financial Services · Growing Businesses</div> -->
+          <div class="apps-list">
+            • Enterprises • Corporate Companies • Manufacturing • Healthcare • Financial Services • Growing Businesses
+          </div>
+          <button class="btn-demo popup-trigger">Hire Talent</button>
+        </div>
+
+        <!-- <div class="panel" data-index="2" data-image="{% static 'img/HR People &n Operations 2.png' %}"> -->
+        <div class="panel" data-index="2" data-image="{% static 'img/Strengthen Your Workforce.png' %}">
+          <h3>Strengthen Your Workforce</h3>
+          <p>Develop effective HR strategies, policies, and workforce solutions that improve organizational performance,
+            strengthen employee engagement, and align people practices with your business objectives. We support
+            compliance, talent management, leadership development, and long-term workforce growth.</p>
+          <h4>Perfect For</h4>
+          <!-- <div class="apps-list">Enterprises · Corporate Companies · Manufacturing · Healthcare · Financial Services · Growing Businesses</div> -->
+          <div class="apps-list">
+            • Enterprises • Corporate Companies • Manufacturing • Healthcare • Financial Services • Growing Businesses
+          </div>
+          <button class="btn-demo popup-trigger">Hire Talent</button>
+        </div>
+
+        <!-- <div class="panel" data-index="3" data-image="{% static 'img/HR People &n Operations 2.png' %}"> -->
+        <div class="panel" data-index="3" data-image="{% static 'img/Optimize HR Operations.png' %}">
+          <h3>Optimize HR Operations</h3>
+          <p>Streamline HR operations by improving employee lifecycle management, standardizing HR processes, and
+            increasing efficiency across your organization. We help automate routine HR activities, optimize workforce
+            administration, ensure policy compliance, and build scalable HR systems.</p>
+          <h4>Perfect For</h4>
+          <!-- <div class="apps-list">SMEs · Enterprises · Manufacturing · Healthcare · Retail · Service Companies</div> -->
+          <div class="apps-list">
+            • SMEs • Enterprises • Manufacturing • Healthcare • Retail • Service Companies
+          </div>
+          <button class="btn-demo popup-trigger">Hire Talent</button>
+        </div>
+
+        <!-- <div class="panel" data-index="4" data-image="{% static 'img/HR People &n Operations 2.png' %}"> -->
+        <div class="panel" data-index="4" data-image="{% static 'img/Learning_and_Development.png' %}">
+          <h3>Learning &amp; Development</h3>
+          <p>Empower your workforce through customized learning programs that enhance professional skills, strengthen
+            leadership capabilities, and improve organizational performance. We design practical training solutions that
+            foster continuous learning, engagement, productivity, and future leadership.</p>
+          <h4>Perfect For</h4>
+          <!-- <div class="apps-list">HR Teams · Corporate Companies · SMEs · Enterprises · Educational Institutions · Growing Businesses</div> -->
+          <div class="apps-list">
+            • HR Teams • Corporate Companies • SMEs • Enterprises • Educational Institutions • Growing Businesses
+          </div>
+          <button class="btn-demo popup-trigger">Hire Talent</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ===== END CUSTOM SOFTWARE / SOLUTIONS TABS SECTION ===== -->
+
+
+  <!-- Traditional HR vs Strategic HR -->
+  <section class="hr-compare">
+    <div class="bg-layer">
+      <div class="aurora aurora-1"></div>
+      <div class="aurora aurora-2"></div>
+      <div class="vignette"></div>
+
+      <canvas id="netCanvas"></canvas>
+
+      <!-- Floating HR icons -->
+      <span class="hr-icon" style="top:14%; left:6%; animation-duration:11s;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7fd89b" stroke-width="1.4">
+          <circle cx="12" cy="8" r="3.4" />
+          <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" />
+        </svg>
+      </span>
+      <span class="hr-icon" style="top:62%; left:4%; animation-duration:13s; animation-delay:2s;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7fd89b" stroke-width="1.4">
+          <rect x="4" y="8" width="16" height="11" rx="2" />
+          <path d="M9 8V6.5A1.5 1.5 0 0 1 10.5 5h3A1.5 1.5 0 0 1 15 6.5V8" />
+          <path d="M4 12.5h16" />
+        </svg>
+      </span>
+      <span class="hr-icon" style="top:30%; left:28%; animation-duration:12s; animation-delay:4s;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7fd89b" stroke-width="1.4">
+          <path d="M4 18l5-5 3.5 3.5L20 9" />
+          <path d="M15 9h5v5" />
+        </svg>
+      </span>
+      <span class="hr-icon" style="top:74%; left:34%; animation-duration:14s; animation-delay:1s;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7fd89b" stroke-width="1.4">
+          <circle cx="9" cy="8" r="2.8" />
+          <circle cx="16.5" cy="9.5" r="2.2" />
+          <path d="M3.5 19c0-2.9 2.4-4.8 5.5-4.8s5.5 1.9 5.5 4.8" />
+          <path d="M15.5 14.6c2.6.2 4.5 1.9 4.5 4.4" />
+        </svg>
+      </span>
+      <span class="hr-icon" style="top:10%; left:46%; animation-duration:12s; animation-delay:5.5s;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7fd89b" stroke-width="1.4">
+          <circle cx="12" cy="12" r="8" />
+          <circle cx="12" cy="12" r="4.5" />
+          <circle cx="12" cy="12" r="1.4" fill="#7fd89b" />
+        </svg>
+      </span>
+      <span class="hr-icon" style="top:48%; left:58%; animation-duration:15s; animation-delay:3s;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7fd89b" stroke-width="1.4">
+          <path d="M8 12.5l2.6 2.6L16.5 9" />
+          <circle cx="12" cy="12" r="9" />
+        </svg>
+      </span>
+      <span class="hr-icon" style="top:20%; left:88%; animation-duration:13s; animation-delay:2.5s;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7fd89b" stroke-width="1.4">
+          <path d="M7 21V10M12 21V4M17 21v-8" />
+        </svg>
+      </span>
+      <span class="hr-icon" style="top:80%; left:86%; animation-duration:12s; animation-delay:6s;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7fd89b" stroke-width="1.4">
+          <circle cx="12" cy="7" r="3" />
+          <path d="M6 21c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5" />
+          <path d="M12 2v-1M19 4l.8-.8M5 4l-.8-.8" />
+        </svg>
+      </span>
+
+      <!-- Growth line drawing along the bottom -->
+      <svg class="growth" viewBox="0 0 1440 190" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="growthFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="rgba(90,200,125,0.28)" />
+            <stop offset="100%" stop-color="rgba(90,200,125,0)" />
+          </linearGradient>
+        </defs>
+        <path class="area"
+          d="M0,165 C180,150 300,158 430,132 C560,106 660,120 790,96 C920,72 1040,84 1170,58 C1290,34 1370,40 1440,26 L1440,190 L0,190 Z" />
+        <path class="line"
+          d="M0,165 C180,150 300,158 430,132 C560,106 660,120 790,96 C920,72 1040,84 1170,58 C1290,34 1370,40 1440,26" />
+        <circle class="dot" cx="430" cy="132" r="4" style="animation-delay:0.3s" />
+        <circle class="dot" cx="790" cy="96" r="4" style="animation-delay:0.9s" />
+        <circle class="dot" cx="1170" cy="58" r="4" style="animation-delay:1.5s" />
+      </svg>
+    </div>
+
+    <div class="inner">
+      <!-- Left intro -->
+      <div class="intro">
+        <h2>Traditional HR vs Strategic HR with&nbsp;ECT</h2>
+        <p>Beyond hiring—complete HR solutions for lasting business growth.</p>
+        <button class="cta-btn popup-trigger">Talk to Our HR Experts</button>
+      </div>
+
+      <!-- Traditional card -->
+      <div class="card traditional">
+        <h3>Traditional HR Services</h3>
+        <ul>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#6b6b6b"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Focuses only on filling open positions.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#6b6b6b"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Limited involvement after hiring.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#6b6b6b"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Generic hiring process for every client.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#6b6b6b"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Manual HR operations and fragmented processes.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#6b6b6b"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Leadership hiring without long-term planning.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#6b6b6b"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Standard employee training programs.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#6b6b6b"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Reactive HR support when issues arise.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#6b6b6b"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Limited workforce planning.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#6b6b6b"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>HR decisions based on assumptions.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#6b6b6b"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Short-term hiring approach.</li>
+        </ul>
+      </div>
+
+      <!-- ECT card -->
+      <div class="card ect">
+        <h3>ECT HR Consulting &amp; Recruitment</h3>
+        <ul>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#1f7a33"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Strategic hiring aligned with business goals.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#1f7a33"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Continuous HR consulting and workforce support.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#1f7a33"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Tailored HR solutions for every business.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#1f7a33"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Streamlined, efficient HR operations.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#1f7a33"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Executive search for future-ready leaders.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#1f7a33"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Customized learning and development programs.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#1f7a33"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Proactive HR strategies for business growth.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#1f7a33"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Strategic workforce planning for growth.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#1f7a33"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Data-driven HR consulting and insights.</li>
+          <li><svg class="icon" viewBox="0 0 16 16">
+              <path fill="#1f7a33"
+                d="M8 0C5.9.9 3.8 1.4 1.6 1.6c0 4.9-.5 10.9 6.4 14.4 6.9-3.5 6.4-9.5 6.4-14.4C12.2 1.4 10.1.9 8 0zm-1 10.8L4.4 8.2l1.1-1.1L7 8.6l3.5-3.5 1.1 1.1L7 10.8z" />
+            </svg>Long-term talent and workforce strategy.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- our approach section -->
+
+
+  <!-- ===== ZOHO IMPLEMENTATION SECTION ===== -->
+  <section class="zoho-implementation" id="zoho-implementation">
+
+    <span class="zoho-implementation__eyebrow">Our Approach</span>
+
+    <div class="zoho-implementation__header">
+      <h2 class="zoho-implementation__title">How We Deliver<br>HR Solutions</h2>
+      <p class="zoho-implementation__subtitle">A collaborative HR consulting process designed to build stronger teams,
+        optimize workforce performance, and support long-term business success.</p>
+    </div>
+
+    <div class="zoho-implementation__grid">
+
+      <!-- Step 01 -->
+      <div class="zoho-implementation__cell" data-step="1">
+        <div class="zoho-implementation__icon">
+          <img src="{% static 'img/zoom.png' %}" alt="Step 1" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <span class="zoho-implementation__step-label">Step 01</span>
+        <h3 class="zoho-implementation__cell-title">Discovery &amp; Consultation</h3>
+        <p class="zoho-implementation__cell-desc">We understand your business goals, workforce challenges, hiring
+          requirements, and HR priorities to identify the right solution.</p>
+      </div>
+
+      <!-- Step 02 -->
+      <div class="zoho-implementation__cell" data-step="2">
+        <div class="zoho-implementation__icon">
+          <img src="{% static 'img/step2.png' %}" alt="Step 2" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <span class="zoho-implementation__step-label">Step 02</span>
+        <h3 class="zoho-implementation__cell-title">HR Strategy &amp; Planning</h3>
+        <p class="zoho-implementation__cell-desc">We develop a tailored HR strategy, define the scope, and recommend the
+          best recruitment and HR consulting approach to achieve your business objectives effectively.</p>
+      </div>
+
+      <!-- Step 03 -->
+      <div class="zoho-implementation__cell" data-step="3">
+        <div class="zoho-implementation__icon">
+          <img src="{% static 'img/step3.png' %}" alt="Step 3" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <span class="zoho-implementation__step-label">Step 03</span>
+        <h3 class="zoho-implementation__cell-title">Implementation &amp; Execution</h3>
+        <p class="zoho-implementation__cell-desc">We implement the agreed HR solutions, optimize processes, support
+          recruitment, and improve workforce management while ensuring efficiency, compliance, and measurable business
+          outcomes.</p>
+      </div>
+
+      <!-- Step 04 -->
+      <div class="zoho-implementation__cell" data-step="4">
+        <div class="zoho-implementation__icon">
+          <img src="{% static 'img/step4.png' %}" alt="Step 4" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <span class="zoho-implementation__step-label">Step 04</span>
+        <h3 class="zoho-implementation__cell-title">Ongoing Support &amp; Improvement</h3>
+        <p class="zoho-implementation__cell-desc">We continuously monitor outcomes, provide expert guidance, and refine
+          HR strategies to support your business growth, improve workforce performance, and organizational success.</p>
+      </div>
+
+    </div>
+
+    <!-- Tablet/mobile only: same subtitle, repositioned below the last
+         step card instead of beside the heading (see
+         .zoho-implementation__subtitle--closing in hr.css). Currently
+         .zoho-implementation__subtitle is just hidden outright below
+         1024px with no replacement — this gives it one. Desktop keeps
+         the original subtitle beside the heading, untouched. -->
+    <p class="zoho-implementation__subtitle zoho-implementation__subtitle--closing">A collaborative HR consulting process designed to build stronger teams,
+      optimize workforce performance, and support long-term business success.</p>
+
+  </section>
+  <!-- ===== END ZOHO IMPLEMENTATION SECTION ===== -->
+
+
+  <!-- READY TO BUILD YOUR TEAM — CTA BANNER -->
+  <!-- =========================================================
+     HR CTA BANNER — MATCHED TO IT INFRASTRUCTURE
+     Content remains unchanged
+     ========================================================= -->
+  <section class="ect-it-banner ect-hr-banner" id="contact">
+    <div class="ect-it-banner__container">
+      <div class="ect-it-banner__content">
+        <p class="ect-it-banner__eyebrow">READY TO BUILD YOUR TEAM?</p>
+        <h2 class="ect-it-banner__title">
+          Build a Stronger Workforce with
+          <span class="ect-it-banner__accent">ECT</span>
+        </h2>
+        <p class="ect-it-banner__desc">
+          Strategic HR consulting and recruitment solutions designed to help your
+          business hire, develop, and retain exceptional talent
+        </p>
+        <a href="javascript:void(0)" class="ect-it-banner__cta popup-trigger">Talk to Our HR Experts</a>
+      </div>
+      <div class="ect-it-banner__image" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+
+
+  <!-- FAQ Section -->
+  <section class="faq-section" aria-labelledby="faq-heading">
+    <div class="faq-head">
+      <div>
+        <span class="faq-eyebrow">Frequently asked questions</span>
+        <h2 class="faq-title" id="faq-heading">Everything You Need to<br>Know About HR Consulting &amp; Recruitment</h2>
+      </div>
+      <p class="faq-sub faq-sub--top">Learn more about our HR consulting, recruitment, workforce planning, policies, training,
+        executive search, and ongoing support.</p>
+    </div>
+
+    <div class="faq-grid" id="faqGrid">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-question-text">What HR consulting services do you provide?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>We provide HR consulting, recruitment, HR policy development, workforce planning, performance management,
+              employee engagement, and learning & development solutions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-question-text">Do you recruit candidates for all job levels?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We recruit entry-level, mid-level, senior management, and executive professionals across various
+              industries and business functions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-question-text">How do you find the right candidates?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>We identify, screen, assess, and shortlist candidates based on your business requirements, company
+              culture, technical skills, and long-term workforce goals.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-question-text">Can you help improve our existing HR processes?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We evaluate your current HR practices and recommend improvements in recruitment, onboarding,
+              performance management, policies, and workforce planning.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-question-text">Do you provide executive search services?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We help businesses identify and hire experienced leadership professionals who align with their
+              strategic vision and organizational goals.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-question-text">Can you develop HR policies and employee guidelines?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We create customized HR policies, employee handbooks, SOPs, compliance frameworks, and workplace
+              guidelines tailored to your organization.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-question-text">Do you provide employee training and development programs?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We design customized learning, leadership development, and professional training programs that
+              enhance employee performance and organizational growth.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-question-text">Will you continue supporting us after recruitment?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We provide ongoing HR consulting, workforce planning, employee engagement strategies, and continuous
+              HR support to help your organization grow.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-question-text">How long does the recruitment process take?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>The timeline depends on the role, experience level, and hiring requirements. After understanding your
+              needs, we provide a clear recruitment plan and estimated timeline.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span class="faq-question-text">Why choose ECT for HR Consulting & Recruitment?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>ECT combines strategic HR consulting with expert recruitment services to help businesses build
+              high-performing teams, strengthen HR operations, and achieve long-term organizational success.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tablet/mobile only: same sub-text, repositioned below the last FAQ
+         card instead of beside the heading (see .faq-sub--bottom in
+         hr.css). Hidden on desktop, which keeps the original
+         (.faq-sub--top) above the accordion. -->
+    <p class="faq-sub faq-sub--bottom">Learn more about our HR consulting, recruitment, workforce planning, policies, training,
+      executive search, and ongoing support.</p>
+
+  </section>
+  {% include 'footer.html' %}
+
+  <!-- HR page interactions -->
+  <!-- Shared Zoho-style navbar and footer interactions -->
+  <!-- HR page interactions -->
+  <script src="{% static 'js/hr.js' %}"></script>
+
+  <!-- Shared Zoho navbar/mobile menu interactions -->
+  <script src="{% static 'js/base.js' %}?v=33"></script>
+
+  {% include 'components/contact_popup.html' %}
+  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+{% include 'components/zoho_salesiq.html' %}
+
+<!-- ================= UNIFORM 100PX SECTION GAPS (hr page only) =================
+     Scoped to this template only — hr.css itself is untouched, so nothing
+     here affects any other page. -->
+<style>
+  .hr-page .hero { padding-bottom: 50px; }
+  .hr-page .software-section { padding-top: 50px; padding-bottom: 50px; margin-bottom: 0; }
+  .hr-page .hr-compare { margin-top: 50px; margin-bottom: 50px; }
+  .hr-page .zoho-implementation { padding-top: 50px; padding-bottom: 50px; margin-bottom: 0; }
+  .hr-page .ect-it-banner { margin-top: 50px; margin-bottom: 50px; }
+  .hr-page .faq-section { padding-top: 50px; }
+</style>
+
+<!-- Mobile/tablet only: reduce every section's gap further than the
+     uniform 50px above. Desktop keeps the rules above untouched. -->
+<style>
+  @media (max-width: 900px) {
+    .hr-page .hero { padding-bottom: 24px !important; }
+    .hr-page .software-section { padding-top: 24px !important; padding-bottom: 24px !important; }
+    .hr-page .hr-compare { margin-top: 24px !important; margin-bottom: 24px !important; }
+    .hr-page .zoho-implementation { padding-top: 24px !important; padding-bottom: 24px !important; }
+    .hr-page .ect-it-banner { margin-top: 24px !important; margin-bottom: 24px !important; }
+    .hr-page .faq-section { padding-top: 28px !important; padding-bottom: 32px !important; }
+  }
+</style>
+
+<!-- hr.css itself (independently of the gap-control blocks above) sets
+     "body.hr-page .software-section { margin: 72px auto !important }"
+     at <=1024px and "56px auto !important" at <=640px — its own
+     unrelated rule, so the two systems were fighting: this page's own
+     gap block above reduces the hero's padding fine, but the *next*
+     section was separately given a large top margin that made the
+     gap into it bigger on mobile/tablet than on desktop (where it's
+     effectively 0). Overriding just the top side here, matching this
+     selector's specificity/!important so it actually wins. Desktop is
+     untouched — these are the same <=1024px/<=640px breakpoints the
+     conflicting rule itself uses, not a new one. -->
+<style>
+  @media (max-width: 1024px) {
+    body.hr-page .software-section {
+      margin-top: 24px !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    body.hr-page .software-section {
+      margin-top: 24px !important;
+    }
+  }
+</style>
+
+<!-- The fixed-navbar-clearance rule on .hero (hr.css, "HR — PAGE-OWNED
+     TABLET/MOBILE LAYOUT" block) was a flat 128px -> 112px at every
+     width below 1024px, so it never shrank further for mobile the way
+     the Website page's hero gap does (112px tablet / 92px mobile).
+     Adding the matching mobile-only reduction here; tablet keeps the
+     112px set in hr.css, desktop's own 136px rule is untouched. -->
+<style>
+  @media (max-width: 640px) {
+    body.hr-page .hero {
+      padding-top: 92px !important;
+    }
+  }
+</style>
+</body>
+
+</html>

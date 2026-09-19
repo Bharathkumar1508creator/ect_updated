@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'components/google_tag.html' %}
+  {% include 'components/favicon.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.seo_title|default:project.title }} - ECT</title>
+    <meta name="description" content="{{ project.seo_description|default:project.short_description|default:'' }}">
+    <meta name="robots" content="index, follow">
+    {% if project.seo_keywords %}<meta name="keywords" content="{{ project.seo_keywords }}">{% endif %}
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ project.seo_title|default:project.title }}">
+    <meta property="og:description" content="{{ project.seo_description|default:project.short_description|default:'' }}">
+    {% if project.og_image %}
+        <meta property="og:image" content="{{ request.build_absolute_uri }}{{ project.og_image.url }}">
+    {% elif project.hero_image %}
+        <meta property="og:image" content="{{ request.build_absolute_uri }}{{ project.hero_image.url }}">
+    {% endif %}
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include 'components/navbar.html' %}
+
+    <!-- 1. Project Hero -->
+    <section class="project-detail-hero">
+        <div class="hero-media-wrapper">
+            {% include 'projects/components/project_media.html' with type=project.hero_media_type image=project.hero_image video=project.hero_video youtube=project.hero_youtube_url alt=project.title %}
+        </div>
+
+    </section>
+
+    <!-- 2. Project Sections -->
+    <div class="project-sections-container">
+        {% for section in sections %}
+            {% include 'projects/components/project_section.html' with section=section %}
+        {% endfor %}
+    </div>
+
+    <!-- 3. CTA -->
+    {% if project.button_text and project.button_url %}
+    <section class="project-cta text-center py-5">
+        <a href="{{ project.button_url }}" class="btn btn-primary btn-lg" {% if project.open_button_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+            {{ project.button_text }}
+        </a>
+    </section>
+    {% endif %}
+
+    <!-- 4. Next Project -->
+    {% if next_project %}
+        {% include 'projects/components/next_project.html' with next_project=next_project %}
+    {% endif %}
+
+    <!-- 5. Related Projects -->
+    {% if related_projects %}
+        {% include 'projects/components/related_projects.html' with related_projects=related_projects %}
+    {% endif %}
+
+{% include 'components/zoho_salesiq.html' %}
+</body>
+</html>

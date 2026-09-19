@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'components/google_tag.html' %}
+  {% include 'components/favicon.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title|default:"Digital Marketing" }} - ECT</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include 'components/navbar.html' %}
+
+    <!-- Hero Section -->
+    <section class="digital-hero">
+        <div class="hero-media-wrapper">
+            {% if page %}
+                {% include 'projects/components/project_media.html' with type=page.hero_media_type image=page.hero_image video=page.hero_video youtube=page.hero_youtube_url alt=page.hero_title %}
+            {% else %}
+                <div class="media-placeholder"></div>
+            {% endif %}
+        </div>
+        <div class="hero-content container text-center mt-5">
+            <h1 class="hero-title">{{ page.hero_title|default:"Digital Marketing" }}</h1>
+            <p class="hero-subtitle">{{ page.hero_description|default:"Accelerating your growth in the digital space." }}</p>
+        </div>
+    </section>
+
+    <!-- Social Media Cards -->
+    <section class="social-cards-section py-5">
+        <div class="container">
+            <div class="social-grid">
+                {% for card in social_cards %}
+                <div class="social-card">
+                    <img src="{{ card.image.url }}" alt="{{ card.title }}" class="social-card-img" loading="lazy">
+                    <div class="social-card-content">
+                        <h3>{{ card.title }}</h3>
+                        {% if card.description %}<p>{{ card.description }}</p>{% endif %}
+                    </div>
+                    <div class="social-card-overlay">
+                        <div class="social-icons">
+                            {% if card.youtube_url %}
+                            <a href="{{ card.youtube_url }}" target="_blank" rel="noopener noreferrer" aria-label="Visit our YouTube profile">YT</a>
+                            {% endif %}
+                            {% if card.instagram_url %}
+                            <a href="{{ card.instagram_url }}" target="_blank" rel="noopener noreferrer" aria-label="Visit our Instagram profile">IG</a>
+                            {% endif %}
+                            {% if card.facebook_url %}
+                            <a href="{{ card.facebook_url }}" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook profile">FB</a>
+                            {% endif %}
+                            {% if card.linkedin_url %}
+                            <a href="{{ card.linkedin_url }}" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn profile">IN</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="text-center">No social media cards configured.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Projects Section -->
+    {% if selected_projects %}
+    <section class="innovation-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">{{ page.innovation_title|default:"Innovation That Drives Results" }}</h2>
+            {% if page.innovation_description %}
+                <p class="text-center mb-5">{{ page.innovation_description }}</p>
+            {% endif %}
+            <div class="project-grid">
+                {% for sp in selected_projects %}
+                    {% include 'projects/components/project_card.html' with project=sp.project %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Common Footer logic could be here -->
+{% include 'components/zoho_salesiq.html' %}
+</body>
+</html>
+

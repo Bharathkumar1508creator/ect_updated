@@ -1,0 +1,63 @@
+<section class="project-section layout-{{ section.layout_type|lower }} py-5">
+    <div class="container">
+        {% if section.layout_type == 'TEXT_LEFT_MEDIA_RIGHT' %}
+            <div class="row align-items-center">
+                <div class="col-md-6 text-content">
+                    {% if section.title %}<h2>{{ section.title }}</h2>{% endif %}
+                    {% if section.content %}<div class="content-body">{{ section.content|safe }}</div>{% endif %}
+                    {% if section.button_text and section.button_url %}
+                        <a href="{{ section.button_url }}" class="btn btn-secondary mt-3">{{ section.button_text }}</a>
+                    {% endif %}
+                </div>
+                <div class="col-md-6 media-content">
+                    {% include 'projects/components/project_media.html' with type=section.media_type image=section.image video=section.video youtube=section.youtube_url alt=section.title %}
+                </div>
+            </div>
+        {% elif section.layout_type == 'MEDIA_LEFT_TEXT_RIGHT' %}
+            <div class="row align-items-center flex-md-row-reverse">
+                <div class="col-md-6 text-content">
+                    {% if section.title %}<h2>{{ section.title }}</h2>{% endif %}
+                    {% if section.content %}<div class="content-body">{{ section.content|safe }}</div>{% endif %}
+                    {% if section.button_text and section.button_url %}
+                        <a href="{{ section.button_url }}" class="btn btn-secondary mt-3">{{ section.button_text }}</a>
+                    {% endif %}
+                </div>
+                <div class="col-md-6 media-content">
+                    {% include 'projects/components/project_media.html' with type=section.media_type image=section.image video=section.video youtube=section.youtube_url alt=section.title %}
+                </div>
+            </div>
+        {% elif section.layout_type == 'FULL_WIDTH_MEDIA' %}
+            {% if section.title %}<h2 class="text-center mb-4">{{ section.title }}</h2>{% endif %}
+            <div class="media-content full-width">
+                {% include 'projects/components/project_media.html' with type=section.media_type image=section.image video=section.video youtube=section.youtube_url alt=section.title %}
+            </div>
+            {% if section.content %}
+                <div class="content-body text-center mt-4">{{ section.content|safe }}</div>
+            {% endif %}
+            {% if section.button_text and section.button_url %}
+                <div class="text-center mt-4">
+                    <a href="{{ section.button_url }}" class="btn btn-secondary">{{ section.button_text }}</a>
+                </div>
+            {% endif %}
+        {% elif section.layout_type == 'TEXT_ONLY' %}
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-content text-center">
+                    {% if section.title %}<h2>{{ section.title }}</h2>{% endif %}
+                    {% if section.content %}<div class="content-body">{{ section.content|safe }}</div>{% endif %}
+                    {% if section.button_text and section.button_url %}
+                        <a href="{{ section.button_url }}" class="btn btn-secondary mt-3">{{ section.button_text }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% elif section.layout_type == 'MEDIA_ONLY' %}
+            <div class="media-content text-center">
+                {% include 'projects/components/project_media.html' with type=section.media_type image=section.image video=section.video youtube=section.youtube_url alt=section.title %}
+            </div>
+            {% if section.button_text and section.button_url %}
+                <div class="text-center mt-4">
+                    <a href="{{ section.button_url }}" class="btn btn-secondary">{{ section.button_text }}</a>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</section>

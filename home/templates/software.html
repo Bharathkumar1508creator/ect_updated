@@ -1,0 +1,639 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'components/google_tag.html' %}
+  {% include 'components/favicon.html' %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Powerful Custom Software Development Services for Growth</title>
+  <meta name="description" content="Accelerate your business with powerful custom software solutions. Automate workflows, improve efficiency, boost productivity, and scale your operations faster.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Outfit:wght@400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/software.css' %}?v=22">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=42">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+  <style>
+    body, html, .software-figma-hero {
+      background-color: #ffffff !important;
+    }
+    h1, h2,
+    .software-figma-hero__title, .section-title, .faq-title, .tb-heading, .ect-web-solutions__heading {
+      font-family: 'Montserrat' !important;
+      font-weight: 600 !important;
+      font-size: 31.25px !important;
+      line-height: 125% !important;
+      color: #000000 !important;
+    }
+    h1 span, h2 span, .software-figma-hero__title span, .section-title span, .faq-title span, .tb-heading span, .ect-web-solutions__heading span {
+      color: #000000 !important;
+    }
+    .eyebrow, .zoho-implementation__eyebrow, .ect-eyebrow, .tech-eyebrow, .faq-eyebrow, .ect-web-solutions__eyebrow {
+      font-family: 'Montserrat' !important;
+      font-weight: 400 !important;
+      font-size: 16px !important;
+      color: #000000 !important;
+      text-transform: none !important;
+      letter-spacing: normal !important;
+    }
+    .eyebrow::before, .zoho-implementation__eyebrow::before, .ect-eyebrow::before, .tech-eyebrow::before, .faq-eyebrow::before, .ect-web-solutions__eyebrow::before {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+{% include 'components/navbar.html' %}
+
+  <!-- ================= MOBILE PANEL ================= -->
+  
+
+  
+
+  <section class="software-figma-hero">
+    <h1 class="software-figma-hero__title">
+      Build Custom Software That<br class="software-figma-hero__break">Drives Business Growth
+    </h1>
+    <p class="software-figma-hero__subtitle">Scalable software for smarter business operations.</p>
+    <a href="#software-services" class="software-figma-hero__cta" data-smooth-scroll>Explore Services</a>
+
+    <div class="software-figma-hero__image-wrap">
+      <video
+        class="software-figma-hero__image"
+        src="{% static 'video/software.mp4' %}"
+        autoplay loop muted playsinline>
+      </video>
+    </div>
+  </section>
+
+
+<!-- our soluction -->
+
+  
+    <section class="ect-web-solutions" id="software-services" aria-labelledby="ect-web-solutions-title">
+      <div class="ect-web-solutions__header">
+        <p class="ect-web-solutions__eyebrow">SOFTWARE DEVELOPMENT SERVICES</p>
+
+        <h2 class="ect-web-solutions__heading" id="ect-web-solutions-title">
+          Software Designed Around Your Business
+        </h2>
+
+        <div class="ect-web-solutions__controls" aria-label="Web solution controls">
+          <button
+            type="button"
+            class="ect-web-solutions__arrow ect-web-solutions__arrow--prev"
+            aria-label="Show previous web solution"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15 5L8 12L15 19" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            class="ect-web-solutions__arrow ect-web-solutions__arrow--next"
+            aria-label="Show next web solution"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 5L16 12L9 19" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="ect-web-solutions__component">
+        <div class="ect-web-solutions__tabs" role="tablist" aria-label="Website solution types">
+          <button
+            type="button"
+            class="ect-web-solutions__tab is-active"
+            id="ect-web-solutions-tab-0"
+            role="tab"
+            aria-selected="true"
+            aria-controls="ect-web-solutions-panel"
+            tabindex="0"
+            data-slide-index="0"
+          >
+            <span class="ect-web-solutions__tab-label">Enterprise Software</span>
+          </button>
+
+          <button
+            type="button"
+            class="ect-web-solutions__tab"
+            id="ect-web-solutions-tab-1"
+            role="tab"
+            aria-selected="false"
+            aria-controls="ect-web-solutions-panel"
+            tabindex="-1"
+            data-slide-index="1"
+          >
+            <span class="ect-web-solutions__tab-label">CRM Software</span>
+          </button>
+
+          <button
+            type="button"
+            class="ect-web-solutions__tab"
+            id="ect-web-solutions-tab-2"
+            role="tab"
+            aria-selected="false"
+            aria-controls="ect-web-solutions-panel"
+            tabindex="-1"
+            data-slide-index="2"
+          >
+            <span class="ect-web-solutions__tab-label">HR Management<br>System</span>
+          </button>
+
+          <button
+            type="button"
+            class="ect-web-solutions__tab"
+            id="ect-web-solutions-tab-3"
+            role="tab"
+            aria-selected="false"
+            aria-controls="ect-web-solutions-panel"
+            tabindex="-1"
+            data-slide-index="3"
+          >
+            <span class="ect-web-solutions__tab-label">ERP Solutions</span>
+          </button>
+
+          <button
+            type="button"
+            class="ect-web-solutions__tab"
+            id="ect-web-solutions-tab-4"
+            role="tab"
+            aria-selected="false"
+            aria-controls="ect-web-solutions-panel"
+            tabindex="-1"
+            data-slide-index="4"
+          >
+            <span class="ect-web-solutions__tab-label">Workflow<br>Automation</span>
+          </button>
+
+          <button
+            type="button"
+            class="ect-web-solutions__tab"
+            id="ect-web-solutions-tab-5"
+            role="tab"
+            aria-selected="false"
+            aria-controls="ect-web-solutions-panel"
+            tabindex="-1"
+            data-slide-index="5"
+          >
+            <span class="ect-web-solutions__tab-label">Custom Business<br>Applications</span>
+          </button>
+        </div>
+
+        <div class="ect-web-solutions__panel is-active" id="ect-web-solutions-panel-0" role="tabpanel" aria-labelledby="ect-web-solutions-tab-0">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/Enterprise Software.png' %}" alt="Corporate website mockup shown on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+          </div>
+          <h3 class="ect-web-solutions__content-title">Streamline Complex Operations</h3>
+          <p class="ect-web-solutions__description">Build powerful enterprise software tailored to automate business operations, improve efficiency, and support long-term business growth with scalable digital solutions.</p>
+          <p class="ect-web-solutions__perfect-label">Perfect For:</p>
+          <p class="ect-web-solutions__audience">Manufacturing Companies - Multi-Branch Businesses - Healthcare Organizations - Educational Institutions</p>
+          <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+        </div>
+
+        <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-1" role="tabpanel" aria-labelledby="ect-web-solutions-tab-1">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/CRM Software.png' %}" alt="Business website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+          </div>
+          <h3 class="ect-web-solutions__content-title">Strengthen Customer Relationships</h3>
+          <p class="ect-web-solutions__description">Manage leads, sales, customer interactions, and business processes through intelligent CRM solutions customized to your unique workflow.</p>
+          <p class="ect-web-solutions__perfect-label">Perfect For:</p>
+          <p class="ect-web-solutions__audience">Sales Teams - Service Businesses - Healthcare - Educational Institutions - Real Estate - Growing Businesses</p>
+          <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+        </div>
+
+        <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-2" role="tabpanel" aria-labelledby="ect-web-solutions-tab-2">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/HR Management System.png' %}" alt="E-commerce website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+          </div>
+          <h3 class="ect-web-solutions__content-title">HR Management System</h3>
+          <p class="ect-web-solutions__description">Digitize recruitment, attendance, payroll, leave management, and employee records with an integrated HR management solution.</p>
+          <p class="ect-web-solutions__perfect-label">Perfect For:</p>
+          <p class="ect-web-solutions__audience">Small Businesses - Corporate Companies - Educational Institutions - Healthcare Organizations</p>
+          <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+        </div>
+
+        <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-3" role="tabpanel" aria-labelledby="ect-web-solutions-tab-3">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/ERP Solutions.png' %}" alt="Landing page mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+          </div>
+          <h3 class="ect-web-solutions__content-title">Manage Your Business Efficiently</h3>
+          <p class="ect-web-solutions__description">Integrate finance, inventory, procurement, sales, and operations into one centralized platform for complete business management.</p>
+          <p class="ect-web-solutions__perfect-label">Perfect For:</p>
+          <p class="ect-web-solutions__audience">Manufacturing - Distribution - Retail Businesses - Wholesale Companies - Multi-Location Businesses</p>
+          <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+        </div>
+
+        <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-4" role="tabpanel" aria-labelledby="ect-web-solutions-tab-4">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/Workflow Automation.png' %}" alt="Portfolio website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+          </div>
+          <h3 class="ect-web-solutions__content-title">Automate Business Processes</h3>
+          <p class="ect-web-solutions__description">Eliminate repetitive tasks, automate approvals, and optimize workflow to improve productivity and reduce operational delays.</p>
+          <p class="ect-web-solutions__perfect-label">Perfect For:</p>
+          <p class="ect-web-solutions__audience">Finance Departments - Operations Teams - Customer Support - Sales Teams - Administrative Departments</p>
+          <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+        </div>
+
+        <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-5" role="tabpanel" aria-labelledby="ect-web-solutions-tab-5">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/Custom Business Applications (1).png' %}" alt="Custom web application interface displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+          </div>
+          <h3 class="ect-web-solutions__content-title">Built Around Your Business.</h3>
+          <p class="ect-web-solutions__description">Develop custom software designed specifically for your business processes, helping improve efficiency, scalability, and operational performance.</p>
+          <p class="ect-web-solutions__perfect-label">Perfect For:</p>
+          <p class="ect-web-solutions__audience">Startups - SMEs - Enterprises - Healthcare - Logistics - Service-Based Businesses</p>
+          <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="web-solutions-section">
+
+  <div class="eyebrow">Our approach</div>
+  <div class="header">
+    <h2>From Business Websites to Custom Platforms, We've Got You Covered.</h2>
+    <p>We follow a structured development process to deliver websites aligned with your business goals and built for long-term success.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- Step 01 -->
+    <div class="cell">
+      <div class="icon">
+        <img src="{% static 'img/zoom.png' %}" alt="zoom">
+      </div>
+      <div class="step">Step 01</div>
+      <h3>Discovery &amp; Planning</h3>
+      <p>We understand your business goals and plan a clear roadmap for successful website development.</p>
+    </div>
+
+    <!-- Step 02 -->
+    <div class="cell">
+      <div class="icon icon-zoom">
+        <img src="{% static 'img/uiux.png' %}" alt="uiux">
+      </div>
+      <div class="step">Step 02</div>
+      <h3>UI/UX Design</h3>
+      <p>We design engaging user experiences that strengthen your brand and improve customer engagement across every device.</p>
+    </div>
+
+    <!-- Step 03 -->
+    <div class="cell">
+      <div class="icon icon-zoom">
+        <img src="{% static 'img/website.png' %}" alt="website">
+      </div>
+      <div class="step">Step 03</div>
+      <h3>Website Development</h3>
+      <p>We develop fast, secure, scalable websites that deliver exceptional performance across every device and platform.</p>
+    </div>
+
+    <!-- Step 04 -->
+    <div class="cell">
+      <div class="icon icon-zoom">
+       <img src="{% static 'img/testing.png' %}" alt="testing">
+      </div>
+      <div class="step">Step 04</div>
+      <h3>Testing &amp; Quality Assurance</h3>
+      <p>We thoroughly test every feature to ensure security, performance, reliability, and seamless user experiences.</p>
+    </div>
+
+    <!-- Step 05 -->
+    <div class="cell">
+      <div class="icon">
+        <img src="{% static 'img/web.png' %}" alt="web">
+      </div>
+      <div class="step">Step 05</div>
+      <h3>Website Launch</h3>
+      <p>We launch your website with confidence, ensuring optimal performance, visibility, and seamless user experience.</p>
+    </div>
+
+    <!-- Step 06 -->
+    <div class="cell">
+      <div class="icon">
+        <img src="{% static 'img/support.png' %}" alt="support">
+      </div>
+      <div class="step">Step 06</div>
+      <h3>Support &amp; Continuous Improvement</h3>
+      <p>We provide continuous support, maintenance, and updates to keep your website performing at its best every day.</p>
+    </div>
+
+  </div>
+
+  <!-- Tablet/mobile only: same intro sentence, repositioned below the
+       last step card instead of beside the heading (see .approach-closing
+       in software.css). Hidden on desktop, which keeps the original
+       paragraph beside the heading. -->
+  <p class="approach-closing">We follow a structured development process to deliver websites aligned with your business goals and built for long-term success.</p>
+
+</section>
+
+
+
+
+
+
+
+
+  <!-- ============================================================
+       BUSINESS SOLUTIONS SECTION
+       Two product cards: ECT CRM + Executive Digital Profile
+       ============================================================ -->
+
+  <section class="ect-products">
+    <div class="ect-products__inner">
+      <div class="ect-products__header">
+        <div class="ect-products__header-left">
+          <p class="ect-products__eyebrow">ECT BUSINESS SOLUTIONS</p>
+          <h2 class="ect-products__headline">Powerful Digital<br>Products for Modern Businesses</h2>
+        </div>
+        <div class="ect-products__header-right">
+          <p class="ect-products__desc">Discover ECT's business products designed to simplify operations, improve
+            productivity, and accelerate sustainable business growth through innovation with intelligent digital
+            solutions today.</p>
+        </div>
+      </div>
+      <div class="ect-products__grid">
+
+        <!-- Card 1 — ECT CRM -->
+        <article class="ect-pcard">
+          <div class="ect-pcard__body">
+
+            <!-- Replace the <span> below with:
+               <img class="ect-pcard__img" src="YOUR-SCREENSHOT.png" alt="ECT CRM preview"> -->
+            <div class="ect-pcard__imgwrap">
+              <img class="ect-pcard__img" src="{% static 'img/crm1.png' %}" alt="ECT CRM preview">
+            </div>
+
+            <div class="ect-pcard__content">
+              <h3 class="ect-pcard__title">ECT CRM</h3>
+              <p class="ect-pcard__tagline">Manage your business from one powerful platform.</p>
+              <p class="ect-pcard__desc">
+                Organize leads, manage customers, automate workflows, track<br>
+                sales, and gain real-time business insights with a<br>
+                fully customizable CRM solution
+              </p>
+            </div>
+
+            <svg class="ect-pcard__notch" viewBox="0 0 212 128" preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+
+            <div class="ect-pcard__cta">
+              <a href="{% url 'under' %}"><button class="ect-btn-explore" data-product="crm">Explore CRM</button></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 — Executive Digital Profile -->
+        <article class="ect-pcard">
+          <div class="ect-pcard__body">
+
+            <!-- Replace the <span> below with:
+               <img class="ect-pcard__img" src="YOUR-SCREENSHOT.png" alt="Executive Digital Profile preview"> -->
+            <div class="ect-pcard__imgwrap">
+              <img class="ect-pcard__img" src="{% static 'img/crm2.png' %}" alt="Executive Digital Profile preview">
+            </div>
+
+            <div class="ect-pcard__content">
+              <h3 class="ect-pcard__title">Executive Digital Profile</h3>
+              <p class="ect-pcard__tagline">Your story. Your achievements. One professional profile.</p>
+              <p class="ect-pcard__desc">
+                Build a personalized executive profile that showcases your<br>
+                leadership experience, career milestones, awards,<br>
+                publications, and professional background.
+              </p>
+            </div>
+
+            <svg class="ect-pcard__notch" viewBox="0 0 212 128" preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+
+            <div class="ect-pcard__cta">
+            <a href="{% url 'under' %}"><button class="ect-btn-explore" data-product="profile">Explore Profile</button></a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- business section end -->
+   
+
+
+
+<div class="tb-section-wrapper">
+<section class="tb-section">
+ 
+  <!-- TOP ROW: heading + tagline -->
+  <div class="tb-top">
+    <div class="tb-top-left">
+      <p class="tb-eyebrow" style="font-size: 16px; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; color: #333; margin-bottom: 8px;">TECHNOLOGIES WE USE</p>
+      <h2 class="tb-heading" style="margin-bottom: 0;">Modern Technologies.<br>Powerful Digital Solutions.</h2>
+    </div>
+    <p class="tb-tagline tb-tagline--top">
+      Modern technologies powering secure, scalable, and<br>
+      high-performance websites for growing businesses.
+    </p>
+  </div>
+
+  <!-- ROW 1 — infinite loop scroll -->
+  <div class="tb-track-wrapper" id="tb-row1">
+    <div class="tb-track">
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/HTML.png' %}" alt="html" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/CSS.png' %}" alt="css" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/JS.png' %}" alt="js" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/MYSQL.png' %}" alt="mysql" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/PYTHON.png' %}" alt="python" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/DJANGO.png' %}" alt="django" loading="lazy"></div>
+    </div>
+  </div>
+
+  <!-- ROW 2 — infinite loop scroll (opposite direction) -->
+  <div class="tb-track-wrapper" id="tb-row2">
+    <div class="tb-track">
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/JAVA.png' %}" alt="java" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/SPRING BOOT.png' %}" alt="spring boot" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/php.png' %}" alt="php" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/react.png' %}" alt="react" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/sqllite.png' %}" alt="sqllite" loading="lazy"></div>
+    </div>
+  </div>
+
+  <!-- Tablet/mobile only: same tagline, repositioned below the scrolling
+       rows instead of beside the heading (see .tb-tagline--bottom in
+       software.css). Hidden on desktop, which keeps the original above
+       (.tb-tagline--top). -->
+  <p class="tb-tagline tb-tagline--bottom">
+    Modern technologies powering secure, scalable, and
+    high-performance websites for growing businesses.
+  </p>
+
+</section>
+
+
+
+
+
+<!-- FAQ Section -->
+<section class="faq-section" aria-labelledby="faq-heading">
+  <div class="faq-head">
+    <div class="faq-head__text">
+      <span class="faq-eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+      <h2 class="faq-title" id="faq-heading">Everything You Need to Know<br>About Software Development</h2>
+    </div>
+    <p class="faq-sub faq-sub--top">Learn more about our software development services, project approach, technologies, integrations, and long-term support.</p>
+  </div>
+
+  <div class="faq-grid" id="faqGrid">
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+          What types of software do you develop?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>We develop enterprise software, CRM systems, HRMS, ERP solutions, workflow automation
+platforms, and custom business applications.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Can you build software specifically for our business?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p> Yes. Every solution is designed around your business processes, goals, and operational
+requirements.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Do you integrate software with existing systems?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. We integrate software with CRM, ERP, accounting systems, payment gateways, APIs, and
+third-party applications.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Is the software scalable?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Absolutely. Our software is built to grow with your business and support future expansion.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+         How long does software development take?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Project timelines depend on the complexity, features, and business requirements. We provide a
+detailed roadmap after requirement analysis.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+       Do you provide user training?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. We offer comprehensive training to ensure your team can effectively use the software.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+      Do you provide maintenance after deployment?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. We provide updates, monitoring, performance optimization, bug fixes, and long-term technical
+support.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">        
+         Is the software secure?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. We follow industry best practices for security, data protection, authentication, and access
+control.</p></div></div>
+    </div>
+
+
+    
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">        
+         Can the software be customized later?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. Additional modules and new features can be added as your business grows.</p></div></div>
+    </div>
+
+
+
+    
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">        
+          Why choose ECT for software development?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>We combine business consulting with technical expertise to deliver scalable, secure, and
+      business-focused software solutions that create measurable value.</p></div></div>
+    </div>
+  </div>
+
+  <!-- Tablet/mobile only: same sub-text, repositioned below the last FAQ
+       card instead of beside the heading (see .faq-sub--bottom in
+       software.css). Hidden on desktop, which keeps the original
+       (.faq-sub--top) above the accordion. -->
+  <p class="faq-sub faq-sub--bottom">Learn more about our software development services, project approach, technologies, integrations, and long-term support.</p>
+
+</section>
+</div>
+
+
+{% include 'footer.html' %}
+
+
+<script src="{% static 'js/software.js' %}?v=6"></script>
+<script src="{% static 'js/base.js' %}?v=33"></script>
+{% include 'components/contact_popup.html' %}
+<script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+{% include 'components/zoho_salesiq.html' %}
+
+<!-- ================= UNIFORM 100PX SECTION GAPS (software page only) =================
+     Scoped to this template only — software.css itself is untouched, so
+     nothing here affects any other page. -->
+<style>
+  .ect-products { padding-top: 50px; padding-bottom: 50px; }
+  .faq-section { padding-top: 50px; }
+</style>
+
+<!-- Mobile/tablet only: reduce the FAQ section's gap further than the
+     uniform 50px above. Desktop keeps the 50px rule above untouched. -->
+<style>
+  @media (max-width: 900px) {
+    .ect-products { padding-top: 24px !important; padding-bottom: 24px !important; }
+    .faq-section { padding-top: 28px !important; padding-bottom: 32px !important; }
+  }
+</style>
+</body>
+</html>

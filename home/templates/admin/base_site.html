@@ -1,0 +1,31 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">
+    <img src="{% static 'img/ECT LOGO.png' %}" alt="ECT Admin" height="30" style="vertical-align: middle; margin-right: 10px;">
+    ECT Custom Admin
+</a></h1>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+    /* Custom Admin Styles matching ECT brand */
+    #header { background: #222; }
+    #branding h1 { color: #fff; }
+    #branding h1 a:link, #branding h1 a:visited { color: #fff; }
+    div.breadcrumbs { background: #28a745; color: #fff; }
+    div.breadcrumbs a { color: #fff; }
+    .module h2, .module caption, .inline-group h2 { background: #28a745; }
+    .button, input[type=submit], input[type=button], .submit-row input, a.button {
+        background: #28a745;
+        border-radius: 4px;
+    }
+    .button:hover, input[type=submit]:hover {
+        background: #218838;
+    }
+    .object-tools a.addlink { background-color: #28a745; }
+    .object-tools a.addlink:hover { background-color: #218838; }
+</style>
+{% endblock %}

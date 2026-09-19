@@ -1,0 +1,146 @@
+import os
+import re
+
+footer = '''    <!-- Footer -->
+    <footer class="ect-footer">
+      <div class="ect-footer-grid">
+
+        <!-- Brand Column -->
+        <div class="ect-f-brand">
+          <div class="ect-f-brand-title">ECOGCORETECHNOLOGIES</div>
+          <p class="ect-f-brand-desc">Transforming businesses through innovative technology solutions. Your trusted
+            partner in digital transformation and enterprise excellence.</p>
+          <div class="ect-f-nl-title">Newsletter</div>
+          <p class="ect-f-nl-desc">Get eco tips, new arrivals and<br>exclusive offers in your inbox.</p>
+          <form class="ect-f-nl-form" id="ectNlForm">
+            <input type="email" placeholder="your@email.com" required>
+            <button type="submit">Subscribe</button>
+          </form>
+          <div class="ect-f-nl-msg" id="ectNlMsg"></div>
+        </div>
+
+        <!-- Services -->
+        <div class="ect-f-col">
+          <div class="ect-f-col-title">Services</div>
+          <ul>
+            <li><a href="{% url 'website' %}">Website Development</a></li>
+            <li><a href="{% url 'software' %}">Software Development</a></li>
+            <li><a href="{% url 'zoho' %}">Zoho Consulting</a></li>
+            <li><a href="{% url 'hr' %}">HR Consulting</a></li>
+            <li><a href="{% url 'it_infrastructure' %}">IT Infrastructure Services</a></li>
+            <li><a href="{% url 'digital' %}">Digital Marketing</a></li>
+          </ul>
+        </div>
+
+        <!-- Solutions -->
+        <div class="ect-f-col">
+          <div class="ect-f-col-title">Solutions</div>
+          <ul>
+            <li><a href="{% url 'software' %}">ECT CRM Software</a></li>
+            <li><a href="{% url 'software' %}">Executive Profile Platform</a></li>
+          </ul>
+          <div class="ect-f-sub-title">Our Work</div>
+          <ul>
+            <li><a href="{% url 'project_list' %}">Case Studies</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="ect-f-col">
+          <div class="ect-f-col-title">Company</div>
+          <ul>
+            <li><a href="{% url 'about' %}">About EcoG</a></li>
+            <li><a href="{% url 'career' %}">Careers</a></li>
+            <li><a href="{% url 'career' %}">Job Opening</a></li>
+            <li><a href="{% url 'contact' %}">Contact us</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="ect-f-col">
+          <div class="ect-f-col-title ect-no-upper">Resources</div>
+          <ul>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- Social Bar -->
+    <div class="ect-social-bar">
+      <div class="ect-follow-section">
+        <span class="ect-follow-label">Follow Us</span>
+        <div class="ect-s-icons">
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24">
+              <path
+                d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1.9 2 1.2 2.3 1.4.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.3.1 1.7.8 2 .9.3.2.5.2.5.4.1.1.1.7-.1 1z" />
+            </svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24">
+              <path
+                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.5 15.5v-7l6.3 3.5-6.3 3.5z" />
+            </svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24">
+              <path
+                d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.8 3.8 0 0 1-1.4-.9 3.8 3.8 0 0 1-.9-1.4c-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.6a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.8-10.4a1.4 1.4 0 1 1-2.8 0 1.4 1.4 0 0 1 2.8 0z" />
+            </svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24">
+              <path
+                d="M4.98 3.5C4.98 4.9 3.9 6 2.5 6S0 4.9 0 3.5 1.1 1 2.5 1s2.48 1.1 2.48 2.5zM.2 8h4.6v14.5H.2V8zm7.4 0h4.4v2h.1c.6-1.1 2.1-2.3 4.3-2.3 4.6 0 5.4 3 5.4 6.9v7.9h-4.6v-7c0-1.7 0-3.8-2.3-3.8s-2.7 1.8-2.7 3.7v7.1H7.6V8z" />
+            </svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24">
+              <path
+                d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z" />
+            </svg></a>
+        </div>
+      </div>
+      <div class="ect-contact-section">
+        <a class="ect-c-item" href="tel:+918526280652">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" />
+          </svg>
+          +91 85262 80652
+        </a>
+        <a class="ect-c-item" href="mailto:sales@ecogcoretechnologies.com">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
+          sales@ecogcoretechnologies.com
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="ect-bottom-bar">
+      <div class="ect-b-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Security Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="{% url 'contact' %}">Contact Us</a>
+      </div>
+      <div class="ect-b-copy">&copy; 2026 ECOG Core Technologies. All rights reserved.</div>
+    </div>'''
+
+dir_path = 'e:/ECT web all file/ect_full_copy/home/templates/'
+for filename in os.listdir(dir_path):
+    if filename.endswith('.html') and filename != 'index.html':
+        filepath = os.path.join(dir_path, filename)
+        with open(filepath, 'r', encoding='utf-8', errors='surrogateescape') as f:
+            content = f.read()
+        
+        # We need to replace everything from <!-- Footer --> to </div>\s*<!-- ========== ECOG Footer Section End ========== -->
+        # or similar.
+        pattern = re.compile(r'<!-- Footer -->.*?</div>\s*<!-- ========== ECOG Footer Section End', re.DOTALL)
+        
+        new_content = pattern.sub(f'{footer}\n  </div>\n  <!-- ========== ECOG Footer Section End', content)
+        
+        if new_content != content:
+            with open(filepath, 'w', encoding='utf-8', errors='surrogateescape') as f:
+                f.write(new_content)
+            print(f'Replaced in {filename}')
+        else:
+            print(f'No replacement in {filename}')

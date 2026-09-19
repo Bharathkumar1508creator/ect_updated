@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'components/google_tag.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog | Django Module{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Our latest thoughts and updates.{% endblock %}">
+    {% block extra_meta %}{% endblock %}
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    
+    {% include 'components/favicon.html' %}
+
+    <!-- Custom CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=42">
+    <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+{% include 'components/navbar.html' %}
+
+    <!-- Main Content -->
+    <main>
+        {% if messages %}
+            <div class="blog-messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        {% block content %}{% endblock %}
+    </main>
+
+{% include 'footer.html' %}
+
+    <!-- Custom JS -->
+    <script src="{% static 'js/base.js' %}?v=33"></script>
+    <script src="{% static 'blog/js/blog.js' %}?v=5"></script>
+    {% block extra_js %}{% endblock %}
+  {% include 'components/contact_popup.html' %}
+  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+{% include 'components/zoho_salesiq.html' %}
+</body>
+</html>

@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('../img/under.png');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  
+}
+
+.overlay {
+margin-top: 7%;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.overlay h1 {
+  font-size: 61px;
+  font-weight: 800;
+  color: #111;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  /* border: 2px solid red; */
+  max-width: 915px;
+}
+
+.overlay p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 22px;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: #0f7a3c;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.cta-btn:hover {
+  background: #0c5e2e;
+}
+
+/* Tablet — previously there was no tier between the 61px desktop heading
+   and the 1.6rem mobile one, so any tablet-width screen (769-1024px) got
+   the full, uncompressed desktop size.
+
+   .hero's own padding-top (a fixed px, not the old %-based .overlay
+   margin-top) is what actually clears the fixed navbar reliably: the
+   navbar is position:fixed at 64px tall (60px under 600px), and a
+   percentage margin is a percentage of the *viewport height*, so on a
+   short mobile screen 7-10% can come out to less than the navbar's own
+   height — the heading was rendering underneath/behind the fixed navbar
+   instead of below it. */
+@media (max-width: 1024px) {
+  .hero { padding-top: 88px; }
+  .overlay { margin-top: 0; }
+  .overlay h1 { font-size: 2.75rem; }
+  .overlay p { font-size: 0.95rem; }
+  .cta-btn { font-size: 0.9rem; padding: 11px 24px; }
+}
+
+@media (max-width: 768px) {
+  .hero { padding-top: 80px; }
+  .overlay h1 { font-size: 1.6rem; }
+  .overlay p { font-size: 0.85rem; }
+}
+
+@media (max-width: 420px) {
+  .hero { padding-top: 76px; }
+  .overlay h1 { font-size: 1.35rem; }
+  .overlay p { font-size: 0.8rem; }
+  .cta-btn { font-size: 0.85rem; padding: 10px 22px; }
+}

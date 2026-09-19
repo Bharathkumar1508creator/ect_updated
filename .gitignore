@@ -1,0 +1,28 @@
+# Environment / secrets
+.env
+
+# Database dump (contains a real user's email + password hash)
+sqldump.sql
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+env/
+
+# Node (Tailwind build tooling)
+node_modules/
+
+# Django
+*.log
+staticfiles/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Claude Code local config
+.claude/

@@ -1,0 +1,379 @@
+/* ==========================================================================
+   EcoG Blog Styles - Brand Reset
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.ecog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    font-family: 'Inter', sans-serif;
+    color: #111827;
+    background: #ffffff;
+    line-height: 1.6;
+}
+
+/* Utilities */
+.text-green { color: #15803d; font-weight: 500; font-size: 0.85rem; }
+.text-gray { color: #6b7280; font-weight: 400; font-size: 0.85rem; }
+.ecog-btn {
+    display: inline-block;
+    background: #15803d;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.ecog-btn:hover { background: #166534; }
+
+/* ==========================================================================
+   Listing Page - Hero
+   ========================================================================== */
+.ecog-hero {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.ecog-hero-media {
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #e5e7eb;
+    margin-bottom: 20px;
+}
+.ecog-hero-media img, .ecog-hero-media video {
+    width: 100%; height: 100%; object-fit: cover;
+}
+.ecog-placeholder { width: 100%; height: 100%; background: #e5e7eb; }
+
+.ecog-hero-content {
+    padding: 0 10px;
+}
+.ecog-hero-meta {
+    margin-bottom: 10px;
+}
+.ecog-hero-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.ecog-hero-text h1 {
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    color: #111827;
+}
+.ecog-hero-text p {
+    font-size: 1.05rem;
+    color: #4b5563;
+    max-width: 800px;
+    margin: 0;
+}
+.ecog-hero-action {
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   Toolbar
+   ========================================================================== */
+.ecog-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.ecog-sort label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-right: 10px;
+}
+.ecog-sort select {
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    outline: none;
+    background: #fff;
+}
+.ecog-search form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 5px 10px;
+}
+.ecog-search input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 0.9rem;
+}
+.ecog-search button {
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* ==========================================================================
+   Blog Grid & Cards
+   ========================================================================== */
+.ecog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+.ecog-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.ecog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+.ecog-card-img {
+    height: 200px;
+    background: #e5e7eb;
+}
+.ecog-card-img img {
+    width: 100%; height: 100%; object-fit: cover;
+}
+.ecog-placeholder-small {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+}
+.ecog-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.ecog-card-meta {
+    margin-bottom: 10px;
+}
+.ecog-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+.ecog-card p {
+    margin: 0 0 20px 0;
+    font-size: 0.9rem;
+    color: #6b7280;
+    flex-grow: 1;
+}
+.ecog-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.8rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+.ecog-author, .ecog-readtime {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Pagination */
+.ecog-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 50px;
+}
+.ecog-pagination .page-link {
+    padding: 8px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    color: #111827;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.ecog-pagination .page-link.current, .ecog-pagination .page-link:hover {
+    background: #15803d;
+    color: #fff;
+    border-color: #15803d;
+}
+
+/* ==========================================================================
+   Detail Page
+   ========================================================================== */
+.ecog-detail-hero {
+    width: 100%;
+    height: 450px;
+    background: #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.ecog-detail-hero img, .ecog-detail-hero video {
+    width: 100%; height: 100%; object-fit: cover;
+}
+.ecog-placeholder-large { width: 100%; height: 100%; }
+
+.ecog-detail-header {
+    margin-bottom: 40px;
+}
+.ecog-detail-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+.ecog-meta-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.ecog-meta-left svg {
+    vertical-align: middle;
+    margin-bottom: 2px;
+}
+.ecog-share {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.share-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+.share-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: bold;
+    text-decoration: none;
+}
+.share-icon.fb { background: #3b5998; }
+.share-icon.tw { background: #1da1f2; }
+.share-icon.li { background: #0077b5; }
+.share-icon.pi { background: #bd081c; }
+
+.ecog-detail-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Article Content (Rich Text Reset) */
+.ecog-article-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #374151;
+    max-width: 1000px;
+    margin-bottom: 60px;
+}
+.ecog-article-content h1, .ecog-article-content h2, .ecog-article-content h3 {
+    color: #111827;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.ecog-article-content p {
+    margin-bottom: 20px;
+}
+.ecog-article-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+.ecog-article-content iframe, .ecog-article-content video {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* Nav Boxes */
+.ecog-prev-next {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+.ecog-nav-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+}
+.ecog-nav-box:hover { background: #f3f4f6; }
+.ecog-nav-box.empty { background: transparent; border: none; }
+.ecog-nav-box.right { text-align: right; justify-content: flex-end; }
+.nav-arrow { font-size: 1.5rem; color: #9ca3af; padding: 0 15px; }
+.nav-img { width: 60px; height: 60px; border-radius: 6px; overflow: hidden; background: #e5e7eb; flex-shrink: 0; }
+.nav-img img { width: 100%; height: 100%; object-fit: cover; }
+.nav-text { flex-grow: 1; padding: 0 15px; }
+.nav-label { display: block; font-size: 0.75rem; color: #6b7280; font-weight: 600; text-transform: uppercase; margin-bottom: 5px; }
+.nav-title { display: block; font-weight: 600; font-size: 1rem; color: #111827; }
+
+/* Related Blogs */
+.ecog-related {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 40px;
+    margin-bottom: 60px;
+}
+.ecog-related h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+/* Newsletter Box */
+.ecog-newsletter-box {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+.ecog-newsletter-box .nl-text h3 { margin: 0 0 10px 0; font-size: 1.5rem; }
+.ecog-newsletter-box .nl-text p { margin: 0; color: #6b7280; }
+.ecog-newsletter-box .nl-form form { display: flex; gap: 10px; }
+.ecog-newsletter-box .nl-form input {
+    padding: 12px 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    width: 250px;
+    outline: none;
+}
+.ecog-newsletter-box .nl-form input:focus { border-color: #15803d; }
+
+@media (max-width: 992px) {
+    .ecog-grid { grid-template-columns: repeat(2, 1fr); }
+    .ecog-hero-flex { flex-direction: column; }
+    .ecog-newsletter-box { flex-direction: column; text-align: center; gap: 20px; }
+}
+@media (max-width: 640px) {
+    .ecog-grid { grid-template-columns: 1fr; }
+    .ecog-prev-next { flex-direction: column; }
+    .ecog-toolbar { flex-direction: column; align-items: flex-start; gap: 15px; }
+}

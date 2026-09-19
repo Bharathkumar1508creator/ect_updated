@@ -1,0 +1,10 @@
+<section class="related-projects py-5">
+    <div class="container">
+        <h3 class="text-center mb-5">Related Projects</h3>
+        <div class="project-grid">
+            {% for rel_project in related_projects %}
+                {% include 'projects/components/project_card.html' with project=rel_project %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

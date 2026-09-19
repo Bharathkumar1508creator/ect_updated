@@ -1,0 +1,586 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'components/google_tag.html' %}
+  {% include 'components/favicon.html' %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Result-Driven Digital Marketing Services for More Leads</title>
+  <meta name="description" content="Attract qualified customers with result-driven digital marketing. Boost visibility through SEO, social media, content, and targeted advertising campaigns.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=42">
+  <link rel="stylesheet" href="{% static 'css/digital.css' %}?v=figma-v19">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+</head>
+<body class="digital-page">
+
+{% include 'components/navbar.html' %}
+
+  <!-- ================= MOBILE PANEL ================= -->
+  
+
+
+
+  <section class="hero">
+    <h1 class="hero__title">
+      Grow Your Business with<br class="hero__break">Results-Driven Digital Marketing
+    </h1>
+    <p class="hero__subtitle">Grow your brand and generate quality leads.</p>
+    <a href="#digital-services" class="hero__cta" data-smooth-scroll>Explore Services</a>
+
+    <div class="hero__image-wrap">
+      <video
+        class="hero__image"
+        src="{% static 'video/demo.mp4' %}"
+        autoplay loop muted playsinline>
+      </video>
+    </div>
+  </section>
+
+
+
+
+<!-- our soluction -->
+
+
+    <section class="ect-web-solutions" id="digital-services" aria-labelledby="ect-web-solutions-title">
+      <div class="ect-web-solutions__header">
+        <p class="ect-web-solutions__eyebrow">ECT Digital Marketing Services</p>
+
+        <h2 class="ect-web-solutions__heading" id="ect-web-solutions-title">
+          Marketing Solutions for Long-Term Growth
+        </h2>
+
+        <!-- <div class="ect-web-solutions__controls" aria-label="Web solution controls"> -->
+        <div class="ect-web-solutions__controls" aria-label="Digital marketing service controls">
+          <button
+            type="button"
+            class="ect-web-solutions__arrow ect-web-solutions__arrow--prev"
+            aria-label="Show previous web solution"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15 5L8 12L15 19" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            class="ect-web-solutions__arrow ect-web-solutions__arrow--next"
+            aria-label="Show next web solution"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 5L16 12L9 19" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="ect-web-solutions__component">
+        <!-- <div class="ect-web-solutions__tabs" role="tablist" aria-label="Website solution types"> -->
+          <div class="ect-web-solutions__tabs" role="tablist" aria-label="Digital marketing service types">
+          <button
+            type="button"
+            class="ect-web-solutions__tab is-active"
+            id="ect-web-solutions-tab-0"
+            role="tab"
+            aria-selected="true"
+            aria-controls="ect-web-solutions-panel"
+            tabindex="0"
+            data-slide-index="0"
+          >
+            <span class="ect-web-solutions__tab-label">Search Engine<br>Optimization</span>
+          </button>
+
+          <button
+            type="button"
+            class="ect-web-solutions__tab"
+            id="ect-web-solutions-tab-1"
+            role="tab"
+            aria-selected="false"
+            aria-controls="ect-web-solutions-panel"
+            tabindex="-1"
+            data-slide-index="1"
+          >
+            <span class="ect-web-solutions__tab-label">Social Media<br>Management</span>
+          </button>
+
+          <button
+            type="button"
+            class="ect-web-solutions__tab"
+            id="ect-web-solutions-tab-2"
+            role="tab"
+            aria-selected="false"
+            aria-controls="ect-web-solutions-panel"
+            tabindex="-1"
+            data-slide-index="2"
+          >
+            <span class="ect-web-solutions__tab-label">Performance<br>Marketing</span>
+          </button>
+
+          <button
+            type="button"
+            class="ect-web-solutions__tab"
+            id="ect-web-solutions-tab-3"
+            role="tab"
+            aria-selected="false"
+            aria-controls="ect-web-solutions-panel"
+            tabindex="-1"
+            data-slide-index="3"
+          >
+            <span class="ect-web-solutions__tab-label">Content Strategy<br>&amp; Creation</span>
+          </button>
+
+          <button
+            type="button"
+            class="ect-web-solutions__tab"
+            id="ect-web-solutions-tab-4"
+            role="tab"
+            aria-selected="false"
+            aria-controls="ect-web-solutions-panel"
+            tabindex="-1"
+            data-slide-index="4"
+          >
+            <span class="ect-web-solutions__tab-label">Creative Design &amp;<br>Video Production</span>
+          </button>
+        </div>
+
+        <div
+          class="ect-web-solutions__panel"
+          id="ect-web-solutions-panel"
+          role="tabpanel"
+          aria-labelledby="ect-web-solutions-tab-0"
+          aria-live="polite"
+        >
+          <div class="ect-web-solutions__media">
+            <img
+              src="{% static 'img/Search Engine Optimization.png' %}"
+              alt="Search engine optimization marketing dashboard mockup displayed on a laptop"
+              class="ect-web-solutions__image"
+              width="874"
+              height="502"
+              decoding="async"
+              data-fallback="assets/images/website-development/rectangle-335.png"
+            >
+          </div>
+
+          <h3 class="ect-web-solutions__content-title">BRAND VISIBILITY &amp; SEO</h3>
+          <p class="ect-web-solutions__description">
+            Improve your website's visibility through technical SEO, keyword strategy, on-page optimization, local SEO, and continuous performance improvements that drive long-term organic traffic.
+          </p>
+          <p class="ect-web-solutions__perfect-label">Perfect For:</p>
+          <p class="ect-web-solutions__audience">Local Businesses - SMEs - E-commerce - Corporate Companies - Healthcare - Service Providers</p>
+          <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Improve Rankings</a>
+        </div>
+      </div>
+    </section>
+
+
+
+<!-- web-solutions-section -->
+
+
+    <section class="web-solutions-section">
+
+  <div class="eyebrow">Our Process</div>
+  <div class="header">
+    <h2>A Structured Process<br>That Delivers Measurable Growth</h2>
+    <p>Our proven digital marketing process combines strategy, execution, and optimization to drive sustainable business growth.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- Step 01 -->
+    <div class="cell">
+      <div class="icon">
+        <img src="{% static 'img/zoom.png' %}" alt="zoom">
+      </div>
+      <div class="step">Step 01</div>
+      <h3>Discovery &amp; Strategy</h3>
+      <p>Understand your business, audience, goals, and market to define the right marketing strategy.</p>
+    </div>
+
+    <!-- Step 02 -->
+    <div class="cell">
+      <div class="icon">
+        <img src="{% static 'img/ourdigi2.png' %}" alt="Step 02">
+      </div>
+      <div class="step">Step 02</div>
+      <h3>Marketing Planning</h3>
+      <p>Create a monthly marketing plan with content, SEO, advertising, and campaign objectives.</p>
+    </div>
+
+    <!-- Step 03 -->
+    <div class="cell">
+      <div class="icon">
+        <img src="{% static 'img/ourdigi3.png' %}" alt="Step 03">
+      </div>
+      <div class="step">Step 03</div>
+      <h3>Content &amp; Creative</h3>
+      <p>Develop marketing content, creatives, videos, and digital assets for every campaign.</p>
+    </div>
+
+    <!-- Step 04 -->
+    <div class="cell">
+      <div class="icon">
+        <img src="{% static 'img/ourdigi4.png' %}" alt="Step 04">
+      </div>
+      <div class="step">Step 04</div>
+      <h3>Campaign Execution</h3>
+      <p>Execute SEO, social media, and paid advertising campaigns to generate quality leads.</p>
+    </div>
+
+    <!-- Step 05 -->
+    <div class="cell">
+      <div class="icon">
+        <img src="{% static 'img/ourdigi5.png' %}" alt="Step 05">
+      </div>
+      <div class="step">Step 05</div>
+      <h3>Monitor &amp; Report</h3>
+      <p>Track campaign performance, optimize results, and provide monthly performance reports.</p>
+    </div>
+
+    <!-- Step 06 -->
+    <div class="cell">
+      <div class="icon">
+        <img src="{% static 'img/ourdigi6.png' %}" alt="Step 06">
+      </div>
+      <div class="step">Step 06</div>
+      <h3>Optimize &amp; Grow</h3>
+      <p>Continuously improve strategies, scale successful campaigns, and drive long-term business growth.</p>
+    </div>
+
+  </div>
+
+  <!-- Tablet/mobile only: same intro sentence, repositioned below the
+       last step card instead of beside the heading (see .approach-closing
+       in digital.css). Hidden on desktop, which keeps the original
+       paragraph beside the heading. -->
+  <p class="approach-closing">Our proven digital marketing process combines strategy, execution, and optimization to drive sustainable business growth.</p>
+
+</section>
+
+
+
+
+<section class="work">
+    <div class="work__inner">
+      <div class="work__head">
+        <div>
+          <p class="work__label">ECT Work</p>
+          <h2 class="work__title">Turning Ideas<br>into Business Success</h2>
+        </div>
+        <div class="work__nav">
+          <button class="nav-btn" aria-label="Previous project"><svg viewBox="0 0 24 24">
+              <path d="M19 12H5M11 6l-6 6 6 6" />
+            </svg></button>
+          <button class="nav-btn" aria-label="Next project"><svg viewBox="0 0 24 24">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="work__grid">
+
+        <!-- Replace the .ph span with:
+           <img class="card__img" src="YOUR-SCREENSHOT.png" alt="Project preview"> -->
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              <img class="card__img" src="{% static 'img/ecog.png' %}" alt="Project preview">
+              <div class="card__overlay">
+                <p><b>Excel Packs</b> <span>- Landing page</span></p>
+              </div>
+            </div>
+
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta">     <a href="{% url 'under' %}"><button class="btn-view">View Projects</button></a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              <img class="card__img" src="{% static 'img/excel pack.png' %}" alt="Project preview">
+              <div class="card__overlay">
+                <p><b>Robot Pack</b> <span>- Corporate site</span></p>
+              </div>
+            </div>
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta"><a href="{% url 'under' %}"><button class="btn-view">View Projects</button></a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              <img class="card__img" src="{% static 'img/nextwood.png' %}" alt="Project preview">
+              <div class="card__overlay">
+                <p><b>Interior Spaces</b> <span>- Product showcase</span></p>
+              </div>
+            </div>
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta"><a href="{% url 'under' %}"><button class="btn-view">View Projects</button></a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              <span class="ph"><img class="card__img" src="{% static 'img/social media cratives brand name Dtdc.jpg.jpeg' %}" alt="Project preview"></span>
+              <div class="card__overlay">
+                <p><b>Dtdc</b> <span>-social media cratives</span></p>
+              </div>
+            </div>
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta"><a href="{% url 'under' %}"><button class="btn-view">View Projects</button></a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              <span class="ph"><img class="card__img" src="{% static 'img/social media cratives brand name shana.jpg.jpeg' %}" alt="Project preview"></span>
+              <div class="card__overlay">
+                <p><b>shana</b> <span>-social media cratives</span></p>
+              </div>
+            </div>
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta"><a href="{% url 'under' %}"><button class="btn-view">View Projects</button></a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              <span class="ph"><img class="card__img" src="{% static 'img/social media cratives brand name kamalam.jpg.jpeg' %}" alt="Project preview"></span>
+              <div class="card__overlay">
+                <p><b>kamalam</b> <span>-social media cratives</span></p>
+              </div>
+            </div>
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta"><a href="{% url 'under' %}"><button class="btn-view">View Projects</button></a></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+<!-- ===== TRUSTED BY SECTION (duplicated from website.html) ===== -->
+<section class="tb-section">
+
+  <!-- TOP ROW: heading + tagline -->
+  <div class="tb-top">
+    <div>
+      <p class="tb-eyebrow">Technologies We Use</p>
+      <h2 class="tb-heading">Modern Technologies.<br>Powerful Digital Solutions.</h2>
+    </div>
+    <p class="tb-tagline tb-tagline--top">
+      Modern technologies powering secure, scalable, and high-performance websites for growing businesses.
+    </p>
+  </div>
+
+  <!-- ROW 1 � infinite loop scroll -->
+  <div class="tb-track-wrapper" id="tb-row1">
+    <div class="tb-track">
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/meta.png' %}" alt="Shana Properties and Builders" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/after_effects.png' %}" alt="Shreem Dairy" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/canva.png' %}" alt="DTDC" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/figma.png' %}" alt="Swasthik Building Solutions" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/google_ads.png' %}" alt="ECOG Core Technologies" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/illustrator.png' %}" alt="Amirtham Constructions" loading="lazy"></div>
+     <div class="tb-item"><img class="tb-img" src="{% static 'img/photoshop.png' %}" alt="Amirtham Constructions" loading="lazy"></div>
+     <div class="tb-item"><img class="tb-img" src="{% static 'img/premiere.png' %}" alt="Amirtham Constructions" loading="lazy"></div>
+
+    </div>
+  </div>
+
+  <p class="tb-tagline tb-tagline--bottom">
+    Discover how our digital marketing solutions help grow your brand, generate leads, and deliver measurable results.
+  </p>
+
+  <!-- ROW 2 � infinite loop scroll (opposite direction) -->
+  <!-- <div class="tb-track-wrapper" id="tb-row2">
+    <div class="tb-track">
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/logo7.jpeg' %}" alt="Abhiro Water Purifier" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/logo8.jpeg' %}" alt="ECOG Products" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/logo9.jpeg' %}" alt="Prakash Centering and Scaffolding" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/logo10.jpeg' %}" alt="Water Zone" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/logo11.jpeg' %}" alt="Excel Packs" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/logo12.jpeg' %}" alt="Kamalam" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/logo13.jpeg' %}" alt="Kannan Sweets" loading="lazy"></div>
+    </div>
+  </div> -->
+
+</section>
+
+<section class="faq-section" aria-labelledby="faq-heading">
+  <div class="faq-head">
+    <div>
+      <span class="faq-eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+      <h2 class="faq-title" id="faq-heading">Everything You Need to Know<br>About Digital Marketing</h2>
+    </div>
+    <p class="faq-sub">Discover how our digital marketing solutions help grow<br>your brand, generate leads, and deliver measurable results.</p>
+  </div>
+
+  <div class="faq-grid" id="faqGrid">
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        What digital marketing services do you provide?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>We provide SEO, social media management, performance marketing, content creation, creative design, video production, and complete digital marketing strategy.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Can you create a marketing strategy for my business?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. We develop customized digital marketing strategies based on your business goals, industry, target audience, and growth objectives.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Which social media platforms do you manage?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>We manage Facebook, Instagram, LinkedIn, YouTube, and other platforms based on your business requirements and target audience.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Do you provide Google Ads and Meta Ads services?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. We plan, launch, manage, and optimize Google Ads and Meta Ads campaigns to generate qualified leads, increase website traffic, and improve conversions.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Do you offer Search Engine Optimization (SEO)?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. Our SEO services include keyword research, on-page optimization, technical SEO, local SEO, content optimization, and continuous performance improvements.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Can you create marketing content for our business?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. We create posters, social media creatives, blogs, videos, reels, promotional content, and branded marketing materials tailored to your business.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        How do you measure campaign performance?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>We monitor website traffic, lead generation, engagement, conversions, advertising performance, and return on investment using detailed analytics and monthly reports.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Do you provide monthly reports and strategy reviews?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. We provide comprehensive monthly performance reports and conduct review meetings to discuss results, insights, and future marketing strategies.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        How long does it take to see results from digital marketing?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>The timeline depends on the marketing channels and business goals. Paid campaigns can generate quicker results, while SEO and organic marketing deliver sustainable long-term growth.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Why choose ECT for Digital Marketing?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>ECT combines strategy, creativity, and data-driven marketing to help businesses increase brand visibility, generate qualified leads, and achieve measurable business growth through customized digital marketing solutions.</p></div></div>
+    </div>
+
+  </div>
+
+  <p class="faq-extra-tagline">
+    Discover how our digital marketing solutions help grow your brand, generate leads, and deliver measurable results.
+  </p>
+</section>
+
+  {% include 'footer.html' %}
+  {% include 'components/contact_popup.html' %}
+  <script src="{% static 'js/digital.js' %}?v=final-20260810"></script>
+  <script src="{% static 'js/base.js' %}?v=33"></script>
+  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+{% include 'components/zoho_salesiq.html' %}
+
+<!-- ================= UNIFORM 100PX SECTION GAPS (digital page only) =================
+     Scoped to this template only — digital.css itself is untouched, so
+     nothing here affects any other page. -->
+<style>
+  .digital-page .hero { padding-bottom: 50px; }
+  .work { padding-top: 50px; }
+  .faq-section { margin-top: 0; padding-top: 50px; }
+</style>
+
+<!-- Mobile/tablet only: reduce the FAQ section's gap further than the
+     uniform 50px above. Desktop keeps the rule above untouched. -->
+<style>
+  @media (max-width: 900px) {
+    .digital-page .hero { padding-bottom: 24px !important; }
+    .work { padding-top: 24px !important; }
+    .faq-section { padding-top: 28px !important; padding-bottom: 32px !important; }
+  }
+</style>
+</body>
+</html>

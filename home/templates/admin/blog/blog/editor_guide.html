@@ -1,0 +1,84 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}ECT Blog Admin Guide{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+  .blog-guide { max-width: 1080px; }
+  .blog-guide h1 { margin-bottom: 8px; }
+  .blog-guide h2 { margin-top: 32px; }
+  .blog-guide table { width: 100%; border-collapse: collapse; background: var(--body-bg); }
+  .blog-guide th, .blog-guide td { padding: 10px 12px; border: 1px solid var(--hairline-color); text-align: left; vertical-align: top; }
+  .blog-guide th { background: var(--darkened-bg); }
+  .blog-guide code { word-break: break-word; }
+  .blog-guide .notice { padding: 14px; border-left: 4px solid #2d6b47; background: var(--darkened-bg); }
+</style>
+{% endblock %}
+
+{% block content %}
+<main class="blog-guide">
+  <h1>ECT Blog Admin Guide</h1>
+  <p>This map explains where every article value appears and which values are generated automatically.</p>
+  <p><a class="button" href="{{ blog_add_url }}">Add a new blog</a></p>
+
+  <h2>Recommended publishing workflow</h2>
+  <ol>
+    <li>Create a draft and add the title, category and article content.</li>
+    <li>Use one H2 for every main section. The public table of contents is generated from H2 headings.</li>
+    <li>Select existing tags with search. Create a missing tag using the add button.</li>
+    <li>Add a hero image and descriptive alternative text.</li>
+    <li>Review the live SEO checklist and run “Check article links”.</li>
+    <li>Open Preview article, check desktop/tablet/mobile, then move through review and publish.</li>
+  </ol>
+
+  <h2>Article fields</h2>
+  <table>
+    <thead><tr><th>Field</th><th>Purpose</th><th>Automation</th></tr></thead>
+    <tbody>
+      <tr><td>Title</td><td>The public H1, listing-card title and main article name.</td><td>Used to suggest the slug, SEO title and social title.</td></tr>
+      <tr><td>Slug</td><td>The URL after <code>/blog/</code>.</td><td>Generated from the title; old slugs redirect after a change.</td></tr>
+      <tr><td>Category</td><td>Main topic used by blog-page filters.</td><td>Only categories containing visible blogs appear publicly.</td></tr>
+      <tr><td>Tags</td><td>Supporting topics. Search and select existing tags; create a tag only when required.</td><td>Tag slugs are generated automatically.</td></tr>
+      <tr><td>Related blogs</td><td>Manual related-article choices.</td><td>Any empty slots are filled from the same category and then other published blogs.</td></tr>
+      <tr><td>Hero description</td><td>Listing excerpt and introduction below the article H1.</td><td>Used as the first meta-description suggestion.</td></tr>
+      <tr><td>Article content</td><td>Paragraphs, H2–H6, lists, links, images, tables, quotations and code.</td><td>Sanitized, internal URLs normalized, H2 IDs/TOC, image dimensions and reading time generated.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Images and media</h2>
+  <table>
+    <thead><tr><th>Item</th><th>Public use</th><th>Storage</th></tr></thead>
+    <tbody>
+      <tr><td>Hero image</td><td>Blog hero, listing card and default social preview.</td><td><code>media/blog/hero/</code>; admin uploads are converted to WebP.</td></tr>
+      <tr><td>Editor image</td><td>Image placed inside article content.</td><td><code>{{ image_location }}</code>; optimized WebP, maximum 1920 px.</td></tr>
+      <tr><td>Image library</td><td>Choose a previously uploaded/reusable blog image from the editor image dialog.</td><td>Scans supported images under <code>media/blog/</code>.</td></tr>
+      <tr><td>Alternative text</td><td>Describes the image for accessibility and search engines.</td><td>Required for public article content.</td></tr>
+      <tr><td>Fallback image</td><td>Shown if a hero/related/article image is missing or fails to load.</td><td>Configured with <code>BLOG_FALLBACK_IMAGE</code>.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Author and trust</h2>
+  <p>Ragupathi Namachivayam is automatically supplied as the default author with designation, biography, photo and profile URL. Every field remains editable for an individual article. “Reviewed by” and “Last reviewed at” add editorial trust information.</p>
+
+  <h2>SEO and social fields</h2>
+  <table>
+    <thead><tr><th>Field</th><th>How to use it</th></tr></thead>
+    <tbody>
+      <tr><td>Primary keyword</td><td>Main search topic. Include it naturally in the title, description and content.</td></tr>
+      <tr><td>Secondary keywords</td><td>Comma-separated supporting topics; do not force every phrase into the article.</td></tr>
+      <tr><td>Search intent</td><td>Choose informational, commercial, transactional or navigational.</td></tr>
+      <tr><td>Meta title/description</td><td>Generated when empty and always editable. Keep the title near 60 characters and description near 160.</td></tr>
+      <tr><td>Canonical URL</td><td>Generated from the production domain and slug; edit only for intentional duplicate-content handling.</td></tr>
+      <tr><td>Open Graph/Twitter</td><td>Generated from SEO fields when empty; customize for social sharing if needed.</td></tr>
+      <tr><td>Robots and sitemap</td><td>Control indexing, link following, sitemap inclusion and priority.</td></tr>
+      <tr><td>Schema</td><td>BlogPosting, Person/Organization and breadcrumb schema are generated on the public page.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Publishing and maintenance</h2>
+  <p>Status controls the workflow: Draft → SEO Review → Content Review → Approved → Published, with Scheduled for future publishing. Reading time is automatic unless “Auto reading time” is turned off; updated date is automatic. Views are informational. Comments require approval before they appear publicly. Revisions preserve saved article states and can be restored.</p>
+
+  <p class="notice"><strong>Important:</strong> Images are files in <code>media/</code>, while their references and article text are saved in the database. Back up both the database and media directory before deployment or migration.</p>
+</main>
+{% endblock %}

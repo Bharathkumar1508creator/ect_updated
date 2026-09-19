@@ -1,0 +1,286 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'components/google_tag.html' %}
+  {% include 'components/favicon.html' %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECOG Core Technologies | Contact IT Experts in Coimbatore</title>
+  <meta name="description" content="Ready to transform your business? Contact ECOG Core Technologies for powerful software, automation, Zoho, digital marketing and IT solutions in Coimbatore.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+  <!-- External Libraries -->
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{% static 'css/contact.css' %}?v=11">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+  <style>
+    body, html, .hero, .contact-section, .ect-map-hero, .faq-section {
+      background-color: #ffffff !important;
+    }
+    .faq-section::before {
+      display: none !important;
+    }
+    h1, h2,
+    .hero__title, .section-title, .faq-title, .tb-heading, .contact-card-form h2, .ect-map-title {
+      font-family: 'Montserrat' !important;
+      font-weight: 600 !important;
+      font-size: 31.25px !important;
+      line-height: 125% !important;
+      color: #000000 !important;
+    }
+    h1 span, h2 span, .hero__title span, .section-title span, .faq-title span, .tb-heading span, .contact-card-form h2 span, .ect-map-title span {
+      color: #000000 !important;
+    }
+    .eyebrow, .zoho-implementation__eyebrow, .ect-eyebrow, .tech-eyebrow, .faq-eyebrow, .ect-web-solutions__eyebrow, .ect-products__eyebrow {
+      font-family: 'Montserrat' !important;
+      font-weight: 400 !important;
+      font-size: 16px !important;
+      color: #000000 !important;
+      text-transform: none !important;
+      letter-spacing: normal !important;
+    }
+    .eyebrow::before, .zoho-implementation__eyebrow::before, .ect-eyebrow::before, .tech-eyebrow::before, .faq-eyebrow::before, .ect-web-solutions__eyebrow::before, .ect-products__eyebrow::before {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+{% include 'components/navbar.html' %}
+
+  <!-- ================= MOBILE PANEL ================= -->
+  
+
+  
+
+  <section class="ect-map-hero">
+    <div id="ectMap"></div>
+
+    <div class="ect-map-heading">
+      <div class="ect-map-eyebrow">Welcome to ECT</div>
+      <h2 class="ect-map-title">Empowering Businesses Through Technology &amp; Innovation</h2>
+    </div>
+
+    <div class="ect-map-marker">
+      <div class="ect-map-pin" id="ectMapPin">
+        <img
+          src="{% static 'img/circleicon.png' %}"
+          alt="ECT Logo"
+        />
+      </div>
+
+      <div class="ect-map-card" id="ectMapCard">
+        <div class="ect-map-card-photo-wrap">
+          <img
+            class="ect-map-card-photo"
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&h=200&fit=crop"
+            alt="ECT Office"
+            onerror="this.onerror=null;this.style.background='linear-gradient(135deg,#123b0a,#2f6b1e)';this.removeAttribute('src');"
+          />
+        </div>
+        <div class="ect-map-card-info">
+          <div class="ect-map-card-row">
+            <div class="ect-map-card-label">Company</div>
+            <div class="ect-map-card-value">ECT Core Technologies</div>
+          </div>
+          <div class="ect-map-card-row">
+            <div class="ect-map-card-label">Phone</div>
+            <div class="ect-map-card-value">+91 74483 59998</div>
+          </div>
+          <div class="ect-map-card-row">
+            <div class="ect-map-card-label">Email</div>
+            <div class="ect-map-card-value">ecogcoretechnologies@gmail.com</div>
+          </div>
+          <div class="ect-map-card-row">
+            <div class="ect-map-card-label">Address</div>
+            <div class="ect-map-card-value">Karattu Medu, Murugan Temple Ezhil nagar, Sathy Rd, Coimbatore, Tamil Nadu 641035</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+<!-- get in touch -->
+
+<section class="contact-section">
+    <div class="contact-card-wrapper">
+        <div class="contact-card-image">
+            <!-- Add the actual green Enter key image source here -->
+            <img src="{% static 'img/getintouch.png' %}" alt="Keyboard Enter">
+        </div>
+        
+        <div class="contact-card-form">
+            <h2>Get in <span>Touch</span></h2>
+            <p>Share your business challenges, project requirements, or technology goals. Our team will understand your needs and recommend the right solution.</p>
+            
+            {% include 'components/bigin_contact_form.html' %}
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  
+<!-- FAQ Section -->
+<section class="faq-section" aria-labelledby="faq-heading">
+  <div class="faq-head">
+    <div>
+      <span class="faq-eyebrow">Frequently asked questions</span>
+      <h2 class="faq-title" id="faq-heading">Modern Technologies.<br><span>Powerful Digital Solutions.</span></h2>
+    </div>
+    <p class="faq-sub faq-sub--top">Get answers about our website development process, pricing, timelines, and post-launch support.</p>
+  </div>
+
+  <div class="faq-grid" id="faqGrid">
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        How can I contact EcoG Core Technologies?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>You can contact us by phone, email, or by filling out the contact form on our website. Our team will respond as soon as possible.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Do you offer a free consultation?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. We provide an initial consultation to understand your business requirements and recommend the most suitable solutions.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        How quickly will I receive a response?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>We aim to respond to all inquiries within one business day.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Can I schedule a meeting with your team?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. You can schedule an online or in-person meeting based on your project requirements and availability.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Do you work with businesses outside Coimbatore?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. We work with clients across India and internationally through both remote and onsite engagements.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        What information should I provide when contacting you?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Share your business details, project requirements, goals, and any specific challenges so we can better understand your needs.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Can I request a custom quote for my project?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. We prepare customized proposals and quotations based on your business requirements and project scope.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Do you provide post-project support?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. We offer ongoing maintenance, technical support, consulting, and optimization services after project completion.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Which industries do you work with?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>We work with startups, SMEs, enterprises, manufacturers, retailers, healthcare providers, educational institutions, and service-based businesses.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        Why should I choose EcoG Core Technologies?
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>We combine business consulting, modern technology, and long-term support to deliver practical, scalable, and results-driven solutions tailored to your business goals.</p></div></div>
+    </div>
+
+  </div>
+
+  <p class="faq-sub faq-sub--bottom">Get answers about our website development process, pricing, timelines, and post-launch support.</p>
+</section>
+
+<!-- FAQ END -->
+
+
+
+
+  <!-- External MapLibre JS -->
+  <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js" crossorigin="anonymous"></script>
+  
+  <!-- Custom Script -->
+  <script src="{% static 'js/contact.js' %}?v=2"></script>
+  
+{% include 'footer.html' %}
+
+
+<script src="{% static 'js/base.js' %}?v=33"></script>
+{# The floating "get in touch" popup is intentionally omitted on this page: it would #}
+{# render a second copy of the Bigin form below with the same hardcoded Zoho form IDs #}
+{# as the inline form above, which breaks Zoho's submission script for one of them. #}
+{# The navbar's "Book a Consultation" button still targets that popup, so on this page #}
+{# alone it scrolls to the form that's already inline instead of opening it. #}
+<script>
+document.querySelectorAll('[data-contact-trigger]').forEach(function (trigger) {
+    trigger.addEventListener('click', function (event) {
+        event.preventDefault();
+        document.querySelector('.contact-section').scrollIntoView({ behavior: 'smooth' });
+    });
+});
+</script>
+{% include 'components/zoho_salesiq.html' %}
+
+<!-- ================= UNIFORM 100PX SECTION GAPS (contact page only) =================
+     Scoped to this template only — contact.css itself is untouched, so
+     nothing here affects any other page. The fixed-height map hero is left
+     alone; only the sections after it are adjusted to close each gap to 100px. -->
+<style>
+  .contact-section { padding-top: 100px; padding-bottom: 50px; }
+  .faq-section { margin-top: 0; padding-top: 50px; }
+</style>
+
+<!-- Mobile/tablet only: reduce the FAQ section's gap further than the
+     uniform 50px above. Desktop keeps the rule above untouched. -->
+<style>
+  @media (max-width: 900px) {
+    .contact-section { padding-top: 24px !important; padding-bottom: 24px !important; }
+    .faq-section { padding-top: 28px !important; padding-bottom: 32px !important; }
+  }
+</style>
+</body>
+</html>

@@ -1,0 +1,229 @@
+from datetime import timedelta
+import io
+import tempfile
+
+from django.contrib.auth import get_user_model
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.test import TestCase, override_settings
+from django.urls import reverse
+from django.utils import timezone
+
+from newsletter.models import Subscriber
+
+from .models import Blog, BlogCategory, BlogSlugRedirect, BlogTag, NewsletterSubscriber
+from .utils import normalize_article_url, prepare_article_html
+
+
+class ArticleHtmlTests(TestCase):
+    def test_sanitizes_scripts_adds_unique_toc_ids_and_secures_external_links(self):
+        result = prepare_article_html(
+            '<script>alert(1)</script><h2>SEO Guide</h2><h2>SEO Guide</h2>'
+            '<a href="https://example.com" target="_blank">Source</a>'
+        )
+        self.assertNotIn("script", result)
+        self.assertIn('id="seo-guide"', result)
+        self.assertIn('id="seo-guide-2"', result)
+        self.assertIn('rel="noopener noreferrer"', result)
+
+    @override_settings(SITE_URL="https://ecogcoretechnologies.com")
+    def test_normalizes_supported_internal_link_formats(self):
+        self.assertEqual(normalize_article_url("blog/what-is-seo/"), "/blog/what-is-seo/")
+        self.assertEqual(normalize_article_url("127.0.0.1:8000/website/"), "/website/")
+        self.assertEqual(
+            normalize_article_url("https://ecogcoretechnologies.com/software/"),
+            "/software/",
+        )
+        self.assertEqual(normalize_article_url("javascript:alert(1)"), "")
+
+
+class BlogSeoTests(TestCase):
+    def setUp(self):
+        # "Website" already exists once migration 0008 seeds the required
+        # article's category on a fresh database, so reuse it instead of
+        # assuming an empty BlogCategory table.
+        self.category, _ = BlogCategory.objects.get_or_create(name="Website")
+
+    def make_blog(self, **overrides):
+        values = {
+            "title": "SEO Friendly Website Guide",
+            "category": self.category,
+            "hero_description": "A useful guide to SEO friendly websites.",
+            "article_content": '<p>Introduction.</p><h2>Technical SEO</h2><p><a href="/website/">Website service</a></p>',
+            "primary_keyword": "SEO Friendly Website",
+            "status": Blog.Status.PUBLISHED,
+        }
+        values.update(overrides)
+        return Blog.objects.create(**values)
+
+    def test_model_prepares_content_and_calculates_metadata(self):
+        blog = self.make_blog()
+        self.assertIn('id="technical-seo"', blog.article_content)
+        self.assertEqual(blog.meta_title, blog.title)
+        self.assertGreaterEqual(blog.reading_time, 1)
+        self.assertTrue(blog.toc_items)
+
+    @override_settings(
+        SITE_URL="https://ecogcoretechnologies.com",
+        BLOG_DEFAULT_AUTHOR_NAME="Ragupathi Namachivayam",
+        BLOG_DEFAULT_AUTHOR_DESIGNATION="Founder & Managing Director, ECOG Groups",
+        BLOG_DEFAULT_AUTHOR_PROFILE_URL="https://www.ragupathinamachivayam.com/",
+        BLOG_DEFAULT_AUTHOR_PHOTO="blog/authors/ragupathi-namachivayam.png",
+        BLOG_DEFAULT_AUTHOR_BIO="Biography",
+    )
+    def test_automatic_author_canonical_and_social_metadata_remain_editable(self):
+        blog = self.make_blog(author="", canonical_url="", open_graph_title="", twitter_title="")
+        self.assertEqual(blog.author, "Ragupathi Namachivayam")
+        self.assertEqual(blog.author_designation, "Founder & Managing Director, ECOG Groups")
+        self.assertEqual(blog.canonical_url, f"https://ecogcoretechnologies.com{blog.get_absolute_url()}")
+        self.assertEqual(blog.open_graph_title, blog.meta_title)
+        self.assertEqual(blog.twitter_title, blog.open_graph_title)
+
+    def test_detail_outputs_meta_schema_and_server_rendered_toc(self):
+        blog = self.make_blog()
+        response = self.client.get(blog.get_absolute_url())
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, '<link rel="canonical"', html=False)
+        self.assertContains(response, 'application/ld+json')
+        self.assertContains(response, 'href="#technical-seo"', html=False)
+        self.assertContains(response, "SEO Friendly Website Guide")
+
+    def test_scheduled_publication_visibility(self):
+        future = self.make_blog(
+            title="Future Post",
+            slug="future-post",
+            status=Blog.Status.SCHEDULED,
+            publish_date=timezone.now() + timedelta(days=1),
+        )
+        self.assertFalse(Blog.objects.publicly_visible().filter(pk=future.pk).exists())
+        past = self.make_blog(
+            title="Ready Scheduled Post",
+            slug="ready-scheduled-post",
+            status=Blog.Status.SCHEDULED,
+            publish_date=timezone.now() - timedelta(minutes=1),
+        )
+        self.assertTrue(Blog.objects.publicly_visible().filter(pk=past.pk).exists())
+
+    def test_old_slug_redirects_permanently(self):
+        blog = self.make_blog(slug="new-address")
+        BlogSlugRedirect.objects.create(blog=blog, old_slug="old-address")
+        response = self.client.get("/blog/old-address/")
+        self.assertEqual(response.status_code, 301)
+        self.assertEqual(response.url, blog.get_absolute_url())
+
+    def test_sitemap_excludes_noindex_articles(self):
+        included = self.make_blog(slug="included")
+        self.make_blog(title="Hidden", slug="hidden", robots_index=False)
+        response = self.client.get("/sitemap.xml")
+        self.assertContains(response, included.get_absolute_url())
+        self.assertNotContains(response, "/blog/hidden/")
+
+    def test_listing_hides_categories_without_visible_articles(self):
+        blog = self.make_blog()
+        empty = BlogCategory.objects.create(name="Empty Category")
+        response = self.client.get(reverse("blog:blog_list"))
+        self.assertContains(response, blog.category.name)
+        self.assertNotContains(response, empty.name)
+
+    def test_related_articles_use_fallback_image(self):
+        blog = self.make_blog()
+        related = self.make_blog(title="Related without media", slug="related-without-media")
+        blog.related_blogs.add(related)
+        response = self.client.get(blog.get_absolute_url())
+        self.assertContains(response, "Related without media")
+        self.assertContains(response, "data-fallback-src")
+
+    def test_rss_feed_contains_published_article(self):
+        blog = self.make_blog()
+        response = self.client.get(reverse("blog:blog_feed"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, blog.title)
+
+
+class NewsletterTests(TestCase):
+    def test_footer_subscription_is_stored_and_duplicates_are_safe(self):
+        url = reverse("blog:subscribe_newsletter")
+        response = self.client.post(
+            url,
+            {"email": "Reader@Example.com", "source": "Website footer"},
+            HTTP_X_REQUESTED_WITH="XMLHttpRequest",
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(NewsletterSubscriber.objects.count(), 1)
+        self.assertEqual(NewsletterSubscriber.objects.get().email, "reader@example.com")
+        self.client.post(
+            url,
+            {"email": "reader@example.com"},
+            HTTP_X_REQUESTED_WITH="XMLHttpRequest",
+        )
+        self.assertEqual(NewsletterSubscriber.objects.count(), 1)
+
+    def test_newsletter_proxy_has_separate_admin_app(self):
+        self.assertEqual(Subscriber._meta.app_label, "newsletter")
+
+    def test_invalid_email_is_rejected(self):
+        response = self.client.post(
+            reverse("blog:subscribe_newsletter"),
+            {"email": "not-an-email"},
+            HTTP_X_REQUESTED_WITH="XMLHttpRequest",
+        )
+        self.assertEqual(response.status_code, 400)
+        self.assertFalse(NewsletterSubscriber.objects.exists())
+
+
+class BlogAdminTests(TestCase):
+    def setUp(self):
+        self.user = get_user_model().objects.create_superuser(
+            username="editor", email="editor@example.com", password="test-password"
+        )
+        self.client.force_login(self.user)
+
+    def test_add_page_contains_custom_block_editor_and_seo_sidebar(self):
+        response = self.client.get(reverse("admin:blog_blog_add"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Paragraph +")
+        self.assertContains(response, "Live TOC preview")
+        self.assertContains(response, "Live SEO check")
+        self.assertContains(response, "Open admin guide")
+
+    def test_preview_requires_staff_and_renders_draft(self):
+        category = BlogCategory.objects.create(name="Preview")
+        blog = Blog.objects.create(
+            title="Draft preview",
+            category=category,
+            status=Blog.Status.DRAFT,
+            article_content="<h2>Preview section</h2><p>Draft body.</p>",
+        )
+        response = self.client.get(reverse("blog:blog_preview", kwargs={"pk": blog.pk}))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Draft preview — only logged-in staff")
+
+    def test_server_link_checker_validates_internal_routes(self):
+        response = self.client.post(
+            reverse("admin:blog_blog_validate_links"),
+            {"html": '<a href="/website/">Website</a><a href="/missing-page/">Missing</a>'},
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()["count"], 2)
+        self.assertEqual(response.json()["invalid_count"], 1)
+
+    def test_tag_autocomplete_endpoint_finds_existing_tags(self):
+        # Migration 0008 already seeds this tag on a fresh database.
+        BlogTag.objects.get_or_create(name="Website Development")
+        response = self.client.get(
+            reverse("admin:autocomplete"),
+            {"app_label": "blog", "model_name": "blog", "field_name": "tags", "term": "website"},
+        )
+        self.assertEqual(response.status_code, 200)
+        result_texts = [item["text"] for item in response.json()["results"]]
+        self.assertIn("Website Development", result_texts)
+
+    def test_editor_image_upload_is_optimized_to_webp(self):
+        from PIL import Image
+
+        raw = io.BytesIO()
+        Image.new("RGB", (40, 40), "green").save(raw, format="PNG")
+        upload = SimpleUploadedFile("example.png", raw.getvalue(), content_type="image/png")
+        with tempfile.TemporaryDirectory() as media_root, override_settings(MEDIA_ROOT=media_root):
+            response = self.client.post(reverse("admin:blog_blog_upload_image"), {"file": upload})
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.json()["location"].endswith(".webp"))

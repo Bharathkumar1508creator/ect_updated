@@ -1,0 +1,383 @@
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}?v=3">
+
+<!-- =========================================================
+     ECT FIGMA NAVBAR
+     1240px × 64px
+========================================================= -->
+
+<header class="ect-navbar-wrap" id="ectNavbar">
+
+    <nav class="ect-navbar" aria-label="Main navigation">
+
+        <!-- ================= LOGO ================= -->
+
+        <a href="{% url 'index' %}"
+           class="ect-navbar-logo"
+           aria-label="ECT Core Technologies Home">
+
+            <img
+                src="{% static 'img/ECT LOGO.png' %}"
+                alt="ECT Core Technologies"
+            >
+
+        </a>
+
+
+        <!-- ================= DESKTOP NAV ================= -->
+
+        <ul class="ect-navbar-menu">
+
+            <!-- HOME -->
+
+            <li class="ect-nav-item">
+                <a
+                    href="{% url 'index' %}"
+                    class="ect-nav-link"
+                    data-page="home"
+                >
+                    <span>Home</span>
+                </a>
+            </li>
+
+
+            <!-- SERVICES -->
+
+            <li class="ect-nav-item ect-has-dropdown">
+
+                <a
+                    href="#"
+                    class="ect-nav-link"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    <span>Services</span>
+                </a>
+
+
+                <div class="ect-dropdown">
+
+                    <div class="ect-dropdown-inner">
+
+                        <div class="ect-dropdown-column">
+
+                            <div class="ect-dropdown-title">
+                                Services
+                            </div>
+
+
+                            <a
+                                href="{% url 'website' %}"
+                                class="ect-dropdown-item"
+                            >
+                                <span class="ect-dropdown-icon" aria-hidden="true">
+                                    <i class="fa-solid fa-globe"></i>
+                                </span>
+                                <span>Website Development</span>
+                            </a>
+
+
+                            <a
+                                href="{% url 'software' %}"
+                                class="ect-dropdown-item"
+                            >
+                                <span class="ect-dropdown-icon" aria-hidden="true">
+                                    <i class="fa-solid fa-code"></i>
+                                </span>
+                                <span>Software Development</span>
+                            </a>
+
+
+                            <a
+                                href="{% url 'zoho' %}"
+                                class="ect-dropdown-item"
+                            >
+                                <span class="ect-dropdown-icon" aria-hidden="true">
+                                    <i class="fa-solid fa-diagram-project"></i>
+                                </span>
+                                <span>Zoho Consulting</span>
+                            </a>
+
+
+                            <a
+                                href="{% url 'hr' %}"
+                                class="ect-dropdown-item"
+                            >
+                                <span class="ect-dropdown-icon" aria-hidden="true">
+                                    <i class="fa-solid fa-users"></i>
+                                </span>
+                                <span>HR Consulting</span>
+                            </a>
+
+
+                            <a
+                                href="{% url 'digital' %}"
+                                class="ect-dropdown-item"
+                            >
+                                <span class="ect-dropdown-icon" aria-hidden="true">
+                                    <i class="fa-solid fa-bullhorn"></i>
+                                </span>
+                                <span>Digital Marketing</span>
+                            </a>
+
+
+                            <a
+                                href="{% url 'it_infrastructure' %}"
+                                class="ect-dropdown-item"
+                            >
+                                <span class="ect-dropdown-icon" aria-hidden="true">
+                                    <i class="fa-solid fa-server"></i>
+                                </span>
+                                <span>IT Infrastructure</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </li>
+
+
+            <!-- OUR WORK -->
+
+            <li class="ect-nav-item">
+
+                <a
+                    href="{% url 'project_list' %}"
+                    class="ect-nav-link"
+                    data-page="work"
+                >
+                    <span>Our Work</span>
+                </a>
+
+            </li>
+
+
+            <!-- COMPANY -->
+
+            <li class="ect-nav-item ect-has-dropdown">
+
+                <a
+                    href="#"
+                    class="ect-nav-link"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    <span>Company</span>
+                </a>
+
+
+                <div class="ect-dropdown">
+
+                    <div class="ect-dropdown-inner">
+
+                        <div class="ect-dropdown-column">
+
+                            <div class="ect-dropdown-title">
+                                Company
+                            </div>
+
+
+                            <a
+                                href="{% url 'about' %}"
+                                class="ect-dropdown-item"
+                            >
+                                <span class="ect-dropdown-icon" aria-hidden="true">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </span>
+                                <span>About</span>
+                            </a>
+
+
+                            <a
+                                href="{% url 'contact' %}"
+                                class="ect-dropdown-item"
+                            >
+                                <span class="ect-dropdown-icon" aria-hidden="true">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </span>
+                                <span>Contact</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </li>
+
+
+            <!-- CAREERS -->
+
+            <li class="ect-nav-item">
+
+                <a
+                    href="{% url 'career' %}"
+                    class="ect-nav-link"
+                    data-page="career"
+                >
+                    <span>Careers</span>
+                </a>
+
+            </li>
+
+
+            <!-- RESOURCES -->
+
+            <li class="ect-nav-item ect-has-dropdown">
+
+                <a
+                    href="#"
+                    class="ect-nav-link"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    <span>Resources</span>
+                </a>
+
+
+                <div class="ect-dropdown">
+
+                    <div class="ect-dropdown-inner">
+
+                        <div class="ect-dropdown-column">
+
+                            <div class="ect-dropdown-title">
+                                Resources
+                            </div>
+
+
+                            <a
+                                href="{% url 'blog:blog_list' %}"
+                                class="ect-dropdown-item"
+                            >
+                                <span class="ect-dropdown-icon" aria-hidden="true">
+                                    <i class="fa-solid fa-book-open"></i>
+                                </span>
+                                <span>Blog</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </li>
+
+        </ul>
+
+
+        <!-- ================= RIGHT ACTIONS ================= -->
+
+        <div class="ect-navbar-actions">
+
+
+            <!-- BOOK CONSULTATION -->
+
+            <button
+                type="button"
+                class="ect-consultation-trigger"
+                data-contact-trigger
+            >
+                Book a Consultation
+            </button>
+
+
+            <!-- MOBILE HAMBURGER -->
+
+            <button
+                type="button"
+                class="ect-mobile-toggle"
+                id="ectMobileToggle"
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================================
+     MOBILE MENU
+========================================================= -->
+
+<div
+    class="ect-mobile-panel"
+    id="ectMobilePanel"
+    aria-hidden="true"
+>
+
+    <div
+        class="ect-mobile-accordion"
+        id="ectMobileAccordion"
+    ></div>
+
+
+    <div class="ect-mobile-consultation">
+
+        <button
+            type="button"
+            class="ect-consultation-trigger ect-mobile-consultation-btn"
+            data-contact-trigger
+        >
+            Book a Consultation
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+(function () {
+    "use strict";
+
+    function normalize(href) {
+        try {
+            var u = new URL(href, window.location.origin);
+            var path = u.pathname.replace(/\/+$/, '') || '/';
+            return path + (u.search || '');
+        } catch (e) {
+            return href;
+        }
+    }
+
+    var currentFull = normalize(window.location.pathname + window.location.search);
+    var currentPath = (window.location.pathname.replace(/\/+$/, '') || '/');
+
+    document.querySelectorAll('.ect-navbar-menu > .ect-nav-item').forEach(function (item) {
+        var topLink = item.querySelector(':scope > .ect-nav-link');
+        if (!topLink) return;
+
+        var links = item.querySelectorAll('a[href]');
+        var matched = false;
+
+        links.forEach(function (a) {
+            var href = a.getAttribute('href');
+            if (!href || href === '#') return;
+            var norm = normalize(href);
+            if (norm.indexOf('?') !== -1) {
+                if (norm === currentFull) matched = true;
+            } else if (norm === currentPath) {
+                matched = true;
+            }
+        });
+
+        if (matched) topLink.classList.add('is-active');
+    });
+})();
+</script>

@@ -1,0 +1,889 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include 'components/google_tag.html' %}
+  {% include 'components/favicon.html' %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expert Zoho Consulting &amp; Automation Services for Growth</title>
+  <meta name="description" content="Transform operations with expert Zoho consulting and automation. Streamline workflows, boost productivity, optimize CRM, and accelerate business growth.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Outfit:wght@400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/zoho.css' %}?v=21">
+
+  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+  <style>
+    body, html, .hero {
+      background-color: #ffffff !important;
+    }
+    h1, h2,
+    .hero__title, .section-title, .zoho-implementation__title,
+    #ectHeading, .work__title, .tech-title, .faq-title {
+      font-family: 'Montserrat' !important;
+      font-weight: 600 !important;
+      font-size: 31.25px !important;
+      line-height: 125% !important;
+      color: #000000 !important;
+    }
+    h1 span, h2 span, .hero__title span, .section-title span, .zoho-implementation__title span, #ectHeading span, .work__title span, .tech-title span, .faq-title span {
+      color: #ffffff !important;
+    }
+    .eyebrow, .zoho-implementation__eyebrow, .tech-eyebrow, .faq-eyebrow {
+      font-family: 'Montserrat' !important;
+      font-weight: 400 !important;
+      font-size: 16px !important;
+      color: #000000 !important;
+      text-transform: none !important;
+      letter-spacing: normal !important;
+    }
+    .eyebrow::before, .zoho-implementation__eyebrow::before, .tech-eyebrow::before, .faq-eyebrow::before {
+      display: none !important;
+    }
+    section {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      margin-top: 0 !important;
+      margin-bottom: 100px !important;
+    }
+    section.hero {
+      padding-top: 100px !important;
+    }
+
+    /* Mobile/tablet only: the uniform 100px gap above is desktop's
+       intended rhythm between every section. Below 900px that's too
+       much for a phone/tablet screen, so shrink it — except the hero
+       (.zoho-figma-hero), which keeps its current spacing untouched. */
+    @media (max-width: 900px) {
+      section:not(.zoho-figma-hero) {
+        margin-bottom: 32px !important;
+      }
+
+      /* The hero's own gap into "Zoho Consulting Services" was left
+         out of the rule above, so it stayed at the full desktop 100px
+         even on tablet/mobile — unlike the Website page, where this
+         same hero-to-next-section gap correctly shrinks to 32px here
+         and 24px below 640px. Matches that exactly. Desktop (100px)
+         and every other part of the hero's spacing is untouched.
+         zoho.css sets margin-bottom on ".zoho-figma-hero.zoho-figma-hero"
+         (the doubled class is a deliberate specificity boost) with
+         !important — a plain ".zoho-figma-hero { !important }" here
+         has lower specificity and loses that tie regardless of source
+         order, so this has to match the doubled selector too. */
+      .zoho-figma-hero.zoho-figma-hero {
+        margin-bottom: 32px !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .zoho-figma-hero.zoho-figma-hero {
+        margin-bottom: 24px !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="zoho-page">
+
+  {% include 'components/navbar.html' %}
+
+  <!-- ================= MOBILE PANEL ================= -->
+  
+
+  
+
+  <!-- ================= MOBILE PANEL ================= -->
+  
+
+
+
+
+
+  <!-- hero section -->
+
+  <!-- <section class="hero">
+    <h1 class="hero__title">
+      Transform Your Business with<br class="hero__break">Smart Zoho Solutions
+    </h1>
+    <p class="hero__subtitle">Transform your business with expert Zoho solutions.</p>
+    <a href="#contact" class="hero__cta">Explore Zoho Services</a>
+
+    <div class="hero__image-wrap">
+      <video class="hero__image" src="{% static 'video/zoho.mp4' %}" autoplay loop muted playsinline>
+      </video>
+    </div>
+  </section> -->
+<section class="zoho-figma-hero" aria-labelledby="zohoHeroTitle">
+  <div class="zoho-figma-hero__content">
+
+    <h1 class="zoho-figma-hero__title" id="zohoHeroTitle">
+      Transform Your Business with
+      <br class="zoho-figma-hero__desktop-break">
+      Smart Zoho Solutions
+    </h1>
+
+    <p class="zoho-figma-hero__subtitle">
+      Transform your business with expert Zoho solutions.
+    </p>
+
+    <a
+      class="zoho-figma-hero__cta"
+      href="#zoho-services"
+      data-smooth-scroll
+    >
+      Explore Zoho Services
+    </a>
+
+  </div>
+
+  <div class="zoho-figma-hero__video-frame">
+    <video
+      class="zoho-figma-hero__video"
+      src="{% static 'video/zoho.mp4' %}"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+    ></video>
+  </div>
+</section>
+
+  <section class="software-section" id="zoho-services">
+
+    <div class="section-header">
+      <div>
+        <div class="eyebrow">Zoho Consulting Services</div>
+        <h2 class="section-title">Complete Zoho Solutions for<br>Every Business Function</h2>
+      </div>
+      <div class="nav-arrows">
+        <button id="prevBtn" aria-label="Previous">&#8592;</button>
+        <button id="nextBtn" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="tabs-wrapper" id="tabsWrapper">
+      <div class="tabs-track" id="tabsTrack">
+        <div class="tab" data-index="0">Sales & CRM</div>
+        <div class="tab" data-index="1">Marketing Automation</div>
+        <div class="tab" data-index="2">Finance & Accounting</div>
+        <div class="tab" data-index="3">HR & People Operations</div>
+        <div class="tab" data-index="4">Customer Service</div>
+        <div class="tab" data-index="5">ERP & Operations</div>
+        <div class="tab" data-index="6">Project Managements</div>
+        <div class="tab" data-index="7">BI & Analytics</div>
+        <div class="tab" data-index="8">Email & Collaboration</div>
+        <div class="tab" data-index="9">Commerce & POS</div>
+        <div class="tab" data-index="10">Security & IT</div>
+        <div class="tab" data-index="11">Legal Solutions</div>
+        <div class="tab" data-index="12">Custom Development</div>
+
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="content-image" id="contentImage">
+        <img src="{% static 'img/Sales & CRM 1.png' %}" alt="Feature Image"
+          style="width:100%; height:100%; object-fit:cover; border-radius: 12px;">
+      </div>
+
+      <div class="content-panel" id="contentPanel">
+
+        <div class="panel active" data-index="0" data-image="{% static 'img/Sales & CRM 1.png' %}">
+          <h3>Build Stronger Customer Relationships</h3>
+          <p>Manage leads, customer interactions, sales pipelines, and follow-ups through customized Zoho CRM solutions
+            that improve productivity and business growth.</p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho CRM, Zoho Bigin, Zoho SalesIQ, Zoho Sign, Zoho Bookings, Zoho RouteIQ</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">Sales Teams, Service Businesses, Healthcare, Real Estate, Educational Institutions
+          </div>
+          <a href="#" class="btn-demo" data-contact-trigger>Request a Consultation</a>
+        </div>
+
+        <div class="panel" data-index="1" data-image="{% static 'img/Marketing & Automation 2.png' %}">
+          <h3>Create Smarter Marketing Campaigns</h3>
+          <p>Automate campaigns, nurture leads, track engagement, and improve marketing performance with connected Zoho
+            marketing solutions for measurable business results.</p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho Campaigns, Zoho Marketing Automation, Zoho Social, Zoho Forms, Zoho Survey, Zoho
+            Webinar</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">Marketing Teams, Startups, Ecommerce, Retail, Growing Businesses</div>
+          <a href="#" class="btn-demo" data-contact-trigger>Grow Your Marketing</a>
+        </div>
+
+        <div class="panel" data-index="2" data-image="{% static 'img/Finance & Accounting 2.png' %}">
+          <h3>Simplify Financial Management</h3>
+          <p>Manage accounting, invoicing, expenses, inventory, payments, and financial reporting through integrated
+            Zoho finance solutions.</p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho Books, Zoho Invoice, Zoho Expense, Zoho Inventory, Zoho Billing</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">Finance Teams, SMEs, Manufacturers, Retailers, Distributors</div>
+          <button class="btn-demo" data-contact-trigger>Optimize Finance</button>
+        </div>
+
+        <div class="panel" data-index="3" data-image="{% static 'img/HR People &n Operations 2.png' %}">
+          <h3>Build Better People Systems</h3>
+          <p>Simplify recruitment, employee management, attendance, payroll, performance tracking, and HR operations.
+          </p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho People, Zoho Recruit, Zoho Payroll, Zoho Learn</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">HR Teams, Enterprises, Staffing Agencies, Growing Companies</div>
+          <button class="btn-demo" data-contact-trigger>Improve HR</button>
+        </div>
+
+        <div class="panel" data-index="4" data-image="{% static 'img/Customer Service 2.png' %}">
+          <h3>Deliver Exceptional Customer Support</h3>
+          <p>Deliver faster customer support and improve customer satisfaction with Zoho service solutions.</p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho Desk, Zoho Assist, Zoho Lens</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">Support Teams, SaaS, Healthcare, Ecommerce, IT Companies</div>
+          <button class="btn-demo" data-contact-trigger>Enhance Customer Support</button>
+        </div>
+
+        <div class="panel" data-index="5" data-image="{% static 'img/ERP & Operations 2.png' %}">
+          <h3>Connect Business Operations</h3>
+          <p>Connect inventory, purchasing, sales, production, and business operations.</p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho Creator, Zoho Inventory, Zoho Flow, Workflow Automation</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">Manufacturers, Distributors, Retail, Logistics</div>
+          <button class="btn-demo" data-contact-trigger>Streamline Operations</button>
+        </div>
+
+        <div class="panel" data-index="6" data-image="{% static 'img/project management.png' %}">
+          <h3>Deliver Projects Successfully</h3>
+          <p>Plan, track, and deliver projects successfully.</p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho Projects, Zoho Sprints, Zoho BugTracker</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">Software Companies, Agencies, Engineering</div>
+          <button class="btn-demo" data-contact-trigger>Manage Projects</button>
+        </div>
+
+        <div class="panel" data-index="7" data-image="{% static 'img/BI & Analytics 2.png' %}">
+          <h3>Make Data-Driven Decisions</h3>
+          <p>Transform business data into meaningful insights.</p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho Analytics, KPI Dashboards, Business Reports</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">Business Owners, Executives, Finance Teams</div>
+          <button class="btn-demo" data-contact-trigger>Explore Analytics</button>
+        </div>
+
+        <div class="panel" data-index="8" data-image="{% static 'img/Email  & Collabaration 2.png' %}">
+          <h3>Empower Team Collaboration</h3>
+          <p>Enable secure communication and collaboration.</p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho Mail, Zoho WorkDrive, Zoho Cliq, Zoho Meeting, Zoho Writer</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">Remote Teams, SMEs, Enterprises</div>
+          <button class="btn-demo" data-contact-trigger>Connect Your Team</button>
+        </div>
+
+        <div class="panel" data-index="9" data-image="{% static 'img/Commerce & POS.png' %}">
+          <h3>Grow Your Online Business</h3>
+          <p>Manage online stores and sales channels.</p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho Commerce, Zoho Checkout, Zoho Payments</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">Retail, Ecommerce, Wholesalers</div>
+          <button class="btn-demo" data-contact-trigger>Grow Online Sales</button>
+        </div>
+
+        <div class="panel" data-index="10" data-image="{% static 'img/Security & IT 2.png' %}">
+          <h3>Protect Your Digital Workplace</h3>
+          <p>Protect business systems with secure IT solutions.</p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho Vault, Zoho Directory, Zoho Assist</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">IT Teams, Enterprises, Financial Services</div>
+          <button class="btn-demo" data-contact-trigger>Secure Your Business</button>
+        </div>
+
+        <div class="panel" data-index="11" data-image="{% static 'img/Legal Solutions.png' %}">
+          <h3>Digitize Legal Processes</h3>
+          <p>Automate approvals, signatures, and compliance.</p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho Sign, Approval Workflows, Document Automation</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">Legal Firms, HR Teams, Compliance Teams</div>
+          <button class="btn-demo" data-contact-trigger>Simplify Legal Processes</button>
+        </div>
+
+        <div class="panel" data-index="12" data-image="{% static 'img/Custom Developement.png' %}">
+          <h3>Build Custom Business Applications</h3>
+          <p>Develop custom applications and integrations.</p>
+          <h4>Zoho Applications We Implement</h4>
+          <div class="apps-list">Zoho Creator, Deluge, Zoho Flow, APIs, Webhooks, Custom Functions</div>
+          <h4>Perfect For</h4>
+          <div class="apps-list">Businesses with Unique Processes, Startups, Enterprises</div>
+          <button class="btn-demo" data-contact-trigger>Build Custom Solutions</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ===== ZOHO IMPLEMENTATION SECTION ===== -->
+  <section class="zoho-implementation" id="zoho-implementation">
+
+    <span class="zoho-implementation__eyebrow">Our Approach</span>
+
+    <div class="zoho-implementation__header">
+      <h2 class="zoho-implementation__title">How We Implement<br>Zoho for Your Business</h2>
+      <p class="zoho-implementation__subtitle">A proven Zoho implementation process built for seamless business
+        transformation and sustainable long-term growth.</p>
+    </div>
+
+    <div class="zoho-implementation__grid">
+
+      <!-- Step 01 -->
+      <div class="zoho-implementation__cell" data-step="1">
+        <div class="zoho-implementation__icon">
+          <img src="{% static 'img/zoom.png' %}" alt="Zoom">
+        </div>
+        <span class="zoho-implementation__step-label">Step 01</span>
+        <h3 class="zoho-implementation__cell-title">Discovery &amp; Planning</h3>
+        <p class="zoho-implementation__cell-desc">We understand your business processes, goals, and challenges to
+          recommend the right Zoho solutions and implementation strategy.</p>
+      </div>
+
+      <!-- Step 02 -->
+      <div class="zoho-implementation__cell" data-step="2">
+        <div class="zoho-implementation__icon icon-zoom">
+          <img src="{% static 'img/soluction.png' %}" alt="soluction">
+        </div>
+        <span class="zoho-implementation__step-label">Step 02</span>
+        <h3 class="zoho-implementation__cell-title">Solution Design &amp; Customization</h3>
+        <p class="zoho-implementation__cell-desc">We configure modules, customize workflows, automate processes, and
+          tailor Zoho applications to match your business requirements.</p>
+      </div>
+
+      <!-- Step 03 -->
+      <div class="zoho-implementation__cell" data-step="3">
+        <div class="zoho-implementation__icon">
+          <img src="{% static 'img/implement.png' %}" alt="implement">
+        </div>
+        <span class="zoho-implementation__step-label">Step 03</span>
+        <h3 class="zoho-implementation__cell-title">Implementation &amp; Integration</h3>
+        <p class="zoho-implementation__cell-desc">We deploy Zoho applications, migrate data, integrate third-party
+          systems, and thoroughly test every workflow for a smooth launch.</p>
+      </div>
+
+      <!-- Step 04 -->
+      <div class="zoho-implementation__cell" data-step="4">
+        <div class="zoho-implementation__icon">
+          <img src="{% static 'img/training.png' %}" alt="training">
+        </div>
+        <span class="zoho-implementation__step-label">Step 04</span>
+        <h3 class="zoho-implementation__cell-title">Training &amp; Ongoing Support</h3>
+        <p class="zoho-implementation__cell-desc">We train your team, provide continuous support, and optimize your Zoho
+          environment as your business grows and evolves successfully.</p>
+      </div>
+
+    </div>
+
+    <!-- Tablet/mobile only: same subtitle, repositioned below the last
+         step card instead of beside the heading (see
+         .zoho-implementation__subtitle--closing in zoho.css). Currently
+         .zoho-implementation__subtitle is just hidden outright below
+         1024px with no replacement — this gives it one. Desktop keeps
+         the original subtitle beside the heading, untouched. -->
+    <p class="zoho-implementation__subtitle zoho-implementation__subtitle--closing">A proven Zoho implementation process built for seamless business
+      transformation and sustainable long-term growth.</p>
+
+  </section>
+  <!-- ===== END ZOHO IMPLEMENTATION SECTION ===== -->
+
+
+
+
+  <section class="ect-zoho-section">
+    <div class="ect-grid"></div>
+    <div class="beam b1"></div>
+    <div class="beam b2"></div>
+    <div class="beam b3"></div>
+
+    <div class="ect-content">
+      <div class="ect-eyebrow">Trusted Zoho Partner</div>
+      <h2 id="ectHeading">Why Choose ECT for <span class="accent">Zoho Consulting</span></h2>
+      <div class="ect-underline"></div>
+      <p>Premium consulting on every domain and ample resources, we help businesses unlock the full potential of Zoho
+        with the right tools and to reach their unique goals.</p>
+      <!-- <a href="https://6a5afbc2efb7a98d1f0a38cf--rainbow-speculoos-7e17b4.netlify.app/" class="ect-btn">Explore Zoho Solutions</a> -->
+    <a href="https://6a5afbc2efb7a98d1f0a38cf--rainbow-speculoos-7e17b4.netlify.app/" class="ect-btn" target="_blank"
+      rel="noopener noreferrer">
+      Explore Zoho Solutions
+    </a>
+    </div>
+
+    <div class="ect-features">
+      <div class="ect-feature">
+        <div class="ect-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4" />
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        </div>
+        <span>Certified Zoho Expertise</span>
+      </div>
+      <div class="ect-feature">
+        <div class="ect-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3 3" />
+          </svg>
+        </div>
+        <span>Fast Time-to-Value</span>
+      </div>
+      <div class="ect-feature">
+        <div class="ect-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 12h16M4 12l4-4M4 12l4 4M20 12l-4-4M20 12l-4 4" />
+          </svg>
+        </div>
+        <span>End-to-End Expertise</span>
+      </div>
+      <div class="ect-feature">
+        <div class="ect-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z" />
+          </svg>
+        </div>
+        <span>Dedicated Support</span>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- business section end -->
+
+  <section class="work zoho-work">
+    <div class="work__inner">
+
+      <div class="work__head">
+        <div>
+          <p class="work__label">ECT Work</p>
+          <h2 class="work__title">Turning Ideas<br>into Business Success</h2>
+        </div>
+        <div class="work__nav">
+          <button class="nav-btn" aria-label="Previous project"><svg viewBox="0 0 24 24">
+              <path d="M19 12H5M11 6l-6 6 6 6" />
+            </svg></button>
+          <button class="nav-btn" aria-label="Next project"><svg viewBox="0 0 24 24">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="work__grid">
+
+        <!-- Replace the .ph span with:
+           <img class="card__img" src="YOUR-SCREENSHOT.png" alt="Project preview"> -->
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              <img class="card__img" src="{% static 'img/ecog.png' %}" alt="Project preview">
+              <div class="card__overlay">
+                <p><b>Excel Packs</b> <span>- Landing page</span></p>
+              </div>
+            </div>
+
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta"><a href="{% url 'under' %}"><button class="btn-view">View
+                  Projects</button></a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              <img class="card__img" src="{% static 'img/excel pack.png' %}" alt="Project preview">
+              <div class="card__overlay">
+                <p><b>Robot Pack</b> <span>- Corporate site</span></p>
+              </div>
+            </div>
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta"><a href="{% url 'under' %}"><button class="btn-view">View
+                  Projects</button></a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              <img class="card__img" src="{% static 'img/nextwood.png' %}" alt="Project preview">
+              <div class="card__overlay">
+                <p><b>Interior Spaces</b> <span>- Product showcase</span></p>
+              </div>
+            </div>
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta"><a href="{% url 'under' %}"><button class="btn-view">View
+                  Projects</button></a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              <span class="ph"><img class="card__img"
+                  src="{% static 'img/social media cratives brand name Dtdc.jpg.jpeg' %}" alt="Project preview"></span>
+              <div class="card__overlay">
+                <p><b>Dtdc</b> <span>-social media cratives</span></p>
+              </div>
+            </div>
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta"><a href="{% url 'under' %}"><button class="btn-view">View
+                  Projects</button></a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              <span class="ph"><img class="card__img"
+                  src="{% static 'img/social media cratives brand name shana.jpg.jpeg' %}" alt="Project preview"></span>
+              <div class="card__overlay">
+                <p><b>shana</b> <span>-social media cratives</span></p>
+              </div>
+            </div>
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta"><a href="{% url 'under' %}"><button class="btn-view">View
+                  Projects</button></a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card__imgwrap">
+              <span class="ph"><img class="card__img"
+                  src="{% static 'img/social media cratives brand name kamalam.jpg.jpeg' %}"
+                  alt="Project preview"></span>
+              <div class="card__overlay">
+                <p><b>kamalam</b> <span>-social media cratives</span></p>
+              </div>
+            </div>
+            <svg class="card__notch" viewBox="0 0 212 128" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128 L212,128 Z"
+                fill="#FFFFFF" />
+              <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
+                stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
+            </svg>
+            <div class="card__cta"><a href="{% url 'under' %}"><button class="btn-view">View
+                  Projects</button></a></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- hero sec end -->
+  <!-- ============================================================
+  TECHNOLOGIES HONEYCOMB SECTION
+  How to use in your existing page:
+  1. Put this <section> anywhere in your page's <body>
+  2. Add in <head>:   <link rel="stylesheet" href="technologies-section.css">
+  3. Add before   <script src="{% static 'js/base.js' %}"></script>
+</body>:   <script src="technologies-section.js"></script>
+  (Font: uses Poppins — skip the font link if your site already loads it)
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+============================================================ -->
+
+  <section class="tech-section" id="technologies">
+    <div class="tech-header">
+      <div class="tech-header-left">
+        <div class="tech-eyebrow">Technologies We Use</div>
+        <h2 class="tech-title">Powered by the Zoho Ecosystem <br>and Modern Integrations</h2>
+      </div>
+      <p class="tech-desc tech-desc--top">Leveraging Zoho, automation, and secure integrations to drive efficiency and business growth.
+      </p>
+    </div>
+
+    <div class="honeycomb-wrap">
+      <!-- LEFT HIVE (filled by JS) -->
+      <div class="hive" id="hive-left"></div>
+
+      <!-- CENTER: big hexagon outline with placeholder logo -->
+      <div class="center-hex">
+        <div class="center-logo">
+          <img src="{% static 'img/ZOHO-logo.png' %}" alt="Zoho" style="max-width: 100px; height: auto;">
+        </div>
+      </div>
+
+      <!-- RIGHT HIVE (filled by JS) -->
+      <div class="hive" id="hive-right"></div>
+    </div>
+
+    <!-- Tablet/mobile only: same tagline, repositioned below the
+         honeycomb animation instead of beside the heading (see
+         .tech-desc--bottom in zoho.css). Hidden on desktop, which keeps
+         the original above (.tech-desc--top). -->
+    <p class="tech-desc tech-desc--bottom">Leveraging Zoho, automation, and secure integrations to drive efficiency and business growth.</p>
+  </section>
+
+
+
+
+
+
+  <!-- FAQ Section -->
+  <section class="faq-section" aria-labelledby="faq-heading">
+    <div class="faq-head">
+      <div>
+        <span class="faq-eyebrow">Frequently asked questions</span>
+        <h2 class="faq-title" id="faq-heading">Everything You Need to<br>Know About Zoho Solutions</h2>
+      </div>
+      <p class="faq-sub faq-sub--top">Learn more about our Zoho services, implementation process, customization, integrations, and ongoing support.</p>
+    </div>
+
+    <div class="faq-grid" id="faqGrid">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What Zoho services do you provide?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>We provide Zoho consulting, implementation, customization, workflow automation, integrations, training,
+              migration, and ongoing support across the Zoho ecosystem.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Which Zoho applications do you implement?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>We implement Zoho CRM, Zoho Books, Zoho People, Zoho Desk, Zoho Projects, Zoho Creator, Zoho Inventory,
+              Zoho One, and other Zoho business applications.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Can you customize Zoho based on our business processes?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We customize modules, layouts, fields, workflows, approvals, reports, dashboards, and automations to
+              match your unique business requirements.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do you migrate data from our existing system to Zoho?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We securely migrate customer records, transactions, employee data, and other business information
+              from existing systems into Zoho.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Can Zoho integrate with our existing software?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We integrate Zoho with ERP systems, accounting software, payment gateways, websites, WhatsApp, email
+              platforms, and third-party applications using APIs.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do you provide workflow automation in Zoho?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We automate approvals, notifications, lead management, sales processes, task assignments, and other
+              business workflows to improve efficiency.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Will you provide training after implementation?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We provide user training, administrator training, documentation, and ongoing guidance to ensure your
+              team adopts Zoho successfully.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do you offer support after Zoho implementation?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>Yes. We provide continuous support, troubleshooting, system optimization, feature enhancements, and
+              maintenance after deployment.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How long does a Zoho implementation take?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>The implementation timeline depends on your business requirements, selected Zoho applications,
+              customization needs, and integration complexity. A project timeline is shared after the initial
+              consultation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Why choose ECT for Zoho Consulting & Implementation?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              stroke-linecap="round">
+              <path d="M6 9l6 6 6-6" />
+            </svg></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            <p>ECT combines business consulting with Zoho expertise to deliver customized, scalable, and fully
+              integrated solutions that improve productivity, automate operations, and support long-term business
+              growth.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tablet/mobile only: same sub-text, repositioned below the last FAQ
+         card instead of beside the heading (see .faq-sub--bottom in
+         zoho.css). Hidden on desktop, which keeps the original
+         (.faq-sub--top) above the accordion. -->
+    <p class="faq-sub faq-sub--bottom">Learn more about our Zoho services, implementation process, customization, integrations, and ongoing support.</p>
+
+  </section>
+
+
+
+
+  <script src="{% static 'js/zoho.js' %}?v=3"></script>
+
+
+
+  {% include 'footer.html' %}
+  {% include 'components/contact_popup.html' %}
+
+  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+  <script src="{% static 'js/base.js' %}?v=33"></script>
+{% include 'components/zoho_salesiq.html' %}
+</body>
+
+</html>

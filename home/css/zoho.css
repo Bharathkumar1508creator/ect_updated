@@ -1,0 +1,2739 @@
+/* HerO sec */
+
+
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat";
+  background: #ffffff;
+  color: #0a0a0a;
+  /* Safety net: the "Zoho Consulting Services" tab strip is a
+     max-content flex row driven by a JS transform (a carousel), and at
+     some widths it was overflowing past its own overflow:hidden
+     wrapper and widening the whole page horizontally. This clips any
+     such overflow at the document level instead of chasing every
+     possible source of it. */
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   ZOHO HERO — FIGMA NODE 2546:3044
+   ========================================================= */
+
+.zoho-figma-hero,
+.zoho-figma-hero * {
+  box-sizing: border-box;
+}
+
+.zoho-figma-hero.zoho-figma-hero {
+  width: min(1240px, calc(100% - 48px));
+  max-width: 1240px;
+  margin: 88px auto 100px !important;
+  padding: 0 !important;
+  background: #ffffff;
+  text-align: center;
+}
+
+.zoho-figma-hero__content {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.zoho-figma-hero .zoho-figma-hero__title {
+  width: min(765px, 100%);
+  min-height: 122px;
+  margin: 0 auto;
+  padding: 0;
+  color: #000000 !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 48.83px !important;
+  font-style: normal;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.zoho-figma-hero__subtitle {
+  width: min(416px, 100%);
+  margin: 20px auto 0;
+  padding: 0;
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+}
+
+.zoho-figma-hero__cta {
+  display: inline-flex;
+  width: 176px;
+  height: 40px;
+  margin-top: 20px;
+  padding: 8px 10px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f1f1ef;
+  border-radius: 8px;
+  background: #0c3c01;
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 250ms ease,
+    transform 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.zoho-figma-hero__cta:hover {
+  background: #145607;
+  box-shadow: 0 8px 20px rgba(12, 60, 1, 0.18);
+  transform: translateY(-2px);
+}
+
+.zoho-figma-hero__cta:active {
+  transform: translateY(0);
+}
+
+.zoho-figma-hero__cta:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.3);
+  outline-offset: 4px;
+}
+
+.zoho-figma-hero__video-frame {
+  width: 100%;
+  aspect-ratio: 1240 / 704;
+  margin-top: 32px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #d9d9d9;
+}
+
+.zoho-figma-hero__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
+#zoho-services {
+  scroll-margin-top: 96px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .zoho-figma-hero.zoho-figma-hero {
+    width: 100%;
+    max-width: none;
+    padding-inline: 24px !important;
+  }
+
+  .zoho-figma-hero .zoho-figma-hero__title {
+    min-height: auto;
+    font-size: 40px !important;
+  }
+
+  .zoho-figma-hero__video-frame {
+    border-radius: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .zoho-figma-hero.zoho-figma-hero {
+    width: 100%;
+    max-width: none;
+    margin-top: 88px !important;
+    padding-inline: 16px !important;
+  }
+
+  .zoho-figma-hero .zoho-figma-hero__title {
+    font-size: 30px !important;
+    line-height: 1.25 !important;
+  }
+
+  .zoho-figma-hero__desktop-break {
+    display: none;
+  }
+
+  .zoho-figma-hero__subtitle {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .zoho-figma-hero__cta {
+    margin-top: 18px;
+  }
+
+  .zoho-figma-hero__video-frame {
+    aspect-ratio: 4 / 3;
+    margin-top: 28px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .zoho-figma-hero .zoho-figma-hero__title {
+    font-size: 27px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .zoho-figma-hero.zoho-figma-hero {
+    margin-top: 84px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zoho-figma-hero__cta {
+    transition: none;
+  }
+}
+
+
+
+/* ============================================================
+   TECHNOLOGIES HONEYCOMB SECTION — styles
+   All selectors are scoped under .tech-section so they won't
+   clash with the rest of your page.
+   ============================================================ */
+
+.tech-section{
+  --tech-ink:#000000;
+  --tech-muted:#616161;
+  --tech-hex-bg:#F5F5F3;
+
+  width:min(1240px, calc(100% - 48px));
+  max-width:1240px;
+  min-height:504.48px;
+  margin:0 auto 100px !important;
+  padding:0 !important;
+  box-sizing:border-box;
+  color:var(--tech-ink);
+  font-family:"Montserrat", sans-serif;
+}
+.tech-section *,
+.tech-section *::before,
+.tech-section *::after{box-sizing:border-box}
+
+/* ---------- header ---------- */
+.tech-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:64px;
+  min-height:110px;
+  margin:0 0 32px;
+}
+.tech-header > div{flex:0 0 551px}
+.tech-eyebrow{
+  width:182px;
+  height:24px;
+  margin:0 0 8px 1px;
+  color:#000000 !important;
+  font-size:16px !important;
+  font-family:"Outfit", sans-serif !important;
+  font-weight:400 !important;
+  line-height:1.5 !important;
+  letter-spacing:0 !important;
+  text-transform:uppercase !important;
+}
+.tech-section .tech-title{
+  width:551px;
+  margin:0;
+  color:#000000 !important;
+  font-size:31.25px !important;
+  font-weight:600 !important;
+  line-height:1.25 !important;
+  letter-spacing:0 !important;
+}
+.tech-desc{
+  flex:0 0 421px;
+  width:421px;
+  max-width:421px;
+  height:48px;
+  margin:62px 0 0;
+  padding:0;
+  color:#000000;
+  font-size:16px;
+  font-weight:400;
+  line-height:1.5;
+}
+
+/* ---------- exact Figma component: 1240 x 362.48 ---------- */
+.honeycomb-wrap{
+  position:relative;
+  display:block;
+  width:100%;
+  height:auto;
+  min-height:0;
+  aspect-ratio:1240 / 362.48;
+}
+.hive,.hive-row{display:contents}
+
+/* ---------- small hexagons ---------- */
+.hex{
+  position:absolute;
+  width:11.2483870968%;
+  height:38.4790885014%;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  background:var(--tech-hex-bg);
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20width%3D%22121%22%20height%3D%22137%22%20viewBox%3D%220%200%20121%20137%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M54.8182%201.4949C58.2707%20-0.498397%2062.5243%20-0.4984%2065.9768%201.49489L115.216%2029.9231C118.668%2031.9164%20120.795%2035.6002%20120.795%2039.5867V96.4432C120.795%20100.43%20118.668%20104.114%20115.216%20106.107L65.9768%20134.535C62.5244%20136.528%2058.2707%20136.528%2054.8182%20134.535L5.57912%20106.107C2.12664%20104.114%20-0.000190735%20100.43%20-0.000190735%2096.4432V39.5868C-0.000190735%2035.6002%202.12663%2031.9164%205.57911%2029.9231L54.8182%201.4949Z%22%20fill%3D%22%23F5F5F3%22%2F%3E%3C%2Fsvg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg%20width%3D%22121%22%20height%3D%22137%22%20viewBox%3D%220%200%20121%20137%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M54.8182%201.4949C58.2707%20-0.498397%2062.5243%20-0.4984%2065.9768%201.49489L115.216%2029.9231C118.668%2031.9164%20120.795%2035.6002%20120.795%2039.5867V96.4432C120.795%20100.43%20118.668%20104.114%20115.216%20106.107L65.9768%20134.535C62.5244%20136.528%2058.2707%20136.528%2054.8182%20134.535L5.57912%20106.107C2.12664%20104.114%20-0.000190735%20100.43%20-0.000190735%2096.4432V39.5868C-0.000190735%2035.6002%202.12663%2031.9164%205.57911%2029.9231L54.8182%201.4949Z%22%20fill%3D%22%23F5F5F3%22%2F%3E%3C%2Fsvg%3E");
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  mask-position:center;
+  -webkit-mask-size:86.7507886435% 98.2219673071%;
+  mask-size:86.7507886435% 98.2219673071%;
+  perspective:500px;
+}
+.hex::before,.hex::after{display:none}
+.hex .icon{
+  position:relative;z-index:1;
+  width:35.8474333231%;
+  height:35.8474333231%;
+  display:flex;align-items:center;justify-content:center;
+  transform-style:preserve-3d;
+}
+.hex .icon svg,
+.hex .icon img{width:100% !important;height:100% !important;object-fit:contain}
+.hex .icon.flip{animation:techFlipIcon .6s ease}
+@keyframes techFlipIcon{
+  0%{transform:rotateY(0)}
+  49%{transform:rotateY(90deg)}
+  51%{transform:rotateY(-90deg)}
+  100%{transform:rotateY(0)}
+}
+
+/* Exact small-hex positions from Figma Component 38. */
+#hive-left .hive-row:nth-child(1) .hex:nth-child(1){left:5.65%;top:0}
+#hive-left .hive-row:nth-child(1) .hex:nth-child(2){left:15.89%;top:0}
+#hive-left .hive-row:nth-child(1) .hex:nth-child(3){left:26.13%;top:0}
+#hive-left .hive-row:nth-child(2) .hex:nth-child(1){left:0;top:30.6223791657%}
+#hive-left .hive-row:nth-child(2) .hex:nth-child(2){left:10.48%;top:30.6223791657%}
+#hive-left .hive-row:nth-child(2) .hex:nth-child(3){left:21.05%;top:30.6223791657%}
+#hive-left .hive-row:nth-child(3) .hex:nth-child(1){left:5.65%;top:61.5206356213%}
+#hive-left .hive-row:nth-child(3) .hex:nth-child(2){left:15.89%;top:61.5206356213%}
+#hive-left .hive-row:nth-child(3) .hex:nth-child(3){left:26.69%;top:61.5206356213%}
+
+#hive-right .hive-row:nth-child(1) .hex:nth-child(1){left:62.62%;top:0}
+#hive-right .hive-row:nth-child(1) .hex:nth-child(2){left:72.86%;top:0}
+#hive-right .hive-row:nth-child(1) .hex:nth-child(3){left:83.11%;top:0}
+#hive-right .hive-row:nth-child(2) .hex:nth-child(1){left:67.70%;top:30.6223791657%}
+#hive-right .hive-row:nth-child(2) .hex:nth-child(2){left:78.27%;top:30.6223791657%}
+#hive-right .hive-row:nth-child(2) .hex:nth-child(3){left:88.75%;top:30.6223791657%}
+#hive-right .hive-row:nth-child(3) .hex:nth-child(1){left:62.06%;top:61.5206356213%}
+#hive-right .hive-row:nth-child(3) .hex:nth-child(2){left:72.86%;top:61.5206356213%}
+#hive-right .hive-row:nth-child(3) .hex:nth-child(3){left:83.11%;top:61.5206356213%}
+
+/* ---------- exact centre hexagon ---------- */
+.center-hex{
+  position:absolute;
+  left:37.0967741935%;
+  top:9.6557051424%;
+  width:24.6346774194%;
+  height:84.2722357096%;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  background:var(--tech-hex-bg);
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20width%3D%22265%22%20height%3D%22299%22%20viewBox%3D%220%200%20265%20299%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M121.112%202.99003C128.017%20-0.996555%20136.525%20-0.996554%20143.43%202.99003L253.383%2066.4719C260.288%2070.4585%20264.542%2077.826%20264.542%2085.7992V212.763C264.542%20220.736%20260.288%20228.104%20253.383%20232.09L143.43%20295.572C136.525%20299.559%20128.017%20299.559%20121.112%20295.572L11.1586%20232.09C4.25364%20228.104%200%20220.736%200%20212.763V85.7992C0%2077.826%204.25364%2070.4585%2011.1586%2066.4719L121.112%202.99003Z%22%20fill%3D%22%23F5F5F3%22%2F%3E%3C%2Fsvg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg%20width%3D%22265%22%20height%3D%22299%22%20viewBox%3D%220%200%20265%20299%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M121.112%202.99003C128.017%20-0.996555%20136.525%20-0.996554%20143.43%202.99003L253.383%2066.4719C260.288%2070.4585%20264.542%2077.826%20264.542%2085.7992V212.763C264.542%20220.736%20260.288%20228.104%20253.383%20232.09L143.43%20295.572C136.525%20299.559%20128.017%20299.559%20121.112%20295.572L11.1586%20232.09C4.25364%20228.104%200%20220.736%200%20212.763V85.7992C0%2077.826%204.25364%2070.4585%2011.1586%2066.4719L121.112%202.99003Z%22%20fill%3D%22%23F5F5F3%22%2F%3E%3C%2Fsvg%3E");
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  mask-position:center;
+  -webkit-mask-size:86.7515631650% 97.8819524012%;
+  mask-size:86.7515631650% 97.8819524012%;
+}
+.center-hex::before,.center-hex::after{display:none}
+.center-logo{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.center-logo img{
+  display:block;
+  width:82.203%;
+  max-width:82.203% !important;
+  height:39.244%;
+  object-fit:contain;
+}
+.logo-tiles{display:flex;justify-content:center;margin-bottom:14px}
+.tile{
+  width:calc(var(--hex-w) * .55);
+  height:calc(var(--hex-w) * .55);
+  border:6px solid;border-radius:26%;
+  background:#fff;transform:rotate(-8deg);
+  margin-left:calc(var(--hex-w) * -.17);
+}
+.tile:first-child{margin-left:0}
+.tile:nth-child(2){transform:rotate(6deg) translateY(6px)}
+.tile:nth-child(3){transform:rotate(-6deg)}
+.tile:nth-child(4){transform:rotate(8deg) translateY(6px)}
+.t-red{border-color:var(--tech-red)}
+.t-green{border-color:var(--tech-green)}
+.t-blue{border-color:var(--tech-blue)}
+.t-yellow{border-color:var(--tech-yellow)}
+.logo-name{
+  font-size:14px;font-weight:600;letter-spacing:.55em;
+  text-transform:uppercase;color:var(--tech-ink);margin-left:.55em;
+}
+
+/* Tablet: text reflows while the exact honeycomb scales proportionally. */
+@media (max-width:820px){
+  .tech-section{
+    width:calc(100% - 40px);
+    min-height:auto;
+  }
+  .tech-header{gap:32px;min-height:auto;margin-bottom:32px}
+  .tech-header > div{flex:1 1 54%}
+  .tech-section .tech-title{font-size:27px !important;width:auto;max-width:100%}
+  .tech-desc{flex:1 1 40%;width:auto;height:auto;margin-top:46px;font-size:15px}
+}
+
+/* Mobile: logo first, then two balanced honeycombs below it. */
+@media (max-width:640px){
+  .tech-section{
+    width:calc(100% - 32px);
+  }
+  .tech-header{
+    display:block;
+    margin-bottom:34px;
+  }
+  .tech-header > div{width:100%}
+  .tech-eyebrow{margin-bottom:8px;font-size:13px !important}
+  .tech-section .tech-title{font-size:26px !important}
+  .tech-section .tech-title br{display:none}
+  .tech-desc{
+    max-width:100%;
+    margin-top:16px;
+    font-size:15px;
+  }
+  /* The honeycomb itself (.honeycomb-wrap, .hex, .center-hex, etc.) is
+     deliberately left alone here: every position/size in that component
+     is a percentage of .honeycomb-wrap's own box (locked to a
+     1240:362.48 aspect-ratio), so it already scales down proportionally
+     at any width with no extra CSS needed — it's the exact same desktop
+     arrangement, just smaller. This block used to override it into a
+     2-column CSS grid with fixed-px hexagons instead, which looked
+     nothing like desktop and didn't scale further below ~640px. */
+}
+
+@media (max-width:380px){
+  .tech-section .tech-title{font-size:24px !important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hex .icon.flip{animation:none}
+}
+
+
+
+
+
+
+
+:root {
+  --green-dark: #14532d;
+  --green: #166534;
+  --green-light: #e8f3ec;
+  --text-dark: #111827;
+  --text-grey: #6b7280;
+  --white: #ffffff;
+  --border: #e5e7eb;
+  --radius: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat";
+  background: #ffffff !important;
+  color: var(--text-dark);
+  /* border:2px solid blue !important; */
+}
+
+.software-section {
+  max-width: 1200px;
+  margin: 0 auto 50px;
+  padding: 60px 40px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-grey);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.nav-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-arrows button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #0C3C01;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .25s ease, transform .2s ease;
+}
+
+.nav-arrows button:hover {
+  background: #0a2d01;
+  transform: scale(1.06);
+}
+
+.tabs-wrapper {
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.tabs-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  align-items: flex-end;
+  will-change: transform;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 0 0 auto;
+  min-width: 210px;
+  padding: 18px 26px;
+  background: #F9F9F7;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #000000;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background .3s ease, color .3s ease,
+              padding-bottom .35s ease, margin-bottom .35s ease, border-radius .35s ease;
+}
+
+.tab:hover {
+  color: #5B6D49;
+}
+
+.tab.active {
+  background: #F5F5F3;
+  border: none;
+  color: #5B6D49;
+  padding-bottom: 38px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: -20px;
+  position: relative;
+  z-index: 2;
+}
+
+.content-area {
+  display: grid;
+  grid-template-columns: 608px 1fr;
+  gap: 24px;
+  align-items: center;
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding: 24px;
+  background: #F5F5F3;
+  position: relative;
+  z-index: 1;
+}
+
+.content-image {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 14px;
+  font-weight: 600;
+  flex-direction: column;
+  margin: 0;
+  border-radius: 16px;
+  width: 608px;
+  height: 435px;
+  overflow: hidden;
+}
+
+.content-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.content-panel {
+  background: transparent;
+  color: var(--text-dark);
+  padding: 20px 24px 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.panel {
+  display: none;
+  animation: fadeUp .55s ease;
+}
+
+.panel.active {
+  display: block;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-panel h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #000000;
+}
+
+.content-panel p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #444444;
+  margin-bottom: 20px;
+}
+
+.content-panel h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+.apps-list {
+  font-size: 13.5px;
+  color: #444444;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.btn-demo {
+  display: inline-block;
+  align-self: flex-start;
+  background: #0C3C01;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .25s ease, transform .2s ease;
+}
+
+.btn-demo:hover {
+  background: #0a2d01;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1200px) {
+  .content-area {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .content-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 608 / 435;
+  }
+}
+
+@media (max-width: 860px) {
+  .content-area {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+  .content-image {
+    width: 100%;
+    min-height: 240px;
+    height: auto;
+  }
+  .content-panel {
+    padding: 24px 0;
+  }
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .software-section {
+    padding: 40px 20px;
+  }
+  .section-title {
+    font-size: 26px;
+  }
+  .tab {
+    min-width: 170px;
+    padding: 14px 18px;
+    font-size: 14px;
+  }
+}
+
+/* ============================================
+   ZOHO IMPLEMENTATION SECTION
+   ============================================ */
+
+:root {
+  --zoho-green: #1e5c1e;
+  --zoho-dark: #0f1a0f;
+  --zoho-text: #3a3f3a;
+  --zoho-border: #dfe3da;
+  --zoho-bg: #ffffff;
+}
+
+.zoho-implementation {
+  padding: 48px 56px;
+  font-family: "Montserrat";
+  background: var(--zoho-bg);
+  color: var(--zoho-text);
+  margin-bottom: 50px;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.zoho-implementation__eyebrow {
+  font-family: "Montserrat";
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--zoho-dark);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.zoho-implementation__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.zoho-implementation__title {
+  font-family: "Montserrat";
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--zoho-dark);
+  max-width: 420px;
+}
+
+.zoho-implementation__subtitle {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--zoho-text);
+  max-width: 330px;
+}
+
+/* Hidden by default (desktop) — shown only at <=1024px, in the media
+   query below, in place of the original subtitle above. */
+.zoho-implementation__subtitle--closing {
+  display: none;
+}
+
+.zoho-implementation__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--zoho-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.zoho-implementation__cell {
+  position: relative;
+  padding: 38px 42px 42px 42px;
+  transition: background 0.3s ease;
+}
+
+.zoho-implementation__cell:hover {
+  background: #f8faf6;
+}
+
+.zoho-implementation__cell:nth-child(1) {
+  border-right: 1px solid var(--zoho-border);
+  border-bottom: 1px solid var(--zoho-border);
+}
+
+.zoho-implementation__cell:nth-child(2) {
+  border-bottom: 1px solid var(--zoho-border);
+}
+
+.zoho-implementation__cell:nth-child(3) {
+  border-right: 1px solid var(--zoho-border);
+}
+
+.zoho-implementation__cell:nth-child(1)::after,
+.zoho-implementation__cell:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -11px;
+  width: 22px;
+  height: 22px;
+  transform: translateY(-50%) rotate(45deg);
+  background: #fff;
+  border-top: 1px solid var(--zoho-border);
+  border-right: 1px solid var(--zoho-border);
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.zoho-implementation__cell:nth-child(1):hover::after,
+.zoho-implementation__cell:nth-child(3):hover::after {
+  background: #f8faf6;
+}
+
+.zoho-implementation__icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zoho-implementation__icon svg,
+.zoho-implementation__icon img {
+  width: 60px;
+  height: 60px;
+  stroke: var(--zoho-green);
+  fill: none;
+  stroke-width: 1.8;
+  transform-box: fill-box;
+  transform-origin: center;
+  object-fit: contain;
+}
+
+.zoho-implementation__cell:hover .zoho-implementation__icon:not(.icon-zoom) svg,
+.zoho-implementation__cell:hover .zoho-implementation__icon:not(.icon-zoom) img {
+  animation: zoho-spin 3s ease-in-out infinite;
+}
+
+.zoho-implementation__cell:hover .zoho-implementation__icon.icon-zoom svg,
+.zoho-implementation__cell:hover .zoho-implementation__icon.icon-zoom img {
+  animation: zoho-zoom 3s ease-in-out infinite;
+}
+
+@keyframes zoho-spin {
+  0%     { transform: rotate(0deg); }
+  33.33% { transform: rotate(360deg); }
+  100%   { transform: rotate(360deg); }
+}
+
+@keyframes zoho-zoom {
+  0%     { transform: scale(1); }
+  16.66% { transform: scale(1.15); }
+  33.33% { transform: scale(1); }
+  100%   { transform: scale(1); }
+}
+
+.zoho-implementation__step-label {
+  font-family: "Montserrat";
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--zoho-dark);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.zoho-implementation__cell-title {
+  font-family: "Montserrat";
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--zoho-dark);
+  margin-bottom: 10px;
+}
+
+.zoho-implementation__cell-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--zoho-text);
+  max-width: 440px;
+}
+
+@media (max-width: 992px) {
+  .zoho-implementation {
+    padding: 40px 30px;
+  }
+  .zoho-implementation__cell {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 760px) {
+  .zoho-implementation {
+    padding: 32px 20px;
+  }
+
+  .zoho-implementation__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .zoho-implementation__cell {
+    border-right: none !important;
+    border-bottom: 1px solid var(--zoho-border) !important;
+    padding: 24px 20px;
+  }
+
+  .zoho-implementation__icon {
+    margin-bottom: 24px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .zoho-implementation__icon svg,
+  .zoho-implementation__icon img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .zoho-implementation__cell:last-child {
+    border-bottom: none !important;
+  }
+
+  .zoho-implementation__cell::after {
+    display: none !important;
+  }
+
+  .zoho-implementation__title {
+    font-size: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zoho-implementation__cell:hover .zoho-implementation__icon svg,
+  .zoho-implementation__cell:hover .zoho-implementation__icon img {
+    animation: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat";
+}
+
+/* ── Section Container ── */
+.ect-zoho-section {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+  /* Was a background-image pointing at via.placeholder.com, a
+     third-party placeholder service that has since shut down —
+     every request permanently failed with ERR_CONNECTION_CLOSED.
+     The fallback background-color below already rendered visually
+     in its place, so it's now the only background declaration. */
+  background-color: #0a1c0e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px 80px;
+  overflow: hidden;
+  isolation: isolate;
+  margin-bottom: 50px;
+}
+
+/* Deep cinematic overlay */
+.ect-zoho-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(46,160,67,.28), transparent 60%),
+    linear-gradient(180deg, rgba(4,12,6,.88) 0%, rgba(7,22,10,.92) 55%, rgba(4,14,6,.96) 100%);
+  z-index: 1;
+}
+
+/* ── Animated Tech Grid ── */
+.ect-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(110,231,135,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110,231,135,.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 30%, transparent 75%);
+  animation: gridDrift 24s linear infinite;
+}
+
+@keyframes gridDrift {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 56px 56px, 56px 56px; }
+}
+
+/* ── Aurora Light Beams ── */
+.beam {
+  position: absolute;
+  top: -30%;
+  width: 340px;
+  height: 160%;
+  background: linear-gradient(180deg, rgba(110,231,135,.14), transparent 70%);
+  filter: blur(48px);
+  transform: rotate(18deg);
+  z-index: 1;
+  pointer-events: none;
+  animation: beamSway 11s ease-in-out infinite alternate;
+}
+
+.beam.b1 { left: 8%;  animation-delay: 0s; }
+.beam.b2 { left: 44%; width: 260px; opacity: .7; animation-delay: -4s; }
+.beam.b3 { right: 6%; opacity: .8; animation-delay: -7s; }
+
+@keyframes beamSway {
+  from { transform: rotate(14deg) translateX(-40px); opacity: .5; }
+  to   { transform: rotate(22deg) translateX(40px);  opacity: 1;  }
+}
+
+/* ── Floating Particles ── */
+.particle {
+  position: absolute;
+  bottom: -12px;
+  border-radius: 50%;
+  background: rgba(140, 240, 160, .55);
+  box-shadow: 0 0 10px rgba(140,240,160,.8);
+  animation: floatUp linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(0) translateX(0);    opacity: 0;   }
+  12%  { opacity: 1;                                 }
+  88%  { opacity: .5;                                 }
+  100% { transform: translateY(-640px) translateX(50px); opacity: 0; }
+}
+
+/* ── Content Block ── */
+.ect-content {
+  position: relative;
+  z-index: 3;
+  max-width: 940px;
+}
+
+/* Eyebrow Badge */
+.ect-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  border: 1px solid rgba(110,231,135,.4);
+  border-radius: 999px;
+  background: rgba(110,231,135,.08);
+  backdrop-filter: blur(6px);
+  color: #ffffff !important;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp .9s ease .1s forwards;
+}
+
+.ect-eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6ee787;
+  box-shadow: 0 0 10px #6ee787;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1);   opacity: 1;   }
+  50%      { transform: scale(1.5); opacity: .6;  }
+}
+
+/* ── Heading ── */
+.ect-content h2 {
+  color: #fff;
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -.5px;
+  margin-bottom: 8px;
+}
+
+.ect-content h2 .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(46px) rotateX(65deg);
+  filter: blur(8px);
+  animation: wordIn .9s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+@keyframes wordIn {
+  to { opacity: 1; transform: translateY(0) rotateX(0); filter: blur(0); }
+}
+
+/* Gradient highlight on "Zoho Consulting" */
+.ect-content h2 .accent .word {
+  background: linear-gradient(92deg, #6ee787, #b8ffc4 50%, #4fd463);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: wordIn .9s cubic-bezier(.22,1,.36,1) forwards, accentFlow 4s ease-in-out 2s infinite;
+}
+
+@keyframes accentFlow {
+  0%, 100% { background-position: 0% 0;   }
+  50%      { background-position: 100% 0;  }
+}
+
+/* Animated underline stroke */
+.ect-underline {
+  width: 120px;
+  height: 4px;
+  margin: 14px auto 22px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #6ee787, transparent);
+  transform: scaleX(0);
+  animation: lineGrow 1s cubic-bezier(.22,1,.36,1) 1.1s forwards, lineGlow 3s ease-in-out 2.2s infinite;
+}
+
+@keyframes lineGrow {
+  to { transform: scaleX(1); }
+}
+
+@keyframes lineGlow {
+  0%, 100% { box-shadow: 0 0 6px  rgba(110,231,135,.4); }
+  50%      { box-shadow: 0 0 22px rgba(110,231,135,.9); }
+}
+
+/* ── Paragraph ── */
+.ect-content p {
+  color: rgba(255,255,255,.82);
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 720px;
+  margin: 0 auto 34px;
+  opacity: 0;
+  animation: fadeUp 1s ease 1.25s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Premium Button ── */
+.ect-btn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 38px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #06120a;
+  text-decoration: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7ef79a, #2ea043 70%);
+  overflow: hidden;
+  opacity: 0;
+  animation: btnIn .9s cubic-bezier(.22,1,.36,1) 1.5s forwards;
+  transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease;
+  box-shadow: 0 8px 30px rgba(46,160,67,.35), inset 0 1px 0 rgba(255,255,255,.5);
+}
+
+@keyframes btnIn {
+  from { opacity: 0; transform: scale(.72) translateY(14px); }
+  to   { opacity: 1; transform: scale(1) translateY(0);      }
+}
+
+.ect-btn::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 999px;
+  background: conic-gradient(from 0deg, transparent, rgba(158,255,178,.9), transparent 32%);
+  animation: btnOrbit 3.2s linear 2.4s infinite;
+  z-index: -1;
+}
+
+@keyframes btnOrbit {
+  to { transform: rotate(360deg); }
+}
+
+.ect-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.65), transparent);
+  transform: skewX(-20deg);
+  animation: btnShine 3.6s ease 2.6s infinite;
+}
+
+@keyframes btnShine {
+  0%        { left: -80%; }
+  45%, 100% { left: 135%; }
+}
+
+.ect-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 16px 44px rgba(110,231,135,.5), inset 0 1px 0 rgba(255,255,255,.6);
+}
+
+/* ── Glassmorphism Feature Cards ── */
+.ect-features {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 70px;
+  width: 100%;
+  max-width: 1220px;
+  perspective: 900px;
+}
+
+.ect-feature {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  min-width: 245px;
+  padding: 18px 30px;
+  border-radius: 14px;
+  background: linear-gradient(150deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.14);
+  opacity: 0;
+  transform: translateY(56px) rotateX(18deg);
+  animation: cardIn 1s cubic-bezier(.22,1,.36,1) forwards;
+  transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease, border-color .4s ease;
+  overflow: hidden;
+}
+
+.ect-feature:nth-child(1) { animation-delay: 1.8s;  }
+.ect-feature:nth-child(2) { animation-delay: 1.95s; }
+.ect-feature:nth-child(3) { animation-delay: 2.1s;  }
+.ect-feature:nth-child(4) { animation-delay: 2.25s; }
+
+@keyframes cardIn {
+  to { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+
+/* Sweeping light across each card */
+.ect-feature::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -90%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.13), transparent);
+  transform: skewX(-20deg);
+  animation: cardSweep 5.5s ease infinite;
+}
+
+.ect-feature:nth-child(1)::after { animation-delay: 3s;   }
+.ect-feature:nth-child(2)::after { animation-delay: 3.5s; }
+.ect-feature:nth-child(3)::after { animation-delay: 4s;   }
+.ect-feature:nth-child(4)::after { animation-delay: 4.5s; }
+
+@keyframes cardSweep {
+  0%        { left: -90%; }
+  35%, 100% { left: 140%; }
+}
+
+.ect-feature:hover {
+  transform: translateY(-10px) scale(1.04);
+  border-color: rgba(110,231,135,.7);
+  box-shadow:
+    0 20px 44px rgba(46,160,67,.35),
+    0 0 26px rgba(110,231,135,.28),
+    inset 0 1px 0 rgba(255,255,255,.22);
+}
+
+/* Icon inside glowing chip */
+.ect-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: linear-gradient(140deg, rgba(110,231,135,.28), rgba(46,160,67,.12));
+  border: 1px solid rgba(110,231,135,.35);
+  box-shadow: 0 0 14px rgba(110,231,135,.18);
+  transition: transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s ease;
+}
+
+.ect-feature:hover .ect-icon {
+  transform: scale(1.14) rotate(-7deg);
+  box-shadow: 0 0 24px rgba(110,231,135,.5);
+}
+
+.ect-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: #9df7a8;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ect-feature span {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-shadow: 0 1px 8px rgba(0,0,0,.4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+  .ect-content h2 { font-size: 34px; }
+  .ect-feature     { min-width: 45%; }
+}
+
+@media (max-width: 768px) {
+  .ect-zoho-section {
+    align-items: center;
+    text-align: center;
+    /* !important needed: the page's inline <style> block has a
+       universal `section { padding-top: 0 !important; ... }` rule, and
+       !important always wins over a non-important declaration
+       regardless of selector specificity, so the plain padding value
+       here was being silently zeroed out. */
+    padding: 80px 24px 60px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .ect-content h2 { font-size: 26px; }
+  .ect-feature     { min-width: 100%; }
+  .beam            { display: none; }
+}
+
+/* ── Accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .ect-eyebrow,
+  .ect-content h2 .word,
+  .ect-content p,
+  .ect-btn,
+  .ect-feature {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  .ect-underline {
+    transform: scaleX(1);
+  }
+}
+
+
+
+
+/* FAQ */
+
+:root{
+  --bg:#f7f7f5;
+  --card:#ffffff;
+  --ink:#111312;
+  --ink-soft:#5b5f5c;
+  --line:#e6e6e2;
+  --accent:#1f6f54;
+  --accent-soft:#e7f2ed;
+  --radius:14px;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --ease-spring:cubic-bezier(.34,1.4,.44,1);
+}
+
+.faq-section{
+  max-width:1200px;
+  margin:0 auto;
+  padding:72px 20px 96px;
+  position:relative;
+  overflow:hidden;
+  background-color: transparent !important;
+}
+
+.faq-section::before {
+  display: none !important;
+}
+
+/* Header */
+.faq-head{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:48px;
+}
+
+.faq-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:14px;
+  font-family: "Montserrat";
+}
+
+.faq-eyebrow::before{
+  content:"";
+  width:26px;height:2px;
+  background:var(--accent);
+  display:inline-block;
+  transform-origin:left;
+  animation:faq-grow .8s var(--ease) both .2s;
+}
+
+@keyframes faq-grow{
+  from{transform:scaleX(0)}
+  to{transform:scaleX(1)}
+}
+
+.faq-title{
+  font-family: "Montserrat";
+  font-weight:700;
+  font-size:31px;
+  line-height:1.15;
+  letter-spacing:-.02em;
+  max-width:560px;
+  margin:0;
+}
+
+.faq-title span{color:var(--accent)}
+
+.faq-sub{
+  max-width:440px;
+  color:var(--ink-soft);
+  font-size:16px;
+  margin:0;
+}
+
+/* Grid */
+.faq-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px 24px;
+  align-items:start;
+}
+
+/* Item */
+.faq-item{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(26px);
+  transition:border-color .3s var(--ease), box-shadow .35s var(--ease), transform .35s var(--ease);
+  will-change:transform,opacity;
+}
+
+.faq-item.faq-in-view{
+  animation:faq-rise .65s var(--ease) forwards;
+}
+
+@keyframes faq-rise{
+  to{opacity:1;transform:translateY(0)}
+}
+
+.faq-item:hover{
+  border-color:rgba(31,111,84,.35);
+  box-shadow:0 12px 32px -12px rgba(17,19,18,.12);
+  transform:translateY(-2px);
+}
+
+.faq-item.open{
+  border-color:var(--accent);
+  box-shadow:0 16px 40px -14px rgba(31,111,84,.22);
+}
+
+/* Question button */
+.faq-q{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:20px 22px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-align:left;
+  font-family: "Montserrat";
+  font-size:.95rem;
+  font-weight:600;
+  color:var(--ink);
+  transition:color .25s var(--ease);
+}
+
+.faq-item.open .faq-q{color:var(--accent)}
+
+/* Icon */
+.faq-icon{
+  flex:0 0 34px;
+  width:34px;height:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--accent-soft);
+  color:var(--accent);
+  transition:transform .45s var(--ease-spring), background .3s var(--ease), color .3s var(--ease);
+}
+
+.faq-icon svg{
+  width:15px;height:15px;
+  transition:transform .45s var(--ease-spring);
+}
+
+.faq-item:hover .faq-icon{transform:scale(1.08)}
+
+.faq-item.open .faq-icon{
+  background:var(--accent);
+  color:#fff;
+  transform:rotate(180deg);
+}
+
+/* Answer */
+.faq-a{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .5s var(--ease);
+}
+
+.faq-item.open .faq-a{grid-template-rows:1fr}
+
+.faq-a-inner{overflow:hidden}
+
+.faq-a-inner p{
+  padding:0 22px 22px;
+  color:var(--ink-soft);
+  font-size:.92rem;
+  margin:0;
+  opacity:0;
+  transform:translateY(-6px);
+  transition:opacity .4s var(--ease) .1s, transform .4s var(--ease) .1s;
+}
+
+.faq-item.open .faq-a-inner p{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Bottom accent bar */
+.faq-item::after{
+  content:"";
+  display:block;
+  height:3px;
+  background:linear-gradient(90deg,var(--accent),#5cbf9a);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .55s var(--ease);
+}
+
+.faq-item.open::after{transform:scaleX(1)}
+
+/* Focus */
+.faq-q:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:-2px;
+  border-radius:var(--radius);
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .faq-grid{grid-template-columns:1fr}
+  .faq-section{padding:28px 18px 32px}
+}
+
+@media (max-width:560px){
+  .faq-head{margin-bottom:34px}
+  .faq-q{padding:17px 16px;font-size:.9rem}
+  .faq-a-inner p{padding:0 16px 18px}
+  .faq-icon{flex-basis:30px;width:30px;height:30px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .faq-section::before{animation:none!important}
+  .faq-eyebrow::before{animation:none!important}
+  .faq-item{opacity:1;transform:none;transition:none!important}
+  .faq-item.faq-in-view{animation:none!important}
+  .faq-q,.faq-icon,.faq-icon svg,.faq-a,.faq-a-inner p,.faq-item::after{transition:none!important}
+}
+
+
+
+
+  
+/* =========================================
+   FOOTER
+========================================= */
+.footer { font-family: "Montserrat"; }
+.footer-inner { max-width: 1440px; margin: 0 auto; padding: 0 100px; }
+
+/* ---- Top dark green section ---- */
+.footer-top { background: #12380a; color: #fff; padding: 56px 0 60px; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr auto auto auto auto;
+  gap: 48px;
+}
+.f-col a, .f-col .f-head { white-space: nowrap; }
+/* SERVICES column pushed right */
+.footer-grid > .f-col:nth-child(2) { padding-left: 170px; }
+
+.f-logo {
+  font-size: 16px; font-weight: 700; letter-spacing: .5px;
+  margin-bottom: 16px;
+}
+.f-desc {
+  font-size: 15px; line-height: 1.55; color: #e9efe6;
+  max-width: 380px; margin-bottom: 26px;
+}
+.f-news-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+.f-news-desc { font-size: 15px; line-height: 1.5; color: #e9efe6; margin-bottom: 16px; }
+
+.f-subscribe { display: flex; max-width: 300px; }
+.f-subscribe input {
+  flex: 1; min-width: 0;
+  padding: 11px 14px;
+  border: none; border-radius: 6px 0 0 6px;
+  background: #f5f2ea; color: #333;
+  font-size: 14px; font-family: "Montserrat"; outline: none;
+}
+.f-subscribe input::placeholder { color: #9aa79a; }
+.f-subscribe button {
+  padding: 11px 18px;
+  border: none; border-radius: 6px;
+  margin-left: -6px;
+  background: #1f5c13; color: #fff;
+  font-size: 14px; font-family: "Montserrat"; cursor: pointer;
+  transition: background .2s ease;
+}
+.f-subscribe button:hover { background: #2a7a1a; }
+
+.f-col { display: flex; flex-direction: column; }
+.f-head {
+  font-size: 16px; font-weight: 700; letter-spacing: .5px;
+  margin-bottom: 20px; color: #fff;
+}
+.f-head-gap { margin-top: 28px; }
+.f-head-normal { text-transform: none; }
+.f-col a {
+  color: #eef3ec; text-decoration: none;
+  font-size: 15.5px; line-height: 1.4;
+  margin-bottom: 16px;
+  transition: color .2s ease, transform .2s ease;
+}
+.f-col a:hover { color: #a8d99a; }
+
+/* ---- Cream middle strip ---- */
+.footer-mid { background: #f5f2ea; padding: 22px 0; }
+.footer-mid-row {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 18px;
+}
+.f-follow { display: flex; align-items: center; gap: 16px; }
+.f-follow > span { font-size: 16px; color: #1a1a1a; margin-right: 8px; }
+.f-social {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #12380a; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .25s ease, background .25s ease;
+}
+.f-social svg { width: 17px; height: 17px; }
+.f-social:hover { transform: scale(1.15); background: #1f5c13; }
+
+.f-contact { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.f-contact a {
+  display: flex; align-items: center; gap: 8px;
+  color: #12380a; text-decoration: none; font-size: 16px;
+  transition: color .2s ease;
+}
+.f-contact a:hover { color: #2a7a1a; }
+.f-ci { width: 17px; height: 17px; flex-shrink: 0; }
+
+/* ---- Bottom dark strip ---- */
+.footer-bottom { background: #12380a; padding: 34px 0 44px; }
+.footer-bottom-row {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.f-legal { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.f-legal a {
+  color: #eef3ec; text-decoration: none; font-size: 15px;
+  transition: color .2s ease;
+}
+.f-legal a:hover { color: #a8d99a; }
+.f-legal span { color: #eef3ec; font-size: 14px; }
+.f-copy { color: #eef3ec; font-size: 15px; }
+
+/* =========================================
+   FOOTER RESPONSIVE
+========================================= */
+/* Laptop */
+@media (max-width: 1280px) {
+  .footer-inner { padding: 0 48px; }
+  .footer-grid { gap: 36px; }
+  .footer-grid > .f-col:nth-child(2) { padding-left: 60px; }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 32px;
+  }
+  .footer-grid > .f-col:nth-child(2) { padding-left: 0; }
+  .f-col a, .f-col .f-head { white-space: normal; }
+  .f-brand { grid-column: 1 / -1; }
+  .f-desc { max-width: 520px; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .footer-inner { padding: 0 20px; }
+  .footer-top { padding: 44px 0 48px; }
+  /* mobile grid system: brand full width, link columns 2-per-row */
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+  .f-brand { grid-column: 1 / -1; }
+  .f-col a { font-size: 14.5px; margin-bottom: 13px; }
+  .f-head { font-size: 15px; margin-bottom: 14px; }
+  .f-subscribe { max-width: 100%; }
+  .footer-mid-row { flex-direction: column; align-items: flex-start; }
+  .f-contact { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-bottom-row { flex-direction: column; align-items: flex-start; }
+  .f-legal { row-gap: 6px; }
+}
+
+/* Small mobile */
+@media (max-width: 380px) {
+  .f-follow { flex-wrap: wrap; }
+  .f-contact a { font-size: 14.5px; word-break: break-all; }
+}
+
+/* ========================================================================
+   ZOHO — PAGE-OWNED TABLET/MOBILE LAYOUT
+   Loaded after each page stylesheet. Desktop begins at 1025px and is not
+   changed by this file.
+   ======================================================================== */
+
+.service-mobile-media {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  /* ---------- Hero typography and alignment ---------- */
+  .website-figma-hero,
+  .software-figma-hero,
+  .zoho-figma-hero.zoho-figma-hero,
+  .infra-figma-hero,
+  body.hr-page .hero,
+  body.digital-page .hero {
+    text-align: center !important;
+  }
+
+  .website-figma-hero .website-figma-hero__title,
+  .software-figma-hero .software-figma-hero__title,
+  .zoho-figma-hero .zoho-figma-hero__title,
+  .infra-figma-hero .infra-figma-hero__title,
+  body.hr-page .hero__title,
+  body.digital-page .hero__title {
+    width: min(820px, 100%);
+    min-height: 0;
+    margin-inline: auto;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(36px, 4.3vw, 44px) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+
+  .website-figma-hero__break,
+  .software-figma-hero__break,
+  .zoho-figma-hero__desktop-break,
+  .infra-figma-hero__break,
+  body.hr-page .hero__break,
+  body.digital-page .hero__break {
+    display: block !important;
+  }
+
+  .website-figma-hero__subtitle,
+  .software-figma-hero__subtitle,
+  .zoho-figma-hero__subtitle,
+  .infra-figma-hero__subtitle,
+  body.hr-page .hero__subtitle,
+  body.digital-page .hero__subtitle {
+    width: min(700px, 100%);
+    height: auto;
+    margin-inline: auto;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+  }
+
+  .website-figma-hero__cta,
+  .software-figma-hero__cta,
+  .zoho-figma-hero__cta,
+  .infra-figma-hero__cta,
+  body.hr-page .hero__cta,
+  body.digital-page .hero__cta {
+    min-height: 44px;
+    font-family: "Outfit", sans-serif;
+    font-size: 16px !important;
+  }
+
+  /* ---------- Website/Software/Digital/Infrastructure topic sections ---------- */
+  .ect-web-solutions {
+    width: calc(100% - 48px) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 72px auto !important;
+    overflow: visible !important;
+  }
+
+  .ect-web-solutions__header {
+    position: relative !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 20px;
+    align-items: end;
+    margin-bottom: 28px;
+  }
+
+  .ect-web-solutions__eyebrow,
+  .ect-web-solutions__heading,
+  .ect-web-solutions__controls {
+    position: static !important;
+    inset: auto !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .ect-web-solutions__eyebrow {
+    grid-column: 1 / -1;
+    font-family: "Outfit", sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+  }
+
+  .ect-web-solutions__heading {
+    grid-column: 1;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(27px, 3.4vw, 31.25px) !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+
+  .ect-web-solutions__controls {
+    grid-column: 2;
+    display: flex !important;
+    gap: 10px;
+    align-self: end;
+  }
+
+  .ect-web-solutions__arrow {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px;
+  }
+
+  .ect-web-solutions__component {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .ect-web-solutions__tabs {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    gap: 12px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-inline: contain;
+    padding: 0 calc(50% - 130px) 12px !important;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    touch-action: pan-x;
+  }
+
+  .ect-web-solutions__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ect-web-solutions__tab,
+  .ect-web-solutions__tab.is-active {
+    position: relative !important;
+    inset: auto !important;
+    flex: 0 0 260px !important;
+    width: 260px !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    padding: 12px 18px !important;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .ect-web-solutions__tab-label {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+  }
+
+  .ect-web-solutions__panel,
+  .ect-web-solutions__panel.is-active {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 16px 0 0 !important;
+    padding: 28px !important;
+    border-radius: 20px !important;
+    background: var(--ect-muted-background, #f9f9f7) !important;
+  }
+
+  .ect-web-solutions__panel {
+    display: none !important;
+  }
+
+  .ect-web-solutions__panel.is-active,
+  body.digital-page .ect-web-solutions__panel {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .ect-web-solutions__content-title,
+  .ect-web-solutions__description,
+  .ect-web-solutions__services-label,
+  .ect-web-solutions__services-text,
+  .ect-web-solutions__perfect-label,
+  .ect-web-solutions__audience,
+  .ect-web-solutions__cta,
+  .ect-web-solutions__media {
+    position: static !important;
+    inset: auto !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+
+  .ect-web-solutions__content-title {
+    order: 1;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(22px, 2.7vw, 25px) !important;
+    line-height: 1.25 !important;
+  }
+
+  .ect-web-solutions__description {
+    order: 2;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  .ect-web-solutions__media {
+    order: 3;
+    overflow: hidden !important;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px !important;
+  }
+
+  .ect-web-solutions__image {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  .ect-web-solutions__services-label {
+    order: 4;
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 1.5 !important;
+  }
+
+  .ect-web-solutions__services-text {
+    order: 5;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  .ect-web-solutions__perfect-label {
+    order: 6;
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 1.5 !important;
+  }
+
+  .ect-web-solutions__audience {
+    order: 7;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  .ect-web-solutions__cta {
+    order: 8;
+    justify-self: start;
+    min-height: 44px !important;
+    padding: 10px 18px !important;
+    font-family: "Inter", "Montserrat", sans-serif !important;
+    font-size: 16px !important;
+  }
+
+  /* ---------- HR/Zoho moving-topic sections ---------- */
+  body.hr-page .software-section,
+  body:not(.hr-page) .software-section#zoho-services {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 32px 0 !important;
+    padding-inline: 24px !important;
+    overflow: visible !important;
+  }
+
+  body.hr-page .software-section .section-header,
+  .software-section#zoho-services .section-header {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 20px;
+    align-items: end !important;
+    margin-bottom: 28px !important;
+  }
+
+  body.hr-page .software-section .section-header > div:first-child,
+  .software-section#zoho-services .section-header > div:first-child {
+    min-width: 0;
+  }
+
+  body.hr-page .software-section .eyebrow,
+  .software-section#zoho-services .eyebrow {
+    margin: 0 0 10px !important;
+    padding: 0 !important;
+    font-family: "Outfit", sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0 !important;
+    text-align: left !important;
+  }
+
+  body.hr-page .software-section .eyebrow::before,
+  .software-section#zoho-services .eyebrow::before {
+    display: none !important;
+  }
+
+  body.hr-page .software-section .section-title,
+  .software-section#zoho-services .section-title {
+    margin: 0 !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(27px, 3.4vw, 31.25px) !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+
+  body.hr-page .software-section .nav-arrows,
+  .software-section#zoho-services .nav-arrows {
+    display: flex !important;
+    gap: 10px;
+    align-self: end;
+  }
+
+  body.hr-page .software-section .nav-arrows button,
+  .software-section#zoho-services .nav-arrows button {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px;
+  }
+
+  body.hr-page .software-section .tabs-wrapper,
+  .software-section#zoho-services .tabs-wrapper {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 0 16px !important;
+    overflow: hidden !important;
+    touch-action: pan-y;
+  }
+
+  body.hr-page .software-section .tabs-track,
+  .software-section#zoho-services .tabs-track {
+    display: flex !important;
+    gap: 12px !important;
+    width: max-content !important;
+    height: auto !important;
+    will-change: transform;
+  }
+
+  body.hr-page .software-section .tab,
+  body.hr-page .software-section .tab.active,
+  .software-section#zoho-services .tab,
+  .software-section#zoho-services .tab.active {
+    position: relative !important;
+    flex: 0 0 260px !important;
+    width: 260px !important;
+    min-height: 72px !important;
+    padding: 12px 18px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+    text-align: center;
+  }
+
+  body.hr-page .software-section .content-area,
+  .software-section#zoho-services .content-area {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.hr-page .software-section .content-image,
+  .software-section#zoho-services .content-image {
+    display: none !important;
+  }
+
+  body.hr-page .software-section .content-panel,
+  .software-section#zoho-services .content-panel {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.hr-page .software-section .panel,
+  .software-section#zoho-services .panel {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 28px !important;
+    border-radius: 20px !important;
+    background: #f9f9f7 !important;
+  }
+
+  body.hr-page .software-section .panel:not(.active),
+  .software-section#zoho-services .panel:not(.active) {
+    display: none !important;
+  }
+
+  body.hr-page .software-section .panel.active,
+  .software-section#zoho-services .panel.active {
+    display: block !important;
+  }
+
+  body.hr-page .software-section .panel h3,
+  .software-section#zoho-services .panel h3 {
+    margin: 0 0 12px !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(22px, 2.7vw, 25px) !important;
+    line-height: 1.25 !important;
+  }
+
+  body.hr-page .software-section .panel p,
+  .software-section#zoho-services .panel p,
+  body.hr-page .software-section .apps-list,
+  .software-section#zoho-services .apps-list {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  body.hr-page .software-section .panel h4,
+  .software-section#zoho-services .panel h4 {
+    margin: 18px 0 6px !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+
+  .service-mobile-media {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 18px 0;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #f5f5f3;
+  }
+
+  .service-mobile-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  body.hr-page .software-section .btn-demo,
+  .software-section#zoho-services .btn-demo {
+    min-height: 44px !important;
+    margin-top: 20px !important;
+    padding: 10px 18px !important;
+    font-family: "Inter", "Montserrat", sans-serif !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .website-figma-hero .website-figma-hero__title,
+  .software-figma-hero .software-figma-hero__title,
+  .zoho-figma-hero .zoho-figma-hero__title,
+  .infra-figma-hero .infra-figma-hero__title,
+  body.hr-page .hero__title,
+  body.digital-page .hero__title {
+    font-size: clamp(26px, 7.7vw, 32px) !important;
+  }
+
+  .website-figma-hero__subtitle,
+  .software-figma-hero__subtitle,
+  .zoho-figma-hero__subtitle,
+  .infra-figma-hero__subtitle,
+  body.hr-page .hero__subtitle,
+  body.digital-page .hero__subtitle {
+    font-size: 15px !important;
+  }
+
+  .ect-web-solutions,
+  body.hr-page .software-section,
+  body:not(.hr-page) .software-section#zoho-services {
+    width: calc(100% - 32px) !important;
+    margin: 56px auto !important;
+  }
+
+  .ect-web-solutions__header,
+  body.hr-page .software-section .section-header,
+  .software-section#zoho-services .section-header {
+    gap: 10px 12px;
+    margin-bottom: 22px !important;
+  }
+
+  .ect-web-solutions__eyebrow,
+  body.hr-page .software-section .eyebrow,
+  .software-section#zoho-services .eyebrow {
+    font-size: 14px !important;
+  }
+
+  .ect-web-solutions__heading,
+  body.hr-page .software-section .section-title,
+  .software-section#zoho-services .section-title {
+    font-size: clamp(22px, 6.5vw, 26px) !important;
+  }
+
+  .ect-web-solutions__arrow,
+  body.hr-page .software-section .nav-arrows button,
+  .software-section#zoho-services .nav-arrows button {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px;
+  }
+
+  .ect-web-solutions__tabs {
+    padding-inline: calc(50% - min(36vw, 120px)) !important;
+  }
+
+  .ect-web-solutions__tab,
+  .ect-web-solutions__tab.is-active,
+  body.hr-page .software-section .tab,
+  body.hr-page .software-section .tab.active,
+  .software-section#zoho-services .tab,
+  .software-section#zoho-services .tab.active {
+    flex-basis: min(72vw, 240px) !important;
+    width: min(72vw, 240px) !important;
+    min-height: 66px !important;
+    height: 66px !important;
+    font-size: 15px !important;
+  }
+
+  .ect-web-solutions__panel,
+  .ect-web-solutions__panel.is-active,
+  body.hr-page .software-section .panel,
+  .software-section#zoho-services .panel {
+    padding: 20px !important;
+    border-radius: 16px !important;
+  }
+
+  .ect-web-solutions__content-title,
+  body.hr-page .software-section .panel h3,
+  .software-section#zoho-services .panel h3 {
+    font-size: clamp(18px, 5.4vw, 22px) !important;
+  }
+
+  .ect-web-solutions__description,
+  .ect-web-solutions__services-text,
+  .ect-web-solutions__audience,
+  body.hr-page .software-section .panel p,
+  .software-section#zoho-services .panel p,
+  body.hr-page .software-section .apps-list,
+  .software-section#zoho-services .apps-list {
+    font-size: 15px !important;
+  }
+
+  .ect-web-solutions__services-label,
+  .ect-web-solutions__perfect-label,
+  .ect-web-solutions__cta,
+  body.hr-page .software-section .panel h4,
+  .software-section#zoho-services .panel h4,
+  body.hr-page .software-section .btn-demo,
+  .software-section#zoho-services .btn-demo {
+    font-size: 15px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 1024px) {
+  .ect-web-solutions__tabs {
+    scroll-behavior: auto;
+  }
+}
+
+/* ZOHO — FINAL PAGE-OWNED RESPONSIVE ALIGNMENT */
+@media (max-width: 1024px) {
+  .zoho-figma-hero .zoho-figma-hero__title {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(36px, 4.3vw, 44px) !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+
+  .zoho-figma-hero__desktop-break { display: block !important; }
+  #zoho-services .section-header { grid-template-columns: minmax(0, 1fr) !important; }
+  #zoho-services .section-header > div:first-child,
+  #zoho-services .nav-arrows { grid-column: 1 !important; }
+  #zoho-services .nav-arrows {
+    justify-self: end !important;
+    align-self: auto !important;
+    margin-top: 2px !important;
+  }
+
+  #zoho-services .tabs-track {
+    transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  /* Higher-specificity selector needed to outrank
+     .software-section#zoho-services .eyebrow/.section-title further up
+     this file, and must stay *before* the max-width:640px block below
+     so the mobile-tier values there still win at narrow widths. */
+  .software-section#zoho-services .eyebrow { font-size: 16px !important; }
+  .software-section#zoho-services .section-title { font-size: clamp(36px, 4.3vw, 44px) !important; }
+}
+
+@media (max-width: 640px) {
+  body:not(.hr-page) .software-section#zoho-services {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 24px 0 !important;
+    padding-inline: 16px !important;
+  }
+
+  .zoho-figma-hero .zoho-figma-hero__title {
+    font-size: clamp(17px, 5.3vw, 24px) !important;
+    letter-spacing: -0.025em !important;
+  }
+  .software-section#zoho-services .eyebrow { font-size: 15px !important; }
+  .software-section#zoho-services .section-title { font-size: clamp(17px, 5.3vw, 24px) !important; }
+}
+
+/* APPROACH STEPS — tablet/mobile only; desktop remains unchanged */
+.zoho-implementation .zoho-implementation__closing {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  body.zoho-page .zoho-implementation {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 24px 0 32px !important;
+    padding: 32px 24px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__eyebrow {
+    display: block !important;
+    margin-bottom: 10px !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+  }
+
+  .zoho-implementation .zoho-implementation__header {
+    display: block !important;
+    margin-bottom: 24px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__title {
+    max-width: 100% !important;
+    margin: 0 !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(36px, 4.3vw, 44px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .zoho-implementation .zoho-implementation__subtitle:not(.zoho-implementation__subtitle--closing) {
+    display: none !important;
+  }
+
+  /* The closing copy (see zoho.html, placed after the last step card)
+     takes over here instead of the hidden original above. */
+  .zoho-implementation .zoho-implementation__subtitle--closing {
+    display: block !important;
+    margin: 24px 0 0 !important;
+    max-width: 100% !important;
+  }
+
+  .zoho-implementation .zoho-implementation__grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 36px !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell {
+    display: grid !important;
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+    grid-template-areas:
+      "step step"
+      "icon title"
+      "desc desc" !important;
+    column-gap: 14px !important;
+    row-gap: 10px !important;
+    align-items: center !important;
+    min-height: 0 !important;
+    padding: 20px !important;
+    overflow: visible !important;
+    border: 1px solid #dfe3da !important;
+    border-radius: 16px !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  .zoho-implementation .zoho-implementation__step-label {
+    grid-area: step;
+    margin: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+
+  .zoho-implementation .zoho-implementation__icon {
+    grid-area: icon;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell-title {
+    grid-area: title;
+    margin: 0 !important;
+    font-size: clamp(22px, 2.5vw, 25px) !important;
+    line-height: 1.25 !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell-desc {
+    grid-area: desc;
+    margin: 0 !important;
+    font-size: clamp(15px, 1.7vw, 16px) !important;
+    line-height: 1.6 !important;
+  }
+
+.zoho-implementation .zoho-implementation__cell:not(:last-child)::after {
+    content: "│\A▼" !important;
+    display: flex !important;
+    position: absolute !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: -30px !important;
+    left: 50% !important;
+    width: 24px !important;
+    height: 26px !important;
+    transform: translateX(-50%) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: pre !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 0.72 !important;
+    text-align: center !important;
+    color: #0b5d1e !important;
+    background: transparent !important;
+    border: 0 !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell:last-child::after {
+    display: none !important;
+  }
+
+  .zoho-implementation .zoho-implementation__closing {
+    display: block;
+    margin: 24px 0 0 !important;
+    max-width: 100% !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(15px, 1.7vw, 16px) !important;
+    line-height: 1.6 !important;
+    color: #3a3f3a !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .zoho-implementation {
+    padding: 24px 16px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__eyebrow {
+    font-size: 15px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__title {
+    font-size: clamp(17px, 5.3vw, 24px) !important;
+  }
+
+  .zoho-implementation .zoho-implementation__grid {
+    gap: 32px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell {
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    column-gap: 12px !important;
+    padding: 18px 16px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__icon {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell-title {
+    font-size: clamp(18px, 4.8vw, 22px) !important;
+  }
+
+  .zoho-implementation .zoho-implementation__cell-desc,
+  .zoho-implementation .zoho-implementation__closing {
+    font-size: clamp(14px, 3.7vw, 15px) !important;
+  }
+}
+
+/* ============================================================
+   ZOHO — extra eyebrow/heading + repositioning fixes
+   (mobile & tablet only; desktop untouched)
+============================================================ */
+
+/* Tablet/mobile-only repositioned copies of the tech-stack tagline and
+   the FAQ sub-text (see the duplicate markup in zoho.html). Hidden
+   unconditionally so desktop never renders them; the media queries
+   below reveal them and hide the "--top" copy instead. */
+.tech-desc--bottom,
+.faq-sub--bottom {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  /* Every remaining eyebrow/heading on this page, matched to the hero
+     eyebrow ("Transform your business...") and hero title ("Transform
+     Your Business with Smart Zoho Solutions") tablet sizes. Ancestor
+     classes/IDs are needed to outrank the page's inline <style> block,
+     which otherwise forces #ectHeading/.work__title/.tech-title/
+     .faq-title to a flat size on the specificity tie. */
+  .ect-eyebrow { font-size: 16px !important; }
+  .ect-content #ectHeading { font-size: clamp(36px, 4.3vw, 44px) !important; }
+
+  .work__head .work__label { font-size: 16px !important; }
+  .work__head .work__title { font-size: clamp(36px, 4.3vw, 44px) !important; }
+
+  /* ECT Work carousel: base.css sizes each card at 88% (tablet) or
+     min(52vw,397px) (a wider tablet tier), deliberately leaving a
+     sliver of the next card peeking in as a "swipe for more" hint.
+     On this page that reads as a half-cut-off card / wasted space
+     rather than an intentional peek, so show one full-width card at a
+     time instead. Scoped to zoho.css only, so website/software (which
+     already have this reviewed) and the other pages are untouched. */
+  .work .card { flex: 0 0 100% !important; width: 100% !important; }
+
+  /* The heading's manual <br> is hidden below 640px (see the older
+     "Mobile: logo first..." block above), so the browser's natural
+     wrap decides the line break — which was leaving a lone orphan word
+     ("Integrations") alone on its own line. text-wrap:balance picks a
+     more even split instead; harmless no-op in browsers that don't
+     support it yet (falls back to the same wrap as before). */
+  .tech-section .tech-title {
+    font-size: clamp(36px, 4.3vw, 44px) !important;
+    text-wrap: balance;
+  }
+
+  .faq-head .faq-eyebrow { font-size: 16px !important; }
+  .faq-head .faq-title { font-size: clamp(36px, 4.3vw, 44px) !important; }
+
+  /* Tech-stack header: was a flex row sharing space with the tagline,
+     which squeezed the heading into a narrower column. The tagline
+     moves below the honeycomb animation below, so give the heading
+     the full row width. */
+  .tech-header-left {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  .tech-desc--top {
+    display: none !important;
+  }
+
+  .tech-desc--bottom {
+    display: block !important;
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 24px 0 0 !important;
+  }
+
+  /* FAQ sub-text: move below the last card instead of beside the title. */
+  .faq-sub--top {
+    display: none !important;
+  }
+
+  .faq-sub--bottom {
+    display: block !important;
+    margin: 24px 0 0 !important;
+    max-width: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .ect-eyebrow { font-size: 15px !important; }
+  .ect-content #ectHeading { font-size: clamp(17px, 5.3vw, 24px) !important; }
+
+  .work__head .work__label { font-size: 15px !important; }
+  .work__head .work__title { font-size: clamp(17px, 5.3vw, 24px) !important; }
+
+  .tech-header-left .tech-eyebrow { font-size: 15px !important; }
+  .tech-section .tech-title { font-size: clamp(17px, 5.3vw, 24px) !important; }
+
+  .faq-head .faq-eyebrow { font-size: 15px !important; }
+  .faq-head .faq-title { font-size: clamp(17px, 5.3vw, 24px) !important; }
+
+  .tech-desc--bottom {
+    margin: 20px 0 0 !important;
+  }
+}

@@ -1,0 +1,3335 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: "Montserrat";
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+/* ===== HERO ===== */
+.hero {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 56px 20px 64px;
+  text-align: center;
+}
+
+.hero__title {
+  font-size: 40px;
+  line-height: 1.25;
+  font-weight: 800;
+  color: #0a0a0a;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero__subtitle {
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #4b5563;
+  margin-top: 12px;
+}
+
+.hero__cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 22px;
+  background: #0e7a3d;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.hero__cta:hover {
+  background: #0b6332;
+}
+
+.hero__cta:focus-visible {
+  outline: 3px solid #0e7a3d;
+  outline-offset: 3px;
+}
+
+.hero__image-wrap {
+  margin-top: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 551px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* ===== TABLET (≤ 1024px) ===== */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 48px 24px 56px;
+  }
+
+  .hero__title {
+    font-size: 34px;
+  }
+
+  .hero__image-wrap {
+    margin-top: 32px;
+    border-radius: 16px;
+  }
+
+  .hero__image {
+    border-radius: 16px;
+  }
+}
+
+/* ===== MOBILE (≤ 640px) ===== */
+@media (max-width: 640px) {
+  .hero {
+    padding: 36px 16px 44px;
+  }
+
+  .hero__title {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  .hero__subtitle {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .hero__cta {
+    margin-top: 16px;
+    padding: 10px 20px;
+  }
+
+  .hero__image-wrap {
+    margin-top: 24px;
+    border-radius: 12px;
+  }
+
+  .hero__image {
+    border-radius: 12px;
+  }
+}
+
+/* ==========================================================================
+   DIGITAL MARKETING SERVICES — MATCHED TO SOFTWARE PAGE
+   Keeps all Digital Marketing content unchanged.
+   ========================================================================== */
+
+.ect-web-solutions,
+.ect-web-solutions *,
+.ect-web-solutions *::before,
+.ect-web-solutions *::after {
+  box-sizing: border-box;
+}
+
+.ect-web-solutions {
+  --ect-primary: #0c3c01;
+  --ect-secondary: #5b6d49;
+  --ect-accent: #a2ac82;
+  --ect-light-background: #f5f5f3;
+  --ect-muted-background: #f9f9f7;
+  --ect-white: #ffffff;
+  --ect-black: #000000;
+
+  position: relative;
+
+  width: 1240px;
+  height: 770px;
+
+  margin: 50px auto;
+
+  overflow-x: clip;
+
+  color: var(--ect-black);
+
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Reset section text margins */
+.ect-web-solutions__eyebrow,
+.ect-web-solutions__heading,
+.ect-web-solutions__content-title,
+.ect-web-solutions__description,
+.ect-web-solutions__perfect-label,
+.ect-web-solutions__audience {
+  margin: 0;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.ect-web-solutions__header {
+  position: relative;
+  height: 92px;
+}
+
+/* ECT Digital Marketing Services */
+.ect-web-solutions__eyebrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 420px;
+  min-height: 24px;
+
+  color: var(--ect-black);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+
+  text-transform: uppercase;
+}
+
+/* Marketing Solutions for Long-Term Growth */
+.ect-web-solutions__heading {
+  position: absolute;
+  top: 32px;
+  left: 0;
+
+  width: 629px;
+  min-height: 78px;
+
+  color: var(--ect-black);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 31px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+/* ==========================================================================
+   NAVIGATION ARROWS
+   ========================================================================== */
+
+.ect-web-solutions__controls {
+  position: absolute;
+  top: 50px;
+  right: 5px;
+
+  z-index: 4;
+
+  width: 100px;
+
+  display: flex;
+  gap: 16px;
+}
+
+.ect-web-solutions__arrow {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+
+  border: 0;
+  border-radius: 999px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--ect-primary);
+  color: var(--ect-white);
+
+  cursor: pointer;
+
+  transition:
+    transform 200ms ease,
+    background-color 200ms ease;
+}
+
+.ect-web-solutions__arrow svg {
+  width: 18px;
+  height: 18px;
+
+  display: block;
+}
+
+.ect-web-solutions__arrow:hover {
+  background: #0f4a02;
+  transform: translateY(-1px);
+}
+
+.ect-web-solutions__arrow:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.26);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   MAIN COMPONENT
+   ========================================================================== */
+
+.ect-web-solutions__component {
+  position: absolute;
+  top: 142px;
+  left: 0;
+
+  width: 1240px;
+  height: 628px;
+}
+
+/* ==========================================================================
+   LEFT SERVICE TABS
+   ========================================================================== */
+
+.ect-web-solutions__tabs {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 379px;
+  height: 628px;
+}
+
+.ect-web-solutions__tab {
+  position: absolute;
+  left: 0;
+
+  z-index: 1;
+
+  width: 292px;
+  height: 100px;
+  padding: 0;
+
+  border: 0;
+  border-radius: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  overflow: visible;
+
+  background: var(--ect-muted-background);
+  color: var(--ect-black);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+/* Five Digital Marketing tabs */
+.ect-web-solutions__tab:nth-child(1) {
+  top: 0;
+}
+
+.ect-web-solutions__tab:nth-child(2) {
+  top: 132px;
+}
+
+.ect-web-solutions__tab:nth-child(3) {
+  top: 264px;
+}
+
+.ect-web-solutions__tab:nth-child(4) {
+  top: 396px;
+}
+
+.ect-web-solutions__tab:nth-child(5) {
+  top: 528px;
+}
+
+.ect-web-solutions__tab:hover {
+  background: #f0f0ec;
+}
+
+.ect-web-solutions__tab:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.24);
+  outline-offset: 4px;
+}
+
+.ect-web-solutions__tab.is-active {
+  z-index: 2;
+
+  width: 379px;
+
+  background: var(--ect-light-background);
+  color: var(--ect-secondary);
+}
+
+.ect-web-solutions__tab-label {
+  width: 292px;
+  padding: 0 14px;
+
+  display: block;
+
+  color: inherit;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5;
+
+  text-align: center;
+  white-space: pre-line;
+}
+
+/* ==========================================================================
+   RIGHT CONTENT PANEL
+   ========================================================================== */
+
+.ect-web-solutions__panel {
+  position: absolute;
+  top: 0;
+  left: 318px;
+
+  z-index: 3;
+
+  width: 922px;
+  height: 628px;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background: var(--ect-light-background);
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateY(0);
+
+  transition:
+    opacity 240ms ease,
+    transform 240ms ease,
+    visibility 240ms ease;
+}
+
+.ect-web-solutions__panel.is-transitioning {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* ==========================================================================
+   PANEL IMAGE
+   ========================================================================== */
+
+.ect-web-solutions__media {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+
+  width: 874px;
+  height: 370px;
+
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  background: var(--ect-white);
+}
+
+.ect-web-solutions__image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: inherit;
+}
+
+/* ==========================================================================
+   PANEL CONTENT
+   ========================================================================== */
+
+.ect-web-solutions__content-title {
+  position: absolute;
+  top: 414px;
+  left: 24px;
+
+  width: 874px;
+  min-height: 30px;
+
+  color: var(--ect-black);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.ect-web-solutions__description {
+  position: absolute;
+  top: 448px;
+  left: 24px;
+
+  width: 874px;
+  min-height: 48px;
+
+  color: var(--ect-black);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-web-solutions__perfect-label {
+  position: absolute;
+  top: 510px;
+  left: 25px;
+
+  min-height: 20px;
+
+  color: var(--ect-black);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.ect-web-solutions__audience {
+  position: absolute;
+  top: 536px;
+  left: 25px;
+
+  width: calc(100% - 50px);
+  min-height: 24px;
+
+  color: var(--ect-black);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   CTA
+   ========================================================================== */
+
+.ect-web-solutions__cta {
+  position: absolute;
+  top: 574px;
+  left: 24px;
+
+  width: var(--ect-web-solutions-cta-width, auto);
+  min-width: 140px;
+  height: 40px;
+  padding: 8px 24px;
+
+  border-radius: 8px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--ect-primary);
+  color: var(--ect-white);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.ect-web-solutions__cta:hover {
+  background: #0f4a02;
+  transform: translateY(-2px);
+}
+
+.ect-web-solutions__cta:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.26);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   LARGE SCREEN
+   ========================================================================== */
+
+@media (min-width: 1441px) {
+  .ect-web-solutions {
+    width: 1240px;
+  }
+}
+
+/* ==========================================================================
+   LAPTOP AND TABLET
+   ========================================================================== */
+
+@media (max-width: 1199.98px) {
+  .ect-web-solutions {
+    width: min(
+      1240px,
+      calc(100% - clamp(32px, 5vw, 64px))
+    );
+
+    max-width: 1240px;
+    height: auto;
+
+    margin-top: clamp(64px, 7vw, 84px);
+  }
+
+  .ect-web-solutions__header {
+    height: auto;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 12px 20px;
+  }
+
+  .ect-web-solutions__eyebrow,
+  .ect-web-solutions__heading,
+  .ect-web-solutions__controls {
+    position: static;
+  }
+
+  .ect-web-solutions__eyebrow {
+    width: 100%;
+    height: auto;
+
+    grid-column: 1 / -1;
+  }
+
+  .ect-web-solutions__heading {
+    width: min(100%, 720px);
+    height: auto;
+
+    grid-column: 1;
+  }
+
+  .ect-web-solutions__controls {
+    width: 100px;
+    margin-left: auto;
+
+    grid-column: 2;
+    align-self: end;
+    justify-self: end;
+  }
+
+  .ect-web-solutions__component {
+    position: static;
+
+    width: 100%;
+    height: auto;
+
+    margin-top: clamp(24px, 3vw, 32px);
+  }
+
+  .ect-web-solutions__tabs {
+    position: static;
+
+    width: 100%;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .ect-web-solutions__tab,
+  .ect-web-solutions__tab.is-active {
+    position: static;
+
+    width: 100%;
+    height: auto;
+    min-height: 96px;
+  }
+
+  .ect-web-solutions__tab-label {
+    width: 100%;
+
+    font-size: 20px;
+    line-height: 1.35;
+
+    white-space: normal;
+  }
+
+  .ect-web-solutions__panel {
+    position: static;
+
+    width: 100%;
+    height: auto;
+
+    margin-top: clamp(20px, 3vw, 28px);
+    padding: clamp(20px, 3vw, 28px);
+  }
+
+  .ect-web-solutions__media {
+    position: static;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 874 / 502;
+  }
+
+  .ect-web-solutions__content-title,
+  .ect-web-solutions__description,
+  .ect-web-solutions__perfect-label,
+  .ect-web-solutions__audience,
+  .ect-web-solutions__cta {
+    position: static;
+
+    left: auto;
+    top: auto;
+
+    width: 100%;
+  }
+
+  .ect-web-solutions__content-title {
+    margin-top: 18px;
+  }
+
+  .ect-web-solutions__description {
+    margin-top: 8px;
+  }
+
+  .ect-web-solutions__perfect-label {
+    margin-top: 16px;
+  }
+
+  .ect-web-solutions__audience {
+    margin-top: 6px;
+  }
+
+  .ect-web-solutions__cta {
+    width: fit-content;
+    min-width: 140px;
+
+    margin-top: 18px;
+  }
+}
+
+/* ==========================================================================
+   TABLET
+   ========================================================================== */
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .ect-web-solutions__heading {
+    font-size: clamp(26px, 3.4vw, 28px);
+    line-height: 1.3;
+  }
+
+  .ect-web-solutions__tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ect-web-solutions__tab-label {
+    font-size: 17px;
+  }
+
+  .ect-web-solutions__panel {
+    padding: 20px;
+  }
+
+  .ect-web-solutions__content-title {
+    font-size: 18px;
+  }
+
+  .ect-web-solutions__description,
+  .ect-web-solutions__perfect-label,
+  .ect-web-solutions__audience {
+    font-size: 15px;
+  }
+}
+
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+  .ect-web-solutions {
+    width: calc(100% - 32px);
+
+    margin-top: 56px;
+    margin-bottom: 56px;
+  }
+
+  .ect-web-solutions__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .ect-web-solutions__eyebrow {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .ect-web-solutions__heading {
+    width: 100%;
+
+    font-size: clamp(26px, 7vw, 30px);
+    line-height: 1.2;
+  }
+
+  .ect-web-solutions__controls {
+    position: static;
+
+    width: 100%;
+    margin-left: 0;
+
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .ect-web-solutions__arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ect-web-solutions__arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .ect-web-solutions__component {
+    margin-top: 20px;
+  }
+
+  .ect-web-solutions__tabs {
+    display: flex;
+    gap: 12px;
+
+    overflow-x: auto;
+
+    padding-bottom: 8px;
+
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ect-web-solutions__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ect-web-solutions__tab,
+  .ect-web-solutions__tab.is-active {
+    flex: 0 0 auto;
+
+    width: min(78vw, 220px);
+    min-height: 86px;
+
+    border-radius: 20px;
+
+    scroll-snap-align: start;
+  }
+
+  .ect-web-solutions__tab-label {
+    font-size: 17px;
+  }
+
+  .ect-web-solutions__panel {
+    margin-top: 16px;
+    padding: 16px;
+
+    border-radius: 16px;
+  }
+
+  .ect-web-solutions__media {
+    border-radius: 14px;
+  }
+
+  .ect-web-solutions__content-title {
+    font-size: 17px;
+  }
+
+  .ect-web-solutions__description,
+  .ect-web-solutions__perfect-label,
+  .ect-web-solutions__audience {
+    font-size: 14px;
+  }
+}
+
+/* ==========================================================================
+   SMALL MOBILE
+   ========================================================================== */
+
+@media (max-width: 374.98px) {
+  .ect-web-solutions {
+    width: calc(100% - 24px);
+  }
+
+  .ect-web-solutions__eyebrow {
+    font-size: 12px;
+  }
+
+  .ect-web-solutions__heading {
+    font-size: 24px;
+  }
+
+  .ect-web-solutions__tab,
+  .ect-web-solutions__tab.is-active {
+    width: min(82vw, 210px);
+  }
+
+  .ect-web-solutions__tab-label {
+    font-size: 16px;
+  }
+
+  .ect-web-solutions__panel {
+    padding: 14px;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .ect-web-solutions__arrow,
+  .ect-web-solutions__tab,
+  .ect-web-solutions__panel,
+  .ect-web-solutions__cta {
+    transition: none;
+  }
+}
+
+
+/* ==========================================================================
+   TECHNOLOGIES WE USE — MATCHED TO SOFTWARE PAGE
+   Digital Marketing text and logo content remain unchanged.
+   ========================================================================== */
+
+.tb-section,
+.tb-section *,
+.tb-section *::before,
+.tb-section *::after {
+  box-sizing: border-box;
+}
+
+.tb-section {
+  width: 100%;
+  padding: 50px 0;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ==========================================================================
+   TOP CONTENT
+   ========================================================================== */
+
+.tb-top {
+  width: 100%;
+  padding: 0 48px;
+  margin: 0 0 32px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+
+  opacity: 0;
+  transform: translateY(-28px);
+
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+
+.tb-section.tb-visible .tb-top {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tb-top > div {
+  min-width: 0;
+}
+
+/* Technologies We Use */
+.tb-eyebrow {
+  margin: 0 0 8px;
+
+  color: #333333;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Modern Technologies. Powerful Digital Solutions. */
+.tb-heading {
+  margin: 0;
+
+  color: #1a1a1a;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 31px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+
+  white-space: nowrap;
+}
+
+.tb-tagline {
+  max-width: 460px;
+  margin: 0;
+
+  color: #333333;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.65;
+  text-align: left;
+
+  transition-delay: 0.12s;
+}
+
+/* ==========================================================================
+   TRACK WRAPPER
+   ========================================================================== */
+
+.tb-track-wrapper {
+  width: calc(100% - 100px);
+  max-width: 1240px;
+
+  margin-right: 50px;
+  margin-bottom: 24px;
+  margin-left: 50px;
+
+  overflow: hidden;
+}
+
+.tb-track-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   INFINITE TRACK
+   ========================================================================== */
+
+.tb-track {
+  width: max-content;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  will-change: transform;
+}
+
+/* ==========================================================================
+   LOGO ITEM
+   ========================================================================== */
+
+.tb-item {
+  width: 200px;
+  height: 100px;
+  flex: 0 0 200px;
+
+  position: relative;
+
+  display: block;
+
+  overflow: hidden;
+
+  border: 2px solid transparent;
+  border-radius: 0;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.28s ease,
+    border-radius 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.tb-img {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+
+  display: block;
+
+  object-fit: contain;
+
+  background: #ffffff;
+}
+
+/* ==========================================================================
+   HOVER
+   ========================================================================== */
+
+@media (hover: hover) {
+  .tb-item:hover {
+    z-index: 2;
+
+    border-color: #8aaa7a;
+    border-radius: 16px;
+
+    box-shadow:
+      0 8px 24px rgba(30, 92, 30, 0.12);
+
+    transform: translateY(-2px);
+  }
+}
+
+/* ==========================================================================
+   LAPTOP
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+  .tb-top {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  .tb-heading {
+    white-space: normal;
+  }
+
+  .tb-track-wrapper {
+    width: calc(100% - 64px);
+
+    margin-right: 32px;
+    margin-left: 32px;
+  }
+}
+
+/* ==========================================================================
+   TABLET
+   ========================================================================== */
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .tb-section {
+    padding: 32px 0 32px;
+  }
+
+  .tb-top {
+    padding-right: 28px;
+    padding-left: 28px;
+
+    gap: 28px;
+  }
+
+  .tb-eyebrow {
+    font-size: 15px;
+  }
+
+  .tb-heading {
+    font-size: 26px;
+  }
+
+  .tb-tagline {
+    max-width: 380px;
+
+    font-size: 13px;
+  }
+
+  .tb-track-wrapper {
+    width: calc(100% - 56px);
+
+    margin-right: 28px;
+    margin-left: 28px;
+  }
+
+  .tb-item {
+    width: 180px;
+    height: 115px;
+    flex-basis: 180px;
+  }
+}
+
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
+
+@media (max-width: 599px) {
+  .tb-section {
+    padding: 28px 0 24px;
+  }
+
+  .tb-top {
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-bottom: 24px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .tb-eyebrow {
+    margin-bottom: 7px;
+
+    font-size: 14px;
+  }
+
+  .tb-heading {
+    font-size: 22px;
+    line-height: 1.28;
+
+    white-space: normal;
+  }
+
+  .tb-tagline {
+    max-width: 100%;
+
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .tb-track-wrapper {
+    width: calc(100% - 32px);
+
+    margin-right: 16px;
+    margin-bottom: 18px;
+    margin-left: 16px;
+  }
+
+  .tb-track {
+    gap: 4px;
+  }
+
+  .tb-item {
+    width: 100px;
+    height: 80px;
+    flex-basis: 100px;
+  }
+
+  .tb-img {
+    padding: 4px;
+  }
+}
+
+/* ==========================================================================
+   SMALL MOBILE
+   ========================================================================== */
+
+@media (max-width: 380px) {
+  .tb-top {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .tb-heading {
+    font-size: 20px;
+  }
+
+  .tb-track-wrapper {
+    width: calc(100% - 24px);
+
+    margin-right: 12px;
+    margin-left: 12px;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .tb-top {
+    opacity: 1 !important;
+    transform: none !important;
+
+    transition: none !important;
+  }
+
+  .tb-item {
+    transform: none !important;
+
+    transition: none !important;
+  }
+}
+.faq-section{
+  max-width:1200px;
+  margin:0 auto;
+  padding:72px 20px 96px;
+  position:relative;
+  overflow:hidden;
+  margin-top: 50px;
+}
+
+/* Header */
+.faq-head{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:48px;
+}
+
+.faq-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink);
+  font-weight:600;
+  margin-bottom:14px;
+  font-family: "Montserrat";
+}
+
+.faq-title{
+  font-family: "Montserrat";
+  font-weight:700;
+  font-size:clamp(1.7rem,4vw,2.6rem);
+  line-height:1.15;
+  letter-spacing:-.02em;
+  max-width:640px;
+  margin:0;
+}
+
+.faq-title span{color:var(--accent)}
+
+.faq-sub{
+  max-width:480px;
+  color:var(--ink-soft);
+  font-size:.95rem;
+  margin:0;
+}
+
+/* Grid */
+.faq-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px 24px;
+  align-items:start;
+}
+
+/* Item */
+.faq-item{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(26px);
+  transition:border-color .3s var(--ease), box-shadow .35s var(--ease), transform .35s var(--ease);
+  will-change:transform,opacity;
+}
+
+.faq-item.faq-in-view{
+  animation:faq-rise .65s var(--ease) forwards;
+}
+
+@keyframes faq-rise{
+  to{opacity:1;transform:translateY(0)}
+}
+
+.faq-item:hover{
+  border-color:rgba(31,111,84,.35);
+  box-shadow:0 12px 32px -12px rgba(17,19,18,.12);
+  transform:translateY(-2px);
+}
+
+.faq-item.open{
+  border-color:var(--accent);
+  box-shadow:0 16px 40px -14px rgba(31,111,84,.22);
+}
+
+/* Question button */
+.faq-q{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:20px 22px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-align:left;
+  font-family: "Montserrat";
+  font-size:.95rem;
+  font-weight:600;
+  color:var(--ink);
+  transition:color .25s var(--ease);
+}
+
+.faq-item.open .faq-q{color:var(--accent)}
+
+/* Icon */
+.faq-icon{
+  flex:0 0 34px;
+  width:34px;height:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--accent-soft);
+  color:var(--accent);
+  transition:transform .45s var(--ease-spring), background .3s var(--ease), color .3s var(--ease);
+}
+
+.faq-icon svg{
+  width:15px;height:15px;
+  transition:transform .45s var(--ease-spring);
+}
+
+.faq-item:hover .faq-icon{transform:scale(1.08)}
+
+.faq-item.open .faq-icon{
+  background:var(--accent);
+  color:#fff;
+  transform:rotate(180deg);
+}
+
+/* Answer */
+.faq-a{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .5s var(--ease);
+}
+
+.faq-item.open .faq-a{grid-template-rows:1fr}
+
+.faq-a-inner{overflow:hidden}
+
+.faq-a-inner p{
+  padding:0 22px 22px;
+  color:var(--ink-soft);
+  font-size:.92rem;
+  margin:0;
+  opacity:0;
+  transform:translateY(-6px);
+  transition:opacity .4s var(--ease) .1s, transform .4s var(--ease) .1s;
+}
+
+.faq-item.open .faq-a-inner p{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Bottom accent bar */
+.faq-item::after{
+  content:"";
+  display:block;
+  height:3px;
+  background:linear-gradient(90deg,var(--accent),#5cbf9a);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .55s var(--ease);
+}
+
+.faq-item.open::after{transform:scaleX(1)}
+
+/* Focus */
+.faq-q:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:-2px;
+  border-radius:var(--radius);
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .faq-grid{grid-template-columns:1fr}
+  .faq-section{padding:56px 18px 72px}
+}
+
+@media (max-width:560px){
+  .faq-head{margin-bottom:34px}
+  .faq-q{padding:17px 16px;font-size:.9rem}
+  .faq-a-inner p{padding:0 16px 18px}
+  .faq-icon{flex-basis:30px;width:30px;height:30px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .faq-item{opacity:1;transform:none;transition:none!important}
+  .faq-item.faq-in-view{animation:none!important}
+  .faq-q,.faq-icon,.faq-icon svg,.faq-a,.faq-a-inner p,.faq-item::after{transition:none!important}
+}
+
+:root{
+  --card:#ffffff;
+  --ink:#111312;
+  --ink-soft:#5b5f5c;
+  --line:#e6e6e2;
+  --accent:#1f6f54;
+  --accent-soft:#e7f2ed;
+  --radius:14px;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --ease-spring:cubic-bezier(.34,1.4,.44,1);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+.footer { font-family: "Montserrat"; }
+.footer-inner { max-width: 1440px; margin: 0 auto; padding: 0 100px; }
+
+/* ---- Top dark green section ---- */
+.footer-top { background: #12380a; color: #fff; padding: 56px 0 60px; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr auto auto auto auto;
+  gap: 48px;
+}
+.f-col a, .f-col .f-head { white-space: nowrap; }
+/* SERVICES column pushed right */
+.footer-grid > .f-col:nth-child(2) { padding-left: 170px; }
+
+.f-logo {
+  font-size: 16px; font-weight: 700; letter-spacing: .5px;
+  margin-bottom: 16px;
+}
+.f-desc {
+  font-size: 15px; line-height: 1.55; color: #e9efe6;
+  max-width: 380px; margin-bottom: 26px;
+}
+.f-news-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+.f-news-desc { font-size: 15px; line-height: 1.5; color: #e9efe6; margin-bottom: 16px; }
+
+.f-subscribe { display: flex; max-width: 300px; }
+.f-subscribe input {
+  flex: 1; min-width: 0;
+  padding: 11px 14px;
+  border: none; border-radius: 6px 0 0 6px;
+  background: #f5f2ea; color: #333;
+  font-size: 14px; font-family: "Montserrat"; outline: none;
+}
+.f-subscribe input::placeholder { color: #9aa79a; }
+.f-subscribe button {
+  padding: 11px 18px;
+  border: none; border-radius: 6px;
+  margin-left: -6px;
+  background: #1f5c13; color: #fff;
+  font-size: 14px; font-family: "Montserrat"; cursor: pointer;
+  transition: background .2s ease;
+}
+.f-subscribe button:hover { background: #2a7a1a; }
+
+.f-col { display: flex; flex-direction: column; }
+.f-head {
+  font-size: 16px; font-weight: 700; letter-spacing: .5px;
+  margin-bottom: 20px; color: #fff;
+}
+.f-head-gap { margin-top: 28px; }
+.f-head-normal { text-transform: none; }
+.f-col a {
+  color: #eef3ec; text-decoration: none;
+  font-size: 15.5px; line-height: 1.4;
+  margin-bottom: 16px;
+  transition: color .2s ease, transform .2s ease;
+}
+.f-col a:hover { color: #a8d99a; }
+
+/* ---- Cream middle strip ---- */
+.footer-mid { background: #f5f2ea; padding: 22px 0; }
+.footer-mid-row {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 18px;
+}
+.f-follow { display: flex; align-items: center; gap: 16px; }
+.f-follow > span { font-size: 16px; color: #1a1a1a; margin-right: 8px; }
+.f-social {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #12380a; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .25s ease, background .25s ease;
+}
+.f-social svg { width: 17px; height: 17px; }
+.f-social:hover { transform: scale(1.15); background: #1f5c13; }
+
+.f-contact { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.f-contact a {
+  display: flex; align-items: center; gap: 8px;
+  color: #12380a; text-decoration: none; font-size: 16px;
+  transition: color .2s ease;
+}
+.f-contact a:hover { color: #2a7a1a; }
+.f-ci { width: 17px; height: 17px; flex-shrink: 0; }
+
+/* ---- Bottom dark strip ---- */
+.footer-bottom { background: #12380a; padding: 34px 0 44px; }
+.footer-bottom-row {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px;
+}
+.f-legal { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.f-legal a {
+  color: #eef3ec; text-decoration: none; font-size: 15px;
+  transition: color .2s ease;
+}
+.f-legal a:hover { color: #a8d99a; }
+.f-legal span { color: #eef3ec; font-size: 14px; }
+.f-copy { color: #eef3ec; font-size: 15px; }
+
+/* =========================================
+   FOOTER RESPONSIVE
+========================================= */
+/* Laptop */
+@media (max-width: 1280px) {
+  .footer-inner { padding: 0 48px; }
+  .footer-grid { gap: 36px; }
+  .footer-grid > .f-col:nth-child(2) { padding-left: 60px; }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 32px;
+  }
+  .footer-grid > .f-col:nth-child(2) { padding-left: 0; }
+  .f-col a, .f-col .f-head { white-space: normal; }
+  .f-brand { grid-column: 1 / -1; }
+  .f-desc { max-width: 520px; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .footer-inner { padding: 0 20px; }
+  .footer-top { padding: 44px 0 48px; }
+  /* mobile grid system: brand full width, link columns 2-per-row */
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+  .f-brand { grid-column: 1 / -1; }
+  .f-col a { font-size: 14.5px; margin-bottom: 13px; }
+  .f-head { font-size: 15px; margin-bottom: 14px; }
+  .f-subscribe { max-width: 100%; }
+  .footer-mid-row { flex-direction: column; align-items: flex-start; }
+  .f-contact { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-bottom-row { flex-direction: column; align-items: flex-start; }
+  .f-legal { row-gap: 6px; }
+}
+
+/* Small mobile */
+@media (max-width: 380px) {
+  .f-follow { flex-wrap: wrap; }
+  .f-contact a { font-size: 14.5px; word-break: break-all; }
+}
+
+/* ===== ECT Work heading override (Figma spec) =====
+   Higher-specificity selectors used deliberately: base.css loads
+   after digital.css, so a plain .work__label/.work .nav-btn rule
+   here would lose the cascade tie and get silently overridden. */
+.work__head .work__label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.work__head .work__title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.work__head .work__nav .nav-btn {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+.work__head .work__nav .nav-btn svg {
+  stroke-width: 1.8;
+}
+
+/* ===== Web Solutions Section ===== */
+
+.web-solutions-section {
+  --green: #1e5c1e;
+  --dark: #0f1a0f;
+  --text: #3a3f3a;
+  --border: #dfe3da;
+  --bg: #ffffff;
+  --bw: 0.125rem;
+
+  width: 100%;
+  padding: 50px 5%;
+
+  background: var(--bg);
+  color: var(--text);
+
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Section eyebrow */
+.web-solutions-section .eyebrow {
+  margin-bottom: 0.875rem;
+
+  color: var(--dark);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.094rem;
+  text-transform: uppercase;
+}
+
+/* Heading and description row */
+.web-solutions-section .header {
+  margin-bottom: 2.25rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 4%;
+}
+
+.web-solutions-section .header h2 {
+  max-width: 52%;
+  margin: 0;
+
+  color: var(--dark);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 31px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.web-solutions-section .header p {
+  max-width: 32%;
+  margin: 0;
+
+  color: var(--text);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.906rem;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* Main 3 × 2 process grid */
+.web-solutions-section .grid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  overflow: hidden;
+
+  border: var(--bw) solid var(--border);
+  border-radius: 0.875rem;
+
+  background: #ffffff;
+}
+
+/* Process card */
+.web-solutions-section .cell {
+  position: relative;
+
+  padding: 6% 10% 8%;
+
+  background: #ffffff;
+
+  transition: background 0.3s ease;
+}
+
+/* Hover: background tint (matches zoho/hr/IT infrastructure's Our Approach cards) */
+.web-solutions-section .cell:hover {
+  background: #f8faf6;
+}
+
+/* Vertical dividers */
+.web-solutions-section .cell:nth-child(3n + 1),
+.web-solutions-section .cell:nth-child(3n + 2) {
+  border-right: var(--bw) solid var(--border);
+}
+
+/* Horizontal divider */
+.web-solutions-section .cell:nth-child(-n + 3) {
+  border-bottom: var(--bw) solid var(--border);
+}
+
+/* Chevron connector */
+.web-solutions-section .cell:nth-child(3n + 1)::after,
+.web-solutions-section .cell:nth-child(3n + 2)::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  right: -0.75rem;
+  z-index: 2;
+
+  width: 1.375rem;
+  height: 1.375rem;
+
+  border-top: var(--bw) solid var(--border);
+  border-right: var(--bw) solid var(--border);
+
+  background: #ffffff;
+
+  transform:
+    translateY(-50%)
+    rotate(45deg);
+
+  transition: background-color 0.3s ease;
+
+  pointer-events: none;
+}
+
+.web-solutions-section .cell:nth-child(3n + 1):hover::after,
+.web-solutions-section .cell:nth-child(3n + 2):hover::after {
+  background: #f8faf6;
+}
+
+/* Icon wrapper */
+.web-solutions-section .icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: 3.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SVG and image icons */
+.web-solutions-section .icon svg,
+.web-solutions-section .icon img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 1.8;
+
+  object-fit: contain;
+
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Normal icons: spin and pause */
+.web-solutions-section
+.cell:hover
+.icon:not(.icon-zoom)
+svg,
+.web-solutions-section
+.cell:hover
+.icon:not(.icon-zoom)
+img {
+  animation:
+    ws-spin-pause
+    2.8s
+    ease-in-out
+    infinite;
+}
+
+/* Icons with .icon-zoom: zoom and pause */
+.web-solutions-section
+.cell:hover
+.icon.icon-zoom
+svg,
+.web-solutions-section
+.cell:hover
+.icon.icon-zoom
+img {
+  animation:
+    ws-zoom-pause
+    2.8s
+    ease-in-out
+    infinite;
+}
+
+@keyframes ws-spin-pause {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  28.57% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ws-zoom-pause {
+  0% {
+    transform: scale(1);
+  }
+
+  14.28% {
+    transform: scale(1.2);
+  }
+
+  28.57% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Step number */
+.web-solutions-section .step {
+  margin-bottom: 0.625rem;
+
+  color: var(--dark);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.094rem;
+  text-transform: uppercase;
+}
+
+/* Step heading */
+.web-solutions-section .cell h3 {
+  margin: 0 0 0.625rem;
+
+  color: var(--dark);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* Step description */
+.web-solutions-section .cell p {
+  margin: 0;
+
+  color: var(--text);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.906rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 62.5rem) {
+  .web-solutions-section {
+    padding: 32px 5%;
+  }
+
+  .web-solutions-section .header {
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .web-solutions-section .header h2,
+  .web-solutions-section .header p {
+    max-width: 100%;
+  }
+
+  .web-solutions-section .grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .web-solutions-section .cell {
+    border: 0 !important;
+    border-bottom:
+      var(--bw)
+      solid
+      var(--border) !important;
+  }
+
+  .web-solutions-section .cell:nth-child(odd) {
+    border-right:
+      var(--bw)
+      solid
+      var(--border) !important;
+  }
+
+  .web-solutions-section .cell:nth-child(n + 5) {
+    border-bottom: 0 !important;
+  }
+
+  .web-solutions-section .cell::after {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 40rem) {
+  .web-solutions-section {
+    padding: 24px 5%;
+  }
+
+  .web-solutions-section .header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .web-solutions-section .header h2 {
+    max-width: 100%;
+
+    font-size: 1.625rem;
+    line-height: 1.3;
+  }
+
+  .web-solutions-section .header p {
+    max-width: 100%;
+  }
+
+  .web-solutions-section .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .web-solutions-section .cell {
+    padding: 32px 28px;
+
+    border-right: 0 !important;
+    border-bottom:
+      var(--bw)
+      solid
+      var(--border) !important;
+  }
+
+  .web-solutions-section .cell:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .web-solutions-section .cell::after {
+    display: none !important;
+  }
+
+  .web-solutions-section .icon {
+    margin-bottom: 2rem;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 23.75rem) {
+  .web-solutions-section {
+    padding: 42px 16px;
+  }
+
+  .web-solutions-section .eyebrow {
+    font-size: 14px;
+  }
+
+  .web-solutions-section .header h2 {
+    font-size: 1.45rem;
+  }
+
+  .web-solutions-section .cell {
+    padding: 28px 22px;
+  }
+
+  .web-solutions-section .icon {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .web-solutions-section .cell,
+  .web-solutions-section .icon svg,
+  .web-solutions-section .icon img {
+    transition: none !important;
+  }
+
+  .web-solutions-section
+  .cell:hover
+  .icon
+  svg,
+  .web-solutions-section
+  .cell:hover
+  .icon
+  img {
+    animation: none !important;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 380px) {
+  .f-follow { flex-wrap: wrap; }
+  .f-contact a { font-size: 14.5px; word-break: break-all; }
+}
+/* ==========================================================================
+   FINAL RECOVERY FIX — TECHNOLOGIES WE USE
+   Prevents logo cards/images from being cropped at the top during hover.
+   Scope: .tb-section only
+   ========================================================================== */
+
+.tb-section {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.tb-track-wrapper {
+  /* Keep horizontal marquee clipping while providing safe vertical hover room. */
+  overflow: hidden;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-top: -12px;
+  margin-bottom: 12px;
+}
+
+.tb-track-wrapper:last-child {
+  margin-bottom: -12px;
+}
+
+.tb-track {
+  align-items: center;
+}
+
+.tb-item {
+  overflow: hidden;
+  transform: none;
+  transform-origin: center;
+}
+
+.tb-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (hover: hover) {
+  .tb-item:hover {
+    z-index: 5;
+    transform: none;
+  }
+
+  .tb-item:hover .tb-img {
+    /* Zoom remains inside the card, so the top edge cannot be cropped. */
+    transform: scale(1.04);
+  }
+}
+
+/* ==========================================================================
+   FINAL RECOVERY FIX — OUR PROCESS CHEVRONS
+   Makes every internal ">" connector fully visible without cropping.
+   Scope: .web-solutions-section only
+   ========================================================================== */
+
+.web-solutions-section .grid {
+  /* Internal chevrons extend between cards, so they must not be clipped. */
+  overflow: visible;
+  isolation: isolate;
+}
+
+.web-solutions-section .cell {
+  overflow: visible;
+}
+
+.web-solutions-section .cell:nth-child(3n + 1)::after,
+.web-solutions-section .cell:nth-child(3n + 2)::after {
+  top: 50%;
+  right: -12px;
+  z-index: 10;
+
+  width: 22px;
+  height: 22px;
+
+  border-top: 2px solid var(--border);
+  border-right: 2px solid var(--border);
+
+  background: #ffffff;
+  transform: translateY(-50%) rotate(45deg);
+  transform-origin: center;
+
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.web-solutions-section .cell:nth-child(3n + 1):hover::after,
+.web-solutions-section .cell:nth-child(3n + 2):hover::after {
+  background: #f8faf6;
+}
+
+/* Restore clean rounded outer corners while allowing internal chevrons. */
+.web-solutions-section .cell:first-child {
+  border-top-left-radius: 14px;
+}
+
+.web-solutions-section .cell:nth-child(3) {
+  border-top-right-radius: 14px;
+}
+
+.web-solutions-section .cell:nth-child(4) {
+  border-bottom-left-radius: 14px;
+}
+
+.web-solutions-section .cell:last-child {
+  border-bottom-right-radius: 14px;
+}
+
+@media (max-width: 62.5rem) {
+  .web-solutions-section .grid {
+    overflow: hidden;
+  }
+
+  .web-solutions-section .cell::after {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   DIGITAL MARKETING PAGE — FINAL FIGMA MATCH
+   Figma node: 2550:5256
+
+   Updated:
+   - Page and navigation backgrounds
+   - Hero typography, spacing, button and media
+   - Digital Marketing service surfaces
+   - Our Process surfaces
+   - ECT Work and Technologies backgrounds
+   - Footer color system
+
+   JavaScript and existing animations remain unchanged.
+   ========================================================================== */
+
+.digital-page {
+  --dm-page-bg: #FFFFFF;
+  --dm-tab-bg: #F9F9F7;
+  --dm-panel-bg: #F5F5F3;
+  --dm-placeholder: #D9D9D9;
+  --dm-green: #0C3C01;
+  --dm-green-soft: #5B6D49;
+  --dm-footer-strip: #F4F3EF;
+  --dm-newsletter-bg: #EAEBE4;
+  --dm-newsletter-button: #2D6B47;
+
+  background: var(--dm-page-bg);
+}
+
+/* ---------- Page canvas and navigation ---------- */
+
+html,
+body.digital-page {
+  background: var(--dm-page-bg);
+}
+
+.digital-page .nav-wrap,
+.digital-page .navbar,
+.digital-page .mobile-panel,
+.digital-page .mega {
+  background: var(--dm-page-bg);
+}
+
+/* ---------- Hero: exact Figma desktop geometry ---------- */
+
+.digital-page .hero {
+  width: min(1240px, calc(100% - 40px));
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 128px 0 100px;
+  text-align: center;
+  background: var(--dm-page-bg);
+}
+
+.digital-page .hero__title {
+  width: min(869px, 100%);
+  max-width: 869px;
+  margin: 0 auto;
+
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 48.83px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.digital-page .hero__subtitle {
+  margin: 18px 0 0;
+
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.digital-page .hero__cta {
+  min-width: 269px;
+  height: 48px;
+  margin-top: 24px;
+  padding: 8px 10px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #F1F1EF;
+  border-radius: 8px;
+
+  background: var(--dm-green);
+  color: #FFFFFF;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration: none;
+
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.digital-page .hero__cta:hover {
+  background: #0F4A02;
+  transform: translateY(-2px);
+}
+
+.digital-page .hero__cta:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.24);
+  outline-offset: 3px;
+}
+
+.digital-page .hero__image-wrap {
+  width: 100%;
+  height: 552px;
+  margin-top: 42px;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+  background: var(--dm-placeholder);
+  line-height: 0;
+}
+
+.digital-page .hero__image {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+
+  display: block;
+
+  border-radius: 24px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ---------- Digital Marketing Services ---------- */
+
+.digital-page .ect-web-solutions {
+  background: var(--dm-page-bg);
+}
+
+.digital-page .ect-web-solutions__tab {
+  background: var(--dm-tab-bg);
+}
+
+.digital-page .ect-web-solutions__tab.is-active {
+  background: var(--dm-panel-bg);
+  color: var(--dm-green-soft);
+}
+
+.digital-page .ect-web-solutions__panel {
+  background: var(--dm-panel-bg);
+}
+
+.digital-page .ect-web-solutions__media {
+  background: var(--dm-page-bg);
+}
+
+.digital-page .ect-web-solutions__arrow,
+.digital-page .ect-web-solutions__cta {
+  background: var(--dm-green);
+}
+
+/* ---------- Our Process ---------- */
+
+.digital-page .web-solutions-section {
+  background: var(--dm-page-bg);
+}
+
+.digital-page .web-solutions-section .grid,
+.digital-page .web-solutions-section .cell,
+.digital-page .web-solutions-section .cell:nth-child(3n + 1)::after,
+.digital-page .web-solutions-section .cell:nth-child(3n + 2)::after {
+  background: var(--dm-page-bg);
+}
+
+.digital-page .web-solutions-section .cell:hover,
+.digital-page .web-solutions-section .cell:nth-child(3n + 1):hover::after,
+.digital-page .web-solutions-section .cell:nth-child(3n + 2):hover::after {
+  background: #f8faf6;
+}
+
+/* ---------- ECT Work ---------- */
+
+.digital-page .work,
+.digital-page .work .card__imgwrap {
+  background: var(--dm-page-bg);
+}
+
+/* ---------- Technologies ---------- */
+
+.digital-page .tb-section,
+.digital-page .tb-item,
+.digital-page .tb-img {
+  background: var(--dm-page-bg);
+}
+
+
+/* ---------- Footer: exact Figma colors ---------- */
+
+.digital-page .footer-top,
+.digital-page .footer-bottom {
+  background: var(--dm-green);
+}
+
+.digital-page .footer-mid {
+  background: var(--dm-footer-strip);
+}
+
+.digital-page .f-subscribe input {
+  background: var(--dm-newsletter-bg);
+}
+
+.digital-page .f-subscribe button {
+  background: var(--dm-newsletter-button);
+}
+
+.digital-page .f-subscribe button:hover {
+  background: var(--dm-green);
+}
+
+.digital-page .f-social {
+  background: var(--dm-green);
+}
+
+.digital-page .f-social:hover {
+  background: #0F4A02;
+}
+
+.digital-page .f-contact a {
+  color: var(--dm-green);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .digital-page .hero {
+    width: min(100% - 48px, 1240px);
+    padding: 104px 0 80px;
+  }
+
+  .digital-page .hero__title {
+    font-size: clamp(38px, 5.4vw, 48.83px);
+  }
+
+  .digital-page .hero__image-wrap {
+    height: auto;
+    aspect-ratio: 1240 / 552;
+  }
+}
+
+@media (max-width: 640px) {
+  .digital-page .hero {
+    width: calc(100% - 32px);
+    padding: 72px 0 56px;
+  }
+
+  .digital-page .hero__title {
+    font-size: clamp(30px, 9vw, 38px);
+  }
+
+  .digital-page .hero__subtitle {
+    margin-top: 14px;
+  }
+
+  .digital-page .hero__cta {
+    width: 100%;
+    min-width: 0;
+    max-width: 300px;
+    margin-top: 20px;
+  }
+
+  .digital-page .hero__image-wrap {
+    margin-top: 28px;
+    border-radius: 16px;
+  }
+
+  .digital-page .hero__image {
+    border-radius: 16px;
+  }
+}
+
+
+/* ========================================================================
+   DIGITAL — PAGE-OWNED TABLET/MOBILE LAYOUT
+   Loaded after each page stylesheet. Desktop begins at 1025px and is not
+   changed by this file.
+   ======================================================================== */
+
+.service-mobile-media {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  /* ---------- Hero typography and alignment ---------- */
+  .website-figma-hero,
+  .software-figma-hero,
+  .zoho-figma-hero.zoho-figma-hero,
+  .infra-figma-hero,
+  body.hr-page .hero,
+  body.digital-page .hero {
+    text-align: center !important;
+  }
+
+  .website-figma-hero .website-figma-hero__title,
+  .software-figma-hero .software-figma-hero__title,
+  .zoho-figma-hero .zoho-figma-hero__title,
+  .infra-figma-hero .infra-figma-hero__title,
+  body.hr-page .hero__title,
+  body.digital-page .hero__title {
+    width: min(820px, 100%);
+    min-height: 0;
+    margin-inline: auto;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(36px, 4.3vw, 44px) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+
+  .website-figma-hero__break,
+  .software-figma-hero__break,
+  .zoho-figma-hero__desktop-break,
+  .infra-figma-hero__break,
+  body.hr-page .hero__break,
+  body.digital-page .hero__break {
+    display: block !important;
+  }
+
+  .website-figma-hero__subtitle,
+  .software-figma-hero__subtitle,
+  .zoho-figma-hero__subtitle,
+  .infra-figma-hero__subtitle,
+  body.hr-page .hero__subtitle,
+  body.digital-page .hero__subtitle {
+    width: min(700px, 100%);
+    height: auto;
+    margin-inline: auto;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+  }
+
+  .website-figma-hero__cta,
+  .software-figma-hero__cta,
+  .zoho-figma-hero__cta,
+  .infra-figma-hero__cta,
+  body.hr-page .hero__cta,
+  body.digital-page .hero__cta {
+    min-height: 44px;
+    font-family: "Outfit", sans-serif;
+    font-size: 16px !important;
+  }
+
+  /* ---------- Website/Software/Digital/Infrastructure topic sections ---------- */
+  .ect-web-solutions {
+    width: calc(100% - 48px) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 32px auto !important;
+    overflow: visible !important;
+  }
+
+  .ect-web-solutions__header {
+    position: relative !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 20px;
+    align-items: end;
+    margin-bottom: 28px;
+  }
+
+  .ect-web-solutions__eyebrow,
+  .ect-web-solutions__heading,
+  .ect-web-solutions__controls {
+    position: static !important;
+    inset: auto !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .ect-web-solutions__eyebrow {
+    grid-column: 1 / -1;
+    font-family: "Outfit", sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+  }
+
+  .ect-web-solutions__heading {
+    grid-column: 1;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(27px, 3.4vw, 31.25px) !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+
+  .ect-web-solutions__controls {
+    grid-column: 2;
+    display: flex !important;
+    gap: 10px;
+    align-self: end;
+  }
+
+  .ect-web-solutions__arrow {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px;
+  }
+
+  .ect-web-solutions__component {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .ect-web-solutions__tabs {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    gap: 12px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-inline: contain;
+    padding: 0 calc(50% - 130px) 12px !important;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    touch-action: pan-x;
+  }
+
+  .ect-web-solutions__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ect-web-solutions__tab,
+  .ect-web-solutions__tab.is-active {
+    position: relative !important;
+    inset: auto !important;
+    flex: 0 0 260px !important;
+    width: 260px !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    padding: 12px 18px !important;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .ect-web-solutions__tab-label {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+  }
+
+  .ect-web-solutions__panel,
+  .ect-web-solutions__panel.is-active {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 16px 0 0 !important;
+    padding: 28px !important;
+    border-radius: 20px !important;
+    background: var(--ect-muted-background, #f9f9f7) !important;
+  }
+
+  .ect-web-solutions__panel {
+    display: none !important;
+  }
+
+  .ect-web-solutions__panel.is-active,
+  body.digital-page .ect-web-solutions__panel {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .ect-web-solutions__content-title,
+  .ect-web-solutions__description,
+  .ect-web-solutions__services-label,
+  .ect-web-solutions__services-text,
+  .ect-web-solutions__perfect-label,
+  .ect-web-solutions__audience,
+  .ect-web-solutions__cta,
+  .ect-web-solutions__media {
+    position: static !important;
+    inset: auto !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+
+  .ect-web-solutions__content-title {
+    order: 1;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(22px, 2.7vw, 25px) !important;
+    line-height: 1.25 !important;
+  }
+
+  .ect-web-solutions__description {
+    order: 2;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  .ect-web-solutions__media {
+    order: 3;
+    overflow: hidden !important;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px !important;
+  }
+
+  .ect-web-solutions__image {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  .ect-web-solutions__services-label {
+    order: 4;
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 1.5 !important;
+  }
+
+  .ect-web-solutions__services-text {
+    order: 5;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  .ect-web-solutions__perfect-label {
+    order: 6;
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 1.5 !important;
+  }
+
+  .ect-web-solutions__audience {
+    order: 7;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  .ect-web-solutions__cta {
+    order: 8;
+    justify-self: start;
+    min-height: 44px !important;
+    padding: 10px 18px !important;
+    font-family: "Inter", "Montserrat", sans-serif !important;
+    font-size: 16px !important;
+  }
+
+  /* ---------- HR/Zoho moving-topic sections ---------- */
+  body.hr-page .software-section,
+  body:not(.hr-page) .software-section#zoho-services {
+    width: calc(100% - 48px) !important;
+    max-width: 1240px !important;
+    height: auto !important;
+    margin: 72px auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  body.hr-page .software-section .section-header,
+  .software-section#zoho-services .section-header {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 20px;
+    align-items: end !important;
+    margin-bottom: 28px !important;
+  }
+
+  body.hr-page .software-section .section-header > div:first-child,
+  .software-section#zoho-services .section-header > div:first-child {
+    min-width: 0;
+  }
+
+  body.hr-page .software-section .eyebrow,
+  .software-section#zoho-services .eyebrow {
+    margin: 0 0 10px !important;
+    padding: 0 !important;
+    font-family: "Outfit", sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0 !important;
+    text-align: left !important;
+  }
+
+  body.hr-page .software-section .eyebrow::before,
+  .software-section#zoho-services .eyebrow::before {
+    display: none !important;
+  }
+
+  body.hr-page .software-section .section-title,
+  .software-section#zoho-services .section-title {
+    margin: 0 !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(27px, 3.4vw, 31.25px) !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+
+  body.hr-page .software-section .nav-arrows,
+  .software-section#zoho-services .nav-arrows {
+    display: flex !important;
+    gap: 10px;
+    align-self: end;
+  }
+
+  body.hr-page .software-section .nav-arrows button,
+  .software-section#zoho-services .nav-arrows button {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px;
+  }
+
+  body.hr-page .software-section .tabs-wrapper,
+  .software-section#zoho-services .tabs-wrapper {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 0 16px !important;
+    overflow: hidden !important;
+    touch-action: pan-y;
+  }
+
+  body.hr-page .software-section .tabs-track,
+  .software-section#zoho-services .tabs-track {
+    display: flex !important;
+    gap: 12px !important;
+    width: max-content !important;
+    height: auto !important;
+    will-change: transform;
+  }
+
+  body.hr-page .software-section .tab,
+  body.hr-page .software-section .tab.active,
+  .software-section#zoho-services .tab,
+  .software-section#zoho-services .tab.active {
+    position: relative !important;
+    flex: 0 0 260px !important;
+    width: 260px !important;
+    min-height: 72px !important;
+    padding: 12px 18px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+    text-align: center;
+  }
+
+  body.hr-page .software-section .content-area,
+  .software-section#zoho-services .content-area {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.hr-page .software-section .content-image,
+  .software-section#zoho-services .content-image {
+    display: none !important;
+  }
+
+  body.hr-page .software-section .content-panel,
+  .software-section#zoho-services .content-panel {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.hr-page .software-section .panel,
+  .software-section#zoho-services .panel {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 28px !important;
+    border-radius: 20px !important;
+    background: #f9f9f7 !important;
+  }
+
+  body.hr-page .software-section .panel:not(.active),
+  .software-section#zoho-services .panel:not(.active) {
+    display: none !important;
+  }
+
+  body.hr-page .software-section .panel.active,
+  .software-section#zoho-services .panel.active {
+    display: block !important;
+  }
+
+  body.hr-page .software-section .panel h3,
+  .software-section#zoho-services .panel h3 {
+    margin: 0 0 12px !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(22px, 2.7vw, 25px) !important;
+    line-height: 1.25 !important;
+  }
+
+  body.hr-page .software-section .panel p,
+  .software-section#zoho-services .panel p,
+  body.hr-page .software-section .apps-list,
+  .software-section#zoho-services .apps-list {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  body.hr-page .software-section .panel h4,
+  .software-section#zoho-services .panel h4 {
+    margin: 18px 0 6px !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+
+  .service-mobile-media {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 18px 0;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #f5f5f3;
+  }
+
+  .service-mobile-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  body.hr-page .software-section .btn-demo,
+  .software-section#zoho-services .btn-demo {
+    min-height: 44px !important;
+    margin-top: 20px !important;
+    padding: 10px 18px !important;
+    font-family: "Inter", "Montserrat", sans-serif !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .website-figma-hero .website-figma-hero__title,
+  .software-figma-hero .software-figma-hero__title,
+  .zoho-figma-hero .zoho-figma-hero__title,
+  .infra-figma-hero .infra-figma-hero__title,
+  body.hr-page .hero__title,
+  body.digital-page .hero__title {
+    font-size: clamp(26px, 7.7vw, 32px) !important;
+  }
+
+  .website-figma-hero__subtitle,
+  .software-figma-hero__subtitle,
+  .zoho-figma-hero__subtitle,
+  .infra-figma-hero__subtitle,
+  body.hr-page .hero__subtitle,
+  body.digital-page .hero__subtitle {
+    font-size: 15px !important;
+  }
+
+  .ect-web-solutions,
+  body.hr-page .software-section,
+  body:not(.hr-page) .software-section#zoho-services {
+    width: calc(100% - 32px) !important;
+    margin: 24px auto !important;
+  }
+
+  .ect-web-solutions__header,
+  body.hr-page .software-section .section-header,
+  .software-section#zoho-services .section-header {
+    gap: 10px 12px;
+    margin-bottom: 22px !important;
+  }
+
+  .ect-web-solutions__eyebrow,
+  body.hr-page .software-section .eyebrow,
+  .software-section#zoho-services .eyebrow {
+    font-size: 14px !important;
+  }
+
+  .ect-web-solutions__heading,
+  body.hr-page .software-section .section-title,
+  .software-section#zoho-services .section-title {
+    font-size: clamp(22px, 6.5vw, 26px) !important;
+  }
+
+  .ect-web-solutions__arrow,
+  body.hr-page .software-section .nav-arrows button,
+  .software-section#zoho-services .nav-arrows button {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px;
+  }
+
+  .ect-web-solutions__tabs {
+    padding-inline: calc(50% - min(36vw, 120px)) !important;
+  }
+
+  .ect-web-solutions__tab,
+  .ect-web-solutions__tab.is-active,
+  body.hr-page .software-section .tab,
+  body.hr-page .software-section .tab.active,
+  .software-section#zoho-services .tab,
+  .software-section#zoho-services .tab.active {
+    flex-basis: min(72vw, 240px) !important;
+    width: min(72vw, 240px) !important;
+    min-height: 66px !important;
+    height: 66px !important;
+    font-size: 15px !important;
+  }
+
+  .ect-web-solutions__panel,
+  .ect-web-solutions__panel.is-active,
+  body.hr-page .software-section .panel,
+  .software-section#zoho-services .panel {
+    padding: 20px !important;
+    border-radius: 16px !important;
+  }
+
+  .ect-web-solutions__content-title,
+  body.hr-page .software-section .panel h3,
+  .software-section#zoho-services .panel h3 {
+    font-size: clamp(18px, 5.4vw, 22px) !important;
+  }
+
+  .ect-web-solutions__description,
+  .ect-web-solutions__services-text,
+  .ect-web-solutions__audience,
+  body.hr-page .software-section .panel p,
+  .software-section#zoho-services .panel p,
+  body.hr-page .software-section .apps-list,
+  .software-section#zoho-services .apps-list {
+    font-size: 15px !important;
+  }
+
+  .ect-web-solutions__services-label,
+  .ect-web-solutions__perfect-label,
+  .ect-web-solutions__cta,
+  body.hr-page .software-section .panel h4,
+  .software-section#zoho-services .panel h4,
+  body.hr-page .software-section .btn-demo,
+  .software-section#zoho-services .btn-demo {
+    font-size: 15px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 1024px) {
+  .ect-web-solutions__tabs {
+    scroll-behavior: auto;
+  }
+}
+
+/* DIGITAL — FINAL PAGE-OWNED RESPONSIVE ALIGNMENT */
+@media (max-width: 1024px) {
+  body.digital-page .hero__title {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(36px, 4.3vw, 44px) !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+
+  body.digital-page .hero__break { display: block !important; }
+  body.digital-page .ect-web-solutions__header { grid-template-columns: minmax(0, 1fr) !important; }
+  body.digital-page .ect-web-solutions__eyebrow,
+  body.digital-page .ect-web-solutions__heading,
+  body.digital-page .ect-web-solutions__controls { grid-column: 1 !important; }
+  body.digital-page .ect-web-solutions__controls {
+    justify-self: end !important;
+    align-self: auto !important;
+    margin-top: 2px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  body.digital-page .ect-web-solutions__eyebrow { font-size: 16px !important; }
+  body.digital-page .ect-web-solutions__heading { font-size: clamp(36px, 4.3vw, 44px) !important; }
+}
+
+@media (max-width: 640px) {
+  body.digital-page .hero__title {
+    font-size: clamp(17px, 5.3vw, 24px) !important;
+    letter-spacing: -0.025em !important;
+  }
+  body.digital-page .ect-web-solutions__eyebrow { font-size: 15px !important; }
+  body.digital-page .ect-web-solutions__heading { font-size: clamp(17px, 5.3vw, 24px) !important; }
+}
+
+/* APPROACH STEPS — tablet/mobile only; desktop remains unchanged */
+.web-solutions-section .approach-closing { display: none; }
+
+@media (max-width: 1024px) {
+  .web-solutions-section .eyebrow {
+    margin-bottom: 10px !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+  }
+  .web-solutions-section .header { display: block !important; margin-bottom: 24px !important; }
+  .web-solutions-section .header h2 {
+    max-width: 100% !important;
+    margin: 0 !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(36px, 4.3vw, 44px) !important;
+    line-height: 1.2 !important;
+  }
+  .web-solutions-section .header > p { display: none !important; }
+  .web-solutions-section .grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 36px !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+  .web-solutions-section .cell {
+    display: grid !important;
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+    grid-template-areas: "step step" "icon title" "desc desc" !important;
+    column-gap: 14px !important;
+    row-gap: 10px !important;
+    align-items: center !important;
+    min-height: 0 !important;
+    padding: 20px !important;
+    overflow: visible !important;
+    border: 1px solid var(--border, #dfe3da) !important;
+    border-radius: 16px !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  /* An older 2-column tablet grid further up this file strips the
+     bottom border from the last row (nth-child(n+5)) — same "divider
+     grid" leftover fixed on the other pages. Restore it here. */
+  .web-solutions-section .cell:nth-child(n+5),
+  .web-solutions-section .cell:last-child {
+    border-bottom: 1px solid var(--border, #dfe3da) !important;
+  }
+
+  .web-solutions-section .cell .step { grid-area: step; margin: 0 !important; font-size: 14px !important; line-height: 1.4 !important; }
+  .web-solutions-section .cell .icon { grid-area: icon; width: 48px !important; height: 48px !important; margin: 0 !important; }
+  .web-solutions-section .cell h3 { grid-area: title; margin: 0 !important; font-size: clamp(22px, 2.5vw, 25px) !important; line-height: 1.25 !important; }
+  .web-solutions-section .cell > p { grid-area: desc; margin: 0 !important; font-size: clamp(15px, 1.7vw, 16px) !important; line-height: 1.6 !important; }
+.web-solutions-section .cell:not(:last-child)::after {
+    content: "│\A▼" !important;
+    display: flex !important;
+    position: absolute !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: -30px !important;
+    left: 50% !important;
+    width: 24px !important;
+    height: 26px !important;
+    transform: translateX(-50%) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: pre !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 0.72 !important;
+    text-align: center !important;
+    color: #0b5d1e !important;
+    background: transparent !important;
+    border: 0 !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+  }
+  .web-solutions-section .cell:last-child::after { display: none !important; }
+  .web-solutions-section .approach-closing {
+    display: block;
+    margin: 24px 0 0 !important;
+    max-width: 100% !important;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: clamp(15px, 1.7vw, 16px) !important;
+    line-height: 1.6 !important;
+    color: var(--text, #3a3f3a) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .web-solutions-section .eyebrow { font-size: 15px !important; }
+  .web-solutions-section .header h2 { font-size: clamp(17px, 5.3vw, 24px) !important; }
+  .web-solutions-section .grid { gap: 32px !important; }
+  .web-solutions-section .cell { grid-template-columns: 42px minmax(0, 1fr) !important; column-gap: 12px !important; padding: 18px 16px !important; }
+  .web-solutions-section .cell .icon { width: 42px !important; height: 42px !important; }
+  .web-solutions-section .cell h3 { font-size: clamp(18px, 4.8vw, 22px) !important; }
+  .web-solutions-section .cell > p,
+  .web-solutions-section .approach-closing { font-size: clamp(14px, 3.7vw, 15px) !important; }
+}
+
+/* ============================================================
+   DIGITAL — remaining eyebrow/heading fixes (mobile & tablet only;
+   desktop untouched). Matched to the HR page's hero eyebrow ("Find,
+   hire, and manage top talent...") and hero title ("Build
+   High-Performing Teams...") sizes, per the site-wide request to keep
+   these consistent across pages.
+============================================================ */
+@media (max-width: 1024px) {
+  .tb-top .tb-eyebrow { font-size: 16px !important; }
+  .tb-top .tb-heading { font-size: clamp(36px, 4.3vw, 44px) !important; }
+
+  .work__head .work__label { font-size: 16px !important; }
+  .work__head .work__title { font-size: clamp(36px, 4.3vw, 44px) !important; }
+
+  .faq-head .faq-eyebrow { font-size: 16px !important; }
+  .faq-head .faq-title { font-size: clamp(36px, 4.3vw, 44px) !important; }
+}
+
+@media (max-width: 640px) {
+  .tb-top .tb-eyebrow { font-size: 15px !important; }
+  .tb-top .tb-heading { font-size: clamp(17px, 5.3vw, 24px) !important; }
+
+  .work__head .work__label { font-size: 15px !important; }
+  .work__head .work__title { font-size: clamp(17px, 5.3vw, 24px) !important; }
+
+  .faq-head .faq-eyebrow { font-size: 15px !important; }
+  .faq-head .faq-title { font-size: clamp(17px, 5.3vw, 24px) !important; }
+}
+
+/* ============================================================
+   DIGITAL — move Technologies-We-Use tagline to end of section,
+   and append the same tagline at the end of the FAQ section.
+   Mobile/tablet only; desktop keeps the original layout.
+============================================================ */
+.faq-extra-tagline { display: none; }
+.tb-tagline--bottom { display: none; }
+
+@media (max-width: 1024px) {
+  /* The FAQ section's own intro ("Discover how our digital marketing
+     solutions...") moves to the end of the FAQ list instead — see
+     .faq-extra-tagline below, which now carries that text. Desktop
+     is untouched: .faq-sub still shows there, unaffected by this
+     max-width block. */
+  .faq-sub { display: none !important; }
+
+  .tb-tagline--top { display: none !important; }
+  .tb-tagline--bottom {
+    display: block !important;
+    max-width: 100% !important;
+    margin: 24px 0 0 !important;
+    /* .tb-section itself has no horizontal padding (only .tb-top does,
+       for the eyebrow/heading it wraps) — this element is a sibling of
+       .tb-top, not a child of it, so without its own padding here it
+       was rendering flush against the section's edge. Matches .tb-top's
+       tablet padding (28px); the <=599px block below tightens it to
+       match .tb-top's mobile padding (20px). */
+    padding: 0 28px !important;
+    text-align: left !important;
+  }
+
+  .faq-extra-tagline {
+    display: block !important;
+    max-width: 100% !important;
+    margin: 32px 0 0 !important;
+    color: #333333;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px !important;
+    font-weight: 500;
+    line-height: 1.65;
+    text-align: left;
+  }
+}
+
+@media (max-width: 599px) {
+  .tb-tagline--bottom {
+    padding: 0 20px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .faq-extra-tagline { font-size: 15px !important; }
+}

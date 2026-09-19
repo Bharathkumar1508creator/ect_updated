@@ -1,0 +1,9 @@
+{% if type == 'image' and image %}
+    <img src="{{ image.url }}" alt="{{ alt|default:'Media' }}" class="media-element" loading="lazy">
+{% elif type == 'video' and video %}
+    <video src="{{ video.url }}" class="media-element" controls playsinline></video>
+{% elif type == 'youtube' and youtube %}
+    <div class="youtube-container">
+        <iframe src="https://www.youtube.com/embed/{{ youtube|slice:'-11:' }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-element"></iframe>
+    </div>
+{% endif %}

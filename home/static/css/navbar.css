@@ -1,0 +1,607 @@
+/* ============================================================
+   ECT FIGMA NAVBAR
+   Desktop Reference:
+   Width  : 1240px
+   Height : 64px
+   Left   : centered -> 100px on 1440px viewport
+============================================================ */
+
+:root {
+    --ect-green: #0C3C01;
+    --ect-green-dark: #083406;
+    --ect-green-soft: #5B6D49;
+    --ect-muted: rgba(12, 60, 1, 0.23);
+    --ect-white-glass: #ffffff;
+}
+
+
+/* ============================================================
+   NAVBAR WRAPPER
+============================================================ */
+
+.ect-navbar-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 64px;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+
+.ect-navbar {
+    position: relative;
+    width: min(1240px, calc(100% - 32px));
+    height: 64px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--ect-white-glass);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 8px 24px rgba(12, 60, 1, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+    pointer-events: auto;
+    isolation: isolate;
+}
+
+
+/* ============================================================
+   LOGO
+============================================================ */
+
+.ect-navbar-logo {
+    width: 134.86px;
+    height: 35px;
+    flex: 0 0 134.86px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.ect-navbar-logo img {
+    display: block;
+    width: 134.86px;
+    height: 35px;
+    object-fit: contain;
+}
+
+
+/* ============================================================
+   DESKTOP MENU
+============================================================ */
+
+.ect-navbar-menu {
+    width: 482px;
+    height: 64px;
+    margin: 0;
+    padding: 0 16px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+.ect-nav-item {
+    position: relative;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+}
+
+.ect-nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 8px;
+    color: var(--ect-muted);
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: "Outfit", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   FIGMA-STYLE TEXT MOVEMENT
+============================================================ */
+
+.ect-nav-link span {
+    position: relative;
+    display: block;
+    transform: translateY(0);
+    transition:
+        transform 0.3s cubic-bezier(.22, 1, .36, 1),
+        color 0.25s ease;
+}
+
+/* Home / active */
+
+.ect-nav-link.is-active {
+    color: var(--ect-green);
+}
+
+.ect-nav-link:hover {
+    color: var(--ect-green);
+}
+
+.ect-nav-link:hover span {
+    transform: translateY(-1px);
+}
+
+/* underline — anchored to the text itself (not the full-height
+   link box, which is tall to keep the dropdown hover hitbox
+   gap-free) — active state, and on hover / open dropdown */
+
+.ect-nav-link span::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    transform: translateX(-50%);
+    background: var(--ect-green-soft);
+    border-radius: 999px;
+    transition: width 0.3s ease;
+}
+
+.ect-nav-link.is-active span::after,
+.ect-nav-link:hover span::after,
+.ect-has-dropdown.is-open > .ect-nav-link span::after {
+    width: 28px;
+}
+
+
+/* ============================================================
+   DROPDOWN — full-width flyout under the navbar
+============================================================ */
+
+.ect-dropdown {
+    position: fixed;
+    top: 64px;
+    left: 50%;
+    width: min(1240px, calc(100% - 32px));
+    padding: 0;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 0 0 16px 16px;
+    box-shadow:
+        0 22px 44px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform:
+        translateX(-50%) translateY(-8px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s cubic-bezier(.22, 1, .36, 1),
+        visibility 0.3s ease;
+    z-index: 1002;
+}
+
+.ect-has-dropdown.is-open > .ect-dropdown,
+.ect-has-dropdown:focus-within > .ect-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform:
+        translateX(-50%) translateY(0);
+}
+
+/* Square off the navbar's bottom corners while a dropdown is open,
+   so the pill shape merges seamlessly into the flyout below it. */
+
+.ect-navbar-wrap:has(.ect-has-dropdown.is-open) .ect-navbar,
+.ect-navbar-wrap:has(.ect-has-dropdown:focus-within) .ect-navbar {
+    border-radius: 0;
+}
+
+.ect-dropdown-inner {
+    width: min(1240px, calc(100% - 64px));
+    margin: 0 auto;
+    padding: 28px 0 32px;
+}
+
+.ect-dropdown-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+}
+
+.ect-dropdown-title {
+    margin-bottom: 14px;
+    color: #8a8a8a;
+    font-family: "Outfit", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+
+/* ============================================================
+   DROPDOWN ITEMS
+============================================================ */
+
+.ect-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 52px;
+    padding: 8px;
+    color: #111;
+    font-family: "Outfit", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-decoration: none;
+    border-radius: 12px;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.ect-dropdown-item:hover {
+    background: #f5f5f2;
+    color: var(--ect-green);
+}
+
+
+/* ============================================================
+   DROPDOWN ICON
+============================================================ */
+
+.ect-dropdown-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #f4f4f2;
+    line-height: 1;
+    color: var(--ect-green);
+    transition:
+        background 0.25s ease,
+        transform 0.25s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.ect-dropdown-icon svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.ect-dropdown-icon i {
+    font-size: 17px;
+    line-height: 1;
+}
+
+.ect-dropdown-item:hover .ect-dropdown-icon {
+    background: #e8f1e5;
+    transform: scale(1.12);
+}
+
+@keyframes ectIconPop {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.ect-dropdown-icon.ect-pop {
+    animation:
+        ectIconPop 0.35s cubic-bezier(.34, 1.56, .64, 1) both;
+}
+
+
+/* ============================================================
+   RIGHT ACTIONS
+============================================================ */
+
+.ect-navbar-actions {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+    flex: 0 0 auto;
+}
+
+
+/* ============================================================
+   BOOK CONSULTATION
+============================================================ */
+
+.ect-consultation-trigger {
+    width: 182px;
+    height: 36px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 8px;
+    background: var(--ect-green);
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 125%;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.ect-consultation-trigger:hover {
+    background: #0a3201;
+    transform: translateY(-1px);
+    box-shadow:
+        0 6px 18px rgba(12, 60, 1, 0.18);
+}
+
+
+/* ============================================================
+   MOBILE TOGGLE
+============================================================ */
+
+.ect-mobile-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: #f1f1ef;
+    cursor: pointer;
+    position: relative;
+}
+
+.ect-mobile-toggle span {
+    position: absolute;
+    left: 10px;
+    width: 20px;
+    height: 2px;
+    background: var(--ect-green);
+    border-radius: 2px;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        top 0.3s ease;
+}
+
+.ect-mobile-toggle span:nth-child(1) {
+    top: 13px;
+}
+
+.ect-mobile-toggle span:nth-child(2) {
+    top: 19px;
+}
+
+.ect-mobile-toggle span:nth-child(3) {
+    top: 25px;
+}
+
+.ect-mobile-toggle.is-open span:nth-child(1) {
+    top: 19px;
+    transform: rotate(45deg);
+}
+
+.ect-mobile-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.ect-mobile-toggle.is-open span:nth-child(3) {
+    top: 19px;
+    transform: rotate(-45deg);
+}
+
+
+/* ============================================================
+   MOBILE PANEL
+============================================================ */
+
+.ect-mobile-panel {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    padding: 12px 20px 40px;
+    overflow-y: auto;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.ect-mobile-panel.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.ect-mobile-accordion {
+    width: 100%;
+}
+
+.ect-mobile-item {
+    border-bottom: 1px solid #eeeeeb;
+}
+
+.ect-mobile-head {
+    width: 100%;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 4px;
+    border: 0;
+    background: transparent;
+    color: #111;
+    font-family: "Outfit", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    text-align: left;
+    cursor: pointer;
+}
+
+.ect-mobile-head.is-active {
+    color: var(--ect-green);
+}
+
+.ect-mobile-arrow {
+    font-size: 18px;
+    transition:
+        transform .3s ease;
+}
+
+.ect-mobile-item.is-open .ect-mobile-arrow {
+    transform: rotate(180deg);
+}
+
+.ect-mobile-body {
+    max-height: 0;
+    overflow: hidden;
+    transition:
+        max-height .35s ease;
+}
+
+.ect-mobile-body-inner {
+    padding: 2px 4px 18px;
+}
+
+.ect-mobile-body .ect-dropdown-item {
+    min-height: 44px;
+    padding: 7px 0;
+}
+
+.ect-mobile-consultation {
+    padding: 24px 4px;
+}
+
+.ect-mobile-consultation-btn {
+    width: 100%;
+    height: 48px;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 1100px) {
+    .ect-navbar-menu {
+        gap: 12px;
+    }
+    .ect-navbar-actions {
+        gap: 14px;
+    }
+    .ect-navbar-logo {
+        width: 125px;
+        flex-basis: 125px;
+    }
+    .ect-navbar-logo img {
+        width: 125px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .ect-navbar {
+        width: calc(100% - 24px);
+        padding: 0 16px;
+        border-radius: 0 0 16px 16px;
+    }
+    .ect-navbar-menu {
+        display: none;
+    }
+    .ect-navbar-actions {
+        gap: 10px;
+    }
+    .ect-consultation-trigger:not(.ect-mobile-consultation-btn) {
+        display: none;
+    }
+    .ect-mobile-toggle {
+        display: block;
+    }
+    .ect-mobile-panel {
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    .ect-navbar {
+        width: 100%;
+        height: 60px;
+        border-radius: 0 0 14px 14px;
+        padding: 0 14px;
+    }
+    .ect-navbar-wrap {
+        height: 60px;
+    }
+    .ect-navbar-logo,
+    .ect-navbar-logo img {
+        width: 124px;
+        height: 32px;
+    }
+    .ect-mobile-panel {
+        top: 60px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ect-navbar *,
+    .ect-navbar *::before,
+    .ect-navbar *::after,
+    .ect-mobile-panel * {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}

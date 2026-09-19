@@ -1,0 +1,62 @@
+{# Shared ECT contact form. Pass form_id and submit_id when including. #}
+<form id="{{ form_id|default:'ectContactForm' }}" class="ect-contact-form" method="POST" action="{% url 'contact' %}" novalidate>
+    {% csrf_token %}
+    <div class="ect-honeypot" aria-hidden="true">
+        <label for="{{ form_id|default:'ectContactForm' }}_website">Website</label>
+        <input id="{{ form_id|default:'ectContactForm' }}_website" name="website" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="wf-grid">
+        <div class="wf-input-group">
+            <label for="{{ form_id|default:'ectContactForm' }}_name">Full Name</label>
+            <input id="{{ form_id|default:'ectContactForm' }}_name" name="name" maxlength="255" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="wf-input-group">
+            <label for="{{ form_id|default:'ectContactForm' }}_company">Company</label>
+            <input id="{{ form_id|default:'ectContactForm' }}_company" name="company" maxlength="255" type="text" autocomplete="organization">
+        </div>
+
+        <div class="wf-input-group">
+            <label for="{{ form_id|default:'ectContactForm' }}_email">Email</label>
+            <input id="{{ form_id|default:'ectContactForm' }}_email" name="email" maxlength="254" type="email" autocomplete="email" required>
+        </div>
+
+        <div class="wf-input-group">
+            <label for="{{ form_id|default:'ectContactForm' }}_phone">Phone Number</label>
+            <input id="{{ form_id|default:'ectContactForm' }}_phone" name="phone" maxlength="50" type="tel" autocomplete="tel">
+        </div>
+
+        <div class="wf-input-group">
+            <label for="{{ form_id|default:'ectContactForm' }}_category">Product Category</label>
+            <select id="{{ form_id|default:'ectContactForm' }}_category" name="category">
+                <option value="">Select a category</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="Specialized SEO Services">Specialized SEO Services</option>
+                <option value="Website Development">Website Development</option>
+                <option value="Software Development">Software Development</option>
+                <option value="WhatsApp API">WhatsApp API</option>
+                <option value="HR Services">HR Services</option>
+            </select>
+        </div>
+
+        <div class="wf-input-group">
+            <label for="{{ form_id|default:'ectContactForm' }}_subject">Subject</label>
+            <input id="{{ form_id|default:'ectContactForm' }}_subject" name="subject" maxlength="255" type="text">
+        </div>
+
+        <div class="wf-input-group wf-grid-full">
+            <label for="{{ form_id|default:'ectContactForm' }}_message">Message</label>
+            <textarea id="{{ form_id|default:'ectContactForm' }}_message" name="message" maxlength="2000" rows="3" required placeholder="Tell us about your requirement..."></textarea>
+        </div>
+    </div>
+
+    <div class="ect-form-status" role="status" aria-live="polite"></div>
+
+    <div class="btn-submit-wrap">
+        <button id="{{ submit_id|default:'ectContactSubmit' }}" type="submit" class="btn-submit">
+            <span class="ect-submit-label">Send Message</span>
+            <span class="ect-submit-spinner" aria-hidden="true"></span>
+        </button>
+    </div>
+</form>

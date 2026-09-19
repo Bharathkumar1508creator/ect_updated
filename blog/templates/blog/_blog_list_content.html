@@ -1,0 +1,97 @@
+{% if featured_blog %}
+<section class="blog-section">
+    <div class="featured-hero">
+        <img class="featured-hero__bg"
+             src="{% if featured_blog.hero_image %}{{ featured_blog.hero_image.url }}{% else %}{{ fallback_image_url }}{% endif %}"
+             alt="{{ featured_blog.hero_image_alt|default:featured_blog.title }}"
+             fetchpriority="high" decoding="async" data-fallback-src="{{ fallback_image_url }}">
+        <div class="featured-hero__content">
+            <div class="featured-hero__left">
+                <div class="featured-hero__meta">
+                    {% if featured_blog.category %}
+                    <span class="hero-tag"><span class="hero-tag-box"></span> {{ featured_blog.category.name }}</span>
+                    {% endif %}
+                    <span class="hero-tag"><span class="hero-tag-box"></span> {{ featured_blog.publish_date|date:"d F Y" }}</span>
+                    <span class="hero-tag"><span class="hero-tag-box"></span> {{ featured_blog.reading_time }} Min Read</span>
+                </div>
+                <h1 class="featured-hero__title">{{ featured_blog.title }}</h1>
+                {% if featured_blog.hero_description %}
+                <p class="featured-hero__desc">{{ featured_blog.hero_description|truncatechars:150 }}</p>
+                {% endif %}
+            </div>
+            <div class="featured-hero__right">
+                <a href="{{ featured_blog.get_absolute_url }}" class="featured-hero__btn">Explore Opportunities</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="blog-section list-controls">
+    <div class="list-controls__left category-filters">
+        <a href="{% url 'blog:blog_list' %}" class="category-btn {% if not current_category %}active{% endif %}">All Articles</a>
+        {% for cat in categories %}
+            <a href="{% url 'blog:blog_list_category' cat.slug %}" class="category-btn {% if current_category == cat.slug %}active{% endif %}">{{ cat.name }}</a>
+        {% endfor %}
+    </div>
+    <div class="list-controls__right">
+        <form action="" method="get" style="margin:0; position:relative;">
+            <input type="text" name="q" placeholder="Search articles..." value="{{ search_query }}" class="search-input">
+            <button type="submit" style="position:absolute; right:16px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:#666;">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+    </div>
+</section>
+
+<section class="blog-section">
+    <div class="blog-grid">
+        {% for blog in blogs %}
+            <div class="card">
+                <div class="image">
+                    <img class="image-inner"
+                         src="{% if blog.hero_image %}{{ blog.hero_image.url }}{% else %}{{ fallback_image_url }}{% endif %}"
+                         alt="{{ blog.hero_image_alt|default:blog.title }}" loading="lazy" decoding="async"
+                         width="365" height="258" data-fallback-src="{{ fallback_image_url }}">
+                </div>
+
+                <div class="date-pill-bg"></div>
+                <div class="dot"></div>
+                <div class="date-text">{{ blog.publish_date|date:"d F Y" }}</div>
+
+                <a href="{{ blog.get_absolute_url }}" class="title" style="color: #000000; text-decoration: none;">
+                    {{ blog.title }}
+                </a>
+
+                <a href="{{ blog.get_absolute_url }}" class="link-row" style="text-decoration: none;">
+                    <span class="link-label">Read Article</span>
+                    <i class="fa-solid fa-arrow-right link-arrow"></i>
+                </a>
+            </div>
+        {% empty %}
+            <p>No blogs found.</p>
+        {% endfor %}
+    </div>
+</section>
+
+{% if is_paginated %}
+<section class="blog-section">
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}" class="page-btn">&laquo; Previous</a>
+        {% endif %}
+
+        {% for i in paginator.page_range %}
+            {% if page_obj.number == i %}
+                <span class="page-btn active">{{ i }}</span>
+            {% else %}
+                <a href="?page={{ i }}{% if search_query %}&q={{ search_query }}{% endif %}" class="page-btn">{{ i }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}" class="page-btn">Next &raquo;</a>
+        {% endif %}
+    </div>
+</section>
+{% endif %}

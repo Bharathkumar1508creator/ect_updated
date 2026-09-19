@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'components/google_tag.html' %}
+  {% include 'components/favicon.html' %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECT Website is Under Construction</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="{% static 'css/base.css' %}?v=42">
+<link rel="stylesheet" href="{% static 'css/under.css' %}?v=3">
+<link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+</head>
+<body>
+
+  {% include 'components/navbar.html' %}
+
+  <!-- ================= MOBILE PANEL ================= -->
+  
+
+  <div class="hero">
+    <div class="overlay">
+      <h1>ECT Website is Under Construction</h1>
+      <p>We're busy turning tea into code. See you soon!</p>
+      <a href="{% url 'contact' %}"><button class="cta-btn" id="talkBtn">Talk to Our Team</button></a>
+    </div>
+  </div>
+
+  <script src="{% static 'js/base.js' %}?v=33"></script>
+  <script src="{% static 'js/under.js' %}"></script>
+  {% include 'components/contact_popup.html' %}
+  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+{% include 'components/zoho_salesiq.html' %}
+</body>
+</html>
+

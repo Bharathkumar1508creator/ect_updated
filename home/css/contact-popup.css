@@ -1,0 +1,395 @@
+
+/* =========================================================
+   ECT SHARED CONTACT POPUP
+   Single reusable lead form for all pages.
+========================================================= */
+
+.ect-honeypot{
+    position:absolute!important;
+    left:-10000px!important;
+    width:1px!important;
+    height:1px!important;
+    overflow:hidden!important;
+    opacity:0!important;
+    pointer-events:none!important;
+}
+
+.ect-contact-form .wf-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px 42px;
+}
+
+.ect-contact-form .wf-grid-full{grid-column:1 / -1}
+
+.ect-contact-form .wf-input-group{
+    position:relative;
+    min-width:0;
+}
+
+.ect-contact-form .wf-input-group label{
+    display:block;
+    margin:0 0 10px;
+    font-family:"Outfit",sans-serif;
+    font-size:14px;
+    line-height:1.5;
+    color:#747b75;
+}
+
+.ect-contact-form .wf-input-group input,
+.ect-contact-form .wf-input-group select,
+.ect-contact-form .wf-input-group textarea{
+    position:relative;
+    z-index:10;
+    pointer-events:auto !important;
+    user-select:text;
+    -webkit-user-select:text;
+    width:100%;
+    border:0;
+    border-bottom:1px solid #cfd4cf;
+    border-radius:0;
+    background:transparent;
+    color:#172018;
+    outline:none;
+    padding:0 0 9px;
+    font-family:"Poppins","Montserrat",sans-serif;
+    font-size:14px;
+    line-height:1.5;
+    transition:border-color .25s ease, box-shadow .25s ease;
+}
+
+.ect-contact-form .wf-input-group textarea{
+    min-height:48px;
+    resize:vertical;
+}
+
+.ect-contact-form .wf-input-group select{
+    appearance:none;
+    cursor:pointer;
+}
+
+.ect-contact-form .wf-input-group input:focus,
+.ect-contact-form .wf-input-group select:focus,
+.ect-contact-form .wf-input-group textarea:focus{
+    border-bottom-color:#0C3C01;
+    box-shadow:0 1px 0 #0C3C01;
+}
+
+.ect-contact-form .wf-field-error{
+    display:block;
+    margin-top:6px;
+    color:#c73b32;
+    font-family:"Outfit",sans-serif;
+    font-size:11px;
+    line-height:1.35;
+}
+
+.ect-contact-form .wf-input-group.has-error input,
+.ect-contact-form .wf-input-group.has-error select,
+.ect-contact-form .wf-input-group.has-error textarea{
+    border-bottom-color:#c73b32;
+}
+
+.ect-form-status{
+    min-height:20px;
+    margin-top:18px;
+    font-family:"Outfit",sans-serif;
+    font-size:13px;
+    line-height:1.45;
+}
+
+.ect-form-status:empty{display:none}
+.ect-form-status.is-error{color:#b52f2f}
+.ect-form-status.is-success{color:#17602a}
+
+.ect-contact-form .btn-submit{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    min-width:142px;
+    min-height:42px;
+    border:0;
+    border-radius:8px;
+    background:#0C3C01;
+    color:#fff;
+    padding:10px 22px;
+    font-family:"Montserrat",sans-serif;
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+    transition:transform .25s ease, background .25s ease, box-shadow .25s ease, opacity .25s ease;
+}
+
+.ect-contact-form .btn-submit:hover:not(:disabled){
+    transform:translateY(-1px);
+    background:#083406;
+    box-shadow:0 9px 24px rgba(12,60,1,.16);
+}
+
+.ect-contact-form .btn-submit:disabled{
+    cursor:wait;
+    opacity:.75;
+}
+
+.ect-submit-spinner{
+    width:15px;
+    height:15px;
+    border:2px solid rgba(255,255,255,.35);
+    border-top-color:#fff;
+    border-radius:50%;
+    display:none;
+    animation:ectContactSpin .7s linear infinite;
+}
+
+.ect-contact-form .btn-submit.is-loading .ect-submit-spinner{display:block}
+.ect-contact-form .btn-submit.is-loading .ect-submit-label{opacity:.92}
+
+@keyframes ectContactSpin{to{transform:rotate(360deg)}}
+
+
+/* ================= POPUP SHELL ================= */
+
+.ect-contact-popup{
+    position:fixed;
+    inset:0;
+    z-index:2147483000;
+    display:grid;
+    place-items:center;
+    padding:24px;
+    visibility:hidden;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s ease, visibility 0s linear .3s;
+}
+
+.ect-contact-popup.is-open{
+    visibility:visible;
+    opacity:1;
+    pointer-events:auto;
+    transition:opacity .25s ease;
+}
+
+.ect-contact-backdrop{
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:rgba(7,20,9,.58);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+}
+
+.ect-contact-dialog{
+    position:relative;
+    z-index:1;
+    pointer-events:auto;
+    width:min(860px,100%);
+    max-height:min(900px,calc(100vh - 40px));
+    overflow:auto;
+    overscroll-behavior:contain;
+    scrollbar-width:thin;
+    background:#fff;
+    border:1px solid rgba(12,60,1,.10);
+    border-radius:24px;
+    box-shadow:0 32px 100px rgba(0,0,0,.24), 0 8px 28px rgba(12,60,1,.10);
+    padding:42px 46px 38px;
+    transform:translateY(24px) scale(.97);
+    transition:transform .36s cubic-bezier(.22,1,.36,1);
+}
+
+.ect-contact-popup.is-open .ect-contact-dialog{
+    transform:translateY(0) scale(1);
+}
+
+.ect-contact-close{
+    position:absolute;
+    top:17px;
+    right:18px;
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    border:1px solid #e4e8e3;
+    border-radius:50%;
+    background:#f7f8f6;
+    color:#0C3C01;
+    font-family:Arial,sans-serif;
+    font-size:25px;
+    font-weight:300;
+    line-height:1;
+    cursor:pointer;
+    transition:transform .25s ease, background .25s ease, border-color .25s ease;
+}
+
+.ect-contact-close:hover{
+    transform:rotate(90deg);
+    background:#edf2eb;
+    border-color:#cdd8ca;
+}
+
+.ect-contact-close:focus-visible,
+.ect-contact-form input:focus-visible,
+.ect-contact-form select:focus-visible,
+.ect-contact-form textarea:focus-visible,
+.ect-contact-form button:focus-visible{
+    outline:2px solid rgba(12,60,1,.45);
+    outline-offset:3px;
+}
+
+.ect-contact-popup-head{
+    padding-right:50px;
+    margin-bottom:30px;
+}
+
+.ect-contact-popup-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    margin-bottom:10px;
+    color:#5B6D49;
+    font-family:"Outfit",sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.15em;
+}
+
+.ect-contact-popup-eyebrow::before{
+    content:"";
+    width:25px;
+    height:2px;
+    border-radius:2px;
+    background:#5B6D49;
+}
+
+.ect-contact-popup-head h2{
+    margin:0 0 9px;
+    color:#0b100c;
+    font-family:"Montserrat",sans-serif;
+    font-size:clamp(28px,4vw,40px);
+    font-weight:650;
+    line-height:1.12;
+    letter-spacing:-.025em;
+}
+
+.ect-contact-popup-head h2 span{color:#5B6D49}
+
+.ect-contact-popup-head p{
+    max-width:650px;
+    margin:0;
+    color:#626a63;
+    font-family:"Outfit",sans-serif;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.ect-contact-popup .ect-contact-form .wf-grid{
+    gap:28px 42px;
+}
+
+.ect-contact-popup .btn-submit-wrap{
+    margin-top:26px;
+    text-align:right;
+}
+
+
+/* ================= CONTACT PAGE SHARED FORM ================= */
+/* Keeps the existing Get in Touch design intact while using
+   the same reusable form markup. */
+
+.contact-section .ect-contact-form .wf-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px 60px;
+}
+
+.contact-section .ect-contact-form .wf-grid-full{
+    grid-column:span 2;
+}
+
+.contact-section .ect-contact-form .wf-input-group label{
+    font-family:"Outfit",sans-serif;
+    font-size:16px;
+    line-height:150%;
+    color:#8D8D8D;
+    margin-bottom:12px;
+}
+
+.contact-section .ect-contact-form .wf-input-group input,
+.contact-section .ect-contact-form .wf-input-group select,
+.contact-section .ect-contact-form .wf-input-group textarea{
+    padding:0 0 8px;
+    font-size:14px;
+}
+
+.contact-section .ect-contact-form .btn-submit{
+    background:#0C3C01;
+    padding:10px 24px;
+    font-size:16px;
+}
+
+@media (max-width:900px){
+    .ect-contact-dialog{
+        width:min(720px,100%);
+        padding:36px 30px 30px;
+    }
+}
+
+@media (max-width:640px){
+    .ect-contact-popup{
+        padding:12px;
+    }
+
+    .ect-contact-dialog{
+        max-height:calc(100vh - 24px);
+        border-radius:18px;
+        padding:34px 20px 24px;
+    }
+
+    .ect-contact-close{
+        top:12px;
+        right:12px;
+        width:34px;
+        height:34px;
+        font-size:22px;
+    }
+
+    .ect-contact-popup-head{
+        padding-right:38px;
+        margin-bottom:24px;
+    }
+
+    .ect-contact-popup-head h2{
+        font-size:28px;
+    }
+
+    .ect-contact-popup .ect-contact-form .wf-grid,
+    .contact-section .ect-contact-form .wf-grid{
+        grid-template-columns:1fr;
+        gap:22px;
+    }
+
+    .ect-contact-popup .ect-contact-form .wf-grid-full,
+    .contact-section .ect-contact-form .wf-grid-full{
+        grid-column:1;
+    }
+
+    .ect-contact-popup .ect-contact-form .btn-submit-wrap{
+        text-align:stretch;
+    }
+
+    .ect-contact-popup .ect-contact-form .btn-submit{
+        width:100%;
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    .ect-contact-popup,
+    .ect-contact-dialog,
+    .ect-contact-close,
+    .ect-contact-form .btn-submit{
+        transition:none!important;
+    }
+}
+
+body.ect-contact-popup-open{overflow:hidden!important;}

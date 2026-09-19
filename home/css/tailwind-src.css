@@ -1,0 +1,11 @@
+/* Tailwind build input for the About page's Mission & Vision section
+   (#mvSection). Compiled to home/css/tailwind-about.css via:
+     npm run build:css
+   Re-run that whenever a new Tailwind utility class is added to
+   home/templates/about.html — unlike the old cdn.tailwindcss.com script,
+   this build only includes classes it finds actually used, so a class
+   with no matching build output usually just means the build needs to
+   be re-run after a template change. */
+@import "tailwindcss";
+
+@source "../templates/about.html";
