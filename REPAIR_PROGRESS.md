@@ -30,7 +30,7 @@ If Codex usage stops, resume this task, inspect `git status`, read this file, ve
 |---|---|---|---|
 | 0 | Isolated workspace, source baseline, exclusions, repair workflow | Complete | `checkpoint-phase-0` |
 | 1 | Dependency and data-preservation inventory | Complete | `checkpoint-phase-1` |
-| 2 | Security, settings, contact handling, and removal of local career uploads | Pending | — |
+| 2 | Security, settings, contact handling, and removal of local career uploads | Complete | `checkpoint-phase-2` |
 | 3 | Shared navigation, popup, project pages, media logic, and integration resilience | Pending | — |
 | 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Pending | — |
 | 5 | Image/video optimization, WebP selection, posters, caching, and frontend performance | Pending | — |
@@ -68,6 +68,8 @@ Completed in `docs/PHASE_1_DEPENDENCY_AUDIT.md`. No runtime files or database ro
 - Validate public inputs, add rate-limiting strategy, and harden error handling.
 - Sanitize trusted rich content and eliminate destructive migration behavior safely.
 - Separate development and production configuration without committing secrets.
+
+Completed in `docs/PHASE_2_SECURITY_AND_BACKEND.md`. Contact and Careers are external-service-only, historical tables remain as read-only archives, public assets are isolated under app static storage, production settings fail closed, public writes are rate-limited, rich HTML is sanitized, and the destructive historical blog migration is guarded. No schema or production data changed.
 
 ### Phase 3 — Functional repair
 
@@ -136,3 +138,4 @@ This phase begins only after:
 | 2026-09-19 | Baseline | `d9ffde1` | Archive SHA-256 recorded | Original ZIP remains untouched |
 | 2026-09-19 | Phase 0 | `checkpoint-phase-0` | Django checks, migration check, 32 blog tests, and JavaScript syntax checks passed | Isolated repair workflow ready |
 | 2026-09-19 | Phase 1 | `checkpoint-phase-1` | Dependency trace, local data/media inventory, migration plan, Django checks, migration check, Python/npm dependency checks, 32 blog tests, JavaScript syntax, and static-reference scan | Audit only; no application behavior changed |
+| 2026-09-19 | Phase 2 | `checkpoint-phase-2` | Django checks including production deploy check, no migration drift, 40 tests, dependency audits, JavaScript syntax, Tailwind build, and static safety checks | No schema/data/live-server changes |

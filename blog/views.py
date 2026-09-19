@@ -13,6 +13,8 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.http import require_POST
+
+from ect.security import rate_limit_response
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView, ListView
 
@@ -185,6 +187,9 @@ class BlogDetailView(DetailView):
         return context
 
     def post(self, request, *args, **kwargs):
+        limited = rate_limit_response(request, "blog-comment")
+        if limited:
+            return limited
         self.object = self.get_object()
         if not self.object.allow_comments:
             messages.error(request, "Comments are disabled for this post.")
@@ -241,6 +246,9 @@ class LatestBlogFeed(Feed):
 
 @require_POST
 def subscribe_newsletter(request):
+    limited = rate_limit_response(request, "newsletter")
+    if limited:
+        return limited
     email = request.POST.get("email", "").strip().lower()
     is_ajax = request.headers.get("X-Requested-With") == "XMLHttpRequest"
     if request.POST.get("website"):

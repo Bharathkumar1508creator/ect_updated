@@ -15,6 +15,7 @@ import mimetypes
 import os
 
 from django.core.exceptions import ImproperlyConfigured
+from django.utils.csp import CSP
 
 mimetypes.add_type("text/css", ".css", True)
 mimetypes.add_type("application/javascript", ".js", True)
@@ -38,26 +39,28 @@ if _env_path.exists():
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get(
-    'DJANGO_SECRET_KEY',
-    'django-insecure-change-me-in-your-local-.env-file',
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False').lower() in {'1', 'true', 'yes'}
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
+if DEBUG and not SECRET_KEY:
+    SECRET_KEY = 'django-insecure-local-development-only'
+if not DEBUG and (
+    not SECRET_KEY
+    or SECRET_KEY.startswith('django-insecure-')
+    or SECRET_KEY == 'change-this-to-a-random-secret-key'
+):
+    raise ImproperlyConfigured('Set a strong DJANGO_SECRET_KEY before running in production.')
+
+_default_hosts = (
+    'localhost,127.0.0.1,[::1],testserver'
+    if DEBUG
+    else 'ecogcoretechnologies.com,www.ecogcoretechnologies.com'
 )
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in {'1', 'true', 'yes'}
-
-_default_hosts = '*' if DEBUG else 'ecogcoretechnologies.com,www.ecogcoretechnologies.com'
 ALLOWED_HOSTS = [
     host.strip()
     for host in os.environ.get('DJANGO_ALLOWED_HOSTS', _default_hosts).split(',')
     if host.strip()
 ]
-
-if not DEBUG and (
-    SECRET_KEY.startswith('django-insecure-')
-    or SECRET_KEY == 'change-this-to-a-random-secret-key'
-):
-    raise ImproperlyConfigured('Set a strong DJANGO_SECRET_KEY before running in production.')
 
 
 # Application definition
@@ -70,19 +73,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
-    'home',
-    'blog',
+    'home.apps.HomeConfig',
+    'blog.apps.BlogConfig',
     'newsletter.apps.NewsletterConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.csp.ContentSecurityPolicyMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'ect.middleware.SecurityHeadersMiddleware',
 ]
 
 ROOT_URLCONF = 'ect.urls'
@@ -124,6 +129,8 @@ def _env_bool(name, default=None):
 USE_SQLITE = _env_bool('DJANGO_USE_SQLITE', default=DEBUG)
 
 if USE_SQLITE:
+    if not DEBUG:
+        raise ImproperlyConfigured('SQLite is restricted to development. Set DJANGO_USE_SQLITE=False in production.')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -131,20 +138,27 @@ if USE_SQLITE:
         }
     }
 else:
-    if 'DB_PASSWORD' not in os.environ:
+    required_database_values = {
+        name: os.environ.get(name, '').strip()
+        for name in ('DB_NAME', 'DB_USER', 'DB_PASSWORD')
+    }
+    missing_database_values = [name for name, value in required_database_values.items() if not value]
+    if missing_database_values:
         raise ImproperlyConfigured(
-            'MySQL is selected (DJANGO_USE_SQLITE is not set) but DB_PASSWORD is '
-            'missing from .env. Either add DB_NAME/DB_USER/DB_PASSWORD/DB_HOST/DB_PORT '
-            'to .env, or set DJANGO_USE_SQLITE=True to use the local SQLite database.'
+            'MySQL is selected but required settings are missing: '
+            + ', '.join(missing_database_values)
         )
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.environ.get('DB_NAME', 'ect_database'),
-            'USER': os.environ.get('DB_USER', 'root'),
-            'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+            'NAME': required_database_values['DB_NAME'],
+            'USER': required_database_values['DB_USER'],
+            'PASSWORD': required_database_values['DB_PASSWORD'],
             'HOST': os.environ.get('DB_HOST', 'localhost'),
             'PORT': os.environ.get('DB_PORT', '3306'),
+            'CONN_MAX_AGE': int(os.environ.get('DB_CONN_MAX_AGE', '60')),
+            'CONN_HEALTH_CHECKS': True,
+            'OPTIONS': {'charset': 'utf8mb4'},
         }
     }
 
@@ -173,7 +187,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = os.environ.get('DJANGO_TIME_ZONE', 'Asia/Kolkata')
 
 USE_I18N = True
 
@@ -183,8 +197,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'home']
+STATIC_URL = '/static/'
+STATICFILES_DIRS = []
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
@@ -213,19 +227,60 @@ BLOG_DEFAULT_AUTHOR_BIO = (
     'positive impact on society.'
 )
 
-# Security Settings
-SECURE_BROWSER_XSS_FILTER = True
+# Security settings
 SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
+SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin'
 X_FRAME_OPTIONS = 'DENY'
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SAMESITE = 'Lax'
+DATA_UPLOAD_MAX_MEMORY_SIZE = int(os.environ.get('DJANGO_DATA_UPLOAD_MAX_MEMORY_SIZE', str(2 * 1024 * 1024)))
+DATA_UPLOAD_MAX_NUMBER_FIELDS = int(os.environ.get('DJANGO_DATA_UPLOAD_MAX_NUMBER_FIELDS', '200'))
+DATA_UPLOAD_MAX_NUMBER_FILES = int(os.environ.get('DJANGO_DATA_UPLOAD_MAX_NUMBER_FILES', '10'))
+
+# Start in report-only mode because the current pages contain inline styles/scripts and
+# third-party Zoho/analytics/map integrations. Phase 7 browser QA can promote this to an
+# enforced policy after every required endpoint is observed.
+SECURE_CSP_REPORT_ONLY = {
+    'default-src': [CSP.SELF],
+    'base-uri': [CSP.SELF],
+    'object-src': [CSP.NONE],
+    'frame-ancestors': [CSP.NONE],
+    'form-action': [CSP.SELF, 'https://bigin.zoho.in'],
+    'script-src': [CSP.SELF, CSP.UNSAFE_INLINE, 'https://www.googletagmanager.com', 'https://salesiq.zohopublic.in', 'https://bigin.zoho.in', 'https://unpkg.com', 'https://cdnjs.cloudflare.com'],
+    'style-src': [CSP.SELF, CSP.UNSAFE_INLINE, 'https://fonts.googleapis.com', 'https://unpkg.com', 'https://cdnjs.cloudflare.com'],
+    'font-src': [CSP.SELF, 'https://fonts.gstatic.com', 'data:'],
+    'img-src': [CSP.SELF, 'data:', 'https:'],
+    'media-src': [CSP.SELF],
+    'frame-src': [CSP.SELF, 'https://bigin.zoho.in', 'https://www.youtube.com'],
+    'connect-src': [CSP.SELF, 'https:'],
+}
+
+TRUST_X_FORWARDED_FOR = _env_bool('DJANGO_TRUST_X_FORWARDED_FOR', default=False)
+PUBLIC_FORM_RATE_LIMIT = int(os.environ.get('DJANGO_PUBLIC_FORM_RATE_LIMIT', '8'))
+PUBLIC_FORM_RATE_WINDOW = int(os.environ.get('DJANGO_PUBLIC_FORM_RATE_WINDOW', '900'))
+CACHES = {
+    'default': {
+        'BACKEND': os.environ.get(
+            'DJANGO_CACHE_BACKEND',
+            'django.core.cache.backends.locmem.LocMemCache',
+        ),
+        'LOCATION': os.environ.get('DJANGO_CACHE_LOCATION', 'ect-default-cache'),
+        'TIMEOUT': int(os.environ.get('DJANGO_CACHE_TIMEOUT', '300')),
+    }
+}
 
 if not DEBUG:
-    SECURE_SSL_REDIRECT = os.environ.get('DJANGO_SECURE_SSL_REDIRECT', 'True').lower() in {'1', 'true', 'yes'}
+    SECURE_SSL_REDIRECT = _env_bool('DJANGO_SECURE_SSL_REDIRECT', default=True)
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_HSTS_SECONDS = int(os.environ.get('DJANGO_SECURE_HSTS_SECONDS', '31536000'))
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    if _env_bool('DJANGO_TRUST_PROXY_SSL_HEADER', default=True):
+        SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     CSRF_TRUSTED_ORIGINS = [
         origin.strip()
         for origin in os.environ.get(

@@ -1,15 +1,20 @@
 from datetime import timedelta
+from types import SimpleNamespace
+from unittest.mock import patch
 import io
 import tempfile
 
 from django.contrib.auth import get_user_model
+from django.core.cache import cache
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.db import connection
 from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
 from newsletter.models import Subscriber
 
+from .migration_guards import block_unreviewed_destructive_blog_migration
 from .models import Blog, BlogCategory, BlogSlugRedirect, BlogTag, NewsletterSubscriber
 from .utils import normalize_article_url, prepare_article_html
 
@@ -140,6 +145,9 @@ class BlogSeoTests(TestCase):
 
 
 class NewsletterTests(TestCase):
+    def setUp(self):
+        cache.clear()
+
     def test_footer_subscription_is_stored_and_duplicates_are_safe(self):
         url = reverse("blog:subscribe_newsletter")
         response = self.client.post(
@@ -168,6 +176,48 @@ class NewsletterTests(TestCase):
         )
         self.assertEqual(response.status_code, 400)
         self.assertFalse(NewsletterSubscriber.objects.exists())
+
+    @override_settings(PUBLIC_FORM_RATE_LIMIT=2, PUBLIC_FORM_RATE_WINDOW=60)
+    def test_subscription_rate_limit_returns_429(self):
+        url = reverse("blog:subscribe_newsletter")
+        for email in ("one@example.com", "two@example.com"):
+            response = self.client.post(
+                url,
+                {"email": email},
+                HTTP_X_REQUESTED_WITH="XMLHttpRequest",
+                REMOTE_ADDR="192.0.2.10",
+            )
+            self.assertEqual(response.status_code, 200)
+        response = self.client.post(
+            url,
+            {"email": "three@example.com"},
+            HTTP_X_REQUESTED_WITH="XMLHttpRequest",
+            REMOTE_ADDR="192.0.2.10",
+        )
+        self.assertEqual(response.status_code, 429)
+        self.assertEqual(response.headers["Retry-After"], "60")
+        self.assertEqual(NewsletterSubscriber.objects.count(), 2)
+
+
+class MigrationSafetyTests(TestCase):
+    def test_destructive_migration_is_blocked_when_articles_exist(self):
+        category, _ = BlogCategory.objects.get_or_create(name="Migration guard")
+        Blog.objects.create(
+            title="Second preserved article",
+            category=category,
+            article_content="<h2>Keep</h2><p>Keep this article.</p>",
+            status=Blog.Status.DRAFT,
+        )
+        with patch(
+            "blog.migration_guards.MigrationRecorder.applied_migrations",
+            return_value=set(),
+        ):
+            with self.assertRaisesMessage(RuntimeError, "historical delete operation"):
+                block_unreviewed_destructive_blog_migration(
+                    sender=None,
+                    app_config=SimpleNamespace(label="blog"),
+                    using=connection.alias,
+                )
 
 
 class BlogAdminTests(TestCase):

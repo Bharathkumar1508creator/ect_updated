@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import (
-    SiteSettings, Service, TeamMember, Testimonial, FAQ, 
+    SiteSettings, Service, TeamMember, Testimonial, FAQ,
     ContactMessage, Career, JobApplication,
     ProjectCategory, Project, ProjectSection, SocialMediaCard,
     DigitalMarketingOverview
@@ -9,7 +9,7 @@ from .models import (
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'contact_email', 'phone')
-    
+
     def has_add_permission(self, request):
         # Prevent adding more than one site settings instance
         if self.model.objects.count() >= 1:
@@ -44,23 +44,36 @@ class FAQAdmin(admin.ModelAdmin):
     search_fields = ('question', 'answer')
     ordering = ('order',)
 
+class ReadOnlyArchiveAdmin(admin.ModelAdmin):
+    """Keep historical records visible without allowing mutations."""
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
 @admin.register(ContactMessage)
-class ContactMessageAdmin(admin.ModelAdmin):
+class ContactMessageAdmin(ReadOnlyArchiveAdmin):
     list_display = ('name', 'company', 'email', 'category', 'subject', 'created_at', 'is_read')
     list_filter = ('is_read', 'created_at', 'category')
     search_fields = ('name', 'company', 'email', 'subject', 'message')
     date_hierarchy = 'created_at'
-    readonly_fields = ('name', 'email', 'phone', 'subject', 'message', 'created_at')
+    readonly_fields = ('name', 'company', 'email', 'phone', 'category', 'subject', 'message', 'created_at', 'is_read')
 
 @admin.register(Career)
-class CareerAdmin(admin.ModelAdmin):
+class CareerAdmin(ReadOnlyArchiveAdmin):
     list_display = ('title', 'department', 'location', 'created_at', 'is_active')
     list_filter = ('is_active', 'department', 'location')
     search_fields = ('title', 'description')
     date_hierarchy = 'created_at'
 
 @admin.register(JobApplication)
-class JobApplicationAdmin(admin.ModelAdmin):
+class JobApplicationAdmin(ReadOnlyArchiveAdmin):
     list_display = ('name', 'career', 'email', 'phone', 'applied_at')
     list_filter = ('career', 'applied_at')
     search_fields = ('name', 'email', 'phone')
@@ -131,4 +144,4 @@ class DigitalMarketingOverviewAdmin(admin.ModelAdmin):
         }),
     )
 
- 
+

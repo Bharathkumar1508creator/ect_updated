@@ -311,7 +311,11 @@ class Blog(models.Model):
 
     @property
     def display_content(self):
-        return self.article_content or self.legacy_content
+        # Legacy paragraph fields predate the rich-text sanitizer. Sanitize again
+        # at the display boundary so imported or historical HTML cannot execute.
+        from .utils import prepare_article_html
+
+        return prepare_article_html(self.article_content or self.legacy_content)
 
     def seo_checklist(self):
         html = self.display_content or ""

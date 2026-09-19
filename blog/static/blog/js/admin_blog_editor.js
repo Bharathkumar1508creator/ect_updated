@@ -1,10 +1,9 @@
 (function () {
   "use strict";
 
-  function getCookie(name) {
-    var value = "; " + document.cookie;
-    var parts = value.split("; " + name + "=");
-    return parts.length === 2 ? parts.pop().split(";").shift() : "";
+  function getCsrfToken() {
+    var input = document.querySelector('[name="csrfmiddlewaretoken"]');
+    return input ? input.value : "";
   }
 
   function editorConfig() {
@@ -187,7 +186,7 @@
           form.append("file", blobInfo.blob(), blobInfo.filename());
           var request = new XMLHttpRequest();
           request.open("POST", config.uploadUrl, true);
-          request.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
+          request.setRequestHeader("X-CSRFToken", getCsrfToken());
           request.upload.onprogress = function (event) {
             if (event.lengthComputable) progress(event.loaded / event.total * 100);
           };
@@ -246,7 +245,7 @@
       fetch(config.validateLinksUrl, {
         method: "POST",
         body: form,
-        headers: { "X-CSRFToken": getCookie("csrftoken") }
+        headers: { "X-CSRFToken": getCsrfToken() }
       }).then(function (response) { return response.json(); }).then(function (data) {
         if (!result) return;
         var invalid = (data.results || []).filter(function (item) { return !item.valid; });
