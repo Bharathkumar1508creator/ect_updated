@@ -76,7 +76,7 @@ if (ectMobileAccordion) {
 
     /* ---------- Hamburger Toggle ---------- */
     const ectMobileToggle = document.getElementById('ectMobileToggle');
-    if (ectMobileToggle) {
+    if (ectMobileToggle && mobilePanel) {
         ectMobileToggle.addEventListener('click', () => {
             const open = mobilePanel.classList.toggle('is-open');
             ectMobileToggle.classList.toggle('is-open', open);
@@ -103,28 +103,76 @@ if (ectMobileAccordion) {
     }
 }
 
-/* ---------- Desktop: Dropdown Hover & icon pop-in stagger ---------- */
-document.querySelectorAll('.ect-navbar-menu > .ect-nav-item.ect-has-dropdown').forEach(li => {
-    li.addEventListener('mouseenter', () => {
-        li.classList.add('is-open');
-        li.querySelectorAll('.ect-dropdown-icon').forEach((icon, i) => {
-            icon.classList.remove('ect-pop');
-            icon.style.animationDelay = (60 + i * 50) + 'ms';
-            void icon.offsetWidth; // restart animation
-            icon.classList.add('ect-pop');
-            icon.addEventListener('animationend', () => {
+/* ---------- Desktop dropdown behavior ---------- */
+(function () {
+    const dropdownItems = Array.from(
+        document.querySelectorAll('.ect-navbar-menu > .ect-nav-item.ect-has-dropdown')
+    );
+
+    function setOpen(item, open) {
+        item.classList.toggle('is-open', open);
+        const trigger = item.querySelector(':scope > .ect-nav-link');
+        if (trigger) trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    function closeOthers(except) {
+        dropdownItems.forEach(item => {
+            if (item !== except) setOpen(item, false);
+        });
+    }
+
+    dropdownItems.forEach(li => {
+        const trigger = li.querySelector(':scope > .ect-nav-link');
+        if (!trigger) return;
+
+        li.addEventListener('mouseenter', () => {
+            closeOthers(li);
+            setOpen(li, true);
+            li.querySelectorAll('.ect-dropdown-icon').forEach((icon, i) => {
                 icon.classList.remove('ect-pop');
-                icon.style.animationDelay = '';
-            }, { once: true });
+                icon.style.animationDelay = (60 + i * 50) + 'ms';
+                void icon.offsetWidth;
+                icon.classList.add('ect-pop');
+                icon.addEventListener('animationend', () => {
+                    icon.classList.remove('ect-pop');
+                    icon.style.animationDelay = '';
+                }, { once: true });
+            });
+        });
+
+        li.addEventListener('mouseleave', () => {
+            if (!li.contains(document.activeElement)) setOpen(li, false);
+        });
+
+        trigger.addEventListener('click', event => {
+            event.preventDefault();
+            const shouldOpen = !li.classList.contains('is-open');
+            closeOthers(li);
+            setOpen(li, shouldOpen);
+            if (shouldOpen) {
+                const firstLink = li.querySelector('.ect-dropdown a[href]');
+                if (event.detail === 0 && firstLink) firstLink.focus();
+            }
+        });
+
+        li.addEventListener('focusout', event => {
+            if (!li.contains(event.relatedTarget)) setOpen(li, false);
         });
     });
-    li.addEventListener('mouseleave', () => {
-        li.classList.remove('is-open');
+
+    document.addEventListener('click', event => {
+        if (!event.target.closest('.ect-navbar-menu')) closeOthers(null);
     });
-});
 
-
-
+    document.addEventListener('keydown', event => {
+        if (event.key !== 'Escape') return;
+        const openItem = document.querySelector('.ect-navbar-menu > .ect-has-dropdown.is-open');
+        if (!openItem) return;
+        const trigger = openItem.querySelector(':scope > .ect-nav-link');
+        setOpen(openItem, false);
+        if (trigger) trigger.focus();
+    });
+})();
 
 
 /* ============================================================
@@ -717,30 +765,6 @@ document.querySelectorAll('.ect-navbar-menu > .ect-nav-item.ect-has-dropdown').f
     initBusinessSolutionCards();
   }
 })();
-
-
-/**
- * ECT Products — Button click handler
- * Swap the URLs below with your actual product page links.
- */
-(function () {
-  'use strict';
-
-  const routes = {
-    crm: '/products/crm',
-    profile: '/products/executive-digital-profile',
-  };
-
-  document.querySelectorAll('.ect-btn-explore').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var product = this.getAttribute('data-product');
-      if (product && routes[product]) {
-        window.location.href = routes[product];
-      }
-    });
-  });
-})();
-
 
 
 /* ============================================================
@@ -1663,17 +1687,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  var btn = document.querySelector('.ect-hero__btn');
-
-  if (btn) {
-    btn.addEventListener('click', function () {
-      // Placeholder: navigate or open a modal when ready
-      // window.location.href = '/diagnostic';
-      console.log('Explore the diagnostic clicked');
-    });
-  }
-
-  // Optional: pause video when it's completely off-screen (save resources)
+  // Pause video when it's completely off-screen (save resources)
   var video = document.querySelector('.ect-hero__video');
 
   if (video && 'IntersectionObserver' in window) {
@@ -1999,77 +2013,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-// /* ECT Work — Portfolio section
-//    Navigation & interaction logic */
-
-// document.addEventListener('DOMContentLoaded', function () {
-
-//   var prevBtn = document.querySelector('.nav-btn[aria-label="Previous project"]');
-//   var nextBtn = document.querySelector('.nav-btn[aria-label="Next project"]');
-//   var grid   = document.querySelector('.work__grid');
-
-//   /* ---- Horizontal scroll on 2-col / 1-col layouts ---- */
-//   function canScroll() {
-//     return grid.scrollWidth > grid.clientWidth + 1;
-//   }
-
-//   function scrollGrid(direction) {
-//     if (!canScroll()) return;
-//     var card = grid.querySelector('.card');
-//     if (!card) return;
-//     var step = card.offsetWidth + parseFloat(getComputedStyle(grid).gap) || card.offsetWidth;
-//     grid.scrollBy({ left: direction * step, behavior: 'smooth' });
-//   }
-
-//   if (prevBtn) prevBtn.addEventListener('click', function () { scrollGrid(-1); });
-//   if (nextBtn) nextBtn.addEventListener('click', function () { scrollGrid(1); });
-
-//   /* ---- Auto-scroll functionality ---- */
-//   var autoScrollTimer = null;
-//   function startAutoScroll() {
-//     if (!grid || !canScroll()) return;
-//     autoScrollTimer = setInterval(function () {
-//       var card = grid.querySelector('.card');
-//       if (!card) return;
-//       var step = card.offsetWidth + parseFloat(getComputedStyle(grid).gap) || card.offsetWidth;
-
-//       if (grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10) {
-//         grid.scrollTo({ left: 0, behavior: 'smooth' });
-//       } else {
-//         grid.scrollBy({ left: step, behavior: 'smooth' });
-//       }
-//     }, 3000);
-//   }
-
-//   function stopAutoScroll() {
-//     if (autoScrollTimer) {
-//       clearInterval(autoScrollTimer);
-//       autoScrollTimer = null;
-//     }
-//   }
-
-//   if (grid) {
-//     startAutoScroll();
-//     grid.addEventListener('mouseenter', stopAutoScroll);
-//     grid.addEventListener('mouseleave', startAutoScroll);
-//     grid.addEventListener('touchstart', stopAutoScroll, { passive: true });
-//     grid.addEventListener('touchend', startAutoScroll);
-//   }
-
-//   /* ---- "View Projects" button click handler ---- */
-//   var viewBtns = document.querySelectorAll('.btn-view');
-//   viewBtns.forEach(function (btn) {
-//     btn.addEventListener('click', function () {
-//       var card = btn.closest('.card');
-//       var overlay = card ? card.querySelector('.card__overlay p') : null;
-//       var name = overlay ? overlay.textContent.trim() : 'this project';
-//       /* Replace the alert below with your own navigation / modal logic */
-//       alert('Opening: ' + name);
-//     });
-//   });
-
-// });
 
 /* ============================================================
    BUSINESS CHALLENGES — TABLET / MOBILE SCROLL EXPERIENCE

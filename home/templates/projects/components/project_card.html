@@ -1,32 +1,40 @@
+{% load project_media %}
 <div class="project-card">
     {% if project.category.slug == 'digital-marketing' %}
-    <a href="{% url 'digital_marketing_detail' project.slug %}" class="card-link">
+        <a href="{% url 'digital_marketing_detail' project.slug %}" class="card-link" aria-label="View {{ project.title }}"></a>
+    {% else %}
+        <a href="{% url 'project_detail' project.slug %}" class="card-link" aria-label="View {{ project.title }}"></a>
+    {% endif %}
+
+    <div class="card-media {% if project.hero_media_type == 'video' and project.hero_video %}has-video{% endif %}" data-media-frame>
+        {% if project.hero_media_type == 'image' and project.hero_image %}
+            <img src="{{ project.hero_image.url }}" alt="{{ project.title }}" loading="lazy" data-media-image>
+        {% elif project.hero_media_type == 'video' and project.hero_video %}
+            <video class="card-video" src="{{ project.hero_video.url }}"
+                   {% if project.hero_image %}poster="{{ project.hero_image.url }}"{% endif %}
+                   preload="metadata" playsinline data-media-video></video>
+            <button class="btn-play-video" aria-label="Play video" type="button" data-card-video-button>
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            </button>
+        {% elif project.hero_media_type == 'youtube' and project.hero_youtube_url %}
+            {% with thumbnail=project.hero_youtube_url|youtube_thumbnail_url %}
+                {% if thumbnail %}
+                    <img src="{{ thumbnail }}" alt="{{ project.title }}" loading="lazy" data-media-image>
+                {% else %}
+                    <div class="media-placeholder" role="img" aria-label="Project media unavailable">Media unavailable</div>
+                {% endif %}
+            {% endwith %}
         {% else %}
-        <a href="{% url 'project_detail' project.slug %}" class="card-link">
-            {% endif %}
-            <div class="card-media {% if project.hero_media_type == 'video' and project.hero_video %}has-video{% endif %}">
-            {% if project.hero_media_type == 'image' and project.hero_image %}
-                <img src="{{ project.hero_image.url }}" alt="{{ project.title }}" loading="lazy">
-            {% elif project.hero_media_type == 'video' and project.hero_video %}
-                <video class="card-video" src="{{ project.hero_video.url }}" 
-                       {% if project.hero_image %}poster="{{ project.hero_image.url }}"{% endif %}
-                       preload="metadata" playsinline></video>
-                <button class="btn-play-video" aria-label="Play video" type="button" onclick="handleCardVideoPlay(event, this)">
-                    <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                </button>
-            {% elif project.hero_media_type == 'youtube' and project.hero_youtube_url %}
-                <img src="https://img.youtube.com/vi/{{ project.hero_youtube_url|slice:'-11:' }}/maxresdefault.jpg" alt="{{ project.title }}" loading="lazy">
-            {% else %}
-                <div class="media-placeholder"></div>
-            {% endif %}
-            
-            {% if project.hero_media_type != 'video' or not project.hero_video %}
-            <div class="notch-wrapper">
-                <span class="btn-notch">View Projects</span>
-            </div>
-            {% endif %}
+            <div class="media-placeholder" role="img" aria-label="Project media unavailable">Media unavailable</div>
+        {% endif %}
+        <div class="media-placeholder" data-media-fallback hidden role="img" aria-label="Project media unavailable">Media unavailable</div>
+
+        {% if project.hero_media_type != 'video' or not project.hero_video %}
+        <div class="notch-wrapper">
+            <span class="btn-notch">View Project</span>
         </div>
-        </a>
+        {% endif %}
+    </div>
 </div>

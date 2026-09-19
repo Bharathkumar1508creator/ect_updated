@@ -1,9 +1,21 @@
-{% if type == 'image' and image %}
-    <img src="{{ image.url }}" alt="{{ alt|default:'Media' }}" class="media-element" loading="lazy">
-{% elif type == 'video' and video %}
-    <video src="{{ video.url }}" class="media-element" controls playsinline></video>
-{% elif type == 'youtube' and youtube %}
-    <div class="youtube-container">
-        <iframe src="https://www.youtube.com/embed/{{ youtube|slice:'-11:' }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-element"></iframe>
-    </div>
-{% endif %}
+{% load project_media %}
+<div class="project-media-frame" data-media-frame>
+    {% if type == 'image' and image %}
+        <img src="{{ image.url }}" alt="{{ alt|default:'Project media' }}" class="media-element" loading="lazy" data-media-image>
+    {% elif type == 'video' and video %}
+        <video src="{{ video.url }}" class="media-element" controls preload="metadata" playsinline {% if image %}poster="{{ image.url }}"{% endif %} data-media-video></video>
+    {% elif type == 'youtube' and youtube %}
+        {% with embed_url=youtube|youtube_embed_url %}
+            {% if embed_url %}
+                <div class="youtube-container">
+                    <iframe src="{{ embed_url }}" title="{{ alt|default:'Project video' }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="media-element"></iframe>
+                </div>
+            {% else %}
+                <div class="media-placeholder" role="img" aria-label="Project media unavailable">Media unavailable</div>
+            {% endif %}
+        {% endwith %}
+    {% else %}
+        <div class="media-placeholder" role="img" aria-label="Project media unavailable">Media unavailable</div>
+    {% endif %}
+    <div class="media-placeholder" data-media-fallback hidden role="img" aria-label="Project media unavailable">Media unavailable</div>
+</div>

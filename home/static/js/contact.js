@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const HQ = [77.01441, 11.09304];
+  const mapContainer = document.getElementById('ectMap');
+  if (!mapContainer || !window.maplibregl) return;
 
   const map = new maplibregl.Map({
     container: 'ectMap',
@@ -34,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const pin = document.getElementById('ectMapPin');
   const card = document.getElementById('ectMapCard');
 
+  if (!pin || !card) return;
+
   pin.addEventListener('click', (e) => {
     e.stopPropagation();
     card.classList.toggle('open');
@@ -61,6 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
   items.forEach(function (item) {
     var btn = item.querySelector('.faq-q');
 
+    if (!btn) return;
+
     btn.addEventListener('click', function () {
       var isOpen = item.classList.contains('open');
 
@@ -79,6 +85,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // ----- Scroll reveal with stagger -----
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (item) { item.classList.add('faq-in-view'); });
+    return;
+  }
+
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {

@@ -624,17 +624,6 @@ document.addEventListener('DOMContentLoaded', function () {
     grid.addEventListener('touchstart', stopAutoScroll, { passive: true });
     grid.addEventListener('touchend', startAutoScroll);
   }
-
-  /* ---- "View Projects" button click handler ---- */
-  var viewBtns = document.querySelectorAll('.btn-view');
-  viewBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var card = btn.closest('.card');
-      var overlay = card ? card.querySelector('.card__overlay p') : null;
-      var name = overlay ? overlay.textContent.trim() : 'this project';
-      /* Replace the alert below with your own navigation / modal logic */
-      alert('Opening: ' + name);
-    });
-  });
+  /* Project links navigate through their href attributes. */
 
 });

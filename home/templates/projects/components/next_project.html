@@ -2,6 +2,10 @@
     <div class="container">
         <h4 class="mb-3 text-muted">Next Project</h4>
         <h2 class="mb-4">{{ next_project.title }}</h2>
-        <a href="{% url 'project_detail' next_project.slug %}" class="btn btn-outline-primary btn-lg">View Next Project &rarr;</a>
+        {% if next_project.category.slug == 'digital-marketing' %}
+            <a href="{% url 'digital_marketing_detail' next_project.slug %}" class="btn btn-outline-primary btn-lg">View Next Project &rarr;</a>
+        {% else %}
+            <a href="{% url 'project_detail' next_project.slug %}" class="btn btn-outline-primary btn-lg">View Next Project &rarr;</a>
+        {% endif %}
     </div>
 </section>

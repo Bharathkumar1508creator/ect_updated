@@ -5,8 +5,9 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import RequestFactory, TestCase
 from django.urls import reverse
 
-from .models import Career, ContactMessage, JobApplication
+from .models import Career, ContactMessage, JobApplication, Project, ProjectCategory
 from .templatetags.content_security import sanitized_rich_html
+from .templatetags.project_media import extract_youtube_id, youtube_embed_url
 
 
 class ExternalFormOnlyTests(TestCase):
@@ -102,3 +103,144 @@ class SecurityBoundaryTests(TestCase):
         self.assertNotIn("onclick", rendered)
         self.assertNotIn("script", rendered)
         self.assertNotIn("javascript:", rendered)
+
+
+class ProjectFunctionalityTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.general_category = ProjectCategory.objects.create(
+            name="Software",
+            slug="software-projects",
+            status="published",
+        )
+        cls.digital_category = ProjectCategory.objects.create(
+            name="Digital Marketing",
+            slug="digital-marketing",
+            status="published",
+        )
+
+    def test_youtube_parser_supports_common_urls_and_rejects_other_hosts(self):
+        video_id = "dQw4w9WgXcQ"
+        urls = (
+            video_id,
+            f"https://www.youtube.com/watch?v={video_id}&feature=share",
+            f"https://youtu.be/{video_id}?t=4",
+            f"https://www.youtube.com/embed/{video_id}",
+            f"https://www.youtube.com/shorts/{video_id}?feature=share",
+            f"https://www.youtube-nocookie.com/embed/{video_id}",
+        )
+        for url in urls:
+            with self.subTest(url=url):
+                self.assertEqual(extract_youtube_id(url), video_id)
+        self.assertEqual(extract_youtube_id(f"https://example.com/watch?v={video_id}"), "")
+        self.assertEqual(
+            youtube_embed_url(urls[1]),
+            f"https://www.youtube-nocookie.com/embed/{video_id}",
+        )
+
+    def test_project_list_handles_missing_media_and_loads_shared_behavior(self):
+        Project.objects.create(
+            category=self.general_category,
+            title="No image project",
+            slug="no-image-project",
+            status="published",
+            hero_media_type="image",
+        )
+        response = self.client.get(reverse("project_list"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Media unavailable")
+        self.assertContains(response, "/static/js/base.js")
+        self.assertContains(response, "/static/js/project-media.js")
+        self.assertContains(response, 'id="ectContactPopup"')
+        self.assertContains(response, "ECOGCORETECHNOLOGIES")
+
+    def test_project_detail_builds_absolute_open_graph_image(self):
+        project = Project.objects.create(
+            category=self.general_category,
+            title="Project with image",
+            slug="project-with-image",
+            status="published",
+            hero_media_type="image",
+            hero_image="projects/hero/images/project.jpg",
+        )
+        response = self.client.get(reverse("project_detail", args=[project.slug]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(
+            response,
+            'content="http://testserver/media/projects/hero/images/project.jpg"',
+            html=False,
+        )
+        self.assertNotContains(
+            response,
+            f"http://testserver{reverse('project_detail', args=[project.slug])}/media/",
+        )
+
+    def test_youtube_project_renders_privacy_enhanced_embed(self):
+        project = Project.objects.create(
+            category=self.general_category,
+            title="Video project",
+            slug="video-project",
+            status="published",
+            hero_media_type="youtube",
+            hero_youtube_url="https://youtu.be/dQw4w9WgXcQ?t=4",
+        )
+        response = self.client.get(reverse("project_detail", args=[project.slug]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(
+            response,
+            "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+        )
+        self.assertContains(response, 'title="Video project"')
+
+    def test_digital_next_project_uses_digital_detail_route(self):
+        first = Project.objects.create(
+            category=self.digital_category,
+            title="Digital one",
+            slug="digital-one",
+            status="published",
+            display_order=1,
+        )
+        second = Project.objects.create(
+            category=self.digital_category,
+            title="Digital two",
+            slug="digital-two",
+            status="published",
+            display_order=2,
+        )
+        response = self.client.get(reverse("digital_marketing_detail", args=[first.slug]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(
+            response,
+            reverse("digital_marketing_detail", args=[second.slug]),
+        )
+
+    def test_generic_route_redirects_digital_project_to_specialized_page(self):
+        project = Project.objects.create(
+            category=self.digital_category,
+            title="Digital canonical route",
+            slug="digital-canonical-route",
+            status="published",
+        )
+        response = self.client.get(reverse("project_detail", args=[project.slug]))
+        self.assertRedirects(
+            response,
+            reverse("digital_marketing_detail", args=[project.slug]),
+            fetch_redirect_response=False,
+        )
+
+    def test_homepage_uses_fallback_and_correct_digital_project_link(self):
+        project = Project.objects.create(
+            category=self.digital_category,
+            title="Homepage digital project",
+            slug="homepage-digital-project",
+            status="published",
+            hero_media_type="image",
+        )
+        response = self.client.get(reverse("index"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Media unavailable")
+        self.assertContains(
+            response,
+            reverse("digital_marketing_detail", args=[project.slug]),
+        )
+        self.assertContains(response, "/static/js/project-media.js")

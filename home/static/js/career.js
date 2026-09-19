@@ -4,10 +4,10 @@
   var poster = document.querySelector('.ect-media-poster');
   if(!video) return;
   video.addEventListener('playing', function(){
-    poster.style.display = 'none';
+    if (poster) poster.style.display = 'none';
   });
   video.addEventListener('error', function(){
-    poster.style.display = 'flex';
+    if (poster) poster.style.display = 'flex';
   }, true);
 })();
 
@@ -118,12 +118,6 @@
     p.setAttribute('fill', 'none');
   });
 
-  document.querySelectorAll('.ect-btn, .ect-btn-m').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      console.log('View Open Positions clicked');
-    });
-  });
-
   // Scale the pixel-exact desktop canvas to fit any viewport width
   var viewport = document.getElementById('ectViewport');
   var stage = document.getElementById('ectStage');
@@ -131,7 +125,7 @@
   var DESIGN_H = 820;
 
   function fitStage(){
-    if (getComputedStyle(viewport).display === 'none') return;
+    if (!viewport || !stage || getComputedStyle(viewport).display === 'none') return;
     var containerW = viewport.clientWidth;
     var scale = containerW / DESIGN_W;
     stage.style.transform = 'scale(' + scale + ')';

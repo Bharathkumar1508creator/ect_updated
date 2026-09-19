@@ -254,7 +254,7 @@ SECURE_CSP_REPORT_ONLY = {
     'font-src': [CSP.SELF, 'https://fonts.gstatic.com', 'data:'],
     'img-src': [CSP.SELF, 'data:', 'https:'],
     'media-src': [CSP.SELF],
-    'frame-src': [CSP.SELF, 'https://bigin.zoho.in', 'https://www.youtube.com'],
+    'frame-src': [CSP.SELF, 'https://bigin.zoho.in', 'https://www.youtube.com', 'https://www.youtube-nocookie.com'],
     'connect-src': [CSP.SELF, 'https:'],
 }
 

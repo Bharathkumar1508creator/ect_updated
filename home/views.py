@@ -16,6 +16,17 @@ def get_common_context():
         'site_settings': settings,
     }
 
+
+def get_project_social_image_url(request, project):
+    for field in (project.og_image, project.hero_image):
+        if not field:
+            continue
+        try:
+            return request.build_absolute_uri(field.url)
+        except (ValueError, AttributeError):
+            continue
+    return ''
+
 def index(request):
     context = get_common_context()
     context['services'] = Service.objects.filter(is_active=True).order_by('order')[:6]
@@ -31,7 +42,7 @@ def index(request):
         for t in testimonials
     ]
     context['latest_blogs'] = Blog.objects.publicly_visible().select_related('category').order_by('-publish_date')[:3]
-    context['work_projects'] = Project.objects.filter(status='published').order_by('display_order')[:6]
+    context['work_projects'] = Project.objects.filter(status='published').select_related('category').order_by('display_order')[:6]
     return render(request, 'index.html', context)
 
 def about(request):
@@ -105,6 +116,7 @@ def digital_marketing_detail(request, slug):
         'sections': sections,
         'next_project': next_project,
         'related_projects': related_projects,
+        'social_image_url': get_project_social_image_url(request, project),
     })
 
     return render(request, 'projects/digital_marketing_detail.html', context)
@@ -146,7 +158,14 @@ def project_list(request):
 def project_detail(request, slug):
     context = get_common_context()
 
-    project = get_object_or_404(Project, slug=slug, status='published')
+    project = get_object_or_404(
+        Project.objects.select_related('category'),
+        slug=slug,
+        status='published',
+    )
+    if project.category.slug == 'digital-marketing':
+        return redirect('digital_marketing_detail', slug=project.slug)
+
     sections = project.sections.filter(status='published').order_by('section_order')
 
     # Next Project (same category, loop back)
@@ -178,6 +197,7 @@ def project_detail(request, slug):
         'sections': sections,
         'next_project': next_project,
         'related_projects': related_projects,
+        'social_image_url': get_project_social_image_url(request, project),
     })
 
     return render(request, 'projects/project_detail.html', context)

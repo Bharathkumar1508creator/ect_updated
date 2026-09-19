@@ -14,14 +14,13 @@
     <!-- Open Graph -->
     <meta property="og:title" content="{{ project.seo_title|default:project.title }}">
     <meta property="og:description" content="{{ project.seo_description|default:project.short_description|default:'' }}">
-    {% if project.og_image %}
-        <meta property="og:image" content="{{ request.build_absolute_uri }}{{ project.og_image.url }}">
-    {% elif project.hero_image %}
-        <meta property="og:image" content="{{ request.build_absolute_uri }}{{ project.hero_image.url }}">
+    {% if social_image_url %}
+        <meta property="og:image" content="{{ social_image_url }}">
     {% endif %}
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
     <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=3">
+    <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
@@ -124,6 +123,6 @@
         {% include 'projects/components/next_project.html' with next_project=next_project %}
     {% endif %}
 
-{% include 'components/zoho_salesiq.html' %}
+{% include 'components/project_page_end.html' %}
 </body>
 </html>

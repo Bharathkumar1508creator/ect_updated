@@ -1,4 +1,4 @@
-{% load static %}
+{% load static project_media %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -340,7 +340,7 @@
       <h2 class="ect-hero__title"><span>We diagnose the gap before</span> <br class="ect-hero__responsive-break"><span>Recommending the tool.</span></h2>
       <p class="ect-hero__desc">ECT studies six connected areas of the business. The result is a clear view of what is
         slowing growth, where opportunities are leaking and what should be fixed first.</p>
-      <a href="{% url 'contact' %}"><button class="ect-hero__btn">Explore the diagnostic</button></a>
+      <a href="{% url 'contact' %}" class="ect-hero__btn">Explore the diagnostic</a>
     </div>
   </section>
 
@@ -777,7 +777,7 @@
           </li>
         </ul>
 
-        <a href="{% url 'about' %}"><button class="custom-cbs-cta-btn" type="button">Discover the ECT story</button></a>
+        <a href="{% url 'about' %}" class="custom-cbs-cta-btn">Discover the ECT story</a>
       </div>
 
     </div>
@@ -1139,7 +1139,7 @@
             </svg>
 
             <div class="ect-pcard__cta">
-              <a href="{% url 'under' %}"><button class="ect-btn-explore" data-product="crm">Explore CRM</button></a>
+              <a href="{% url 'under' %}" class="ect-btn-explore" data-product="crm">Explore CRM</a>
             </div>
           </div>
         </article>
@@ -1173,7 +1173,7 @@
             </svg>
 
             <div class="ect-pcard__cta">
-            <a href="{% url 'under' %}"><button class="ect-btn-explore" data-product="profile">Explore Profile</button></a>
+            <a href="{% url 'under' %}" class="ect-btn-explore" data-product="profile">Explore Profile</a>
             </div>
           </div>
         </article>
@@ -1210,10 +1210,14 @@
         {% for project in work_projects %}
         <article class="card">
           <div class="card__body">
-            <div class="card__imgwrap">
-              {% if project.hero_image %}
-              <img class="card__img" src="{{ project.hero_image.url }}" alt="{{ project.title }}">
+            <div class="card__imgwrap" data-media-frame>
+              {% project_preview_url project as preview_url %}
+              {% if preview_url %}
+              <img class="card__img" src="{{ preview_url }}" alt="{{ project.title }}" data-media-image>
+              {% else %}
+              <div class="media-placeholder" role="img" aria-label="Project media unavailable">Media unavailable</div>
               {% endif %}
+              <div class="media-placeholder" data-media-fallback hidden role="img" aria-label="Project media unavailable">Media unavailable</div>
               <div class="card__overlay">
                 <p><b>{{ project.title }}</b> <span>- {{ project.short_description }}</span></p>
               </div>
@@ -1226,7 +1230,13 @@
               <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
                 stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
             </svg>
-            <div class="card__cta"><a href="{% url 'project_detail' project.slug %}"><button class="btn-view">View Project</button></a></div>
+            <div class="card__cta">
+              {% if project.category.slug == 'digital-marketing' %}
+              <a href="{% url 'digital_marketing_detail' project.slug %}" class="btn-view">View Project</a>
+              {% else %}
+              <a href="{% url 'project_detail' project.slug %}" class="btn-view">View Project</a>
+              {% endif %}
+            </div>
           </div>
         </article>
         {% empty %}
@@ -1375,6 +1385,7 @@
   {% endif %}
 
   <script src="{% static 'js/base.js' %}?v=52"></script>
+  <script src="{% static 'js/project-media.js' %}?v=1"></script>
   <script src="{% static 'js/ripple.js' %}"></script>
 
 

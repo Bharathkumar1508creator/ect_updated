@@ -31,7 +31,7 @@ If Codex usage stops, resume this task, inspect `git status`, read this file, ve
 | 0 | Isolated workspace, source baseline, exclusions, repair workflow | Complete | `checkpoint-phase-0` |
 | 1 | Dependency and data-preservation inventory | Complete | `checkpoint-phase-1` |
 | 2 | Security, settings, contact handling, and removal of local career uploads | Complete | `checkpoint-phase-2` |
-| 3 | Shared navigation, popup, project pages, media logic, and integration resilience | Pending | — |
+| 3 | Shared navigation, popup, project pages, media logic, and integration resilience | Complete | `checkpoint-phase-3` |
 | 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Pending | — |
 | 5 | Image/video optimization, WebP selection, posters, caching, and frontend performance | Pending | — |
 | 6 | Complete technical, on-page, and Coimbatore/Tamil Nadu local SEO | Pending | — |
@@ -78,6 +78,8 @@ Completed in `docs/PHASE_2_SECURITY_AND_BACKEND.md`. Contact and Careers are ext
 - Correct YouTube parsing, Open Graph images, filename case, and career JavaScript.
 - Preserve and verify third-party integrations with graceful fallbacks.
 - Repair duplicate or conflicting frontend initialization.
+
+Completed in `docs/PHASE_3_FUNCTIONAL_REPAIR.md`. Project pages now use the shared navigation, footer, Zoho Bigin popup, and SalesIQ shell; YouTube, video, missing-media, Open Graph, and category-routing paths are repaired; navigation supports mouse, keyboard, and touch; placeholder routes and alerts no longer override real links; and optional third-party failures no longer stop unrelated page behavior. No schema, data, uploaded media, or live-server changes were made.
 
 ### Phase 4 — Responsive UI and accessibility
 
@@ -139,3 +141,4 @@ This phase begins only after:
 | 2026-09-19 | Phase 0 | `checkpoint-phase-0` | Django checks, migration check, 32 blog tests, and JavaScript syntax checks passed | Isolated repair workflow ready |
 | 2026-09-19 | Phase 1 | `checkpoint-phase-1` | Dependency trace, local data/media inventory, migration plan, Django checks, migration check, Python/npm dependency checks, 32 blog tests, JavaScript syntax, and static-reference scan | Audit only; no application behavior changed |
 | 2026-09-19 | Phase 2 | `checkpoint-phase-2` | Django checks including production deploy check, no migration drift, 40 tests, dependency audits, JavaScript syntax, Tailwind build, and static safety checks | No schema/data/live-server changes |
+| 2026-09-19 | Phase 3 | `checkpoint-phase-3` | Django checks, no migration drift, 47 tests, JavaScript syntax, 343 static references with zero missing, 13 primary-route renders, and all 6 published project renders | No schema/data/media/live-server changes |
