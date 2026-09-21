@@ -7,18 +7,15 @@
   {% include 'components/favicon.html' %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <title>Expert Website Development Services for Business Growth</title>
   <meta name="description" content="Transform your online presence with expert website development. Build powerful, fast, scalable websites that attract customers, boost conversions, and grow.">
   <meta name="robots" content="index, follow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Outfit:wght@400&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/website.css' %}?v=26">
-  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
-  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+  <link rel="stylesheet" href="{% static 'css/website.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}">
   <style>
     body, html, .website-figma-hero {
       background-color: #ffffff !important;
@@ -67,8 +64,7 @@
     <div class="website-figma-hero__video-frame">
       <video
         class="website-figma-hero__video"
-        src="{% static 'video/website.mp4' %}"
-        autoplay loop muted playsinline>
+        src="{% static 'video/website-optimized.mp4' %}" loop muted playsinline preload="none" controls poster="{% static 'video/website-poster.webp' %}">
       </video>
     </div>
   </section>
@@ -191,7 +187,7 @@
 
         <div class="ect-web-solutions__panel is-active" id="ect-web-solutions-panel-0" role="tabpanel" aria-labelledby="ect-web-solutions-tab-0">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/corporate-websites.png' %}" alt="Corporate website mockup shown on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+            <img src="{% static 'img/corporate-websites.webp' %}" alt="Corporate website mockup shown on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy" srcset="{% static 'img/corporate-websites-480.webp' %} 480w, {% static 'img/corporate-websites-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw">
           </div>
           <h3 class="ect-web-solutions__content-title">Build Trust. Strengthen Your Brand.</h3>
           <p class="ect-web-solutions__description">Create a premium corporate website that reflects your brand, builds credibility, and inspires confidence from the very first visit while driving long-term business growth, customer engagement, and trust.</p>
@@ -202,7 +198,7 @@
 
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-1" role="tabpanel" aria-labelledby="ect-web-solutions-tab-1">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/business-websites.png' %}" alt="Business website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+            <img src="{% static 'img/business-websites.webp' %}" alt="Business website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy" srcset="{% static 'img/business-websites-480.webp' %} 480w, {% static 'img/business-websites-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw">
           </div>
           <h3 class="ect-web-solutions__content-title">Turn Visitors Into Customers.</h3>
           <p class="ect-web-solutions__description">Launch a powerful online store with secure payments, seamless shopping experiences, optimized product management, and everything you need to increase sales and customer satisfaction.</p>
@@ -213,7 +209,7 @@
 
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-2" role="tabpanel" aria-labelledby="ect-web-solutions-tab-2">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/E-commerce Websites.png' %}" alt="E-commerce website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+            <img src="{% static 'img/E-commerce Websites.png' %}" alt="E-commerce website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy" srcset="{% static 'img/E-commerce Websites-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw">
           </div>
           <h3 class="ect-web-solutions__content-title">Sell Smarter. Grow Faster.</h3>
           <p class="ect-web-solutions__description">Launch a powerful online store with secure payments, seamless shopping experiences, optimized product management, and everything you need to increase sales and customer satisfaction.</p>
@@ -224,7 +220,7 @@
 
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-3" role="tabpanel" aria-labelledby="ect-web-solutions-tab-3">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/landing-pages.png' %}" alt="Landing page mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+            <img src="{% static 'img/landing-pages.webp' %}" alt="Landing page mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy" srcset="{% static 'img/landing-pages-480.webp' %} 480w, {% static 'img/landing-pages-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw">
           </div>
           <h3 class="ect-web-solutions__content-title">Designed to Generate More Leads</h3>
           <p class="ect-web-solutions__description">Build high-converting landing pages designed to generate quality leads, promote marketing campaigns, engage visitors, and convert prospects into loyal customers with measurable business results.</p>
@@ -235,7 +231,7 @@
 
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-4" role="tabpanel" aria-labelledby="ect-web-solutions-tab-4">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/portfolio-websites.png' %}" alt="Portfolio website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+            <img src="{% static 'img/portfolio-websites.webp' %}" alt="Portfolio website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy" srcset="{% static 'img/portfolio-websites-480.webp' %} 480w, {% static 'img/portfolio-websites-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw">
           </div>
           <h3 class="ect-web-solutions__content-title">Build Your Professional Legacy.</h3>
           <p class="ect-web-solutions__description">Create a professional executive profile that showcases your leadership journey, business achievements, company vision, awards, and career milestones-building credibility, trust, and a lasting digital presence.</p>
@@ -246,7 +242,7 @@
 
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-5" role="tabpanel" aria-labelledby="ect-web-solutions-tab-5">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/custom-web-applications.png' %}" alt="Custom web application interface displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+            <img src="{% static 'img/custom-web-applications.webp' %}" alt="Custom web application interface displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy" srcset="{% static 'img/custom-web-applications-480.webp' %} 480w, {% static 'img/custom-web-applications-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw">
           </div>
           <h3 class="ect-web-solutions__content-title">Built Around Your Business.</h3>
           <p class="ect-web-solutions__description">Need something unique? We design and develop fully customized web applications tailored to your workflows, processes, and business goals.</p>
@@ -271,7 +267,7 @@
     <!-- Step 01 -->
     <div class="cell">
       <div class="icon">
-        <img src="{% static 'img/zoom.png' %}" alt="zoom">
+        <img src="{% static 'img/zoom.png' %}" alt="zoom" width="52" height="52" decoding="async" loading="lazy">
       </div>
       <div class="step">Step 01</div>
       <h3>Discovery &amp; Planning</h3>
@@ -281,7 +277,7 @@
     <!-- Step 02 -->
     <div class="cell">
       <div class="icon icon-zoom">
-       <img src="{% static 'img/uiux.png' %}" alt="uiux">
+       <img src="{% static 'img/uiux.png' %}" alt="uiux" width="52" height="52" decoding="async" loading="lazy">
       </div>
       <div class="step">Step 02</div>
       <h3>UI/UX Design</h3>
@@ -291,7 +287,7 @@
     <!-- Step 03 -->
     <div class="cell">
       <div class="icon icon-zoom">
-       <img src="{% static 'img/website.png' %}" alt="website">
+       <img src="{% static 'img/website.png' %}" alt="website" width="50" height="50" decoding="async" loading="lazy">
       </div>
       <div class="step">Step 03</div>
       <h3>Website Development</h3>
@@ -301,7 +297,7 @@
     <!-- Step 04 -->
     <div class="cell">
       <div class="icon icon-zoom">
-       <img src="{% static 'img/testing.png' %}" alt="testing">
+       <img src="{% static 'img/testing.png' %}" alt="testing" width="49" height="49" decoding="async" loading="lazy">
       </div>
       <div class="step">Step 04</div>
       <h3>Testing &amp; Quality Assurance</h3>
@@ -311,7 +307,7 @@
     <!-- Step 05 -->
     <div class="cell">
       <div class="icon">
-        <img src="{% static 'img/web.png' %}" alt="web">
+        <img src="{% static 'img/web.png' %}" alt="web" width="50" height="50" decoding="async" loading="lazy">
       </div>
       <div class="step">Step 05</div>
       <h3>Website Launch</h3>
@@ -321,7 +317,7 @@
     <!-- Step 06 -->
     <div class="cell">
       <div class="icon">
-        <img src="{% static 'img/support.png' %}" alt="support">
+        <img src="{% static 'img/support.png' %}" alt="support" width="57" height="54" decoding="async" loading="lazy">
       </div>
       <div class="step">Step 06</div>
       <h3>Support &amp; Continuous Improvement</h3>
@@ -367,7 +363,7 @@
         <article class="card">
           <div class="card__body">
             <div class="card__imgwrap">
-              <img class="card__img" src="{% static 'img/ecog.png' %}" alt="Project preview">
+              <img class="card__img" src="{% static 'img/ecog.webp' %}" alt="Project preview" width="1558" height="1009" decoding="async" loading="lazy" srcset="{% static 'img/ecog-480.webp' %} 480w, {% static 'img/ecog-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 33vw">
               <div class="card__overlay">
                 <p><b>Excel Packs</b> <span>- Landing page</span></p>
               </div>
@@ -387,7 +383,7 @@
         <article class="card">
           <div class="card__body">
             <div class="card__imgwrap">
-              <img class="card__img" src="{% static 'img/excel pack.png' %}" alt="Project preview">
+              <img class="card__img" src="{% static 'img/excel pack.png' %}" alt="Project preview" width="397" height="408" decoding="async" loading="lazy">
               <div class="card__overlay">
                 <p><b>Robot Pack</b> <span>- Corporate site</span></p>
               </div>
@@ -406,7 +402,7 @@
         <article class="card">
           <div class="card__body">
             <div class="card__imgwrap">
-              <img class="card__img" src="{% static 'img/nextwood.png' %}" alt="Project preview">
+              <img class="card__img" src="{% static 'img/nextwood.webp' %}" alt="Project preview" width="397" height="408" decoding="async" loading="lazy">
               <div class="card__overlay">
                 <p><b>Interior Spaces</b> <span>- Product showcase</span></p>
               </div>
@@ -425,7 +421,7 @@
         <article class="card">
           <div class="card__body">
             <div class="card__imgwrap">
-              <span class="ph"><img class="card__img" src="{% static 'img/social media cratives brand name Dtdc.jpg.jpeg' %}" alt="Project preview"></span>
+              <span class="ph"><img class="card__img" src="{% static 'img/social media cratives brand name Dtdc.jpg.webp' %}" alt="Project preview" width="1241" height="1275" decoding="async" loading="lazy" srcset="{% static 'img/social media cratives brand name Dtdc.jpg-480.webp' %} 480w, {% static 'img/social media cratives brand name Dtdc.jpg-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 33vw"></span>
               <div class="card__overlay">
                 <p><b>Dtdc</b> <span>-social media cratives</span></p>
               </div>
@@ -444,7 +440,7 @@
         <article class="card">
           <div class="card__body">
             <div class="card__imgwrap">
-              <span class="ph"><img class="card__img" src="{% static 'img/social media cratives brand name shana.jpg.jpeg' %}" alt="Project preview"></span>
+              <span class="ph"><img class="card__img" src="{% static 'img/social media cratives brand name shana.jpg.webp' %}" alt="Project preview" width="1241" height="1275" decoding="async" loading="lazy" srcset="{% static 'img/social media cratives brand name shana.jpg-480.webp' %} 480w, {% static 'img/social media cratives brand name shana.jpg-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 33vw"></span>
               <div class="card__overlay">
                 <p><b>shana</b> <span>-social media cratives</span></p>
               </div>
@@ -463,7 +459,7 @@
         <article class="card">
           <div class="card__body">
             <div class="card__imgwrap">
-              <span class="ph"><img class="card__img" src="{% static 'img/social media cratives brand name kamalam.jpg.jpeg' %}" alt="Project preview"></span>
+              <span class="ph"><img class="card__img" src="{% static 'img/social media cratives brand name kamalam.jpg.webp' %}" alt="Project preview" width="1241" height="1275" decoding="async" loading="lazy" srcset="{% static 'img/social media cratives brand name kamalam.jpg-480.webp' %} 480w, {% static 'img/social media cratives brand name kamalam.jpg-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 33vw"></span>
               <div class="card__overlay">
                 <p><b>kamalam</b> <span>-social media cratives</span></p>
               </div>
@@ -502,14 +498,14 @@
   <!-- ROW 1 — infinite loop scroll -->
   <div class="tb-track-wrapper" id="tb-row1">
     <div class="tb-track">
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/html.png' %}" alt="html" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/css.png' %}" alt="wordpress" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/js.png' %}" alt="psd" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/MYSQL.png' %}" alt="Swasthik Building Solutions" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/PYTHON.png' %}" alt="ECOG Core Technologies" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/DJANGO.png' %}" alt="Amirtham Constructions" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/figma.png' %}" alt="Amirtham Constructions" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/illustrator.png' %}" alt="Kannan Sweets" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/html.png' %}" alt="html" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/html-160.webp' %} 160w, {% static 'img/html-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/css.png' %}" alt="wordpress" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/css-160.webp' %} 160w, {% static 'img/css-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/js.png' %}" alt="psd" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/js-160.webp' %} 160w, {% static 'img/js-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/MYSQL.webp' %}" alt="Swasthik Building Solutions" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/MYSQL-160.webp' %} 160w, {% static 'img/MYSQL-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/PYTHON.webp' %}" alt="ECOG Core Technologies" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/PYTHON-160.webp' %} 160w, {% static 'img/PYTHON-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/DJANGO.webp' %}" alt="Amirtham Constructions" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/DJANGO-160.webp' %} 160w, {% static 'img/DJANGO-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/figma.png' %}" alt="Amirtham Constructions" loading="lazy" width="200" height="100" decoding="async" srcset="{% static 'img/figma-160.webp' %} 160w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/illustrator.png' %}" alt="Kannan Sweets" loading="lazy" width="200" height="100" decoding="async" srcset="{% static 'img/illustrator-160.webp' %} 160w" sizes="(max-width: 768px) 96px, 120px"></div>
     
     </div>
   </div>
@@ -517,13 +513,13 @@
   <!-- ROW 2 — infinite loop scroll (opposite direction) -->
   <div class="tb-track-wrapper" id="tb-row2">
     <div class="tb-track">
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/JAVA.png' %}" alt="Abhiro Water Purifier" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/SPRING BOOT.png' %}" alt="ECOG Products" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/sqllite.png' %}" alt="Prakash Centering and Scaffolding" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/react.png' %}" alt="Water Zone" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/wordpress.png' %}" alt="Excel Packs" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/php.png' %}" alt="Kamalam" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/photoshop.png' %}" alt="Kannan Sweets" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/JAVA.webp' %}" alt="Abhiro Water Purifier" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/JAVA-160.webp' %} 160w, {% static 'img/JAVA-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/SPRING BOOT.webp' %}" alt="ECOG Products" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/SPRING BOOT-160.webp' %} 160w, {% static 'img/SPRING BOOT-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/sqllite.webp' %}" alt="Prakash Centering and Scaffolding" loading="lazy" width="1536" height="1024" decoding="async" srcset="{% static 'img/sqllite-160.webp' %} 160w, {% static 'img/sqllite-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/react.webp' %}" alt="Water Zone" loading="lazy" width="1752" height="897" decoding="async" srcset="{% static 'img/react-160.webp' %} 160w, {% static 'img/react-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/wordpress.png' %}" alt="Excel Packs" loading="lazy" width="200" height="100" decoding="async" srcset="{% static 'img/wordpress-160.webp' %} 160w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/php.webp' %}" alt="Kamalam" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/php-160.webp' %} 160w, {% static 'img/php-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/photoshop.png' %}" alt="Kannan Sweets" loading="lazy" width="200" height="100" decoding="async" srcset="{% static 'img/photoshop-160.webp' %} 160w" sizes="(max-width: 768px) 96px, 120px"></div>
     </div>
   </div>
 
@@ -643,16 +639,16 @@
 </div>
 
 
-  <script src="{% static 'js/website.js' %}?v=5"></script>
+  <script src="{% static 'js/website.js' %}"></script>
 
   
   
 {% include 'footer.html' %}
 
 
-<script src="{% static 'js/base.js' %}?v=33"></script>
+<script src="{% static 'js/base.js' %}"></script>
 {% include 'components/contact_popup.html' %}
-<script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+<script src="{% static 'js/contact-popup.js' %}"></script>
 {% include 'components/zoho_salesiq.html' %}
 
 <!-- ================= UNIFORM 100PX SECTION GAPS (website page only) =================

@@ -73,7 +73,7 @@ body {
     linear-gradient(#0c3c01, #0c3c01) padding-box,
     radial-gradient(50% 130% at 50% 50%, #f1f1ef 0%, #5b6d49 100%) border-box;
   color: #ffffff;
-  font-family: "Outfit", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -197,7 +197,7 @@ body {
 }
 
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Outfit:wght@400;500;600&display=swap");
+600&family=Outfit:wght@400;500;600&display=swap");
 
 
 
@@ -575,7 +575,7 @@ body {
   border-radius: 8px;
   background: #0C3C01;
   color: #FFFFFF;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -881,7 +881,7 @@ body {
    ECT Banner Styles
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+500;600;700&display=swap');
 
 .ect-banner {
   position: relative;
@@ -1763,10 +1763,10 @@ body {
   right: 0;
   width: 690px;
   height: 384px;
-  /* Was background: url(../img/itcta1.png) ... — itcta1.png never existed
+  /* Was background image ../img/itcta1.png ... — itcta1.png never existed
      under home/img/ (a same-named file only exists as an unrelated
      Django-uploaded media asset), so this permanently 404'd. The real
-     <img src="{% static 'img/iitcta.png' %}"> child fills this exact box
+     <img src="{% static 'img/iitcta.webp' %}"> child fills this exact box
      and fully covers it, so the fallback color below is what actually
      shows either way. */
   background: #D9D9D9;
@@ -1805,7 +1805,7 @@ body {
   border-radius: 8px;
   background: #0C3C01;
   color: #FFFFFF;
-  font-family: "Outfit", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
@@ -1884,7 +1884,7 @@ body {
   body.hr-page .hero__cta,
   body.digital-page .hero__cta {
     min-height: 44px;
-    font-family: "Outfit", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 16px !important;
   }
 
@@ -1919,7 +1919,7 @@ body {
 
   .ect-web-solutions__eyebrow {
     grid-column: 1 / -1;
-    font-family: "Outfit", sans-serif !important;
+    font-family: "Montserrat", sans-serif !important;
     font-size: 15px !important;
     line-height: 1.5 !important;
     text-align: left !important;
@@ -2091,7 +2091,7 @@ body {
     justify-self: start;
     min-height: 44px !important;
     padding: 10px 18px !important;
-    font-family: "Inter", "Montserrat", sans-serif !important;
+    font-family: "Montserrat", sans-serif !important;
     font-size: 16px !important;
   }
 
@@ -2124,7 +2124,7 @@ body {
   .software-section#zoho-services .eyebrow {
     margin: 0 0 10px !important;
     padding: 0 !important;
-    font-family: "Outfit", sans-serif !important;
+    font-family: "Montserrat", sans-serif !important;
     font-size: 15px !important;
     line-height: 1.5 !important;
     letter-spacing: 0 !important;
@@ -2287,7 +2287,7 @@ body {
     min-height: 44px !important;
     margin-top: 20px !important;
     padding: 10px 18px !important;
-    font-family: "Inter", "Montserrat", sans-serif !important;
+    font-family: "Montserrat", sans-serif !important;
     font-size: 16px !important;
   }
 }

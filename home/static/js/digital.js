@@ -25,7 +25,7 @@ mq.addEventListener('change', toggleBreak);
 
   const slides = [
     {
-      image: "/static/img/Search Engine Optimization.png",
+      image: "/static/img/Search Engine Optimization.webp",
       alt: "Search engine optimization marketing dashboard mockup displayed on a laptop",
       title: "BRAND VISIBILITY & SEO",
       description:
@@ -47,7 +47,7 @@ mq.addEventListener('change', toggleBreak);
       ctaWidth: 160,
     },
     {
-      image: "/static/img/Performance Marketing.png",
+      image: "/static/img/Performance Marketing.webp",
       alt: "Performance marketing analytics dashboard mockup displayed on a laptop",
       title: "MAXIMIZE ROI",
       description:

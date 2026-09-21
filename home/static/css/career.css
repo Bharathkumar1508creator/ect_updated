@@ -108,7 +108,7 @@ body{
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -130,7 +130,7 @@ body{
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -686,7 +686,7 @@ body{ font-family:'Montserrat', sans-serif; background:#fff; }
 }
 .ect-life-watermark span{
   color:#fff;
-  font-family:'Outfit',sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size:14px;  display:flex;  align-items:center;
   justify-content:center;
   transform: rotate(-8deg);
@@ -700,7 +700,7 @@ body{ font-family:'Montserrat', sans-serif; background:#fff; }
   top: 32px;
   width: 87px;
   height: 24px;
-  font-family: 'Outfit';
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -758,7 +758,7 @@ body{ font-family:'Montserrat', sans-serif; background:#fff; }
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  font-family: 'Outfit';
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 150%;
@@ -952,7 +952,7 @@ body{ font-family:'Montserrat', sans-serif; background:#fff; }
 .ect-life-mobile .ect-life-bg{ position:absolute; }
 .ect-life-mobile-inner{ position: relative; z-index: 1; }
 .ect-life-mobile .ect-eyebrow-m{
-  font-family:'Outfit'; font-weight:400; font-size:14px; color:#fff; margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif; font-weight:400; font-size:14px; color:#fff; margin-bottom: 10px;
 }
 .ect-life-mobile .ect-heading-m{
   font-family:'Montserrat'; font-weight:700; font-size:24px; line-height:130%;
@@ -965,7 +965,7 @@ body{ font-family:'Montserrat', sans-serif; background:#fff; }
 .ect-life-mobile .ect-btn-m{
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
   padding: 8px 18px; background: var(--ect-btn-bg); border-radius: 8px;
-  border:none; font-family:'Outfit'; font-weight:400; font-size:15px;
+  border:none; font-family: "Montserrat", sans-serif; font-weight:400; font-size:15px;
   color: var(--ect-green-dark); margin-bottom: 32px;
   transition: background .3s ease, transform .3s ease;
 }
@@ -1029,7 +1029,7 @@ html{font-size:62.5%;}
 body{
   margin:0;
   background:var(--ect-cream);
-  font-family:'Manrope', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color:var(--ect-text-body);
   -webkit-font-smoothing:antialiased;
 }
@@ -1064,7 +1064,7 @@ body{
   display:flex;
   align-items:center;
   gap:0.8rem;
-  font-family:'Manrope', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size:1.2rem;
   font-weight:700;
   letter-spacing:0.16em;
@@ -1087,7 +1087,7 @@ body{
 .ect-growth--in .ect-growth__eyebrow::before{ transform:scaleX(1); }
 
 .ect-growth__title{
-  font-family:'Poppins', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size:clamp(2.8rem, 3.6vw, 4rem);
   line-height:1.18;
   font-weight:600;
@@ -1313,7 +1313,7 @@ body{
   padding:0 0.6rem;
   background:var(--ect-chip-bg);
   color:var(--ect-green-900);
-  font-family:'Poppins', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight:700;
   font-size:1.5rem;
   border-radius:0.9rem;
@@ -1375,7 +1375,7 @@ body{
 }
 
 .ect-level__title{
-  font-family:'Manrope', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size:1.95rem;
   font-weight:800;
   color:var(--ect-green-900);
@@ -1667,7 +1667,7 @@ body{
   position:absolute;
   right:4.4rem;
   top:8.8rem;
-  font-family:'Segoe UI', 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight:900;
   font-size:12rem;
   line-height:162%;
@@ -1862,7 +1862,7 @@ body{
   justify-content:center;
   width:1.4rem;
   height:2.1rem;
-  font-family:'Segoe UI', 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight:400;
   font-size:1.6rem;
   line-height:2.1rem;
@@ -2003,7 +2003,7 @@ body{
 }
 
 .ect-hiring__eyebrow{
-  font-family:'Outfit', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size:1.6rem;
   font-weight:400;
   letter-spacing:0.02em;
@@ -2389,7 +2389,7 @@ body {
   margin: 0;
   padding: 0;
 
-  font-family: "Outfit", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -2587,7 +2587,7 @@ body {
 
   color: #FFFFFF;
 
-  font-family: "Outfit", sans-serif;
+  font-family: "Montserrat", sans-serif;
 
   font-style: normal;
   font-weight: 400;
@@ -2851,7 +2851,7 @@ body {
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Outfit:wght@400&display=swap');
+700&family=Outfit:wght@400&display=swap');
 
 * { box-sizing: border-box; }
 
@@ -2909,7 +2909,7 @@ body {
 }
 
 .talent-eyebrow .label {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
@@ -2977,7 +2977,7 @@ body {
 }
 
 .talent-btn span {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -3098,7 +3098,7 @@ body {
 }
 
 .journey__label{
-  font-family: 'Outfit', sans-serif;
+  font-family: "Montserrat", sans-serif;
   display:block;
   font-size:16px;
   font-weight:400;
@@ -3799,7 +3799,7 @@ body {
 }
 
 .journey__label{
-  font-family: 'Outfit', sans-serif;
+  font-family: "Montserrat", sans-serif;
   display:block;
   font-size:16px;
   font-weight:400;

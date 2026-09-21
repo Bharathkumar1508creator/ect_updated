@@ -1243,7 +1243,7 @@ a {
 
 .ect-services__eyebrow {
   margin: 0;
-  font-family: "Outfit", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -1261,7 +1261,7 @@ a {
 .ect-services__summary {
   width: 478px;
   margin: 38px 0 0;
-  font-family: "Outfit", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -1635,7 +1635,7 @@ a {
   align-items: center;
   min-height: 26px;
   color: #000000;
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 25.6px;
@@ -2415,7 +2415,7 @@ a {
 .ect-products__eyebrow {
   margin: 0 0 8px;
   color: #000;
-  font-family: "Outfit", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -2563,7 +2563,7 @@ a {
   margin: 0;
 
   color: #000000;
-  font-family: "Outfit", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -2627,7 +2627,7 @@ a {
   border-radius: 8px;
   background: #0c3c01;
   color: #fff;
-  font-family: "Outfit", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -2837,7 +2837,7 @@ a {
   height: auto;
   margin: 0 0 8px;
   color: #000000;
-  font-family: "Outfit", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -3037,7 +3037,7 @@ a {
   border-radius: 8px;
   background: var(--work-green);
   color: #FFFFFF;
-  font-family: "Outfit", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -8587,7 +8587,7 @@ body {
 
   .cbs-link {
     min-height: 44px;
-    font-family: "Inter", "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 15px;
     line-height: 1.5;
   }
@@ -8991,7 +8991,7 @@ body {
 
   .ect-services__eyebrow {
     margin: 0 0 10px;
-    font-family: "Outfit", "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 15px;
     line-height: 1.5;
     text-align: left;
@@ -9353,7 +9353,7 @@ body {
 
   .ect-products__eyebrow {
     margin: 0 0 10px;
-    font-family: "Outfit", "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 15px;
     line-height: 1.5;
     text-align: left;
@@ -9536,7 +9536,7 @@ body {
 
   .work__label {
     margin: 0 0 10px;
-    font-family: "Outfit", "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 15px;
     line-height: 1.5;
     text-align: left;
@@ -9887,7 +9887,7 @@ body {
 }
 
 .clients-label {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -10012,14 +10012,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Hind', 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 22px;
   font-weight: 700;
 }
 
 .client-card__name {
   margin: 0;
-  font-family: 'Hind', 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 19.2px;
   font-weight: 700;
   line-height: 1.2;
@@ -10028,7 +10028,7 @@ body {
 
 .client-card__company {
   margin: 2px 0 0;
-  font-family: 'Hind', 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -10229,7 +10229,7 @@ body {
 }
 
 .insights-label {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -10337,7 +10337,7 @@ body {
   align-items: center;
   gap: 6px;
   margin-top: 16px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #000000;

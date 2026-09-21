@@ -7,11 +7,12 @@
     {% endif %}
 
     <div class="card-media {% if project.hero_media_type == 'video' and project.hero_video %}has-video{% endif %}" data-media-frame>
+        {% project_preview_url project as preview_url %}
         {% if project.hero_media_type == 'image' and project.hero_image %}
-            <img src="{{ project.hero_image.url }}" alt="{{ project.title }}" loading="lazy" data-media-image>
+            <img src="{{ preview_url }}" alt="{{ project.title }}" loading="lazy" decoding="async" data-media-image>
         {% elif project.hero_media_type == 'video' and project.hero_video %}
             <video class="card-video" src="{{ project.hero_video.url }}"
-                   {% if project.hero_image %}poster="{{ project.hero_image.url }}"{% endif %}
+                   {% if preview_url %}poster="{{ preview_url }}"{% endif %}
                    preload="metadata" playsinline data-media-video></video>
             <button class="btn-play-video" aria-label="Play video" type="button" data-card-video-button>
                 <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" aria-hidden="true">

@@ -7,18 +7,15 @@
   {% include 'components/favicon.html' %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <title>Powerful Custom Software Development Services for Growth</title>
   <meta name="description" content="Accelerate your business with powerful custom software solutions. Automate workflows, improve efficiency, boost productivity, and scale your operations faster.">
   <meta name="robots" content="index, follow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Outfit:wght@400&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/software.css' %}?v=22">
-  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=42">
-  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+  <link rel="stylesheet" href="{% static 'css/software.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}">
   <style>
     body, html, .software-figma-hero {
       background-color: #ffffff !important;
@@ -66,8 +63,7 @@
     <div class="software-figma-hero__image-wrap">
       <video
         class="software-figma-hero__image"
-        src="{% static 'video/software.mp4' %}"
-        autoplay loop muted playsinline>
+        src="{% static 'video/software-optimized.mp4' %}" loop muted playsinline preload="none" controls poster="{% static 'video/software-poster.webp' %}">
       </video>
     </div>
   </section>
@@ -190,7 +186,7 @@
 
         <div class="ect-web-solutions__panel is-active" id="ect-web-solutions-panel-0" role="tabpanel" aria-labelledby="ect-web-solutions-tab-0">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/Enterprise Software.png' %}" alt="Corporate website mockup shown on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+            <img src="{% static 'img/Enterprise Software.png' %}" alt="Corporate website mockup shown on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy" srcset="{% static 'img/Enterprise Software-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw">
           </div>
           <h3 class="ect-web-solutions__content-title">Streamline Complex Operations</h3>
           <p class="ect-web-solutions__description">Build powerful enterprise software tailored to automate business operations, improve efficiency, and support long-term business growth with scalable digital solutions.</p>
@@ -201,7 +197,7 @@
 
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-1" role="tabpanel" aria-labelledby="ect-web-solutions-tab-1">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/CRM Software.png' %}" alt="Business website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+            <img src="{% static 'img/CRM Software.png' %}" alt="Business website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy" srcset="{% static 'img/CRM Software-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw">
           </div>
           <h3 class="ect-web-solutions__content-title">Strengthen Customer Relationships</h3>
           <p class="ect-web-solutions__description">Manage leads, sales, customer interactions, and business processes through intelligent CRM solutions customized to your unique workflow.</p>
@@ -212,7 +208,7 @@
 
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-2" role="tabpanel" aria-labelledby="ect-web-solutions-tab-2">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/HR Management System.png' %}" alt="E-commerce website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+            <img src="{% static 'img/HR Management System.webp' %}" alt="E-commerce website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy" srcset="{% static 'img/HR Management System-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw">
           </div>
           <h3 class="ect-web-solutions__content-title">HR Management System</h3>
           <p class="ect-web-solutions__description">Digitize recruitment, attendance, payroll, leave management, and employee records with an integrated HR management solution.</p>
@@ -223,7 +219,7 @@
 
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-3" role="tabpanel" aria-labelledby="ect-web-solutions-tab-3">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/ERP Solutions.png' %}" alt="Landing page mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+            <img src="{% static 'img/ERP Solutions.webp' %}" alt="Landing page mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy" srcset="{% static 'img/ERP Solutions-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw">
           </div>
           <h3 class="ect-web-solutions__content-title">Manage Your Business Efficiently</h3>
           <p class="ect-web-solutions__description">Integrate finance, inventory, procurement, sales, and operations into one centralized platform for complete business management.</p>
@@ -234,7 +230,7 @@
 
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-4" role="tabpanel" aria-labelledby="ect-web-solutions-tab-4">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/Workflow Automation.png' %}" alt="Portfolio website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+            <img src="{% static 'img/Workflow Automation.webp' %}" alt="Portfolio website mockup displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy" srcset="{% static 'img/Workflow Automation-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw">
           </div>
           <h3 class="ect-web-solutions__content-title">Automate Business Processes</h3>
           <p class="ect-web-solutions__description">Eliminate repetitive tasks, automate approvals, and optimize workflow to improve productivity and reduce operational delays.</p>
@@ -245,7 +241,7 @@
 
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-5" role="tabpanel" aria-labelledby="ect-web-solutions-tab-5">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/Custom Business Applications (1).png' %}" alt="Custom web application interface displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async">
+            <img src="{% static 'img/Custom Business Applications (1).webp' %}" alt="Custom web application interface displayed on a laptop" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy" srcset="{% static 'img/Custom Business Applications (1)-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw">
           </div>
           <h3 class="ect-web-solutions__content-title">Built Around Your Business.</h3>
           <p class="ect-web-solutions__description">Develop custom software designed specifically for your business processes, helping improve efficiency, scalability, and operational performance.</p>
@@ -270,7 +266,7 @@
     <!-- Step 01 -->
     <div class="cell">
       <div class="icon">
-        <img src="{% static 'img/zoom.png' %}" alt="zoom">
+        <img src="{% static 'img/zoom.png' %}" alt="zoom" width="52" height="52" decoding="async" loading="lazy">
       </div>
       <div class="step">Step 01</div>
       <h3>Discovery &amp; Planning</h3>
@@ -280,7 +276,7 @@
     <!-- Step 02 -->
     <div class="cell">
       <div class="icon icon-zoom">
-        <img src="{% static 'img/uiux.png' %}" alt="uiux">
+        <img src="{% static 'img/uiux.png' %}" alt="uiux" width="52" height="52" decoding="async" loading="lazy">
       </div>
       <div class="step">Step 02</div>
       <h3>UI/UX Design</h3>
@@ -290,7 +286,7 @@
     <!-- Step 03 -->
     <div class="cell">
       <div class="icon icon-zoom">
-        <img src="{% static 'img/website.png' %}" alt="website">
+        <img src="{% static 'img/website.png' %}" alt="website" width="50" height="50" decoding="async" loading="lazy">
       </div>
       <div class="step">Step 03</div>
       <h3>Website Development</h3>
@@ -300,7 +296,7 @@
     <!-- Step 04 -->
     <div class="cell">
       <div class="icon icon-zoom">
-       <img src="{% static 'img/testing.png' %}" alt="testing">
+       <img src="{% static 'img/testing.png' %}" alt="testing" width="49" height="49" decoding="async" loading="lazy">
       </div>
       <div class="step">Step 04</div>
       <h3>Testing &amp; Quality Assurance</h3>
@@ -310,7 +306,7 @@
     <!-- Step 05 -->
     <div class="cell">
       <div class="icon">
-        <img src="{% static 'img/web.png' %}" alt="web">
+        <img src="{% static 'img/web.png' %}" alt="web" width="50" height="50" decoding="async" loading="lazy">
       </div>
       <div class="step">Step 05</div>
       <h3>Website Launch</h3>
@@ -320,7 +316,7 @@
     <!-- Step 06 -->
     <div class="cell">
       <div class="icon">
-        <img src="{% static 'img/support.png' %}" alt="support">
+        <img src="{% static 'img/support.png' %}" alt="support" width="57" height="54" decoding="async" loading="lazy">
       </div>
       <div class="step">Step 06</div>
       <h3>Support &amp; Continuous Improvement</h3>
@@ -371,7 +367,7 @@
             <!-- Replace the <span> below with:
                <img class="ect-pcard__img" src="YOUR-SCREENSHOT.png" alt="ECT CRM preview"> -->
             <div class="ect-pcard__imgwrap">
-              <img class="ect-pcard__img" src="{% static 'img/crm1.png' %}" alt="ECT CRM preview">
+              <img class="ect-pcard__img" src="{% static 'img/crm1.webp' %}" alt="ECT CRM preview" width="576" height="297" decoding="async" loading="lazy" srcset="{% static 'img/crm1-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 33vw">
             </div>
 
             <div class="ect-pcard__content">
@@ -405,7 +401,7 @@
             <!-- Replace the <span> below with:
                <img class="ect-pcard__img" src="YOUR-SCREENSHOT.png" alt="Executive Digital Profile preview"> -->
             <div class="ect-pcard__imgwrap">
-              <img class="ect-pcard__img" src="{% static 'img/crm2.png' %}" alt="Executive Digital Profile preview">
+              <img class="ect-pcard__img" src="{% static 'img/crm2.png' %}" alt="Executive Digital Profile preview" width="576" height="297" decoding="async" loading="lazy" srcset="{% static 'img/crm2-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 33vw">
             </div>
 
             <div class="ect-pcard__content">
@@ -460,23 +456,23 @@
   <!-- ROW 1 — infinite loop scroll -->
   <div class="tb-track-wrapper" id="tb-row1">
     <div class="tb-track">
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/HTML.png' %}" alt="html" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/CSS.png' %}" alt="css" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/JS.png' %}" alt="js" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/MYSQL.png' %}" alt="mysql" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/PYTHON.png' %}" alt="python" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/DJANGO.png' %}" alt="django" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/HTML.webp' %}" alt="html" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/HTML-160.webp' %} 160w, {% static 'img/HTML-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/CSS.webp' %}" alt="css" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/CSS-160.webp' %} 160w, {% static 'img/CSS-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/JS.webp' %}" alt="js" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/JS-160.webp' %} 160w, {% static 'img/JS-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/MYSQL.webp' %}" alt="mysql" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/MYSQL-160.webp' %} 160w, {% static 'img/MYSQL-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/PYTHON.webp' %}" alt="python" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/PYTHON-160.webp' %} 160w, {% static 'img/PYTHON-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/DJANGO.webp' %}" alt="django" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/DJANGO-160.webp' %} 160w, {% static 'img/DJANGO-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
     </div>
   </div>
 
   <!-- ROW 2 — infinite loop scroll (opposite direction) -->
   <div class="tb-track-wrapper" id="tb-row2">
     <div class="tb-track">
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/JAVA.png' %}" alt="java" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/SPRING BOOT.png' %}" alt="spring boot" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/php.png' %}" alt="php" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/react.png' %}" alt="react" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/sqllite.png' %}" alt="sqllite" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/JAVA.webp' %}" alt="java" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/JAVA-160.webp' %} 160w, {% static 'img/JAVA-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/SPRING BOOT.webp' %}" alt="spring boot" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/SPRING BOOT-160.webp' %} 160w, {% static 'img/SPRING BOOT-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/php.webp' %}" alt="php" loading="lazy" width="1774" height="887" decoding="async" srcset="{% static 'img/php-160.webp' %} 160w, {% static 'img/php-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/react.webp' %}" alt="react" loading="lazy" width="1752" height="897" decoding="async" srcset="{% static 'img/react-160.webp' %} 160w, {% static 'img/react-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/sqllite.webp' %}" alt="sqllite" loading="lazy" width="1536" height="1024" decoding="async" srcset="{% static 'img/sqllite-160.webp' %} 160w, {% static 'img/sqllite-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
     </div>
   </div>
 
@@ -613,10 +609,10 @@ control.</p></div></div>
 {% include 'footer.html' %}
 
 
-<script src="{% static 'js/software.js' %}?v=6"></script>
-<script src="{% static 'js/base.js' %}?v=33"></script>
+<script src="{% static 'js/software.js' %}"></script>
+<script src="{% static 'js/base.js' %}"></script>
 {% include 'components/contact_popup.html' %}
-<script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+<script src="{% static 'js/contact-popup.js' %}"></script>
 {% include 'components/zoho_salesiq.html' %}
 
 <!-- ================= UNIFORM 100PX SECTION GAPS (software page only) =================

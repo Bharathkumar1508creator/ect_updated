@@ -7,18 +7,17 @@
   {% include 'components/favicon.html' %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <title>Expert Zoho Consulting &amp; Automation Services for Growth</title>
   <meta name="description" content="Transform operations with expert Zoho consulting and automation. Streamline workflows, boost productivity, optimize CRM, and accelerate business growth.">
   <meta name="robots" content="index, follow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Outfit:wght@400&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/zoho.css' %}?v=21">
+  <!---->
+  <link rel="stylesheet" href="{% static 'css/zoho.css' %}">
 
-  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
-  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}">
   <style>
     body, html, .hero {
       background-color: #ffffff !important;
@@ -115,7 +114,7 @@
     <a href="#contact" class="hero__cta">Explore Zoho Services</a>
 
     <div class="hero__image-wrap">
-      <video class="hero__image" src="{% static 'video/zoho.mp4' %}" autoplay loop muted playsinline>
+      <video class="hero__image" src="{% static 'video/zoho-optimized.mp4' %}" loop muted playsinline preload="none" controls poster="{% static 'video/zoho-poster.webp' %}">
       </video>
     </div>
   </section> -->
@@ -145,13 +144,11 @@
   <div class="zoho-figma-hero__video-frame">
     <video
       class="zoho-figma-hero__video"
-      src="{% static 'video/zoho.mp4' %}"
-      autoplay
+      src="{% static 'video/zoho-optimized.mp4' %}"
       loop
       muted
-      playsinline
-      preload="metadata"
-    ></video>
+      playsinline preload="none"
+     controls poster="{% static 'video/zoho-poster.webp' %}"></video>
   </div>
 </section>
 
@@ -190,7 +187,7 @@
     <div class="content-area">
       <div class="content-image" id="contentImage">
         <img src="{% static 'img/Sales & CRM 1.png' %}" alt="Feature Image"
-          style="width:100%; height:100%; object-fit:cover; border-radius: 12px;">
+          style="width:100%; height:100%; object-fit:cover; border-radius: 12px;" width="608" height="435" decoding="async" loading="lazy" srcset="{% static 'img/Sales & CRM 1-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw">
       </div>
 
       <div class="content-panel" id="contentPanel">
@@ -207,7 +204,7 @@
           <a href="#" class="btn-demo" data-contact-trigger>Request a Consultation</a>
         </div>
 
-        <div class="panel" data-index="1" data-image="{% static 'img/Marketing & Automation 2.png' %}">
+        <div class="panel" data-index="1" data-image="{% static 'img/Marketing & Automation 2.webp' %}">
           <h3>Create Smarter Marketing Campaigns</h3>
           <p>Automate campaigns, nurture leads, track engagement, and improve marketing performance with connected Zoho
             marketing solutions for measurable business results.</p>
@@ -251,7 +248,7 @@
           <button class="btn-demo" data-contact-trigger>Enhance Customer Support</button>
         </div>
 
-        <div class="panel" data-index="5" data-image="{% static 'img/ERP & Operations 2.png' %}">
+        <div class="panel" data-index="5" data-image="{% static 'img/ERP & Operations 2.webp' %}">
           <h3>Connect Business Operations</h3>
           <p>Connect inventory, purchasing, sales, production, and business operations.</p>
           <h4>Zoho Applications We Implement</h4>
@@ -281,7 +278,7 @@
           <button class="btn-demo" data-contact-trigger>Explore Analytics</button>
         </div>
 
-        <div class="panel" data-index="8" data-image="{% static 'img/Email  & Collabaration 2.png' %}">
+        <div class="panel" data-index="8" data-image="{% static 'img/Email  & Collabaration 2.webp' %}">
           <h3>Empower Team Collaboration</h3>
           <p>Enable secure communication and collaboration.</p>
           <h4>Zoho Applications We Implement</h4>
@@ -291,7 +288,7 @@
           <button class="btn-demo" data-contact-trigger>Connect Your Team</button>
         </div>
 
-        <div class="panel" data-index="9" data-image="{% static 'img/Commerce & POS.png' %}">
+        <div class="panel" data-index="9" data-image="{% static 'img/Commerce & POS.webp' %}">
           <h3>Grow Your Online Business</h3>
           <p>Manage online stores and sales channels.</p>
           <h4>Zoho Applications We Implement</h4>
@@ -301,7 +298,7 @@
           <button class="btn-demo" data-contact-trigger>Grow Online Sales</button>
         </div>
 
-        <div class="panel" data-index="10" data-image="{% static 'img/Security & IT 2.png' %}">
+        <div class="panel" data-index="10" data-image="{% static 'img/Security & IT 2.webp' %}">
           <h3>Protect Your Digital Workplace</h3>
           <p>Protect business systems with secure IT solutions.</p>
           <h4>Zoho Applications We Implement</h4>
@@ -361,7 +358,7 @@
       <!-- Step 01 -->
       <div class="zoho-implementation__cell" data-step="1">
         <div class="zoho-implementation__icon">
-          <img src="{% static 'img/zoom.png' %}" alt="Zoom">
+          <img src="{% static 'img/zoom.png' %}" alt="Zoom" width="52" height="52" decoding="async" loading="lazy">
         </div>
         <span class="zoho-implementation__step-label">Step 01</span>
         <h3 class="zoho-implementation__cell-title">Discovery &amp; Planning</h3>
@@ -372,7 +369,7 @@
       <!-- Step 02 -->
       <div class="zoho-implementation__cell" data-step="2">
         <div class="zoho-implementation__icon icon-zoom">
-          <img src="{% static 'img/soluction.png' %}" alt="soluction">
+          <img src="{% static 'img/soluction.png' %}" alt="soluction" width="50" height="48" decoding="async" loading="lazy">
         </div>
         <span class="zoho-implementation__step-label">Step 02</span>
         <h3 class="zoho-implementation__cell-title">Solution Design &amp; Customization</h3>
@@ -383,7 +380,7 @@
       <!-- Step 03 -->
       <div class="zoho-implementation__cell" data-step="3">
         <div class="zoho-implementation__icon">
-          <img src="{% static 'img/implement.png' %}" alt="implement">
+          <img src="{% static 'img/implement.png' %}" alt="implement" width="52" height="52" decoding="async" loading="lazy">
         </div>
         <span class="zoho-implementation__step-label">Step 03</span>
         <h3 class="zoho-implementation__cell-title">Implementation &amp; Integration</h3>
@@ -394,7 +391,7 @@
       <!-- Step 04 -->
       <div class="zoho-implementation__cell" data-step="4">
         <div class="zoho-implementation__icon">
-          <img src="{% static 'img/training.png' %}" alt="training">
+          <img src="{% static 'img/training.png' %}" alt="training" width="57" height="54" decoding="async" loading="lazy">
         </div>
         <span class="zoho-implementation__step-label">Step 04</span>
         <h3 class="zoho-implementation__cell-title">Training &amp; Ongoing Support</h3>
@@ -508,7 +505,7 @@
         <article class="card">
           <div class="card__body">
             <div class="card__imgwrap">
-              <img class="card__img" src="{% static 'img/ecog.png' %}" alt="Project preview">
+              <img class="card__img" src="{% static 'img/ecog.webp' %}" alt="Project preview" width="1558" height="1009" decoding="async" loading="lazy" srcset="{% static 'img/ecog-480.webp' %} 480w, {% static 'img/ecog-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 33vw">
               <div class="card__overlay">
                 <p><b>Excel Packs</b> <span>- Landing page</span></p>
               </div>
@@ -529,7 +526,7 @@
         <article class="card">
           <div class="card__body">
             <div class="card__imgwrap">
-              <img class="card__img" src="{% static 'img/excel pack.png' %}" alt="Project preview">
+              <img class="card__img" src="{% static 'img/excel pack.png' %}" alt="Project preview" width="397" height="408" decoding="async" loading="lazy">
               <div class="card__overlay">
                 <p><b>Robot Pack</b> <span>- Corporate site</span></p>
               </div>
@@ -549,7 +546,7 @@
         <article class="card">
           <div class="card__body">
             <div class="card__imgwrap">
-              <img class="card__img" src="{% static 'img/nextwood.png' %}" alt="Project preview">
+              <img class="card__img" src="{% static 'img/nextwood.webp' %}" alt="Project preview" width="397" height="408" decoding="async" loading="lazy">
               <div class="card__overlay">
                 <p><b>Interior Spaces</b> <span>- Product showcase</span></p>
               </div>
@@ -570,7 +567,7 @@
           <div class="card__body">
             <div class="card__imgwrap">
               <span class="ph"><img class="card__img"
-                  src="{% static 'img/social media cratives brand name Dtdc.jpg.jpeg' %}" alt="Project preview"></span>
+                  src="{% static 'img/social media cratives brand name Dtdc.jpg.webp' %}" alt="Project preview" width="1241" height="1275" decoding="async" loading="lazy" srcset="{% static 'img/social media cratives brand name Dtdc.jpg-480.webp' %} 480w, {% static 'img/social media cratives brand name Dtdc.jpg-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 33vw"></span>
               <div class="card__overlay">
                 <p><b>Dtdc</b> <span>-social media cratives</span></p>
               </div>
@@ -591,7 +588,7 @@
           <div class="card__body">
             <div class="card__imgwrap">
               <span class="ph"><img class="card__img"
-                  src="{% static 'img/social media cratives brand name shana.jpg.jpeg' %}" alt="Project preview"></span>
+                  src="{% static 'img/social media cratives brand name shana.jpg.webp' %}" alt="Project preview" width="1241" height="1275" decoding="async" loading="lazy" srcset="{% static 'img/social media cratives brand name shana.jpg-480.webp' %} 480w, {% static 'img/social media cratives brand name shana.jpg-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 33vw"></span>
               <div class="card__overlay">
                 <p><b>shana</b> <span>-social media cratives</span></p>
               </div>
@@ -612,8 +609,8 @@
           <div class="card__body">
             <div class="card__imgwrap">
               <span class="ph"><img class="card__img"
-                  src="{% static 'img/social media cratives brand name kamalam.jpg.jpeg' %}"
-                  alt="Project preview"></span>
+                  src="{% static 'img/social media cratives brand name kamalam.jpg.webp' %}"
+                  alt="Project preview" width="1241" height="1275" decoding="async" loading="lazy" srcset="{% static 'img/social media cratives brand name kamalam.jpg-480.webp' %} 480w, {% static 'img/social media cratives brand name kamalam.jpg-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 33vw"></span>
               <div class="card__overlay">
                 <p><b>kamalam</b> <span>-social media cratives</span></p>
               </div>
@@ -647,7 +644,6 @@
   3. Add before   <script src="{% static 'js/base.js' %}"></script>
 </body>:   <script src="technologies-section.js"></script>
   (Font: uses Poppins — skip the font link if your site already loads it)
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 ============================================================ -->
 
   <section class="tech-section" id="technologies">
@@ -667,7 +663,7 @@
       <!-- CENTER: big hexagon outline with placeholder logo -->
       <div class="center-hex">
         <div class="center-logo">
-          <img src="{% static 'img/ZOHO-logo.png' %}" alt="Zoho" style="max-width: 100px; height: auto;">
+          <img src="{% static 'img/ZOHO-logo.png' %}" alt="Zoho" style="max-width: 100px; height: auto;" width="251" height="120" decoding="async" loading="lazy">
         </div>
       </div>
 
@@ -874,15 +870,15 @@
 
 
 
-  <script src="{% static 'js/zoho.js' %}?v=3"></script>
+  <script src="{% static 'js/zoho.js' %}"></script>
 
 
 
   {% include 'footer.html' %}
   {% include 'components/contact_popup.html' %}
 
-  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
-  <script src="{% static 'js/base.js' %}?v=33"></script>
+  <script src="{% static 'js/contact-popup.js' %}"></script>
+  <script src="{% static 'js/base.js' %}"></script>
 {% include 'components/zoho_salesiq.html' %}
 </body>
 

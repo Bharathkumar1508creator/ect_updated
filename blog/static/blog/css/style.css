@@ -1,13 +1,13 @@
 /* ==========================================================================
    EcoG Blog Styles - Brand Reset
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+500;600;700&display=swap');
 
 .ecog-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
-    font-family: 'Inter', sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: #111827;
     background: #ffffff;
     line-height: 1.6;

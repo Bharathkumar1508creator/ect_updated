@@ -33,7 +33,7 @@ If Codex usage stops, resume this task, inspect `git status`, read this file, ve
 | 2 | Security, settings, contact handling, and removal of local career uploads | Complete | `checkpoint-phase-2` |
 | 3 | Shared navigation, popup, project pages, media logic, and integration resilience | Complete | `checkpoint-phase-3` |
 | 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Complete | `checkpoint-phase-4` |
-| 5 | Image/video optimization, WebP selection, posters, caching, and frontend performance | Pending | — |
+| 5 | Image/video optimization, WebP selection, posters, caching, and frontend performance | Complete | `checkpoint-phase-5` |
 | 6 | Complete technical, on-page, and Coimbatore/Tamil Nadu local SEO | Pending | — |
 | 7 | Automated regression tests and full viewport/browser QA | Pending | — |
 | 8 | Final clean package, review evidence, deployment guide, and rollback guide | Pending | — |
@@ -98,9 +98,11 @@ Completed in `docs/PHASE_4_RESPONSIVE_ACCESSIBILITY.md`. The 117-case responsive
 - Use high-quality or lossless WebP when appearance is preserved; retain originals.
 - Prefer suitable SVG assets for logos/icons.
 - Add responsive image variants and intrinsic dimensions.
-- Compress videos without visible degradation and add posters without changing autoplay behavior.
+- Compress videos without visible degradation, add posters, and require the confirmed user-initiated playback.
 - Reduce duplicate CSS/JavaScript, timers, queries, and repeated external requests.
 - Establish reliable cache versioning and production compression guidance.
+
+Completed in `docs/PHASE_5_PERFORMANCE_ASSETS.md`. Verified WebP and responsive variants reduce referenced image delivery by 29.26 MiB, non-destructive project-card derivatives save another measured 5.23 MiB, optimized fast-start videos reduce playback delivery by about 14.25 MiB, posters prevent video downloads before play, intrinsic dimensions prevent image layout shifts, Montserrat/font requests are consolidated, future project uploads are optimized without rewriting existing media, and content-hashed static URLs support immutable caching. Originals, database paths, integrations, and production data remain preserved.
 
 ### Phase 6 — SEO
 
@@ -145,3 +147,4 @@ This phase begins only after:
 | 2026-09-19 | Phase 2 | `checkpoint-phase-2` | Django checks including production deploy check, no migration drift, 40 tests, dependency audits, JavaScript syntax, Tailwind build, and static safety checks | No schema/data/live-server changes |
 | 2026-09-19 | Phase 3 | `checkpoint-phase-3` | Django checks, no migration drift, 47 tests, JavaScript syntax, 343 static references with zero missing, 13 primary-route renders, and all 6 published project renders | No schema/data/media/live-server changes |
 | 2026-09-21 | Phase 4 | `checkpoint-phase-4` | 117 responsive cases, Chrome/Edge interactions, 47 tests, no migration drift, 20 JavaScript syntax checks, 343 static references, and Zoho Bigin invariants | No schema/data/media/live-server changes; native Safari/Firefox/device execution remains Phase 7 |
+| 2026-09-21 | Phase 5 | `checkpoint-phase-5` | 49 tests, no migration drift, 656-file manifest build, 584 static references, JavaScript syntax, 39 runtime cases, progressive image loading, and all 9 video playback checks | Originals and existing database media preserved; no live-server changes |

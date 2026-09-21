@@ -30,7 +30,7 @@
 .ect-contact-form .wf-input-group label{
     display:block;
     margin:0 0 10px;
-    font-family:"Outfit",sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size:14px;
     line-height:1.5;
     color:#747b75;
@@ -52,7 +52,7 @@
     color:#172018;
     outline:none;
     padding:0 0 9px;
-    font-family:"Poppins","Montserrat",sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size:14px;
     line-height:1.5;
     transition:border-color .25s ease, box-shadow .25s ease;
@@ -79,7 +79,7 @@
     display:block;
     margin-top:6px;
     color:#c73b32;
-    font-family:"Outfit",sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size:11px;
     line-height:1.35;
 }
@@ -93,7 +93,7 @@
 .ect-form-status{
     min-height:20px;
     margin-top:18px;
-    font-family:"Outfit",sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size:13px;
     line-height:1.45;
 }
@@ -248,7 +248,7 @@
     gap:9px;
     margin-bottom:10px;
     color:#5B6D49;
-    font-family:"Outfit",sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size:12px;
     font-weight:600;
     letter-spacing:.15em;
@@ -278,7 +278,7 @@
     max-width:650px;
     margin:0;
     color:#626a63;
-    font-family:"Outfit",sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size:14px;
     line-height:1.6;
 }
@@ -308,7 +308,7 @@
 }
 
 .contact-section .ect-contact-form .wf-input-group label{
-    font-family:"Outfit",sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size:16px;
     line-height:150%;
     color:#8D8D8D;

@@ -4,20 +4,21 @@
   {% include 'components/google_tag.html' %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>{% block title %}Blog | Django Module{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}Our latest thoughts and updates.{% endblock %}">
     {% block extra_meta %}{% endblock %}
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
     
     {% include 'components/favicon.html' %}
 
     <!-- Custom CSS -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=42">
-    <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
 
     <!-- FontAwesome for Icons -->
@@ -43,11 +44,11 @@
 {% include 'footer.html' %}
 
     <!-- Custom JS -->
-    <script src="{% static 'js/base.js' %}?v=33"></script>
-    <script src="{% static 'blog/js/blog.js' %}?v=5"></script>
+    <script src="{% static 'js/base.js' %}"></script>
+    <script src="{% static 'blog/js/blog.js' %}"></script>
     {% block extra_js %}{% endblock %}
   {% include 'components/contact_popup.html' %}
-  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+  <script src="{% static 'js/contact-popup.js' %}"></script>
 {% include 'components/zoho_salesiq.html' %}
 </body>
 </html>

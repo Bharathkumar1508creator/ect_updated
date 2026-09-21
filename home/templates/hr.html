@@ -7,17 +7,15 @@
   {% include 'components/favicon.html' %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <title>HR Consulting Services for Business Growth</title>
   <meta name="description" content="Build a stronger workforce with strategic HR consulting. Improve recruitment, onboarding, employee performance, productivity, and long-term business growth.">
   <meta name="robots" content="index, follow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Outfit:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
-  <link rel="stylesheet" href="{% static 'css/hr.css' %}?v=22">
-  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/hr.css' %}">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}">
 </head>
 
 <body class="hr-page">
@@ -38,7 +36,7 @@
     <a href="#hr-services" class="hero__cta" data-smooth-scroll>Explore HR Services</a>
 
     <div class="hero__image-wrap">
-      <video class="hero__image" src="{% static 'video/hr.mp4' %}" autoplay loop muted playsinline>
+      <video class="hero__image" src="{% static 'video/hr-optimized.mp4' %}" loop muted playsinline preload="none" controls poster="{% static 'video/hr-poster.webp' %}">
       </video>
     </div>
   </section>
@@ -69,14 +67,14 @@
 
     <div class="content-area">
       <div class="content-image" id="contentImage">
-        <img src="{% static 'img/Build High-Performing Teams.png' %}" alt="Permanent Talent Acquisition"
-          class="service-feature-image" width="608" height="435" decoding="async">
+        <img src="{% static 'img/Build High-Performing Teams.webp' %}" alt="Permanent Talent Acquisition"
+          class="service-feature-image" width="608" height="435" decoding="async" srcset="{% static 'img/Build High-Performing Teams-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw">
       </div>
 
       <div class="content-panel" id="contentPanel">
 
         <!-- <div class="panel" data-index="0" data-image="{% static 'img/HR People &n Operations 2.png' %}"> -->
-        <div class="panel" data-index="0" data-image="{% static 'img/Build High-Performing Teams.png' %}">
+        <div class="panel" data-index="0" data-image="{% static 'img/Build High-Performing Teams.webp' %}">
           <h3>Build High-Performing Teams</h3>
           <p>Identify, attract, and hire qualified professionals who match your business goals, company culture, and
             long-term vision, helping you build a skilled workforce that drives sustainable business growth, improves
@@ -91,7 +89,7 @@
         </div>
 
         <!-- <div class="panel" data-index="1" data-image="{% static 'img/HR People &n Operations 2.png' %}"> -->
-        <div class="panel" data-index="1" data-image="{% static 'img/Hire Exceptional Leaders.png' %}">
+        <div class="panel" data-index="1" data-image="{% static 'img/Hire Exceptional Leaders.webp' %}">
           <h3>Hire Exceptional Leaders</h3>
           <p>Find experienced executives and leadership professionals who bring strategic vision, inspire
             high-performing teams, and strengthen organizational decision-making. Our executive search process
@@ -105,7 +103,7 @@
         </div>
 
         <!-- <div class="panel" data-index="2" data-image="{% static 'img/HR People &n Operations 2.png' %}"> -->
-        <div class="panel" data-index="2" data-image="{% static 'img/Strengthen Your Workforce.png' %}">
+        <div class="panel" data-index="2" data-image="{% static 'img/Strengthen Your Workforce.webp' %}">
           <h3>Strengthen Your Workforce</h3>
           <p>Develop effective HR strategies, policies, and workforce solutions that improve organizational performance,
             strengthen employee engagement, and align people practices with your business objectives. We support
@@ -119,7 +117,7 @@
         </div>
 
         <!-- <div class="panel" data-index="3" data-image="{% static 'img/HR People &n Operations 2.png' %}"> -->
-        <div class="panel" data-index="3" data-image="{% static 'img/Optimize HR Operations.png' %}">
+        <div class="panel" data-index="3" data-image="{% static 'img/Optimize HR Operations.webp' %}">
           <h3>Optimize HR Operations</h3>
           <p>Streamline HR operations by improving employee lifecycle management, standardizing HR processes, and
             increasing efficiency across your organization. We help automate routine HR activities, optimize workforce
@@ -133,7 +131,7 @@
         </div>
 
         <!-- <div class="panel" data-index="4" data-image="{% static 'img/HR People &n Operations 2.png' %}"> -->
-        <div class="panel" data-index="4" data-image="{% static 'img/Learning_and_Development.png' %}">
+        <div class="panel" data-index="4" data-image="{% static 'img/Learning_and_Development.webp' %}">
           <h3>Learning &amp; Development</h3>
           <p>Empower your workforce through customized learning programs that enhance professional skills, strengthen
             leadership capabilities, and improve organizational performance. We design practical training solutions that
@@ -357,7 +355,7 @@
       <!-- Step 01 -->
       <div class="zoho-implementation__cell" data-step="1">
         <div class="zoho-implementation__icon">
-          <img src="{% static 'img/zoom.png' %}" alt="Step 1" style="width: 100%; height: 100%; object-fit: contain;">
+          <img src="{% static 'img/zoom.png' %}" alt="Step 1" style="width: 100%; height: 100%; object-fit: contain;" width="52" height="52" decoding="async" loading="lazy">
         </div>
         <span class="zoho-implementation__step-label">Step 01</span>
         <h3 class="zoho-implementation__cell-title">Discovery &amp; Consultation</h3>
@@ -368,7 +366,7 @@
       <!-- Step 02 -->
       <div class="zoho-implementation__cell" data-step="2">
         <div class="zoho-implementation__icon">
-          <img src="{% static 'img/step2.png' %}" alt="Step 2" style="width: 100%; height: 100%; object-fit: contain;">
+          <img src="{% static 'img/step2.png' %}" alt="Step 2" style="width: 100%; height: 100%; object-fit: contain;" width="52" height="52" decoding="async" loading="lazy">
         </div>
         <span class="zoho-implementation__step-label">Step 02</span>
         <h3 class="zoho-implementation__cell-title">HR Strategy &amp; Planning</h3>
@@ -379,7 +377,7 @@
       <!-- Step 03 -->
       <div class="zoho-implementation__cell" data-step="3">
         <div class="zoho-implementation__icon">
-          <img src="{% static 'img/step3.png' %}" alt="Step 3" style="width: 100%; height: 100%; object-fit: contain;">
+          <img src="{% static 'img/step3.png' %}" alt="Step 3" style="width: 100%; height: 100%; object-fit: contain;" width="52" height="52" decoding="async" loading="lazy">
         </div>
         <span class="zoho-implementation__step-label">Step 03</span>
         <h3 class="zoho-implementation__cell-title">Implementation &amp; Execution</h3>
@@ -391,7 +389,7 @@
       <!-- Step 04 -->
       <div class="zoho-implementation__cell" data-step="4">
         <div class="zoho-implementation__icon">
-          <img src="{% static 'img/step4.png' %}" alt="Step 4" style="width: 100%; height: 100%; object-fit: contain;">
+          <img src="{% static 'img/step4.png' %}" alt="Step 4" style="width: 100%; height: 100%; object-fit: contain;" width="52" height="52" decoding="async" loading="lazy">
         </div>
         <span class="zoho-implementation__step-label">Step 04</span>
         <h3 class="zoho-implementation__cell-title">Ongoing Support &amp; Improvement</h3>
@@ -630,10 +628,10 @@
   <script src="{% static 'js/hr.js' %}"></script>
 
   <!-- Shared Zoho navbar/mobile menu interactions -->
-  <script src="{% static 'js/base.js' %}?v=33"></script>
+  <script src="{% static 'js/base.js' %}"></script>
 
   {% include 'components/contact_popup.html' %}
-  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+  <script src="{% static 'js/contact-popup.js' %}"></script>
 {% include 'components/zoho_salesiq.html' %}
 
 <!-- ================= UNIFORM 100PX SECTION GAPS (hr page only) =================
