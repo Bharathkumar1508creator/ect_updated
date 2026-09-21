@@ -7,7 +7,7 @@
 <div class="ect-bigin-form">
 <style>
 .ect-bigin-form{font-family:"Poppins","Montserrat",sans-serif;}
-.ect-bigin-form .wf-form-component{padding:0;position:relative;font-size:15px;}
+.ect-bigin-form .wf-form-component{padding:0;position:relative;font-size:16px;}
 .ect-bigin-form #elementDiv717173000000992187{display:grid;grid-template-columns:1fr 1fr;gap:30px 42px;}
 .ect-bigin-form .wf-row{margin-bottom:0;}
 .ect-bigin-form .wf-row:has(textarea){grid-column:1 / -1;}
@@ -20,10 +20,10 @@
 .ect-bigin-form .wf-field-inner{position:relative;display:flex;flex:1;}
 .ect-bigin-form .wf-field-input,
 .ect-bigin-form .wf-field-dropdown{
-    width:100%;min-height:0;
+    width:100%;min-height:44px;
     border:0;border-bottom:1px solid #cfd4cf;border-radius:0;
     background:transparent;color:#172018;
-    padding:0 0 9px;font-family:inherit;font-size:14px;line-height:1.5;
+    padding:9px 0;font-family:inherit;font-size:16px;line-height:1.5;
     transition:border-color .25s ease, box-shadow .25s ease;
 }
 .ect-bigin-form select.wf-field-dropdown{
@@ -93,42 +93,42 @@
  	<input type='text' style='display:none;' name='returnURL' value='null' />
  	<div id='elementDiv717173000000992187' class='wf-form-wrapper'>
  	 	<div class='wf-row'>
- 	 	 	<div class='wf-label'>Full Name</div>
+        <label class='wf-label' for='bigin-full-name'>Full Name</label>
  	 	 	<div class='wf-field'>
  	 	 	 	<div class='wf-field-inner'>
- 	 	 	 	<input name='POTENTIALCF4' maxlength='255' type='text' value='' required class='wf-field-item wf-field-input' oninput='removeError(this)'/>
+        <input id='bigin-full-name' name='POTENTIALCF4' autocomplete='name' maxlength='255' type='text' value='' required class='wf-field-item wf-field-input' oninput='removeError(this)'/>
  	 	 	 	</div>
  	 	 	</div>
  	 	</div>
  	 	<div class='wf-row'>
- 	 	 	<div class='wf-label'>Phone Number</div>
+        <label class='wf-label' for='bigin-phone'>Phone Number</label>
  	 	 	<div class='wf-field'>
  	 	 	 	<div class='wf-field-inner'>
- 	 	 	 	<input fvalidate='true' ftype='mobile' name='POTENTIALCF6' maxlength='20' type='text' value='' class='wf-field-item wf-field-input' oninput='removeError(this)'/>
+        <input fvalidate='true' ftype='mobile' id='bigin-phone' name='POTENTIALCF6' autocomplete='tel' inputmode='tel' maxlength='20' type='text' value='' class='wf-field-item wf-field-input' oninput='removeError(this)'/>
  	 	 	 	</div>
  	 	 	</div>
  	 	</div>
  	 	<div class='wf-row'>
- 	 	 	<div class='wf-label'>Email</div>
+        <label class='wf-label' for='bigin-email'>Email</label>
  	 	 	<div class='wf-field'>
  	 	 	 	<div class='wf-field-inner'>
- 	 	 	 	<input fvalidate='true' ftype='email' name='POTENTIALCF5' maxlength='100' type='text' value='' required class='wf-field-item wf-field-input' oninput='removeError(this)'/>
+        <input fvalidate='true' ftype='email' id='bigin-email' name='POTENTIALCF5' autocomplete='email' maxlength='100' type='text' value='' required class='wf-field-item wf-field-input' oninput='removeError(this)'/>
  	 	 	 	</div>
  	 	 	</div>
  	 	</div>
  	 	<div class='wf-row'>
- 	 	 	<div class='wf-label'>Company</div>
+        <label class='wf-label' for='bigin-company'>Company</label>
  	 	 	<div class='wf-field'>
  	 	 	 	<div class='wf-field-inner'>
- 	 	 	 	<input name='POTENTIALCF7' maxlength='255' type='text' value='' class='wf-field-item wf-field-input' oninput='removeError(this)'/>
+        <input id='bigin-company' name='POTENTIALCF7' autocomplete='organization' maxlength='255' type='text' value='' class='wf-field-item wf-field-input' oninput='removeError(this)'/>
  	 	 	 	</div>
  	 	 	</div>
  	 	</div>
  	 	<div class='wf-row'>
- 	 	 	<div class='wf-label'>Product Category</div>
+        <label class='wf-label' for='bigin-category'>Product Category</label>
  	 	 	<div class='wf-field'>
  	 	 	 	<div class='wf-field-inner dropdown-contents'>
- 	 	 	 	<select name='POTENTIALCF11' class='wf-field-item wf-field-dropdown' data-wform-field='select' onchange='removeError(this);'>
+        <select id='bigin-category' name='POTENTIALCF11' class='wf-field-item wf-field-dropdown' data-wform-field='select' onchange='removeError(this);'>
  	 	 	 	 	<option value='-None-'>-None-</option>
  	 	 	 	 	<option value='Digital Marketing'>Digital Marketing</option>
  	 	 	 	 	<option value='Specialized SEO Services'>Specialized SEO Services</option>
@@ -141,18 +141,18 @@
  	 	 	</div>
  	 	</div>
  	 	<div class='wf-row'>
- 	 	 	<div class='wf-label'>Subject</div>
+        <label class='wf-label' for='bigin-subject'>Subject</label>
  	 	 	<div class='wf-field'>
  	 	 	 	<div class='wf-field-inner'>
- 	 	 	 	<input name='POTENTIALCF8' maxlength='255' type='text' value='' class='wf-field-item wf-field-input' oninput='removeError(this)'/>
+        <input id='bigin-subject' name='POTENTIALCF8' maxlength='255' type='text' value='' class='wf-field-item wf-field-input' oninput='removeError(this)'/>
  	 	 	 	</div>
  	 	 	</div>
  	 	</div>
  	 	<div class='wf-row'>
- 	 	 	<div class='wf-label'>Your Message</div>
+        <label class='wf-label' for='bigin-message'>Your Message</label>
  	 	 	<div class='wf-field'>
  	 	 	 	<div class='wf-field-inner'>
- 	 	 	 	<textarea name='POTENTIALCF9' maxlength='2000' type='text' required class='wf-field-item wf-field-input wf-text-area-input' oninput='removeError(this)'></textarea>
+        <textarea id='bigin-message' name='POTENTIALCF9' maxlength='2000' type='text' required class='wf-field-item wf-field-input wf-text-area-input' oninput='removeError(this)'></textarea>
  	 	 	 	</div>
  	 	 	</div>
  	 	</div>
@@ -196,7 +196,7 @@
  	 	</div>
  	 	</div>
  	 	<div class='wform-btn-wrap' data-ux-pos='left'>
- 	 	 	<input id='formsubmit' type='submit' class='wf-btn' data-ux-btn-type='primary' value='Send Message'/>
+        <input id='formsubmit' type='submit' aria-label='Send Message' class='wf-btn' data-ux-btn-type='primary' value='Send Message'/>
  	 	</div>
 	</div>
 	</form>

@@ -10427,3 +10427,186 @@ body {
     gap: 20px;
   }
 }
+
+
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ==========================================================================
+   Phase 4: responsive, typography and accessibility baseline
+   ========================================================================== */
+html {
+  max-width: 100%;
+  overflow-x: clip;
+  font-size: 16px;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Montserrat Variable", "Montserrat", sans-serif !important;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+img,
+video,
+svg,
+iframe {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: max(16px, 1rem);
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #5b6d49;
+  outline-offset: 3px;
+}
+
+.ect-f-nl-form input,
+.ect-f-nl-form button,
+.ect-s-icons a {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.ect-f-brand-title,
+.ect-f-brand-desc,
+.ect-f-nl-title,
+.ect-f-nl-desc,
+.ect-f-nl-form input,
+.ect-f-nl-form input::placeholder,
+.ect-f-nl-form button,
+.ect-f-nl-msg,
+.ect-f-col-title,
+.ect-f-col ul li a,
+.ect-f-sub-title,
+.ect-b-links,
+.ect-b-copy {
+  font-size: 14px;
+}
+
+@media (max-width: 40rem) {
+  .ect-footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .ect-f-brand {
+    grid-column: auto;
+  }
+
+  .ect-f-col,
+  .ect-f-col ul,
+  .ect-f-col li,
+  .ect-f-col a {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .ect-cta-section,
+  .ect-footer,
+  .ect-social-bar,
+  .ect-bottom-bar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .ect-cta-card {
+    padding: 36px 18px;
+  }
+
+  .hero__eyebrow,
+  .hero .pill,
+  .hero__ctas .btn,
+  .features__subtitle,
+  .website-figma-hero__subtitle,
+  .ect-web-solutions__eyebrow,
+  .work__label,
+  .tb-eyebrow,
+  .faq-eyebrow,
+  .ect-eyebrow {
+    font-size: 12px !important;
+  }
+
+  .hero__ctas .btn,
+  .ect-join__cta {
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.website-figma-hero__subtitle,
+.ect-web-solutions__eyebrow,
+.work__label,
+.tb-eyebrow,
+.faq-eyebrow,
+.ect-eyebrow {
+  font-size: 12px !important;
+}
+
+@media (max-width: 23.4375rem) {
+  .hero__pills {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hero .pill {
+    flex: 0 1 auto;
+    min-height: 36px;
+    height: auto;
+    padding: 7px 10px;
+    font-size: 12px !important;
+    white-space: normal;
+  }
+
+  .hero__ctas {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero__ctas .btn {
+    width: 100%;
+    min-height: 44px;
+    height: auto;
+    padding: 10px 14px;
+    font-size: 12px !important;
+    white-space: normal;
+  }
+}

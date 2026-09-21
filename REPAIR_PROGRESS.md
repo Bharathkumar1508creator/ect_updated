@@ -32,7 +32,7 @@ If Codex usage stops, resume this task, inspect `git status`, read this file, ve
 | 1 | Dependency and data-preservation inventory | Complete | `checkpoint-phase-1` |
 | 2 | Security, settings, contact handling, and removal of local career uploads | Complete | `checkpoint-phase-2` |
 | 3 | Shared navigation, popup, project pages, media logic, and integration resilience | Complete | `checkpoint-phase-3` |
-| 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Pending | — |
+| 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Complete | `checkpoint-phase-4` |
 | 5 | Image/video optimization, WebP selection, posters, caching, and frontend performance | Pending | — |
 | 6 | Complete technical, on-page, and Coimbatore/Tamil Nadu local SEO | Pending | — |
 | 7 | Automated regression tests and full viewport/browser QA | Pending | — |
@@ -90,6 +90,8 @@ Completed in `docs/PHASE_3_FUNCTIONAL_REPAIR.md`. Project pages now use the shar
 - Repair labels, heading structure, keyboard behavior, focus handling, iframe titles, and alt text.
 - Cover current Chrome, Edge, Firefox, Safari, Android, and iOS behavior.
 
+Completed in `docs/PHASE_4_RESPONSIVE_ACCESSIBILITY.md`. The 117-case responsive matrix now has zero document overflow, runtime errors, body-font deviations, unlabeled visible form controls, duplicate IDs, or incorrect H1 counts. Mobile controls, footer, tab rails, Careers composition, Projects carousel, navigation ARIA, Escape focus return, and consultation-dialog behavior were repaired while preserving integrations and the current visual direction. Chrome and Edge interaction checks passed; native Firefox, Safari, Android, and iOS execution remains in the Phase 7 QA gate.
+
 ### Phase 5 — Performance and assets
 
 - Optimize only assets with measurable benefit.
@@ -142,3 +144,4 @@ This phase begins only after:
 | 2026-09-19 | Phase 1 | `checkpoint-phase-1` | Dependency trace, local data/media inventory, migration plan, Django checks, migration check, Python/npm dependency checks, 32 blog tests, JavaScript syntax, and static-reference scan | Audit only; no application behavior changed |
 | 2026-09-19 | Phase 2 | `checkpoint-phase-2` | Django checks including production deploy check, no migration drift, 40 tests, dependency audits, JavaScript syntax, Tailwind build, and static safety checks | No schema/data/live-server changes |
 | 2026-09-19 | Phase 3 | `checkpoint-phase-3` | Django checks, no migration drift, 47 tests, JavaScript syntax, 343 static references with zero missing, 13 primary-route renders, and all 6 published project renders | No schema/data/media/live-server changes |
+| 2026-09-21 | Phase 4 | `checkpoint-phase-4` | 117 responsive cases, Chrome/Edge interactions, 47 tests, no migration drift, 20 JavaScript syntax checks, 343 static references, and Zoho Bigin invariants | No schema/data/media/live-server changes; native Safari/Firefox/device execution remains Phase 7 |
