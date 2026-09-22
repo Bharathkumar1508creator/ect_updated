@@ -13,17 +13,12 @@ if (ectMobileAccordion) {
             const item = document.createElement('div');
             item.className = 'ect-mobile-item';
             item.innerHTML = `
-              <button type="button" class="ect-mobile-head${isActive ? ' is-active' : ''}" aria-expanded="false">
+              <button type="button" class="ect-mobile-head${isActive ? ' is-active' : ''}">
                 <span>${label}</span>
-                <span class="ect-mobile-arrow" aria-hidden="true">▼</span>
+                <span class="ect-mobile-arrow">▼</span>
               </button>
               <div class="ect-mobile-body"><div class="ect-mobile-body-inner"></div></div>
             `;
-            const head = item.querySelector('.ect-mobile-head');
-            const body = item.querySelector('.ect-mobile-body');
-            const panelId = 'ect-mobile-panel-' + label.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-            body.id = panelId;
-            head.setAttribute('aria-controls', panelId);
             const inner = item.querySelector('.ect-mobile-body-inner');
             // Move cloned items into mobile body
             dropdownInner.querySelectorAll('.ect-dropdown-column > a, .ect-dropdown-column > div').forEach(child => {
@@ -58,15 +53,12 @@ if (ectMobileAccordion) {
         // close all
         ectMobileAccordion.querySelectorAll('.ect-mobile-item').forEach(i => {
             i.classList.remove('is-open');
-            const h = i.querySelector('button.ect-mobile-head');
             const b = i.querySelector('.ect-mobile-body');
-            if (h) h.setAttribute('aria-expanded', 'false');
             if (b) b.style.maxHeight = null;
         });
 
         if (!wasActive && body) {
             item.classList.add('is-open');
-            head.setAttribute('aria-expanded', 'true');
             body.style.maxHeight = body.scrollHeight + 'px';
             // icon pop-in stagger
             item.querySelectorAll('.ect-dropdown-icon').forEach((icon, i) => {
@@ -89,7 +81,6 @@ if (ectMobileAccordion) {
             const open = mobilePanel.classList.toggle('is-open');
             ectMobileToggle.classList.toggle('is-open', open);
             ectMobileToggle.setAttribute('aria-expanded', open);
-            ectMobileToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
             // The panel's aria-hidden was hardcoded "true" in the HTML and
             // never updated here — so it stayed aria-hidden while visually
             // open, and any focus landing inside it (e.g. the Services
@@ -99,25 +90,12 @@ if (ectMobileAccordion) {
             document.body.style.overflow = open ? 'hidden' : '';
         });
 
-        document.addEventListener('keydown', event => {
-            if (event.key !== 'Escape' || !mobilePanel.classList.contains('is-open')) return;
-            ectMobileToggle.focus();
-            mobilePanel.classList.remove('is-open');
-            ectMobileToggle.classList.remove('is-open');
-            ectMobileToggle.setAttribute('aria-expanded', 'false');
-            ectMobileToggle.setAttribute('aria-label', 'Open menu');
-            mobilePanel.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-            window.requestAnimationFrame(() => ectMobileToggle.focus());
-        });
-
         /* ---------- Reset mobile panel if resized to desktop ---------- */
         window.addEventListener('resize', () => {
             if (window.innerWidth > 1024 && mobilePanel.classList.contains('is-open')) {
                 mobilePanel.classList.remove('is-open');
                 ectMobileToggle.classList.remove('is-open');
                 ectMobileToggle.setAttribute('aria-expanded', false);
-                ectMobileToggle.setAttribute('aria-label', 'Open menu');
                 mobilePanel.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
             }

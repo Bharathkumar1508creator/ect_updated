@@ -829,9 +829,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initialize Lucide Icons
-  if (window.lucide && typeof window.lucide.createIcons === 'function') {
-    window.lucide.createIcons();
-  }
+  lucide.createIcons();
 });
 
 

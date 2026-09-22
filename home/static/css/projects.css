@@ -633,18 +633,3 @@
 .btn-play-video.is-playing:focus-visible {
     opacity: 1;
 }
-
-
-/* Phase 4 responsive containment */
-@media (max-width: 768px) {
-  .project-hero { overflow-x: clip; }
-  .project-hero .hero-title {
-    font-size: clamp(2rem, 10vw, 3rem) !important;
-    overflow-wrap: anywhere;
-  }
-  .hero-carousel-container { width: 100%; overflow: clip; }
-  .hero-carousel { width: min(360px, 100%); }
-  .project-grid, .social-grid { grid-template-columns: minmax(0, 1fr); }
-  .category-filters { width: 100%; }
-  .btn-filter { min-height: 44px; display: inline-flex; align-items: center; }
-}
