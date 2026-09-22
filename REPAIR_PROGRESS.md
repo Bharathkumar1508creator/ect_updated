@@ -32,9 +32,9 @@ If Codex usage stops, resume this task, inspect `git status`, read this file, ve
 | 1 | Dependency and data-preservation inventory | Complete | `checkpoint-phase-1` |
 | 2 | Security, settings, contact handling, and removal of local career uploads | Complete | `checkpoint-phase-2` |
 | 3 | Shared navigation, popup, project pages, media logic, and integration resilience | Complete | `checkpoint-phase-3` |
-| 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Pending | — |
-| 5 | Image/video optimization, WebP selection, posters, caching, and frontend performance | Pending | — |
-| 6 | Complete technical, on-page, and Coimbatore/Tamil Nadu local SEO | Pending | — |
+| 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Skipped and reverted per user | — |
+| 5 | Image/video optimization, WebP selection, posters, caching, and frontend performance | Skipped and reverted per user | — |
+| 6 | Complete technical, on-page, and Coimbatore/Tamil Nadu local SEO | Complete | `checkpoint-phase-6` |
 | 7 | Automated regression tests and full viewport/browser QA | Pending | — |
 | 8 | Final clean package, review evidence, deployment guide, and rollback guide | Pending | — |
 | 9 | Live VPS backup and deployment | Blocked until explicit approval | — |
@@ -83,6 +83,9 @@ Completed in `docs/PHASE_3_FUNCTIONAL_REPAIR.md`. Project pages now use the shar
 
 ### Phase 4 — Responsive UI and accessibility
 
+Skipped per the user's instruction. Its previous implementation was reverted; Phase 6 does not restore any Phase 4 code.
+
+
 - Preserve the current visual design, logo-derived palette, and Montserrat typography.
 - Test representative widths: 320, 360, 390, 430, 768, 1024, 1280, 1440, and 1920px.
 - Remove horizontal overflow and fixed-coordinate failures.
@@ -91,6 +94,9 @@ Completed in `docs/PHASE_3_FUNCTIONAL_REPAIR.md`. Project pages now use the shar
 - Cover current Chrome, Edge, Firefox, Safari, Android, and iOS behavior.
 
 ### Phase 5 — Performance and assets
+
+Skipped per the user's instruction. Its previous implementation was reverted; Phase 6 does not restore any Phase 5 code or generated optimized-media cache.
+
 
 - Optimize only assets with measurable benefit.
 - Use high-quality or lossless WebP when appearance is preserved; retain originals.
@@ -108,6 +114,8 @@ Completed in `docs/PHASE_3_FUNCTIONAL_REPAIR.md`. Project pages now use the shar
 - Add and validate appropriate Organization, LocalBusiness, Service, Breadcrumb, Article, FAQ, and project schema.
 - Target Website Development, Custom Software Development, Zoho Consulting, Digital Marketing, HR Consulting, and IT Infrastructure Services for Coimbatore and Tamil Nadu.
 - Preserve Google Search Console, Analytics, Google Business Profile details, and existing business content.
+
+Completed in `docs/PHASE_6_SEO.md`. Canonical non-www and clean-route redirects, complete page metadata, local/service/project/article structured data, crawl controls, sitemap/robots coverage, and heading semantics are implemented. FAQ rich-result markup is intentionally omitted because current Google eligibility is limited to authoritative government and health sites. No schema, data, uploaded media, third-party submission, or live-server change was made.
 
 ### Phase 7 — Regression and QA
 
@@ -142,3 +150,4 @@ This phase begins only after:
 | 2026-09-19 | Phase 1 | `checkpoint-phase-1` | Dependency trace, local data/media inventory, migration plan, Django checks, migration check, Python/npm dependency checks, 32 blog tests, JavaScript syntax, and static-reference scan | Audit only; no application behavior changed |
 | 2026-09-19 | Phase 2 | `checkpoint-phase-2` | Django checks including production deploy check, no migration drift, 40 tests, dependency audits, JavaScript syntax, Tailwind build, and static safety checks | No schema/data/live-server changes |
 | 2026-09-19 | Phase 3 | `checkpoint-phase-3` | Django checks, no migration drift, 47 tests, JavaScript syntax, 343 static references with zero missing, 13 primary-route renders, and all 6 published project renders | No schema/data/media/live-server changes |
+| 2026-09-22 | Phase 6 | `checkpoint-phase-6` | Django checks, no migration drift, 53 tests, canonical/static metadata audit, sitemap/robots verification, and diff integrity | Phases 4–5 remain skipped; no schema/data/media/live-server changes |

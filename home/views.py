@@ -2,19 +2,22 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.views.decorators.http import require_GET
+from django.urls import reverse
 from .models import (
     SiteSettings, Service, TeamMember, Testimonial,
     ProjectCategory, Project, ProjectSection, SocialMediaCard,
     DigitalMarketingOverview
 )
 from blog.models import Blog
+from .seo import build_page_seo, build_project_seo
 
-def get_common_context():
-    # Helper to get context needed across many pages (like footer info)
-    settings = SiteSettings.objects.first()
-    return {
-        'site_settings': settings,
-    }
+def get_common_context(request=None, page_name=None, **seo_options):
+    # Footer data and consistent SEO metadata shared by public pages.
+    site_settings = SiteSettings.objects.first()
+    context = {'site_settings': site_settings}
+    if request is not None and page_name:
+        context.update(build_page_seo(page_name, site_settings=site_settings, **seo_options))
+    return context
 
 
 def get_project_social_image_url(request, project):
@@ -28,7 +31,7 @@ def get_project_social_image_url(request, project):
     return ''
 
 def index(request):
-    context = get_common_context()
+    context = get_common_context(request, 'index')
     context['services'] = Service.objects.filter(is_active=True).order_by('order')[:6]
     testimonials = Testimonial.objects.filter(is_active=True)
     context['testimonials'] = testimonials
@@ -46,7 +49,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 def about(request):
-    context = get_common_context()
+    context = get_common_context(request, 'about')
     context['team_members'] = TeamMember.objects.filter(is_active=True).order_by('order')
     return render(request, 'about.html', context)
 
@@ -54,18 +57,18 @@ def about(request):
 def career(request):
     # Applications are intentionally handled only by the Zoho Recruit links in
     # the template. Historical Career and JobApplication rows remain untouched.
-    return render(request, 'career.html', get_common_context())
+    return render(request, 'career.html', get_common_context(request, 'career'))
 
 
 @require_GET
 def contact(request):
     # Enquiries are submitted directly to Zoho Bigin by the embedded form.
     # This endpoint no longer accepts or stores contact data locally.
-    return render(request, 'contact.html', get_common_context())
+    return render(request, 'contact.html', get_common_context(request, 'contact'))
 
 
 def digital(request):
-    return render(request, 'digital.html', get_common_context())
+    return render(request, 'digital.html', get_common_context(request, 'digital'))
 
 def digital_marketing_detail(request, slug):
     context = get_common_context()
@@ -109,6 +112,12 @@ def digital_marketing_detail(request, slug):
 
     sections = project.sections.filter(status='published').order_by('section_order')
 
+    social_image_url = get_project_social_image_url(request, project)
+    context.update(build_project_seo(
+        project,
+        canonical_path=reverse('digital_marketing_detail', args=[project.slug]),
+        image_url=social_image_url,
+    ))
     context.update({
         'project': project,
         'overview': overview,
@@ -116,7 +125,7 @@ def digital_marketing_detail(request, slug):
         'sections': sections,
         'next_project': next_project,
         'related_projects': related_projects,
-        'social_image_url': get_project_social_image_url(request, project),
+        'social_image_url': social_image_url,
     })
 
     return render(request, 'projects/digital_marketing_detail.html', context)
@@ -145,6 +154,19 @@ def project_list(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
+    canonical_path = reverse('project_list')
+    robots = None
+    if search_query or category_slug:
+        robots = 'noindex,follow'
+    elif page_obj.number > 1:
+        canonical_path = f"{canonical_path}?page={page_obj.number}"
+    context.update(build_page_seo(
+        'project_list',
+        site_settings=context['site_settings'],
+        canonical_path=canonical_path,
+        robots=robots,
+    ))
+
     context.update({
         'projects': page_obj,
         'categories': categories,
@@ -164,7 +186,7 @@ def project_detail(request, slug):
         status='published',
     )
     if project.category.slug == 'digital-marketing':
-        return redirect('digital_marketing_detail', slug=project.slug)
+        return redirect('digital_marketing_detail', slug=project.slug, permanent=True)
 
     sections = project.sections.filter(status='published').order_by('section_order')
 
@@ -192,30 +214,36 @@ def project_detail(request, slug):
         status='published'
     ).exclude(id=project.id).order_by('display_order', 'id')[:3]
 
+    social_image_url = get_project_social_image_url(request, project)
+    context.update(build_project_seo(
+        project,
+        canonical_path=reverse('project_detail', args=[project.slug]),
+        image_url=social_image_url,
+    ))
     context.update({
         'project': project,
         'sections': sections,
         'next_project': next_project,
         'related_projects': related_projects,
-        'social_image_url': get_project_social_image_url(request, project),
+        'social_image_url': social_image_url,
     })
 
     return render(request, 'projects/project_detail.html', context)
 
 def hr(request):
-    return render(request, 'hr.html', get_common_context())
+    return render(request, 'hr.html', get_common_context(request, 'hr'))
 
 def it_infrastructure(request):
-    return render(request, 'it_Infrastructure.html', get_common_context())
+    return render(request, 'it_Infrastructure.html', get_common_context(request, 'it_infrastructure'))
 
 def software(request):
-    return render(request, 'software.html', get_common_context())
+    return render(request, 'software.html', get_common_context(request, 'software'))
 
 def website(request):
-    return render(request, 'website.html', get_common_context())
+    return render(request, 'website.html', get_common_context(request, 'website'))
 
 def zoho(request):
-    return render(request, 'zoho.html', get_common_context())
+    return render(request, 'zoho.html', get_common_context(request, 'zoho'))
 
 def under(request):
-    return render(request, 'under.html', get_common_context())
+    return render(request, 'under.html', get_common_context(request, 'under'))

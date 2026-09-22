@@ -6,7 +6,9 @@
 {% block extra_meta %}
   <link rel="canonical" href="{{ canonical_url }}">
   <meta name="robots" content="{% if is_preview %}noindex,nofollow{% elif blog.robots_index %}index,{% if blog.robots_follow %}follow{% else %}nofollow{% endif %}{% else %}noindex,{% if blog.robots_follow %}follow{% else %}nofollow{% endif %}{% endif %}">
+  <meta property="og:locale" content="en_IN">
   <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ECOG Core Technologies">
   <meta property="og:title" content="{{ blog.effective_og_title }}">
   <meta property="og:description" content="{{ blog.effective_og_description }}">
   <meta property="og:url" content="{{ canonical_url }}">

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.staticfiles import finders
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.test import RequestFactory, TestCase
+from django.test import RequestFactory, TestCase, override_settings
 from django.urls import reverse
 
 from .models import Career, ContactMessage, JobApplication, Project, ProjectCategory
@@ -226,6 +226,7 @@ class ProjectFunctionalityTests(TestCase):
             response,
             reverse("digital_marketing_detail", args=[project.slug]),
             fetch_redirect_response=False,
+            status_code=301,
         )
 
     def test_homepage_uses_fallback_and_correct_digital_project_link(self):
@@ -244,3 +245,91 @@ class ProjectFunctionalityTests(TestCase):
             reverse("digital_marketing_detail", args=[project.slug]),
         )
         self.assertContains(response, "/static/js/project-media.js")
+
+
+class PublicSeoTests(TestCase):
+    def test_static_pages_have_one_complete_canonical_head(self):
+        for name in (
+            "index", "about", "career", "contact", "project_list",
+            "digital", "hr", "it_infrastructure", "software", "website", "zoho",
+        ):
+            with self.subTest(name=name):
+                response = self.client.get(reverse(name))
+                self.assertEqual(response.status_code, 200)
+                html = response.content.decode()
+                self.assertEqual(html.count("<title>"), 1)
+                self.assertEqual(html.count('name="description"'), 1)
+                self.assertEqual(html.count('rel="canonical"'), 1)
+                self.assertEqual(html.count('property="og:url"'), 1)
+                self.assertEqual(html.count('name="twitter:card"'), 1)
+                self.assertIn("application/ld+json", html)
+                self.assertIn("https://ecogcoretechnologies.com", html)
+
+    def test_legacy_html_routes_redirect_permanently(self):
+        pairs = (
+            ("index_html", "index"),
+            ("about_html", "about"),
+            ("career_html", "career"),
+            ("contact_html", "contact"),
+            ("digital_html", "digital"),
+            ("hr_html", "hr"),
+            ("it_infrastructure_html", "it_infrastructure"),
+            ("software_html", "software"),
+            ("website_html", "website"),
+            ("zoho_html", "zoho"),
+        )
+        for legacy, canonical in pairs:
+            with self.subTest(legacy=legacy):
+                response = self.client.get(reverse(legacy))
+                self.assertEqual(response.status_code, 301)
+                self.assertEqual(response.url, reverse(canonical))
+
+    @override_settings(
+        SITE_URL="https://ecogcoretechnologies.com",
+        ALLOWED_HOSTS=["ecogcoretechnologies.com", "www.ecogcoretechnologies.com"],
+    )
+    def test_www_host_redirects_to_non_www_and_preserves_query(self):
+        response = self.client.get(
+            "/projects/?page=2",
+            HTTP_HOST="www.ecogcoretechnologies.com",
+            secure=True,
+        )
+        self.assertEqual(response.status_code, 301)
+        self.assertEqual(
+            response.url,
+            "https://ecogcoretechnologies.com/projects/?page=2",
+        )
+
+    def test_project_filters_are_noindex_and_canonicalize_to_collection(self):
+        response = self.client.get(reverse("project_list"), {"search": "software"})
+        self.assertContains(response, 'content="noindex,follow"')
+        self.assertContains(
+            response,
+            'href="https://ecogcoretechnologies.com/projects/"',
+        )
+
+    @override_settings(
+        ALLOWED_HOSTS=["ecogcoretechnologies.com"],
+    )
+    def test_sitemap_and_robots_advertise_canonical_non_www_urls(self):
+        sitemap = self.client.get(
+            reverse("django.contrib.sitemaps.views.sitemap"),
+            HTTP_HOST="ecogcoretechnologies.com",
+            secure=True,
+        )
+        self.assertContains(sitemap, "<loc>https://ecogcoretechnologies.com/")
+        self.assertNotContains(sitemap, "www.ecogcoretechnologies.com")
+        robots = self.client.get(
+            reverse("robots_txt"),
+            HTTP_HOST="ecogcoretechnologies.com",
+            secure=True,
+        )
+        self.assertContains(
+            robots,
+            "Sitemap: https://ecogcoretechnologies.com/sitemap.xml",
+        )
+        self.assertContains(robots, "Disallow: /blog/preview/")
+
+    def test_under_construction_page_is_noindex(self):
+        response = self.client.get(reverse("under"))
+        self.assertContains(response, 'content="noindex,nofollow"')

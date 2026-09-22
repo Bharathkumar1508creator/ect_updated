@@ -33,7 +33,7 @@ def absolute_url(request, value):
 def robots_txt(request):
     sitemap_url = absolute_url(request, reverse("django.contrib.sitemaps.views.sitemap"))
     return HttpResponse(
-        f"User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: {sitemap_url}\n",
+        f"User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /blog/preview/\nSitemap: {sitemap_url}\n",
         content_type="text/plain",
     )
 
@@ -75,13 +75,53 @@ class BlogListView(ListView):
         context["categories"] = BlogCategory.objects.filter(blogs__in=visible).distinct()
         context["popular_tags"] = BlogTag.objects.filter(blogs__in=visible).distinct()[:10]
         context["search_query"] = self.request.GET.get("q", "")
-        context["current_category"] = self.kwargs.get("category_slug", "")
+        category_slug = self.kwargs.get("category_slug", "")
+        tag_slug = self.kwargs.get("tag_slug", "")
+        context["current_category"] = category_slug
         query = self.request.GET.get("q", "").strip()
         page = self.request.GET.get("page", "").strip()
         canonical_query = urlencode({"page": page}) if page and page != "1" and not query else ""
         canonical_path = self.request.path + (f"?{canonical_query}" if canonical_query else "")
         context["canonical_url"] = absolute_url(self.request, canonical_path)
         context["search_results_page"] = bool(query)
+        listing_title = "Technology Insights & Business Growth Blog | ECOG"
+        listing_description = (
+            "Practical insights on website development, custom software, Zoho, "
+            "IT infrastructure and digital transformation."
+        )
+        if category_slug:
+            category = BlogCategory.objects.filter(slug=category_slug).first()
+            if category:
+                listing_title = f"{category.name} Articles | ECOG Core Technologies"
+                listing_description = category.meta_description or f"Read ECOG insights and practical guidance about {category.name}."
+        elif tag_slug:
+            tag = BlogTag.objects.filter(slug=tag_slug).first()
+            if tag:
+                listing_title = f"{tag.name} Insights | ECOG Core Technologies"
+                listing_description = f"Read ECOG articles, guidance and business technology insights about {tag.name}."
+        breadcrumb = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": absolute_url(self.request, "/")},
+                {"@type": "ListItem", "position": 2, "name": "Blog", "item": context["canonical_url"]},
+            ],
+        }
+        collection = {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": listing_title,
+            "description": listing_description,
+            "url": context["canonical_url"],
+            "isPartOf": {"@type": "WebSite", "name": settings.BLOG_PUBLISHER_NAME, "url": absolute_url(self.request, "/")},
+        }
+        context.update({
+            "listing_title": listing_title,
+            "listing_description": listing_description,
+            "listing_image_url": absolute_url(self.request, settings.BLOG_FALLBACK_IMAGE),
+            "listing_schema_json": json.dumps(collection, ensure_ascii=False).replace("</", "<\\/"),
+            "listing_breadcrumb_json": json.dumps(breadcrumb, ensure_ascii=False).replace("</", "<\\/"),
+        })
         # Always show the most recently updated article in the hero, on every
         # device and regardless of search/category/pagination state.
         context["featured_blog"] = Blog.objects.publicly_visible().order_by("-updated_at").first()

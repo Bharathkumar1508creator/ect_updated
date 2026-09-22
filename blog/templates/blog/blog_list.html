@@ -1,11 +1,24 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-{% block title %}Technology Insights & Business Growth Blog | ECOG Core Technologies{% endblock %}
-{% block meta_description %}Practical insights on website development, custom software, Zoho consulting, IT infrastructure and digital transformation.{% endblock %}
+{% block title %}{{ listing_title }}{% endblock %}
+{% block meta_description %}{{ listing_description }}{% endblock %}
 {% block extra_meta %}
 <link rel="canonical" href="{{ canonical_url }}">
-{% if search_results_page %}<meta name="robots" content="noindex,follow">{% else %}<meta name="robots" content="index,follow">{% endif %}
+{% if search_results_page %}<meta name="robots" content="noindex,follow">{% else %}<meta name="robots" content="index,follow,max-image-preview:large">{% endif %}
+<meta property="og:locale" content="en_IN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ECOG Core Technologies">
+<meta property="og:title" content="{{ listing_title }}">
+<meta property="og:description" content="{{ listing_description }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:image" content="{{ listing_image_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ listing_title }}">
+<meta name="twitter:description" content="{{ listing_description }}">
+<meta name="twitter:image" content="{{ listing_image_url }}">
+<script type="application/ld+json">{{ listing_schema_json|safe }}</script>
+<script type="application/ld+json">{{ listing_breadcrumb_json|safe }}</script>
 {% endblock %}
 
 {% block content %}

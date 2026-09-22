@@ -1,3 +1,25 @@
+from urllib.parse import urlsplit
+
+from django.conf import settings
+from django.http import HttpResponsePermanentRedirect
+
+
+class CanonicalHostMiddleware:
+    """Redirect the public www hostname to the configured non-www origin."""
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        canonical = urlsplit(settings.SITE_URL)
+        request_host = request.get_host().split(":", 1)[0].lower()
+        canonical_host = canonical.hostname.lower() if canonical.hostname else ""
+        if canonical_host and request_host == f"www.{canonical_host}":
+            target = f"{canonical.scheme or 'https'}://{canonical.netloc}{request.get_full_path()}"
+            return HttpResponsePermanentRedirect(target)
+        return self.get_response(request)
+
+
 class SecurityHeadersMiddleware:
     """Add browser capability restrictions that complement Django's security middleware."""
 
