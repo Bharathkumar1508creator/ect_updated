@@ -13,7 +13,7 @@ html, body {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url('../img/under.webp');
+  background-image: url('../img/under.png');
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;

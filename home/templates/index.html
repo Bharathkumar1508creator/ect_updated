@@ -7,14 +7,16 @@
   {% include 'components/favicon.html' %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <title>Smart Business Technology &amp; Digital Solutions</title>
   <meta name="description" content="Transform your business with smart technology and digital solutions. Get expert website, software, Zoho, HR, marketing, and IT infrastructure services today.">
   <meta name="robots" content="index, follow">
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=79">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Inter:wght@400&family=Outfit:wght@400&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -126,7 +128,7 @@
             </div>
 
             <div class="orbit__center">
-              <img src="{% static 'img/circleicon.png' %}" alt="ECT logo" width="120" height="120"  decoding="async" loading="lazy"/>
+              <img src="{% static 'img/circleicon.png' %}" alt="ECT logo" width="120" height="120" />
             </div>
 
             <div class="float-card float-card--tl">
@@ -170,7 +172,7 @@
       <div class="features__grid">
         <div class="features__column features__column--left">
           <article class="feature-card feature-card--left" data-reveal
-            data-image="{% static 'img/Owner dependency.webp' %}">
+            data-image="{% static 'img/Owner dependency.png' %}">
             <svg class="feature-card__shape" viewBox="0 0 397 130" xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true">
               <path class="feature-card__shape-surface"
@@ -212,7 +214,7 @@
             </div>
           </article>
           <article class="feature-card feature-card--left" data-reveal
-            data-image="{% static 'img/Manual operations.webp' %}">
+            data-image="{% static 'img/Manual operations.png' %}">
             <svg class="feature-card__shape" viewBox="0 0 397 130" xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true">
               <path class="feature-card__shape-surface"
@@ -235,8 +237,8 @@
         </div>
 
         <div class="features__image-wrapper" data-reveal>
-          <img id="featuresImage" src="{% static 'img/Owner dependency.webp' %}"
-            alt="Business professional reviewing documents" class="features__image" loading="lazy" width="400" height="438" decoding="async">
+          <img id="featuresImage" src="{% static 'img/Owner dependency.png' %}"
+            alt="Business professional reviewing documents" class="features__image" loading="lazy">
         </div>
 
         <div class="features__column features__column--right">
@@ -266,7 +268,7 @@
             </div>
           </article>
           <article class="feature-card feature-card--right" data-reveal
-            data-image="{% static 'img/Disconnected departments.webp' %}">
+            data-image="{% static 'img/Disconnected departments.png' %}">
             <svg class="feature-card__shape" viewBox="0 0 397 130" xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true">
               <g transform="translate(397 0) scale(-1 1)">
@@ -291,7 +293,7 @@
             </div>
           </article>
           <article class="feature-card feature-card--right" data-reveal
-            data-image="{% static 'img/Limited visibility.webp' %}">
+            data-image="{% static 'img/Limited visibility.png' %}">
             <svg class="feature-card__shape" viewBox="0 0 397 130" xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true">
               <g transform="translate(397 0) scale(-1 1)">
@@ -327,8 +329,8 @@
 
   <section class="ect-hero">
     <!-- Replace src with your video file -->
-    <video class="ect-hero__video" muted loop playsinline preload="none" controls poster="{% static 'video/homebg-poster.webp' %}">
-      <source src="{% static 'video/homebg-optimized.mp4' %}" type="video/mp4">
+    <video class="ect-hero__video" autoplay muted loop playsinline>
+      <source src="{% static 'video/homebg.mp4' %}" type="video/mp4">
     </video>
 
     <div class="ect-hero__overlay"></div>
@@ -366,7 +368,7 @@
       <!-- LEFT -->
       <div class="cbs-col cbs-col--side" style="--d:0s">
         <div class="cbs-media" data-tilt data-parallax>
-          <img src="{% static 'img/Rectangle 1753.webp' %}" alt="Social media apps on a phone" width="365" height="264" decoding="async" loading="lazy">
+          <img src="{% static 'img/Rectangle 1753.png' %}" alt="Social media apps on a phone">
         </div>
         <div class="cbs-content">
           <p class="cbs-category">Growth &amp; Market Systems</p>
@@ -389,14 +391,14 @@
           </a>
         </div>
         <div class="cbs-media" data-tilt data-parallax>
-          <img src="{% static 'img/Rectangle 1753 (1).webp' %}" alt="Server infrastructure" width="365" height="264" decoding="async" loading="lazy">
+          <img src="{% static 'img/Rectangle 1753 (1).png' %}" alt="Server infrastructure">
         </div>
       </div>
 
       <!-- RIGHT -->
       <div class="cbs-col cbs-col--side" style="--d:.3s">
         <div class="cbs-media" data-tilt data-parallax>
-          <img src="{% static 'img/Rectangle 1753 (2).webp' %}" alt="Laptop workspace on a desk" width="365" height="264" decoding="async" loading="lazy">
+          <img src="{% static 'img/Rectangle 1753 (2).png' %}" alt="Laptop workspace on a desk">
         </div>
         <div class="cbs-content">
           <p class="cbs-category">People &amp; Performance Systems</p>
@@ -459,7 +461,7 @@
             </button>
 
             <img class="service-card__icon service-card__icon--website" src="{% static 'img/webdevelopment.png' %}"
-              alt="" aria-hidden="true" width="60" height="54" decoding="async" loading="lazy">
+              alt="" aria-hidden="true">
 
             <h3 class="service-card__title">Website Development</h3>
 
@@ -505,7 +507,7 @@
             </button>
 
             <img class="service-card__icon service-card__icon--software" src="{% static 'img/softwaredevelopment.png' %}"
-              alt="" aria-hidden="true" width="45" height="46" decoding="async" loading="lazy">
+              alt="" aria-hidden="true">
 
             <h3 class="service-card__title">Software Development</h3>
 
@@ -553,7 +555,7 @@
             </button>
 
             <img class="service-card__icon service-card__icon--zoho" src="{% static 'img/ZOHO-logo.png' %}"
-              alt="" aria-hidden="true" width="251" height="120" decoding="async" loading="lazy" srcset="{% static 'img/ZOHO-logo-64.webp' %} 64w, {% static 'img/ZOHO-logo-128.webp' %} 128w" sizes="64px">
+              alt="" aria-hidden="true">
 
             <h3 class="service-card__title">Zoho Consulting</h3>
 
@@ -599,7 +601,7 @@
             </button>
 
             <img class="service-card__icon service-card__icon--hr" src="{% static 'img/hr.png' %}"
-              alt="" aria-hidden="true" width="48" height="51" decoding="async" loading="lazy">
+              alt="" aria-hidden="true">
 
             <h3 class="service-card__title">HR Consulting</h3>
 
@@ -645,7 +647,7 @@
             </button>
 
             <img class="service-card__icon service-card__icon--digital" src="{% static 'img/digitalmarketing.png' %}"
-              alt="" aria-hidden="true" width="48" height="48" decoding="async" loading="lazy">
+              alt="" aria-hidden="true">
 
             <h3 class="service-card__title">Digital Marketing</h3>
 
@@ -690,7 +692,7 @@
             </button>
 
             <img class="service-card__icon service-card__icon--infrastructure" src="{% static 'img/it.png' %}"
-              alt="" aria-hidden="true" width="53" height="53" decoding="async" loading="lazy">
+              alt="" aria-hidden="true">
 
             <h3 class="service-card__title">IT Infrastructure Services</h3>
 
@@ -729,8 +731,8 @@
     <div class="custom-cbs-inner">
 
       <div class="custom-cbs-image-wrap">
-        <video src="{% static 'video/connected_busi-optimized.mp4' %}" class="custom-cbs-image" loop muted
-          playsinline preload="none" controls poster="{% static 'video/connected_busi-poster.webp' %}"></video>
+        <video src="{% static 'video/connected_busi.mp4' %}" class="custom-cbs-image" autoplay loop muted
+          playsinline></video>
       </div>
 
       <div class="custom-cbs-content">
@@ -1115,7 +1117,7 @@
             <!-- Replace the <span> below with:
                <img class="ect-pcard__img" src="YOUR-SCREENSHOT.png" alt="ECT CRM preview"> -->
             <div class="ect-pcard__imgwrap">
-              <img class="ect-pcard__img" src="{% static 'img/crm1.webp' %}" alt="ECT CRM preview" width="576" height="297" decoding="async" loading="lazy" srcset="{% static 'img/crm1-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 33vw">
+              <img class="ect-pcard__img" src="{% static 'img/crm1.png' %}" alt="ECT CRM preview">
             </div>
 
             <div class="ect-pcard__content">
@@ -1149,7 +1151,7 @@
             <!-- Replace the <span> below with:
                <img class="ect-pcard__img" src="YOUR-SCREENSHOT.png" alt="Executive Digital Profile preview"> -->
             <div class="ect-pcard__imgwrap">
-              <img class="ect-pcard__img" src="{% static 'img/crm2.png' %}" alt="Executive Digital Profile preview" width="576" height="297" decoding="async" loading="lazy" srcset="{% static 'img/crm2-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 33vw">
+              <img class="ect-pcard__img" src="{% static 'img/crm2.png' %}" alt="Executive Digital Profile preview">
             </div>
 
             <div class="ect-pcard__content">
@@ -1211,7 +1213,7 @@
             <div class="card__imgwrap" data-media-frame>
               {% project_preview_url project as preview_url %}
               {% if preview_url %}
-              <img class="card__img" src="{{ preview_url }}" alt="{{ project.title }}" loading="lazy" decoding="async" data-media-image>
+              <img class="card__img" src="{{ preview_url }}" alt="{{ project.title }}" data-media-image>
               {% else %}
               <div class="media-placeholder" role="img" aria-label="Project media unavailable">Media unavailable</div>
               {% endif %}
@@ -1382,8 +1384,8 @@
   </section>
   {% endif %}
 
-  <script src="{% static 'js/base.js' %}"></script>
-  <script src="{% static 'js/project-media.js' %}"></script>
+  <script src="{% static 'js/base.js' %}?v=52"></script>
+  <script src="{% static 'js/project-media.js' %}?v=1"></script>
   <script src="{% static 'js/ripple.js' %}"></script>
 
 
@@ -1392,7 +1394,7 @@
   {% include 'footer.html' %}
   {% include 'components/contact_popup.html' %}
 
-  <script src="{% static 'js/contact-popup.js' %}"></script>
+  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
 {% include 'components/zoho_salesiq.html' %}
 
 <!-- ================= UNIFORM 100PX SECTION GAPS (home page only) =================

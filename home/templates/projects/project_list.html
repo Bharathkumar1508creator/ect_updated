@@ -6,15 +6,15 @@
   {% include 'components/favicon.html' %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Our Work | ECOG Core Technologies Case Studies</title>
     <meta name="description" content="Explore ECOG Core Technologies' portfolio of website, software, Zoho and digital marketing projects delivering real results for growing businesses.">
     <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=42">
     <link rel="stylesheet" href="{% static 'css/projects.css' %}">
-    <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Assuming navbar is included or similar to index.html -->
@@ -31,7 +31,7 @@
                     <div class="hero-carousel-card" data-media-frame>
                         {% project_preview_url project as preview_url %}
                         {% if preview_url %}
-                            <img src="{{ preview_url }}" alt="{{ project.title }}" loading="lazy" decoding="async" data-media-image>
+                            <img src="{{ preview_url }}" alt="{{ project.title }}" data-media-image>
                         {% else %}
                             <div class="media-placeholder" role="img" aria-label="Project media unavailable">Media unavailable</div>
                         {% endif %}

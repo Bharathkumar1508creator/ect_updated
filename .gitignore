@@ -26,6 +26,3 @@ Thumbs.db
 
 # Claude Code local config
 .claude/
-
-# Generated media derivatives (original uploads remain authoritative)
-media/.optimized/

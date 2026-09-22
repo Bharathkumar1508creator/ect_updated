@@ -1,21 +1,13 @@
-import io
-import tempfile
-from pathlib import Path
-
-from PIL import Image
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.staticfiles import finders
-from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import RequestFactory, TestCase
 from django.urls import reverse
 
-from .image_utils import optimize_uploaded_image
-
 from .models import Career, ContactMessage, JobApplication, Project, ProjectCategory
 from .templatetags.content_security import sanitized_rich_html
-from .templatetags.project_media import extract_youtube_id, project_preview_url, youtube_embed_url
+from .templatetags.project_media import extract_youtube_id, youtube_embed_url
 
 
 class ExternalFormOnlyTests(TestCase):
@@ -82,52 +74,6 @@ class ArchivedAdminTests(TestCase):
             self.assertFalse(model_admin.has_add_permission(self.request))
             self.assertFalse(model_admin.has_change_permission(self.request))
             self.assertFalse(model_admin.has_delete_permission(self.request))
-
-
-class ImageUploadOptimizationTests(TestCase):
-    def test_new_project_upload_is_resized_and_converted_to_webp(self):
-        source = io.BytesIO()
-        Image.new("RGB", (2400, 1200), "#0c3c01").save(source, format="PNG")
-        uploaded = SimpleUploadedFile(
-            "project-hero.png", source.getvalue(), content_type="image/png"
-        )
-
-        optimized = optimize_uploaded_image(uploaded, max_size=(1200, 1200))
-
-        self.assertTrue(optimized.name.endswith(".webp"))
-        with Image.open(optimized) as image:
-            self.assertEqual(image.format, "WEBP")
-            self.assertEqual(image.size, (1200, 600))
-
-    def test_existing_project_media_uses_cached_variant_without_rewriting_original(self):
-        source = io.BytesIO()
-        Image.new("RGB", (1600, 1000), "#a2ac82").save(source, format="PNG")
-        with tempfile.TemporaryDirectory() as media_root, self.settings(MEDIA_ROOT=media_root):
-            category = ProjectCategory.objects.create(
-                name="Variant test", slug="variant-test", status="published"
-            )
-            project = Project.objects.create(
-                category=category,
-                title="Variant project",
-                slug="variant-project",
-                status="published",
-                hero_media_type="image",
-                hero_image=SimpleUploadedFile(
-                    "original.png", source.getvalue(), content_type="image/png"
-                ),
-            )
-            original_path = Path(project.hero_image.path)
-            original_bytes = original_path.read_bytes()
-
-            preview_url = project_preview_url(project)
-
-            self.assertIn("/media/.optimized/project-cards/", preview_url)
-            self.assertEqual(original_path.read_bytes(), original_bytes)
-            cached = list(Path(media_root, ".optimized", "project-cards").glob("*.webp"))
-            self.assertEqual(len(cached), 1)
-            with Image.open(cached[0]) as image:
-                self.assertLessEqual(image.width, 960)
-                self.assertEqual(image.format, "WEBP")
 
 
 class SecurityBoundaryTests(TestCase):
@@ -203,8 +149,8 @@ class ProjectFunctionalityTests(TestCase):
         response = self.client.get(reverse("project_list"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Media unavailable")
-        self.assertContains(response, staticfiles_storage.url("js/base.js"))
-        self.assertContains(response, staticfiles_storage.url("js/project-media.js"))
+        self.assertContains(response, "/static/js/base.js")
+        self.assertContains(response, "/static/js/project-media.js")
         self.assertContains(response, 'id="ectContactPopup"')
         self.assertContains(response, "ECOGCORETECHNOLOGIES")
 
@@ -297,4 +243,4 @@ class ProjectFunctionalityTests(TestCase):
             response,
             reverse("digital_marketing_detail", args=[project.slug]),
         )
-        self.assertContains(response, staticfiles_storage.url("js/project-media.js"))
+        self.assertContains(response, "/static/js/project-media.js")

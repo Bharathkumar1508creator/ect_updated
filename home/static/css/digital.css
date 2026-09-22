@@ -1653,7 +1653,7 @@ body {
    after digital.css, so a plain .work__label/.work .nav-btn rule
    here would lose the cascade tie and get silently overridden. */
 .work__head .work__label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 1.5;
@@ -2328,7 +2328,7 @@ body.digital-page {
   background: var(--dm-green);
   color: #FFFFFF;
 
-  font-family: "Montserrat", sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -2590,7 +2590,7 @@ body.digital-page {
   body.hr-page .hero__cta,
   body.digital-page .hero__cta {
     min-height: 44px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Outfit", sans-serif;
     font-size: 16px !important;
   }
 
@@ -2625,7 +2625,7 @@ body.digital-page {
 
   .ect-web-solutions__eyebrow {
     grid-column: 1 / -1;
-    font-family: "Montserrat", sans-serif !important;
+    font-family: "Outfit", sans-serif !important;
     font-size: 15px !important;
     line-height: 1.5 !important;
     text-align: left !important;
@@ -2797,7 +2797,7 @@ body.digital-page {
     justify-self: start;
     min-height: 44px !important;
     padding: 10px 18px !important;
-    font-family: "Montserrat", sans-serif !important;
+    font-family: "Inter", "Montserrat", sans-serif !important;
     font-size: 16px !important;
   }
 
@@ -2830,7 +2830,7 @@ body.digital-page {
   .software-section#zoho-services .eyebrow {
     margin: 0 0 10px !important;
     padding: 0 !important;
-    font-family: "Montserrat", sans-serif !important;
+    font-family: "Outfit", sans-serif !important;
     font-size: 15px !important;
     line-height: 1.5 !important;
     letter-spacing: 0 !important;
@@ -2993,7 +2993,7 @@ body.digital-page {
     min-height: 44px !important;
     margin-top: 20px !important;
     padding: 10px 18px !important;
-    font-family: "Montserrat", sans-serif !important;
+    font-family: "Inter", "Montserrat", sans-serif !important;
     font-size: 16px !important;
   }
 }

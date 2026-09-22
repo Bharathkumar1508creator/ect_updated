@@ -1,4 +1,3 @@
-from django import forms
 from django.contrib import admin
 from .models import (
     SiteSettings, Service, TeamMember, Testimonial, FAQ,
@@ -6,8 +5,6 @@ from .models import (
     ProjectCategory, Project, ProjectSection, SocialMediaCard,
     DigitalMarketingOverview
 )
-
-from .image_utils import optimize_uploaded_image
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
@@ -96,61 +93,13 @@ class ProjectCategoryAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     list_filter = ('status',)
 
-class OptimizedImageAdminForm(forms.ModelForm):
-    image_fields = ()
-    image_sizes = {}
-
-    def clean(self):
-        cleaned = super().clean()
-        for field_name in self.image_fields:
-            uploaded = cleaned.get(field_name)
-            max_size = self.image_sizes.get(field_name, (1920, 1920))
-            cleaned[field_name] = optimize_uploaded_image(uploaded, max_size=max_size)
-        return cleaned
-
-
-class ProjectAdminForm(OptimizedImageAdminForm):
-    image_fields = ("hero_image", "og_image")
-    image_sizes = {"og_image": (1600, 900)}
-
-    class Meta:
-        model = Project
-        fields = "__all__"
-
-
-class ProjectSectionAdminForm(OptimizedImageAdminForm):
-    image_fields = ("image",)
-
-    class Meta:
-        model = ProjectSection
-        fields = "__all__"
-
-
-class SocialMediaCardAdminForm(OptimizedImageAdminForm):
-    image_fields = ("image",)
-
-    class Meta:
-        model = SocialMediaCard
-        fields = "__all__"
-
-
-class DigitalMarketingOverviewAdminForm(OptimizedImageAdminForm):
-    image_fields = ("hero_image",)
-
-    class Meta:
-        model = DigitalMarketingOverview
-        fields = "__all__"
-
-
 class ProjectSectionInline(admin.StackedInline):
     model = ProjectSection
-    form = ProjectSectionAdminForm
     extra = 0
     ordering = ('section_order',)
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    form = ProjectAdminForm
     list_display = ('title', 'category', 'status', 'featured', 'display_order')
     list_editable = ('status', 'featured', 'display_order')
     list_filter = ('status', 'category', 'featured')
@@ -174,7 +123,6 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(SocialMediaCard)
 class SocialMediaCardAdmin(admin.ModelAdmin):
-    form = SocialMediaCardAdminForm
     list_display = ('title', 'project', 'status', 'display_order')
     list_editable = ('status', 'display_order')
     list_filter = ('status', 'project')
@@ -182,7 +130,6 @@ class SocialMediaCardAdmin(admin.ModelAdmin):
 
 @admin.register(DigitalMarketingOverview)
 class DigitalMarketingOverviewAdmin(admin.ModelAdmin):
-    form = DigitalMarketingOverviewAdminForm
     list_display = ('project', 'status')
     list_filter = ('status',)
     fieldsets = (

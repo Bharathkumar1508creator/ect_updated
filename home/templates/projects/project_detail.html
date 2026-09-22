@@ -6,9 +6,6 @@
   {% include 'components/favicon.html' %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>{{ project.seo_title|default:project.title }} - ECT</title>
     <meta name="description" content="{{ project.seo_description|default:project.short_description|default:'' }}">
     <meta name="robots" content="index, follow">
@@ -21,9 +18,12 @@
         <meta property="og:image" content="{{ social_image_url }}">
     {% endif %}
 
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
-    <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=3">
+    <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     {% include 'components/navbar.html' %}

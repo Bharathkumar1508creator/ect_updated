@@ -7,16 +7,17 @@
   {% include 'components/favicon.html' %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <title>ECOG Core Technologies Careers | Grow With Us in Coimbatore</title>
   <meta name="description" content="Build your future with ECOG Core Technologies. Explore exciting IT careers, software, automation and digital opportunities in Coimbatore. Apply today!">
   <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Outfit:wght@400;500&display=swap"
+    rel="stylesheet">
   <!-- Link to the external CSS file -->
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  <link rel="stylesheet" href="{% static 'css/career.css' %}">
-  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
+  <link rel="stylesheet" href="{% static 'css/career.css' %}?v=2026091208">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
 </head>
 
 <body>
@@ -60,8 +61,8 @@
           </div>
 
           <div class="ect-media">
-            <video src="{% static 'video/career-optimized.mp4' %}" loop muted playsinline
-              aria-label="ECOG Core Technologies Team" preload="none" controls poster="{% static 'video/career-poster.webp' %}"></video>
+            <video src="{% static 'video/career.mp4' %}" autoplay loop muted playsinline
+              aria-label="ECOG Core Technologies Team"></video>
           </div>
 
           <div class="ect-badge ect-badge-market">
@@ -211,7 +212,7 @@
 
             Replace only href if image location changes.
           -->
-          <image href="{% static 'img/why-join-media.webp' %}" x="0" y="0" width="1240" height="535"
+          <image href="{% static 'img/why-join-media.png' %}" x="0" y="0" width="1240" height="535"
             preserveAspectRatio="xMidYMid slice" clip-path="url(#ectJoinExactClip)" />
 
         </svg>
@@ -541,62 +542,62 @@
       <!-- Set A -->
       <div class="gallery__set">
         <div class="gallery__col col-1">
-          <div class="tile"><img src="{% static 'img/pic1.jpeg' %}" alt="Team moment" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic1-480.webp' %} 480w, {% static 'img/pic1-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-          <div class="tile"><img src="{% static 'img/pic2.jpeg' %}" alt="Team moment" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic2-480.webp' %} 480w, {% static 'img/pic2-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic1.jpeg' %}?v=2" alt="Team moment"></div>
+          <div class="tile"><img src="{% static 'img/pic2.jpeg' %}?v=2" alt="Team moment"></div>
         </div>
         <div class="gallery__col col-2">
-          <div class="tile"><img src="{% static 'img/pic3.jpeg' %}" alt="Team moment" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic3-480.webp' %} 480w, {% static 'img/pic3-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic3.jpeg' %}?v=2" alt="Team moment"></div>
         </div>
         <div class="gallery__col col-3">
-          <div class="tile"><img src="{% static 'img/pic4.webp' %}" alt="Team moment" width="1600" height="1066" decoding="async" loading="lazy" srcset="{% static 'img/pic4-480.webp' %} 480w, {% static 'img/pic4-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-          <div class="tile"><img src="{% static 'img/pic5.jpeg' %}" alt="Team moment" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic5-480.webp' %} 480w, {% static 'img/pic5-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic4.jpeg' %}" alt="Team moment"></div>
+          <div class="tile"><img src="{% static 'img/pic5.jpeg' %}" alt="Team moment"></div>
         </div>
         <div class="gallery__col col-6">
-          <div class="tile"><img src="{% static 'img/pic6.jpeg' %}" alt="Team moment" width="1600" height="899" decoding="async" loading="lazy" srcset="{% static 'img/pic6-480.webp' %} 480w, {% static 'img/pic6-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-          <div class="tile"><img src="{% static 'img/pic7.jpeg' %}" alt="Team moment" width="1600" height="899" decoding="async" loading="lazy" srcset="{% static 'img/pic7-480.webp' %} 480w, {% static 'img/pic7-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic6.jpeg' %}" alt="Team moment"></div>
+          <div class="tile"><img src="{% static 'img/pic7.jpeg' %}" alt="Team moment"></div>
         </div>
         <div class="gallery__col col-7">
-          <div class="tile"><img src="{% static 'img/pic8.jpeg' %}" alt="Team moment" width="1600" height="719" decoding="async" loading="lazy" srcset="{% static 'img/pic8-480.webp' %} 480w, {% static 'img/pic8-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-          <div class="tile"><img src="{% static 'img/pic9.jpeg' %}" alt="Team moment" width="1599" height="899" decoding="async" loading="lazy" srcset="{% static 'img/pic9-480.webp' %} 480w, {% static 'img/pic9-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic8.jpeg' %}" alt="Team moment"></div>
+          <div class="tile"><img src="{% static 'img/pic9.jpeg' %}" alt="Team moment"></div>
         </div>
         <div class="gallery__col col-8">
-          <div class="tile"><img src="{% static 'img/pic10.jpeg' %}" alt="Team moment" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic10-480.webp' %} 480w, {% static 'img/pic10-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-          <div class="tile"><img src="{% static 'img/pic11.jpeg' %}" alt="Team moment" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic11-480.webp' %} 480w, {% static 'img/pic11-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic10.jpeg' %}" alt="Team moment"></div>
+          <div class="tile"><img src="{% static 'img/pic11.jpeg' %}" alt="Team moment"></div>
         </div>
         <div class="gallery__col col-9">
-          <div class="tile"><img src="{% static 'img/pic12.jpeg' %}" alt="Team moment" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic12-480.webp' %} 480w, {% static 'img/pic12-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-          <div class="tile"><img src="{% static 'img/pic13.jpeg' %}" alt="Team moment" width="1280" height="960" decoding="async" loading="lazy" srcset="{% static 'img/pic13-480.webp' %} 480w, {% static 'img/pic13-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic12.jpeg' %}" alt="Team moment"></div>
+          <div class="tile"><img src="{% static 'img/pic13.jpeg' %}" alt="Team moment"></div>
         </div>
       </div>
 
       <!-- Set B (duplicate for seamless loop) -->
       <div class="gallery__set" aria-hidden="true">
         <div class="gallery__col col-1">
-          <div class="tile"><img src="{% static 'img/pic1.jpeg' %}" alt="" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic1-480.webp' %} 480w, {% static 'img/pic1-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-          <div class="tile"><img src="{% static 'img/pic2.jpeg' %}" alt="" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic2-480.webp' %} 480w, {% static 'img/pic2-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic1.jpeg' %}?v=2" alt=""></div>
+          <div class="tile"><img src="{% static 'img/pic2.jpeg' %}?v=2" alt=""></div>
         </div>
         <div class="gallery__col col-2">
-          <div class="tile"><img src="{% static 'img/pic3.jpeg' %}" alt="" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic3-480.webp' %} 480w, {% static 'img/pic3-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic3.jpeg' %}?v=2" alt=""></div>
         </div>
         <div class="gallery__col col-3">
-          <div class="tile"><img src="{% static 'img/pic4.webp' %}" alt="" width="1600" height="1066" decoding="async" loading="lazy" srcset="{% static 'img/pic4-480.webp' %} 480w, {% static 'img/pic4-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-          <div class="tile"><img src="{% static 'img/pic5.jpeg' %}" alt="" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic5-480.webp' %} 480w, {% static 'img/pic5-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic4.jpeg' %}" alt=""></div>
+          <div class="tile"><img src="{% static 'img/pic5.jpeg' %}" alt=""></div>
         </div>
         <div class="gallery__col col-6">
-          <div class="tile"><img src="{% static 'img/pic6.jpeg' %}" alt="" width="1600" height="899" decoding="async" loading="lazy" srcset="{% static 'img/pic6-480.webp' %} 480w, {% static 'img/pic6-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-          <div class="tile"><img src="{% static 'img/pic7.jpeg' %}" alt="" width="1600" height="899" decoding="async" loading="lazy" srcset="{% static 'img/pic7-480.webp' %} 480w, {% static 'img/pic7-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic6.jpeg' %}" alt=""></div>
+          <div class="tile"><img src="{% static 'img/pic7.jpeg' %}" alt=""></div>
         </div>
         <div class="gallery__col col-7">
-          <div class="tile"><img src="{% static 'img/pic8.jpeg' %}" alt="" width="1600" height="719" decoding="async" loading="lazy" srcset="{% static 'img/pic8-480.webp' %} 480w, {% static 'img/pic8-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-          <div class="tile"><img src="{% static 'img/pic9.jpeg' %}" alt="" width="1599" height="899" decoding="async" loading="lazy" srcset="{% static 'img/pic9-480.webp' %} 480w, {% static 'img/pic9-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic8.jpeg' %}" alt=""></div>
+          <div class="tile"><img src="{% static 'img/pic9.jpeg' %}" alt=""></div>
         </div>
         <div class="gallery__col col-8">
-          <div class="tile"><img src="{% static 'img/pic10.jpeg' %}" alt="" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic10-480.webp' %} 480w, {% static 'img/pic10-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-          <div class="tile"><img src="{% static 'img/pic11.jpeg' %}" alt="" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic11-480.webp' %} 480w, {% static 'img/pic11-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic10.jpeg' %}" alt=""></div>
+          <div class="tile"><img src="{% static 'img/pic11.jpeg' %}" alt=""></div>
         </div>
         <div class="gallery__col col-9">
-          <div class="tile"><img src="{% static 'img/pic12.jpeg' %}" alt="" width="1600" height="1200" decoding="async" loading="lazy" srcset="{% static 'img/pic12-480.webp' %} 480w, {% static 'img/pic12-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-          <div class="tile"><img src="{% static 'img/pic13.jpeg' %}" alt="" width="1280" height="960" decoding="async" loading="lazy" srcset="{% static 'img/pic13-480.webp' %} 480w, {% static 'img/pic13-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+          <div class="tile"><img src="{% static 'img/pic12.jpeg' %}" alt=""></div>
+          <div class="tile"><img src="{% static 'img/pic13.jpeg' %}" alt=""></div>
         </div>
       </div>
 
@@ -646,7 +647,7 @@
         <div class="ect-level__top">
           <span class="ect-level__badge">L0</span>
           <span class="ect-level__icon">
-            <img src="{% static 'img/l0.png' %}" alt="L0 Explore" width="15" height="21" decoding="async" loading="lazy">
+            <img src="{% static 'img/l0.png' %}" alt="L0 Explore">
           </span>
         </div>
         <span class="ect-level__stage">Explore</span>
@@ -660,7 +661,7 @@
         <div class="ect-level__top">
           <span class="ect-level__badge">L1</span>
           <span class="ect-level__icon">
-            <img src="{% static 'img/l1.png' %}" alt="L1 Foundation" width="21" height="21" decoding="async" loading="lazy">
+            <img src="{% static 'img/l1.png' %}" alt="L1 Foundation">
           </span>
         </div>
         <span class="ect-level__stage">Foundation</span>
@@ -674,7 +675,7 @@
         <div class="ect-level__top">
           <span class="ect-level__badge">L2</span>
           <span class="ect-level__icon">
-            <img src="{% static 'img/l2.png' %}" alt="L2 Contributor" width="21" height="21" decoding="async" loading="lazy">
+            <img src="{% static 'img/l2.png' %}" alt="L2 Contributor">
           </span>
         </div>
         <span class="ect-level__stage">Contributor</span>
@@ -688,7 +689,7 @@
         <div class="ect-level__top">
           <span class="ect-level__badge">L3</span>
           <span class="ect-level__icon">
-            <img src="{% static 'img/l3.png' %}" alt="L3 Senior" width="13" height="21" decoding="async" loading="lazy">
+            <img src="{% static 'img/l3.png' %}" alt="L3 Senior">
           </span>
         </div>
         <span class="ect-level__stage">Senior</span>
@@ -702,7 +703,7 @@
         <div class="ect-level__top">
           <span class="ect-level__badge">L4</span>
           <span class="ect-level__icon">
-            <img src="{% static 'img/l4.png' %}" alt="L4 Team" width="18" height="21" decoding="async" loading="lazy">
+            <img src="{% static 'img/l4.png' %}" alt="L4 Team">
           </span>
         </div>
         <span class="ect-level__stage">Team</span>
@@ -716,7 +717,7 @@
         <div class="ect-level__top">
           <span class="ect-level__badge">L5</span>
           <span class="ect-level__icon">
-            <img src="{% static 'img/l5.png' %}" alt="L5 Function" width="24" height="20" decoding="async" loading="lazy">
+            <img src="{% static 'img/l5.png' %}" alt="L5 Function">
           </span>
         </div>
         <span class="ect-level__stage">Function</span>
@@ -730,7 +731,7 @@
         <div class="ect-level__top">
           <span class="ect-level__badge">L6</span>
           <span class="ect-level__icon">
-            <img src="{% static 'img/l6&7.png' %}" alt="L6 Business" width="21" height="21" decoding="async" loading="lazy">
+            <img src="{% static 'img/l6&7.png' %}" alt="L6 Business">
           </span>
         </div>
         <span class="ect-level__stage">Business</span>
@@ -744,7 +745,7 @@
         <div class="ect-level__top">
           <span class="ect-level__badge">L7</span>
           <span class="ect-level__icon">
-            <img src="{% static 'img/l6&7.png' %}" alt="L7 Executive" width="21" height="21" decoding="async" loading="lazy">
+            <img src="{% static 'img/l6&7.png' %}" alt="L7 Executive">
           </span>
         </div>
         <span class="ect-level__stage">Executive</span>
@@ -791,7 +792,7 @@
         <span class="ect-track__watermark">S</span>
         <div class="ect-track__head">
           <span class="ect-track__icon">
-            <img src="{% static 'img/hr-logo0.png' %}" alt="Specialist Track" width="21" height="20" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-logo0.png' %}" alt="Specialist Track">
           </span>
           <h3 class="ect-track__title">Specialist Track</h3>
         </div>
@@ -836,7 +837,7 @@
         <span class="ect-track__watermark">L</span>
         <div class="ect-track__head">
           <span class="ect-track__icon">
-            <img src="{% static 'img/hr-logo0.png' %}" alt="Leadership Track" width="21" height="20" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-logo0.png' %}" alt="Leadership Track">
           </span>
           <h3 class="ect-track__title">Leadership Track</h3>
         </div>
@@ -893,7 +894,7 @@
 
         <div class="ect-hiring__step" data-step="0">
           <div class="ect-hiring__icon-wrap">
-            <img src="{% static 'img/hr-logo1.png' %}" alt="Apply and get shortlisted" width="39" height="49" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-logo1.png' %}" alt="Apply and get shortlisted">
           </div>
           <p class="ect-hiring__label">Apply &amp; Get Shortlisted</p>
 
@@ -905,7 +906,7 @@
 
         <div class="ect-hiring__step" data-step="1">
           <div class="ect-hiring__icon-wrap">
-            <img src="{% static 'img/hr-logo2.png' %}" alt="Screening and assessment" width="50" height="50" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-logo2.png' %}" alt="Screening and assessment">
           </div>
           <p class="ect-hiring__label">Screening &amp; Assessment</p>
 
@@ -917,7 +918,7 @@
 
         <div class="ect-hiring__step" data-step="2">
           <div class="ect-hiring__icon-wrap">
-            <img src="{% static 'img/hr-logo3.png' %}" alt="Technical and panel interview" width="53" height="55" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-logo3.png' %}" alt="Technical and panel interview">
           </div>
           <p class="ect-hiring__label">Technical &amp; Panel Interview</p>
 
@@ -929,7 +930,7 @@
 
         <div class="ect-hiring__step" data-step="3">
           <div class="ect-hiring__icon-wrap">
-            <img src="{% static 'img/hr-logo4.png' %}" alt="HR discussion" width="55" height="55" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-logo4.png' %}" alt="HR discussion">
           </div>
           <p class="ect-hiring__label">HR Discussion</p>
 
@@ -941,7 +942,7 @@
 
         <div class="ect-hiring__step" data-step="4">
           <div class="ect-hiring__icon-wrap">
-            <img src="{% static 'img/hr-logo5.png' %}" alt="Offer and onboarding" width="53" height="41" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-logo5.png' %}" alt="Offer and onboarding">
           </div>
           <p class="ect-hiring__label">Offer &amp; Onboarding</p>
 
@@ -974,8 +975,8 @@
   <div class="talent-wrap">
     <div class="talent-bg"></div>
     <div class="talent-image">
-      <img src="{% static 'img/careercta.webp' %}" alt="Talent Network"
-        style="width: 100%; height: 100%; object-fit: cover; display: block;" width="454" height="382" decoding="async" loading="lazy">
+      <img src="{% static 'img/careercta.png' %}" alt="Talent Network"
+        style="width: 100%; height: 100%; object-fit: cover; display: block;">
     </div>
 
     <div class="talent-eyebrow">
@@ -1094,13 +1095,13 @@
 
 
   <!-- Link to the external JS file -->
-  <script src="{% static 'js/career.js' %}"></script>
+  <script src="{% static 'js/career.js' %}?v=2026091210"></script>
 {% include 'footer.html' %}
 
 
-  <script src="{% static 'js/base.js' %}"></script>
+  <script src="{% static 'js/base.js' %}?v=33"></script>
   {% include 'components/contact_popup.html' %}
-  <script src="{% static 'js/contact-popup.js' %}"></script>
+  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
 {% include 'components/zoho_salesiq.html' %}
 
 <!-- ================= UNIFORM 100PX SECTION GAPS (career page only) =================
