@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Outfit:wght@400&display=swap');
+
 :root{
   --ect-green: #0C3C01;
   --ect-green-alt: #0E3B12;
@@ -2851,7 +2853,7 @@ body {
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Outfit:wght@400&display=swap');
+
 
 * { box-sizing: border-box; }
 
