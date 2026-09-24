@@ -36,8 +36,9 @@
     </div>
     <div class="list-controls__right">
         <form action="" method="get" style="margin:0; position:relative;">
-            <input type="text" name="q" placeholder="Search articles..." value="{{ search_query }}" class="search-input">
-            <button type="submit" aria-label="Search articles" style="position:absolute; right:16px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:#666;">
+            <label class="visually-hidden" for="blog-search">Search articles</label>
+            <input id="blog-search" type="search" name="q" placeholder="Search articles..." value="{{ search_query }}" class="search-input" autocomplete="off">
+            <button type="submit" aria-label="Search articles" style="position:absolute; right:8px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:#666; width:44px; height:44px;">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </form>

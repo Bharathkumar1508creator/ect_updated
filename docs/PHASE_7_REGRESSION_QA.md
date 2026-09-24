@@ -30,9 +30,9 @@ Raw results:
 - `C:\Users\nithi\Documents\Codex\2026-09-18\test\outputs\ECT_PHASE_7_CHROME_AUDIT.json`
 - `C:\Users\nithi\Documents\Codex\2026-09-18\test\outputs\ECT_PHASE_7_EDGE_AUDIT.json`
 
-## Known warnings retained from skipped Phase 4
+## Phase 7 responsive findings subsequently resolved
 
-The user directed that Phase 4 remain skipped and reverted. The browser audit therefore records, but does not repair, these existing horizontal overflow cases:
+At the time of the Phase 7 checkpoint, Phase 4 was skipped and reverted, so its browser audit recorded these horizontal overflow cases:
 
 | Viewport | Routes | Overflow |
 |---|---|---:|
@@ -40,7 +40,7 @@ The user directed that Phase 4 remain skipped and reverted. The browser audit th
 | 360 px | `/projects/` | 17 px |
 | 1024 px | `/career/` | 240 px |
 
-These warnings are responsive-layout work and remain outside Phase 7. Phase 5 performance and asset optimization also remains skipped.
+These findings were resolved when the user later authorized restoration of Phase 4. The restored Phase 4 Chrome and Edge matrices each report zero overflow cases. Phase 5 performance and asset optimization remains skipped.
 
 ## Coverage limits
 

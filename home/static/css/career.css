@@ -2696,10 +2696,10 @@ body {
 
 
 /* ============================================================
-   TABLET
+   SMALL LAPTOP / TABLET
 ============================================================ */
 
-@media (max-width: 900px) {
+@media (max-width: 1287px) {
 
   .ect-join {
     padding-left: 20px;
@@ -4287,5 +4287,28 @@ body {
 @media (max-width: 1024px) {
   .gallery .tile img {
     object-fit: cover !important;
+  }
+}
+
+
+/* Phase 4 containment for animated visual layers */
+.ect-life-viewport,
+.gallery,
+.ect-join,
+.ect-career-cta {
+  overflow-x: clip;
+}
+
+@media (max-width: 1287px) {
+  .ect-join { width: 100%; max-width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .ect-badge-label { font-size: 12px; }
+  .ect-join__cta {
+    min-width: 132px;
+    width: auto;
+    padding-inline: 14px;
+    font-size: 12px;
   }
 }

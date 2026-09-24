@@ -334,7 +334,7 @@ class PublicSeoTests(TestCase):
         response = self.client.get(reverse("contact"))
         self.assertContains(
             response,
-            '<h1 class="seo-page-title">Contact ECOG Core Technologies</h1>',
+            '<h1 class="ect-map-title">Empowering Businesses Through Technology &amp; Innovation</h1>',
             html=False,
         )
 

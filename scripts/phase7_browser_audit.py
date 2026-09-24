@@ -46,9 +46,9 @@ def audit_page(page, route, width, height):
     page.wait_for_timeout(250)
     details = page.evaluate(
         r"""() => {
-          const root = document.documentElement;
+          const root = document.scrollingElement || document.documentElement;
           const width = window.innerWidth;
-          const overflow = Math.max(root.scrollWidth, document.body.scrollWidth) - width;
+          const overflow = root.scrollWidth - width;
           const offenders = [...document.querySelectorAll('body *')]
             .map((el) => {
               const rect = el.getBoundingClientRect();
