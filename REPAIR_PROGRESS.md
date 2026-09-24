@@ -36,7 +36,7 @@ If Codex usage stops, resume this task, inspect `git status`, read this file, ve
 | 5 | Selected image/video optimization, WebP delivery, posters, caching, fonts, and frontend performance | Complete — including srcset follow-up | `checkpoint-phase-5-srcset` |
 | 6 | Complete technical, on-page, and Coimbatore/Tamil Nadu local SEO | Complete | `checkpoint-phase-6` |
 | 7 | Automated regression tests and full viewport/browser QA | Complete | `checkpoint-phase-7` |
-| 8 | Final clean package, review evidence, deployment guide, and rollback guide | Pending | — |
+| 8 | Final clean package, review evidence, deployment guide, and rollback guide | Complete | `checkpoint-phase-8` |
 | 9 | Live VPS backup and deployment | Blocked until explicit approval | — |
 
 ## Phase details
@@ -129,10 +129,14 @@ Completed in `docs/PHASE_7_REGRESSION_QA.md`. The 54-test Django suite, migratio
 
 ### Phase 8 — Reviewable handoff
 
-- Produce the repaired project from a clean checkpoint.
-- Provide test results, before/after evidence, changed-file summary, migration review, and remaining limitations.
-- Provide Hostinger VPS backup, deployment, validation, and rollback instructions.
-- Do not modify the live server.
+Completed in `docs/PHASE_8_HANDOFF.md` and `docs/HOSTINGER_VPS_DEPLOYMENT_ROLLBACK.md`.
+
+- The release includes consolidated scope, verification evidence, data and migration review, production-input checklist, known limits, and package-safety rules.
+- Backup-first Hostinger deployment, atomic release switching, production validation, application rollback, conditional database recovery, and cleanup are documented.
+- Example systemd/Gunicorn and Nginx configurations are available in `deploy/`; exact VPS paths, service user, certificate directives, service name, and database settings must be verified before use.
+- The Linux WSGI dependency is pinned in `requirements.txt`.
+- The clean ZIP is generated from tracked files at `checkpoint-phase-8`, with a SHA-256 companion file and an external release manifest.
+- The live VPS, database, media, Nginx configuration, DNS, and third-party services remain unchanged.
 
 ### Phase 9 — Live deployment
 
@@ -161,3 +165,4 @@ This phase begins only after:
 | 2026-09-24 | Phase 4 Website subtitle | `checkpoint-phase-4-website-subtitle` | 54 Django tests, no migration drift, 20 JavaScript checks, and 6 Chrome widths with matched 16px desktop typography and zero subtitle clipping or overflow | Phase 5 remains skipped; no schema/data/media/external-submission/live-server changes |
 | 2026-09-24 | Phase 5 selected performance | `checkpoint-phase-5-selected` | 56 Django tests, no migration drift, 20 JavaScript checks, successful 656-file manifest collection, focused image/video checks, and 234 Chrome/Edge cases with zero hard failures or overflow | Approved items 1–9, 11–14, and 16 only; originals preserved; no schema/data/external-submission/live-server changes |
 | 2026-09-24 | Phase 5 srcset follow-up | `checkpoint-phase-5-srcset` | 57 Django tests, no migration drift, successful 656-file manifest collection, and 52 Chrome/Edge cases covering 688 responsive-image instances with zero malformed candidates, console warnings, or failed local images | 66 generated WebP filenames and 95 references made URL-safe; originals preserved; no schema/data/live-server changes |
+| 2026-09-24 | Phase 8 final handoff | `checkpoint-phase-8` | 57 Django tests, production settings check, no migration drift, Python dependency check, Tailwind build, 20 JavaScript checks, npm audit, 656-file manifest collection, and 234 Chrome/Edge cases with zero failures or overflow | Clean tracked-file ZIP, checksum, deployment/rollback guide, and server examples; no schema/data/external-submission/live-server changes |

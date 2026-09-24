@@ -1,0 +1,24 @@
+[Unit]
+Description=ECOG Core Technologies Django application
+After=network.target mysql.service
+Wants=network.target
+
+[Service]
+Type=simple
+User=YOUR_LINUX_USER
+Group=www-data
+WorkingDirectory=/var/www/ecog/current
+EnvironmentFile=/var/www/ecog/shared/.env
+RuntimeDirectory=ecog
+RuntimeDirectoryMode=0755
+ExecStart=/var/www/ecog/venv/bin/gunicorn ect.wsgi:application --bind unix:/run/ecog/gunicorn.sock --workers 3 --timeout 60 --access-logfile - --error-logfile -
+ExecReload=/bin/kill -s HUP $MAINPID
+KillSignal=SIGQUIT
+TimeoutStopSec=30
+PrivateTmp=true
+NoNewPrivileges=true
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
