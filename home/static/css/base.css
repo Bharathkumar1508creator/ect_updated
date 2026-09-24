@@ -10611,3 +10611,28 @@ textarea {
     white-space: normal;
   }
 }
+/* Phase 4 follow-up: keep 44px social targets inside narrow viewports. */
+@media (max-width: 40rem) {
+  .ect-follow-section {
+    width: 100%;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ect-s-icons {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .ect-s-icons a {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+  }
+}

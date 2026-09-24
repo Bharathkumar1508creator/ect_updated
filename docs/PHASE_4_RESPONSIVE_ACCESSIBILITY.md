@@ -67,3 +67,6 @@ External font, analytics, map, Zoho, and chat requests were blocked during local
 The logo-derived colors, Montserrat typography, and current design direction remain intact. Zoho Bigin, Zoho Recruit, Zoho SalesIQ, Google Analytics/Tag Manager, MapLibre, Google Fonts, and social links remain present.
 
 No model, migration, database row, uploaded media file, administrator account, blog, project, testimonial, service, newsletter subscriber, live-server file, or third-party record was changed. Phase 5 remains skipped. No live deployment is authorized by this checkpoint.
+## Manual-test follow-up
+
+A stricter follow-up was completed after manual testing exposed remaining overflow and CSP warnings that the original audit did not detect. The final repairs and evidence are recorded in `docs/PHASE_4_OVERFLOW_CSP_FOLLOWUP.md`. The strengthened Chrome and Edge matrices each report zero overflow and zero hard failures.

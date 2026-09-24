@@ -3412,3 +3412,9 @@ body {
     padding-bottom: 24px !important;
   }
 }
+/* Contain mobile hero paint so decorative content cannot widen the page. */
+@media (max-width: 640px) {
+  .website-figma-hero {
+    overflow-x: clip;
+  }
+}

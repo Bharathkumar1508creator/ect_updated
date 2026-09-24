@@ -1075,9 +1075,9 @@
     // separate desktop autoplay above over the same .is-active class,
     // which is why a card's tooltip would randomly change on its own
     // even while nothing else was happening.
-    if (window.matchMedia("(min-width: 1025px)").matches) return;
+    if (window.matchMedia("(min-width: 641px)").matches) return;
 
-    var mq = window.matchMedia("(max-width: 1024px)");
+    var mq = window.matchMedia("(max-width: 640px)");
     var current = 0;
     var timer = null;
     var paused = false;

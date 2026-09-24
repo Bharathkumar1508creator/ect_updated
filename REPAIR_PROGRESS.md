@@ -32,7 +32,7 @@ If Codex usage stops, resume this task, inspect `git status`, read this file, ve
 | 1 | Dependency and data-preservation inventory | Complete | `checkpoint-phase-1` |
 | 2 | Security, settings, contact handling, and removal of local career uploads | Complete | `checkpoint-phase-2` |
 | 3 | Shared navigation, popup, project pages, media logic, and integration resilience | Complete | `checkpoint-phase-3` |
-| 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Complete (restored after Phase 7) | `checkpoint-phase-4-restored` |
+| 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Complete, including manual-test follow-up | `checkpoint-phase-4-overflow-csp` |
 | 5 | Image/video optimization, WebP selection, posters, caching, and frontend performance | Skipped and reverted per user | — |
 | 6 | Complete technical, on-page, and Coimbatore/Tamil Nadu local SEO | Complete | `checkpoint-phase-6` |
 | 7 | Automated regression tests and full viewport/browser QA | Complete | `checkpoint-phase-7` |
@@ -92,6 +92,8 @@ Restored after Phase 7 at the user's request and revalidated against the current
 - Standardize responsive type, spacing, shared breakpoints, menus, dialogs, forms, carousels, and media.
 - Repair labels, heading structure, keyboard behavior, focus handling, iframe titles, and alt text.
 - Cover current Chrome, Edge, Firefox, Safari, Android, and iOS behavior.
+
+Completed in `docs/PHASE_4_RESPONSIVE_ACCESSIBILITY.md` with the manual-test correction recorded in `docs/PHASE_4_OVERFLOW_CSP_FOLLOWUP.md`. Manual testing exposed shared-footer overflow at 320px, transformed Projects cards crossing 320px/360px, a Careers horizontal rail at 1024px, mobile Website hero paint overflow, and incomplete SalesIQ CSP sources. These are repaired. The strengthened Chrome and Edge matrices passed 234 combined cases with zero overflow and zero hard failures; a real SalesIQ load produced zero CSP violations and zero Zoho request failures. Native Firefox, Safari, and physical Android/iOS execution remains unavailable.
 
 ### Phase 5 — Performance and assets
 
@@ -155,3 +157,4 @@ This phase begins only after:
 | 2026-09-22 | Phase 6 | `checkpoint-phase-6` | Django checks, no migration drift, 53 tests, canonical/static metadata audit, sitemap/robots verification, and diff integrity | Phases 4–5 remain skipped; no schema/data/media/live-server changes |
 | 2026-09-24 | Phase 7 | `checkpoint-phase-7` | 54 Django tests, no migration drift, 20 JavaScript syntax checks, and 234 Chrome/Edge browser cases with zero hard failures | Phase 4 overflow warnings retained; no schema/data/media/external-submission/live-server changes |
 | 2026-09-24 | Phase 4 restored | `checkpoint-phase-4-restored` | 54 Django tests, no migration drift, 20 JavaScript syntax checks, and 234 Chrome/Edge browser cases with zero hard failures and zero overflow | Phase 5 remains skipped; no schema/data/media/external-submission/live-server changes |
+| 2026-09-24 | Phase 4 manual-test follow-up | `checkpoint-phase-4-overflow-csp` | 54 Django tests, no migration drift, 20 JavaScript checks, stricter 234-case Chrome/Edge matrix with zero overflow, and real SalesIQ load with zero CSP violations | CSP remains report-only; Phase 5 remains skipped; no schema/data/media/external-submission/live-server changes |

@@ -90,7 +90,15 @@ class SecurityBoundaryTests(TestCase):
         self.assertEqual(response.headers["X-Frame-Options"], "DENY")
         self.assertEqual(response.headers["X-Content-Type-Options"], "nosniff")
         self.assertIn("camera=()", response.headers["Permissions-Policy"])
-        self.assertIn("object-src 'none'", response.headers["Content-Security-Policy-Report-Only"])
+        csp = response.headers["Content-Security-Policy-Report-Only"]
+        self.assertIn("object-src 'none'", csp)
+        for salesiq_source in (
+            "https://static.zohocdn.com",
+            "wss://vts.zohopublic.in",
+            "https://cdnjs.cloudflare.com",
+            "worker-src 'self' blob:",
+        ):
+            self.assertIn(salesiq_source, csp)
 
     def test_project_rich_text_removes_executable_markup(self):
         rendered = str(

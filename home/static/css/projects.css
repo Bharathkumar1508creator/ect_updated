@@ -648,3 +648,11 @@
   .category-filters { width: 100%; }
   .btn-filter { min-height: 44px; display: inline-flex; align-items: center; }
 }
+/* Keep every transformed carousel card inside narrow phone viewports. */
+@media (max-width: 400px) {
+  .hero-carousel-card[data-offset="-2"] { transform: translate(-80px, 24px) rotate(0) scale(.70); }
+  .hero-carousel-card[data-offset="-1"] { transform: translate(-48px, 12px) rotate(0) scale(.82); }
+  .hero-carousel-card[data-offset="0"]  { transform: translate(0, 0) rotate(0) scale(1); }
+  .hero-carousel-card[data-offset="1"]  { transform: translate(48px, 12px) rotate(0) scale(.82); }
+  .hero-carousel-card[data-offset="2"]  { transform: translate(80px, 24px) rotate(0) scale(.70); }
+}

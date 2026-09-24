@@ -250,13 +250,14 @@ SECURE_CSP_REPORT_ONLY = {
     'object-src': [CSP.NONE],
     'frame-ancestors': [CSP.NONE],
     'form-action': [CSP.SELF, 'https://bigin.zoho.in'],
-    'script-src': [CSP.SELF, CSP.UNSAFE_INLINE, 'https://www.googletagmanager.com', 'https://salesiq.zohopublic.in', 'https://bigin.zoho.in', 'https://unpkg.com', 'https://cdnjs.cloudflare.com'],
-    'style-src': [CSP.SELF, CSP.UNSAFE_INLINE, 'https://fonts.googleapis.com', 'https://unpkg.com', 'https://cdnjs.cloudflare.com'],
-    'font-src': [CSP.SELF, 'https://fonts.gstatic.com', 'data:'],
+    'script-src': [CSP.SELF, CSP.UNSAFE_INLINE, 'https://www.googletagmanager.com', 'https://salesiq.zohopublic.in', 'https://static.zohocdn.com', 'https://bigin.zoho.in', 'https://unpkg.com', 'https://cdnjs.cloudflare.com'],
+    'style-src': [CSP.SELF, CSP.UNSAFE_INLINE, 'https://fonts.googleapis.com', 'https://static.zohocdn.com', 'https://unpkg.com', 'https://cdnjs.cloudflare.com'],
+    'font-src': [CSP.SELF, 'https://fonts.gstatic.com', 'https://static.zohocdn.com', 'https://cdnjs.cloudflare.com', 'data:'],
     'img-src': [CSP.SELF, 'data:', 'https:'],
     'media-src': [CSP.SELF],
     'frame-src': [CSP.SELF, 'https://bigin.zoho.in', 'https://www.youtube.com', 'https://www.youtube-nocookie.com'],
-    'connect-src': [CSP.SELF, 'https:'],
+    'connect-src': [CSP.SELF, 'https:', 'wss://vts.zohopublic.in'],
+    'worker-src': [CSP.SELF, 'blob:'],
 }
 
 TRUST_X_FORWARDED_FOR = _env_bool('DJANGO_TRUST_X_FORWARDED_FOR', default=False)

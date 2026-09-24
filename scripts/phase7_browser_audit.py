@@ -48,7 +48,7 @@ def audit_page(page, route, width, height):
         r"""() => {
           const root = document.scrollingElement || document.documentElement;
           const width = window.innerWidth;
-          const overflow = root.scrollWidth - width;
+          const overflow = Math.max(root.scrollWidth, document.body.scrollWidth) - width;
           const offenders = [...document.querySelectorAll('body *')]
             .map((el) => {
               const rect = el.getBoundingClientRect();
@@ -77,6 +77,15 @@ def audit_page(page, route, width, height):
             ).length,
             duplicateIds,
             overflow: Math.max(0, Math.round(overflow)),
+            projectCarouselViewportOverflowCount: [...document.querySelectorAll('.hero-carousel-card')]
+              .filter((card) => {
+                const rect = card.getBoundingClientRect();
+                return rect.left < -1 || rect.right > width + 1;
+              }).length,
+            tabletHiringOverflow: (() => {
+              const rail = document.querySelector('.ect-hiring__steps');
+              return Boolean(rail && width >= 641 && width <= 1024 && rail.scrollWidth > rail.clientWidth + 1);
+            })(),
             overflowOffenders: offenders,
             legacyHtmlLinks: [...document.querySelectorAll('a[href]')]
               .map((a) => a.getAttribute('href'))
@@ -107,6 +116,8 @@ def audit_page(page, route, width, height):
         or details["h1Count"] != 1
         or details["duplicateIds"]
         or details["legacyHtmlLinks"]
+        or details["projectCarouselViewportOverflowCount"] > 0
+        or details["tabletHiringOverflow"]
     )
     page.remove_listener("pageerror", on_page_error)
     page.remove_listener("response", on_response)
