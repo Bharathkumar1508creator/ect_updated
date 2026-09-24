@@ -330,6 +330,14 @@ class PublicSeoTests(TestCase):
         )
         self.assertContains(robots, "Disallow: /blog/preview/")
 
+    def test_contact_has_a_single_main_heading(self):
+        response = self.client.get(reverse("contact"))
+        self.assertContains(
+            response,
+            '<h1 class="seo-page-title">Contact ECOG Core Technologies</h1>',
+            html=False,
+        )
+
     def test_under_construction_page_is_noindex(self):
         response = self.client.get(reverse("under"))
         self.assertContains(response, 'content="noindex,nofollow"')

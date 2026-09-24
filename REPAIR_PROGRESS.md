@@ -35,7 +35,7 @@ If Codex usage stops, resume this task, inspect `git status`, read this file, ve
 | 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Skipped and reverted per user | — |
 | 5 | Image/video optimization, WebP selection, posters, caching, and frontend performance | Skipped and reverted per user | — |
 | 6 | Complete technical, on-page, and Coimbatore/Tamil Nadu local SEO | Complete | `checkpoint-phase-6` |
-| 7 | Automated regression tests and full viewport/browser QA | Pending | — |
+| 7 | Automated regression tests and full viewport/browser QA | Complete | `checkpoint-phase-7` |
 | 8 | Final clean package, review evidence, deployment guide, and rollback guide | Pending | — |
 | 9 | Live VPS backup and deployment | Blocked until explicit approval | — |
 
@@ -125,6 +125,8 @@ Completed in `docs/PHASE_6_SEO.md`. Canonical non-www and clean-route redirects,
 - Submit clearly labelled Zoho Bigin test enquiries only during authorized end-to-end verification.
 - Record known external-service limits separately.
 
+Completed in `docs/PHASE_7_REGRESSION_QA.md`. The 54-test Django suite, migration-drift check, and all 20 JavaScript syntax checks passed. Chrome and Edge passed 234 combined route/viewport cases with zero hard failures, zero missing image alternatives, and zero unnamed buttons; interaction checks passed without submitting the Zoho Bigin form. Existing overflow at 13 route/width combinations is documented as Phase 4 work that remains skipped. Native Firefox, Safari, Android, and iOS testing remains unavailable on this Windows host. No schema, data, uploaded media, external submission, or live-server change was made.
+
 ### Phase 8 — Reviewable handoff
 
 - Produce the repaired project from a clean checkpoint.
@@ -151,3 +153,4 @@ This phase begins only after:
 | 2026-09-19 | Phase 2 | `checkpoint-phase-2` | Django checks including production deploy check, no migration drift, 40 tests, dependency audits, JavaScript syntax, Tailwind build, and static safety checks | No schema/data/live-server changes |
 | 2026-09-19 | Phase 3 | `checkpoint-phase-3` | Django checks, no migration drift, 47 tests, JavaScript syntax, 343 static references with zero missing, 13 primary-route renders, and all 6 published project renders | No schema/data/media/live-server changes |
 | 2026-09-22 | Phase 6 | `checkpoint-phase-6` | Django checks, no migration drift, 53 tests, canonical/static metadata audit, sitemap/robots verification, and diff integrity | Phases 4–5 remain skipped; no schema/data/media/live-server changes |
+| 2026-09-24 | Phase 7 | `checkpoint-phase-7` | 54 Django tests, no migration drift, 20 JavaScript syntax checks, and 234 Chrome/Edge browser cases with zero hard failures | Phase 4 overflow warnings retained; no schema/data/media/external-submission/live-server changes |

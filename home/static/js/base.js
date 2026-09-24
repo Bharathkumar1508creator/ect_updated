@@ -77,6 +77,15 @@ if (ectMobileAccordion) {
     /* ---------- Hamburger Toggle ---------- */
     const ectMobileToggle = document.getElementById('ectMobileToggle');
     if (ectMobileToggle && mobilePanel) {
+        function closeMobilePanel(restoreFocus = false) {
+            mobilePanel.classList.remove('is-open');
+            ectMobileToggle.classList.remove('is-open');
+            ectMobileToggle.setAttribute('aria-expanded', 'false');
+            mobilePanel.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (restoreFocus) ectMobileToggle.focus();
+        }
+
         ectMobileToggle.addEventListener('click', () => {
             const open = mobilePanel.classList.toggle('is-open');
             ectMobileToggle.classList.toggle('is-open', open);
@@ -93,11 +102,13 @@ if (ectMobileAccordion) {
         /* ---------- Reset mobile panel if resized to desktop ---------- */
         window.addEventListener('resize', () => {
             if (window.innerWidth > 1024 && mobilePanel.classList.contains('is-open')) {
-                mobilePanel.classList.remove('is-open');
-                ectMobileToggle.classList.remove('is-open');
-                ectMobileToggle.setAttribute('aria-expanded', false);
-                mobilePanel.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
+                closeMobilePanel();
+            }
+        });
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && mobilePanel.classList.contains('is-open')) {
+                closeMobilePanel(true);
             }
         });
     }
