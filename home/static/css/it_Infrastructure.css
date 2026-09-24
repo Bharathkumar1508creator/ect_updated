@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Outfit:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -197,7 +199,7 @@ body {
 }
 
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Outfit:wght@400;500;600&display=swap");
+
 
 
 
@@ -881,7 +883,7 @@ body {
    ECT Banner Styles
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 
 .ect-banner {
   position: relative;
