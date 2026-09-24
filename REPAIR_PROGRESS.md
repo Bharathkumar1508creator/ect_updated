@@ -33,7 +33,7 @@ If Codex usage stops, resume this task, inspect `git status`, read this file, ve
 | 2 | Security, settings, contact handling, and removal of local career uploads | Complete | `checkpoint-phase-2` |
 | 3 | Shared navigation, popup, project pages, media logic, and integration resilience | Complete | `checkpoint-phase-3` |
 | 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Complete, including Website subtitle follow-up | `checkpoint-phase-4-website-subtitle` |
-| 5 | Selected image/video optimization, WebP delivery, posters, caching, fonts, and frontend performance | Complete — approved items only | `checkpoint-phase-5-selected` |
+| 5 | Selected image/video optimization, WebP delivery, posters, caching, fonts, and frontend performance | Complete — including srcset follow-up | `checkpoint-phase-5-srcset` |
 | 6 | Complete technical, on-page, and Coimbatore/Tamil Nadu local SEO | Complete | `checkpoint-phase-6` |
 | 7 | Automated regression tests and full viewport/browser QA | Complete | `checkpoint-phase-7` |
 | 8 | Final clean package, review evidence, deployment guide, and rollback guide | Pending | — |
@@ -97,7 +97,7 @@ Completed in `docs/PHASE_4_RESPONSIVE_ACCESSIBILITY.md`, with manual-test correc
 
 ### Phase 5 — Selected performance and assets
 
-Completed in `docs/PHASE_5_SELECTED_PERFORMANCE.md` for the user-approved items **1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, and 16**.
+Completed in `docs/PHASE_5_SELECTED_PERFORMANCE.md` for the user-approved items **1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, and 16**. The responsive-image filename correction is recorded in `docs/PHASE_5_SRCSET_FOLLOWUP.md`.
 
 - Static images now have intrinsic dimensions, asynchronous decoding, appropriate lazy loading, quality-checked WebP delivery, and responsive candidates. Original PNG/JPEG files remain preserved.
 - Project cards use non-destructive cached WebP variants, and future affected admin uploads are orientation-safe, capped at 1920 pixels, and converted to WebP. Existing uploads and database rows remain unchanged.
@@ -160,3 +160,4 @@ This phase begins only after:
 | 2026-09-24 | Phase 4 remaining CSS imports | `checkpoint-phase-4-css-import-complete` | 54 Django tests, no migration drift, 20 JavaScript checks, and 6 focused Chrome cases with zero import issues, page errors, or overflow | All served imports valid; Phase 5 remains skipped; no schema/data/media/external-submission/live-server changes |
 | 2026-09-24 | Phase 4 Website subtitle | `checkpoint-phase-4-website-subtitle` | 54 Django tests, no migration drift, 20 JavaScript checks, and 6 Chrome widths with matched 16px desktop typography and zero subtitle clipping or overflow | Phase 5 remains skipped; no schema/data/media/external-submission/live-server changes |
 | 2026-09-24 | Phase 5 selected performance | `checkpoint-phase-5-selected` | 56 Django tests, no migration drift, 20 JavaScript checks, successful 656-file manifest collection, focused image/video checks, and 234 Chrome/Edge cases with zero hard failures or overflow | Approved items 1–9, 11–14, and 16 only; originals preserved; no schema/data/external-submission/live-server changes |
+| 2026-09-24 | Phase 5 srcset follow-up | `checkpoint-phase-5-srcset` | 57 Django tests, no migration drift, successful 656-file manifest collection, and 52 Chrome/Edge cases covering 688 responsive-image instances with zero malformed candidates, console warnings, or failed local images | 66 generated WebP filenames and 95 references made URL-safe; originals preserved; no schema/data/live-server changes |

@@ -1,4 +1,5 @@
 import io
+import re
 import tempfile
 from pathlib import Path
 
@@ -402,3 +403,19 @@ class PublicSeoTests(TestCase):
     def test_under_construction_page_is_noindex(self):
         response = self.client.get(reverse("under"))
         self.assertContains(response, 'content="noindex,nofollow"')
+
+
+class ResponsiveImageMarkupTests(TestCase):
+    srcset_attribute = re.compile(r"""srcset=["']([^"']+)["']""", re.IGNORECASE | re.DOTALL)
+    static_path = re.compile(r"""{%\s*static\s+["']([^"']+)["']\s*%}""")
+
+    def test_srcset_static_paths_are_url_safe(self):
+        template_root = Path(__file__).resolve().parent / "templates"
+        unsafe = []
+        for template in template_root.rglob("*.html"):
+            source = template.read_text(encoding="utf-8")
+            for attribute in self.srcset_attribute.findall(source):
+                for static_path in self.static_path.findall(attribute):
+                    if any(character.isspace() for character in static_path):
+                        unsafe.append(f"{template.relative_to(template_root)}: {static_path}")
+        self.assertEqual(unsafe, [], "Whitespace breaks srcset candidates: " + "; ".join(unsafe))
