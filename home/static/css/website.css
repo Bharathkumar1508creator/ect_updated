@@ -3418,3 +3418,21 @@ body {
     overflow-x: clip;
   }
 }
+
+/* Website hero subtitle: match the 16px WEB SOLUTIONS label on desktop
+   and allow the complete sentence to wrap on narrow screens. */
+.website-figma-hero .website-figma-hero__subtitle {
+  height: auto !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  white-space: normal !important;
+}
+
+@media (max-width: 640px) {
+  .website-figma-hero .website-figma-hero__subtitle {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 14px !important;
+    overflow-wrap: normal;
+  }
+}
