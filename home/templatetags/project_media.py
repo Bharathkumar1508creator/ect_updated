@@ -3,6 +3,8 @@ from urllib.parse import parse_qs, urlparse
 
 from django import template
 
+from home.image_utils import optimized_media_image_url
+
 
 register = template.Library()
 
@@ -74,7 +76,8 @@ def _file_url(field):
 
 @register.simple_tag
 def project_preview_url(project):
-    image_url = _file_url(getattr(project, "hero_image", None))
+    hero_image = getattr(project, "hero_image", None)
+    image_url = optimized_media_image_url(hero_image)
     media_type = getattr(project, "hero_media_type", "")
     if media_type in {"image", "video"} and image_url:
         return image_url

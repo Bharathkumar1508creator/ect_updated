@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Outfit:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap');
 
 *,
 *::before,
@@ -1765,10 +1764,10 @@ body {
   right: 0;
   width: 690px;
   height: 384px;
-  /* Was background: url(../img/itcta1.png) ... — itcta1.png never existed
+  /* Was background: ../img/itcta1.png ... — that source file never existed
      under home/img/ (a same-named file only exists as an unrelated
      Django-uploaded media asset), so this permanently 404'd. The real
-     <img src="{% static 'img/iitcta.png' %}"> child fills this exact box
+     <img src="{% static 'img/iitcta.webp' %}"> child fills this exact box
      and fully covers it, so the fallback color below is what actually
      shows either way. */
   background: #D9D9D9;

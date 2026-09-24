@@ -7,11 +7,10 @@
   {% include 'components/favicon.html' %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% include "components/seo_meta.html" %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Outfit:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@100..900&family=Mulish:wght@400;500;600;700&family=Outfit:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  {% include "components/seo_meta.html" %}
   <link rel="stylesheet" href="{% static 'css/base.css' %}?v=42">
   <link rel="stylesheet" href="{% static 'css/software.css' %}?v=23">
   <link rel="stylesheet" href="{% static 'css/zoho.css' %}?v=20">
@@ -62,7 +61,7 @@
     <a href="#infra-cloud-services" class="infra-figma-hero__cta" data-smooth-scroll>Explore Services</a>
 
     <div class="infra-figma-hero__video-frame">
-      <video class="infra-figma-hero__video" src="{% static 'video/IT_infrastructure.mp4' %}" autoplay loop muted playsinline>
+      <video class="infra-figma-hero__video" src="{% static 'video/IT_infrastructure-optimized.mp4' %}" autoplay loop muted playsinline poster="{% static 'video/IT_infrastructure-poster.webp' %}">
       </video>
     </div>
   </section>
@@ -119,8 +118,8 @@
       <div class="ect-web-solutions__panel is-active" id="ect-cloud-solutions-panel-0" role="tabpanel"
         aria-labelledby="ect-cloud-solutions-tab-0">
         <div class="ect-web-solutions__media">
-          <img src="{% static 'img/it1.png' %}" alt="Cloud Workspace Solutions" class="ect-web-solutions__image" width="874"
-            height="502" decoding="async">
+          <img src="{% static 'img/it1.webp' %}" alt="Cloud Workspace Solutions" class="ect-web-solutions__image" width="874"
+            height="502" decoding="async" loading="lazy">
         </div>
         <h3 class="ect-web-solutions__content-title">Collaborate from Anywhere</h3>
         <p class="ect-web-solutions__description">Enable secure communication and seamless collaboration with
@@ -138,8 +137,8 @@
       <div class="ect-web-solutions__panel" id="ect-cloud-solutions-panel-1" role="tabpanel"
         aria-labelledby="ect-cloud-solutions-tab-1">
         <div class="ect-web-solutions__media">
-          <img src="{% static 'img/it2.png' %}" alt="Domain and DNS Management" class="ect-web-solutions__image" width="874"
-            height="502" decoding="async">
+          <img src="{% static 'img/it2.webp' %}" alt="Domain and DNS Management" class="ect-web-solutions__image" width="874"
+            height="502" decoding="async" loading="lazy">
         </div>
         <h3 class="ect-web-solutions__content-title">Protect Your Online Identity</h3>
         <p class="ect-web-solutions__description">Manage your domains with secure registration, DNS configuration, SSL
@@ -156,8 +155,8 @@
       <div class="ect-web-solutions__panel" id="ect-cloud-solutions-panel-2" role="tabpanel"
         aria-labelledby="ect-cloud-solutions-tab-2">
         <div class="ect-web-solutions__media">
-          <img src="{% static 'img/it3.png' %}" alt="Web Hosting and Deployment" class="ect-web-solutions__image" width="874"
-            height="502" decoding="async">
+          <img src="{% static 'img/it3.webp' %}" alt="Web Hosting and Deployment" class="ect-web-solutions__image" width="874"
+            height="502" decoding="async" loading="lazy">
         </div>
         <h3 class="ect-web-solutions__content-title">Fast &amp; Secure Hosting</h3>
         <p class="ect-web-solutions__description">Deploy, host, and manage high-performance websites with secure
@@ -176,7 +175,7 @@
         aria-labelledby="ect-cloud-solutions-tab-3">
         <div class="ect-web-solutions__media">
           <img src="{% static 'img/it4.png' %}" alt="Server Management" class="ect-web-solutions__image" width="874" height="502"
-            decoding="async">
+            decoding="async" loading="lazy">
         </div>
         <h3 class="ect-web-solutions__content-title">Keep Your Servers Running</h3>
         <p class="ect-web-solutions__description">Maintain secure, reliable, and high-performing servers with proactive
@@ -203,7 +202,7 @@
         <a href="javascript:void(0)" class="ect-it-banner__cta popup-trigger">Start Your IT Journey</a>
       </div>
       <div class="ect-it-banner__image">
-        <img src="{% static 'img/iitcta.png' %}" alt="Secure IT Infrastructure for Future Growth">
+        <img src="{% static 'img/iitcta.webp' %}" alt="Secure IT Infrastructure for Future Growth" width="690" height="384" decoding="async" loading="lazy" srcset="{% static 'img/iitcta-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw">
       </div>
     </div>
   </section>
@@ -222,7 +221,7 @@
       <!-- Step 01 -->
       <div class="zoho-implementation__cell" data-step="1">
         <div class="zoho-implementation__icon">
-          <img src="{% static 'img/zoom.png' %}" alt="Zoom">
+          <img src="{% static 'img/zoom.png' %}" alt="Zoom" width="52" height="52" decoding="async" loading="lazy">
         </div>
         <span class="zoho-implementation__step-label">Step 01</span>
         <h3 class="zoho-implementation__cell-title">Assessment &amp; Planning</h3>
@@ -233,7 +232,7 @@
       <!-- Step 02 -->
       <div class="zoho-implementation__cell" data-step="2">
         <div class="zoho-implementation__icon icon-zoom">
-          <img src="{% static 'img/soluction.png' %}" alt="soluction">
+          <img src="{% static 'img/soluction.png' %}" alt="soluction" width="50" height="48" decoding="async" loading="lazy">
         </div>
         <span class="zoho-implementation__step-label">Step 02</span>
         <h3 class="zoho-implementation__cell-title">Setup &amp; Configuration</h3>
@@ -244,7 +243,7 @@
       <!-- Step 03 -->
       <div class="zoho-implementation__cell" data-step="3">
         <div class="zoho-implementation__icon">
-          <img src="{% static 'img/implement.png' %}" alt="implement">
+          <img src="{% static 'img/implement.png' %}" alt="implement" width="52" height="52" decoding="async" loading="lazy">
         </div>
         <span class="zoho-implementation__step-label">Step 03</span>
         <h3 class="zoho-implementation__cell-title">Deployment &amp; Testing</h3>
@@ -255,7 +254,7 @@
       <!-- Step 04 -->
       <div class="zoho-implementation__cell" data-step="4">
         <div class="zoho-implementation__icon">
-          <img src="{% static 'img/training.png' %}" alt="training">
+          <img src="{% static 'img/training.png' %}" alt="training" width="57" height="54" decoding="async" loading="lazy">
         </div>
         <span class="zoho-implementation__step-label">Step 04</span>
         <h3 class="zoho-implementation__cell-title">Monitoring &amp; Support</h3>
@@ -293,21 +292,21 @@
     <div class="tb-track-wrapper" id="tb-row1">
       <div class="tb-track">
         <div class="tb-item"><img class="tb-img" src="{% static 'img/Hostimger logo.png' %}" alt="Shana Properties and Builders"
-            loading="lazy"></div>
-        <div class="tb-item"><img class="tb-img" src="{% static 'img/ZOHO2.png' %}" alt="Zoho" loading="lazy"></div>
-        <div class="tb-item"><img class="tb-img" src="{% static 'img/AWS.jpg.jpeg' %}" alt="DTDC" loading="lazy"></div>
+            loading="lazy" width="447" height="447" decoding="async" srcset="{% static 'img/Hostimger logo-160.webp' %} 160w, {% static 'img/Hostimger logo-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+        <div class="tb-item"><img class="tb-img" src="{% static 'img/ZOHO2.png' %}" alt="Zoho" loading="lazy" width="738" height="414" decoding="async" srcset="{% static 'img/ZOHO2-160.webp' %} 160w, {% static 'img/ZOHO2-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+        <div class="tb-item"><img class="tb-img" src="{% static 'img/AWS.jpg.jpeg' %}" alt="DTDC" loading="lazy" width="555" height="390" decoding="async" srcset="{% static 'img/AWS.jpg-160.webp' %} 160w, {% static 'img/AWS.jpg-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
         <div class="tb-item"><img class="tb-img" src="{% static 'img/Digital Ocean Logo.png' %}" alt="Swasthik Building Solutions"
-            loading="lazy"></div>
-        <div class="tb-item"><img class="tb-img" src="{% static 'img/Logo-Google-cloud.png' %}" alt="ECOG Core Technologies"
-            loading="lazy"></div>
-        <div class="tb-item"><img class="tb-img" src="{% static 'img/Godaddy-logo.png' %}" alt="Amirtham Constructions" loading="lazy">
+            loading="lazy" width="447" height="447" decoding="async" srcset="{% static 'img/Digital Ocean Logo-160.webp' %} 160w, {% static 'img/Digital Ocean Logo-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+        <div class="tb-item"><img class="tb-img" src="{% static 'img/Logo-Google-Cloud.png' %}" alt="ECOG Core Technologies"
+            loading="lazy" width="3840" height="2400" decoding="async" srcset="{% static 'img/Logo-Google-cloud-160.webp' %} 160w, {% static 'img/Logo-Google-cloud-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+        <div class="tb-item"><img class="tb-img" src="{% static 'img/Godaddy-logo.png' %}" alt="Amirtham Constructions" loading="lazy" width="500" height="281" decoding="async" srcset="{% static 'img/Godaddy-logo-160.webp' %} 160w, {% static 'img/Godaddy-logo-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px">
         </div>
         <div class="tb-item"><img class="tb-img" src="{% static 'img/Google-Workspace.png' %}" alt="Abhiro Water Purifier"
-            loading="lazy"></div>
-        <div class="tb-item"><img class="tb-img" src="{% static 'img/zohoworkplace.jpeg' %}" alt="ECOG Products" loading="lazy"></div>
+            loading="lazy" width="3840" height="2160" decoding="async" srcset="{% static 'img/Google-Workspace-160.webp' %} 160w, {% static 'img/Google-Workspace-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+        <div class="tb-item"><img class="tb-img" src="{% static 'img/zohoworkplace.jpeg' %}" alt="ECOG Products" loading="lazy" width="447" height="447" decoding="async" srcset="{% static 'img/zohoworkplace-160.webp' %} 160w, {% static 'img/zohoworkplace-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
         <div class="tb-item"><img class="tb-img" src="{% static 'img/Microsoft-Office-365.png' %}"
-            alt="Prakash Centering and Scaffolding" loading="lazy"></div>
-        <div class="tb-item"><img class="tb-img" src="{% static 'img/zoho-domain.png' %}" alt="Water Zone" loading="lazy"></div>
+            alt="Prakash Centering and Scaffolding" loading="lazy" width="3840" height="2160" decoding="async" srcset="{% static 'img/Microsoft-Office-365-160.webp' %} 160w, {% static 'img/Microsoft-Office-365-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+        <div class="tb-item"><img class="tb-img" src="{% static 'img/zoho-domain.png' %}" alt="Water Zone" loading="lazy" width="413" height="121" decoding="async" srcset="{% static 'img/zoho-domain-160.webp' %} 160w, {% static 'img/zoho-domain-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
 
 
       </div>
@@ -321,13 +320,13 @@
     <!-- ROW 2 â€” infinite loop scroll (opposite direction) -->
     <!-- <div class="tb-track-wrapper" id="tb-row2">
     <div class="tb-track">
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/Google-Workspace.png' %}" alt="Abhiro Water Purifier" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/zohoworkplace.jpeg' %}" alt="ECOG Products" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/Microsoft-Office-365.png' %}" alt="Prakash Centering and Scaffolding" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/zoho-domain.png' %}" alt="Water Zone" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/Digital Ocean Logo.png' %}" alt="Excel Packs" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/Godaddy-logo.png' %}" alt="Kamalam" loading="lazy"></div>
-      <div class="tb-item"><img class="tb-img" src="{% static 'img/AWS.jpg.jpeg' %}" alt="Kannan Sweets" loading="lazy"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/Google-Workspace.png' %}" alt="Abhiro Water Purifier" loading="lazy" width="3840" height="2160" decoding="async" srcset="{% static 'img/Google-Workspace-160.webp' %} 160w, {% static 'img/Google-Workspace-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/zohoworkplace.jpeg' %}" alt="ECOG Products" loading="lazy" width="447" height="447" decoding="async" srcset="{% static 'img/zohoworkplace-160.webp' %} 160w, {% static 'img/zohoworkplace-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/Microsoft-Office-365.png' %}" alt="Prakash Centering and Scaffolding" loading="lazy" width="3840" height="2160" decoding="async" srcset="{% static 'img/Microsoft-Office-365-160.webp' %} 160w, {% static 'img/Microsoft-Office-365-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/zoho-domain.png' %}" alt="Water Zone" loading="lazy" width="413" height="121" decoding="async" srcset="{% static 'img/zoho-domain-160.webp' %} 160w, {% static 'img/zoho-domain-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/Digital Ocean Logo.png' %}" alt="Excel Packs" loading="lazy" width="447" height="447" decoding="async" srcset="{% static 'img/Digital Ocean Logo-160.webp' %} 160w, {% static 'img/Digital Ocean Logo-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/Godaddy-logo.png' %}" alt="Kamalam" loading="lazy" width="500" height="281" decoding="async" srcset="{% static 'img/Godaddy-logo-160.webp' %} 160w, {% static 'img/Godaddy-logo-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
+      <div class="tb-item"><img class="tb-img" src="{% static 'img/AWS.jpg.jpeg' %}" alt="Kannan Sweets" loading="lazy" width="555" height="390" decoding="async" srcset="{% static 'img/AWS.jpg-160.webp' %} 160w, {% static 'img/AWS.jpg-320.webp' %} 320w" sizes="(max-width: 768px) 96px, 120px"></div>
     </div>
   </div> -->
 

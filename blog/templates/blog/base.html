@@ -4,15 +4,16 @@
   {% include 'components/google_tag.html' %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
     <title>{% block title %}Blog | Django Module{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}Our latest thoughts and updates.{% endblock %}">
     {% block extra_meta %}{% endblock %}
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
-    
-    {% include 'components/favicon.html' %}
+
+{% include 'components/favicon.html' %}
 
     <!-- Custom CSS -->
     {% load static %}

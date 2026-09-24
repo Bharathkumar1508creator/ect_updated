@@ -6,24 +6,18 @@
   {% include 'components/favicon.html' %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% include "components/seo_meta.html" %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;600;700;800&family=Montserrat:wght@100..900&family=Outfit:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  {% include "components/seo_meta.html" %}
+
+
+
 <link rel="stylesheet" href="{% static 'css/tailwind-about.css' %}?v=2">
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-
 <!-- Manrope font -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/about.css' %}?v=32">
+
+<link rel="stylesheet" href="{% static 'css/about.css' %}?v=32">
   <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
   <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
 </head>
@@ -60,7 +54,7 @@
         <img src="https://picsum.photos/seed/ect-team-2/800/1000.jpg" alt="Team collaboration">
       </div>
       <div class="card" id="c2">
-        <img src="{% static 'img/Rectangle 1753 (1).png' %}" alt="Company headquarters">
+        <img src="{% static 'img/Rectangle 1753 (1).webp' %}" alt="Company headquarters" width="365" height="264" decoding="async">
       </div>
       <div class="card" id="c3">
         <img src="https://picsum.photos/seed/ect-work-4/800/1000.jpg" alt="Workspace detail">
@@ -85,14 +79,14 @@
       <!-- Exact Figma composition rebuilt as layers, showing a static
            image inside the original organic media mask (video removed). -->
       <img class="about-ect__decor about-ect__decor--cream"
-           src="{% static 'img/vector-cream.svg' %}" alt="" aria-hidden="true">
+           src="{% static 'img/vector-cream.svg' %}" alt="" aria-hidden="true" width="476" height="462" decoding="async">
 
       <img class="about-ect__poster"
-           src="{% static 'img/about-img.png' %}"
-           alt="ECT technology and business success">
+           src="{% static 'img/about-img.webp' %}"
+           alt="ECT technology and business success" width="593" height="526" decoding="async" srcset="{% static 'img/about-img-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw">
 
       <img class="about-ect__decor about-ect__decor--green"
-           src="{% static 'img/vector-green.svg' %}" alt="" aria-hidden="true">
+           src="{% static 'img/vector-green.svg' %}" alt="" aria-hidden="true" width="517" height="516" decoding="async">
       </div>
     </div>
 
@@ -288,7 +282,7 @@
 
     <!-- Logo -->
     <div class="pillars-logo">
-      <img src="{% static 'img/ECT LOGO.png' %}" alt="ECOG CORE Technologies" class="pillars-logo__img">
+      <img src="{% static 'img/ECT LOGO.png' %}" alt="ECOG CORE Technologies" class="pillars-logo__img" width="1124" height="296" decoding="async" loading="lazy" srcset="{% static 'img/ECT LOGO-480.webp' %} 480w, {% static 'img/ECT LOGO-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw">
     </div>
 
     <!-- Trusted banner -->
@@ -312,7 +306,7 @@
         <div class="pillar__card">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">P-PURPOSEFUL PROFIT</h3>
-            <div class="pillar__card-media"><img src="{% static 'img/Ratan Tata (Purposeful Profit).jpg' %}" alt="Ratan Tata (Purposeful Profit)" class="pillar__card-img" onerror="this.style.display='none'"></div>
+            <div class="pillar__card-media"><img src="{% static 'img/Ratan Tata (Purposeful Profit).jpg' %}" alt="Ratan Tata (Purposeful Profit)" class="pillar__card-img" onerror="this.style.display='none'" width="2560" height="1147" decoding="async" loading="lazy" srcset="{% static 'img/Ratan Tata (Purposeful Profit)-480.webp' %} 480w, {% static 'img/Ratan Tata (Purposeful Profit)-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
             <p class="pillar__kural-num">குறள் 39:</p>
             <p class="pillar__kural-text">"அறத்தான் வருவதே இன்பம் மற்றெல்லாம் <br> புறத்த புகழும் இல."</p>
             <p class="pillar__explain"><strong>விளக்கம்:</strong> லாபம் "அறம்/நேர்மை" உடன் வந்தால்தான் அது உண்மையான வெற்றி. அறம் இல்லாத லாபம் நீடிக்காது; புகழும் தராது.</p>
@@ -328,7 +322,7 @@
         <div class="pillar__card">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">I-INTEGRITY</h3>
-            <div class="pillar__card-media"><img src="{% static 'img/V.O. Chidambaram Pillai (Integrity).jfif' %}" alt="V.O. Chidambaram Pillai (Integrity)" class="pillar__card-img" onerror="this.style.display='none'"></div>
+            <div class="pillar__card-media"><img src="{% static 'img/V.O. Chidambaram Pillai (Integrity).jfif' %}" alt="V.O. Chidambaram Pillai (Integrity)" class="pillar__card-img" onerror="this.style.display='none'" width="480" height="320" decoding="async" loading="lazy"></div>
             <p class="pillar__kural-num">குறள் 291:</p>
             <p class="pillar__kural-text">"வாய்மை எனப்படுவது யாதெனின் யாதொன்றும் <br> தீமை இலாத சொலல்."</p>
             <p class="pillar__explain"><strong>விளக்கம்:</strong> உண்மை பேசுவது என்பது-யாருக்கும் தீங்கு வராத வகையில் நேர்மையாக பேசுதல். எல்லாத்திலும் இதுதான் அடிப்படை. வேலை/கஸ்டமர்/டீம்</p>
@@ -344,7 +338,7 @@
         <div class="pillar__card">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">L-LEARNING & DEVELOPMENT</h3>
-            <div class="pillar__card-media"><img src="{% static 'img/A.P.J. Abdul Kalam (Learning & Development).png' %}" alt="A.P.J. Abdul Kalam (Learning & Development)" class="pillar__card-img" onerror="this.style.display='none'"></div>
+            <div class="pillar__card-media"><img src="{% static 'img/A.P.J. Abdul Kalam (Learning & Development).webp' %}" alt="A.P.J. Abdul Kalam (Learning & Development)" class="pillar__card-img" onerror="this.style.display='none'" width="1672" height="940" decoding="async" loading="lazy" srcset="{% static 'img/A.P.J. Abdul Kalam (Learning & Development)-480.webp' %} 480w, {% static 'img/A.P.J. Abdul Kalam (Learning & Development)-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
             <p class="pillar__kural-num">குறள் 391:</p>
             <p class="pillar__kural-text">"கற்க கசடறக் கற்பவை கற்றபின் <br> நிற்க அதற்குத் தக."</p>
             <p class="pillar__explain"><strong>விளக்கம்:</strong> கற்றது வெறும் தகவல் அல்ல; கற்றதற்கு தகுந்த மாதிரி நடத்தை/வேலை திறன் மேம்பாடு இருக்கணும்.</p>
@@ -360,7 +354,7 @@
         <div class="pillar__card">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">L-LEADERSHIP THROUGH OWNERSHIP</h3>
-            <div class="pillar__card-media"><img src="{% static 'img/N.R. Narayana Murthy (Leadership Through Ownership).jpg' %}" alt="N.R. Narayana Murthy (Leadership Through Ownership)" class="pillar__card-img" onerror="this.style.display='none'"></div>
+            <div class="pillar__card-media"><img src="{% static 'img/N.R. Narayana Murthy (Leadership Through Ownership).webp' %}" alt="N.R. Narayana Murthy (Leadership Through Ownership)" class="pillar__card-img" onerror="this.style.display='none'" width="800" height="500" decoding="async" loading="lazy" srcset="{% static 'img/N.R. Narayana Murthy (Leadership Through Ownership)-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw"></div>
             <p class="pillar__kural-num">குறள் 619:</p>
             <p class="pillar__kural-text">"தெய்வத்தான் ஆகா தெனினும் முயற்சிதன் <br> மெய்வருத்தக் கூலி தரும்."</p>
             <p class="pillar__explain"><strong>விளக்கம்:</strong> எனக்குத் தெரியல / முடியல" என்று ஒதுங்காமல் முயற்சி செய்தால் பலன் கிடைக்கும். Ownership என்றால் excuses இல்லை; action தான்.</p>
@@ -376,7 +370,7 @@
         <div class="pillar__card">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">A- ACCOUNTABILITY & DISCIPLINE</h3>
-            <div class="pillar__card-media"><img src="{% static 'img/MS Dhoni (Accountability & Discipline).jpeg' %}" alt="MS Dhoni (Accountability & Discipline)" class="pillar__card-img" onerror="this.style.display='none'"></div>
+            <div class="pillar__card-media"><img src="{% static 'img/MS Dhoni (Accountability & Discipline).webp' %}" alt="MS Dhoni (Accountability & Discipline)" class="pillar__card-img" onerror="this.style.display='none'" width="1920" height="1248" decoding="async" loading="lazy" srcset="{% static 'img/MS Dhoni (Accountability & Discipline)-480.webp' %} 480w, {% static 'img/MS Dhoni (Accountability & Discipline)-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
             <p class="pillar__kural-num">குறள் 121:</p>
             <p class="pillar__kural-text">"அடக்கம் அமரருள் உய்க்கும் அடங்காமை <br> ஆரிருள் உய்த்து விடும்."</p>
             <p class="pillar__explain"><strong>விளக்கம்:</strong> கட்டுப்பாடு + ஒழுங்கு (discipline) ஒருவரை உயர்த்தும். அலட்சியம்/அடங்காமை வேலை தரம், நேரம், பெயர் எல்லாத்தையும் கெடுக்கும்.</p>
@@ -392,7 +386,7 @@
         <div class="pillar__card">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">R - RESPECT ALL - BIAS NON</h3>
-            <div class="pillar__card-media"><img src="{% static 'img/Mother Teresa (Respect All – Bias None).jpg' %}" alt="Mother Teresa (Respect All – Bias None)" class="pillar__card-img" onerror="this.style.display='none'"></div>
+            <div class="pillar__card-media"><img src="{% static 'img/Mother Teresa (Respect All – Bias None).webp' %}" alt="Mother Teresa (Respect All – Bias None)" class="pillar__card-img" onerror="this.style.display='none'" width="1280" height="720" decoding="async" loading="lazy" srcset="{% static 'img/Mother Teresa (Respect All – Bias None)-480.webp' %} 480w, {% static 'img/Mother Teresa (Respect All – Bias None)-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
             <p class="pillar__kural-num">குறள் 115:</p>
             <p class="pillar__kural-text">"கேடும் பெருக்கமும் இல்லல்ல நெஞ்சத்துக் <br> கோடாமை சான்றோர்க்கு அணி."</p>
             <p class="pillar__explain"><strong>விளக்கம்:</strong> லாபம்/இழப்பு வந்தாலும் மனசு "நடுவு நிலை" தவறக்கூடாது. Bias/partiality இல்லாமல் அனைவரையும் சமமா நடத்தணும்.</p>
@@ -408,7 +402,7 @@
         <div class="pillar__card">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">S-STRAIGHTFORWARD, TRANSPARENCY & TRUST</h3>
-            <div class="pillar__card-media"><img src="{% static 'img/Kiran Bedi (Straightforward Transparency & Trust).jpg' %}" alt="Kiran Bedi (Straightforward Transparency & Trust)" class="pillar__card-img" onerror="this.style.display='none'"></div>
+            <div class="pillar__card-media"><img src="{% static 'img/Kiran Bedi (Straightforward Transparency & Trust).jpg' %}" alt="Kiran Bedi (Straightforward Transparency & Trust)" class="pillar__card-img" onerror="this.style.display='none'" width="750" height="500" decoding="async" loading="lazy" srcset="{% static 'img/Kiran Bedi (Straightforward Transparency & Trust)-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw"></div>
             <p class="pillar__kural-num">குறள் 294:</p>
             <p class="pillar__kural-text">"உள்ளத்தாற் பொய்யா தொழுகின் உலகத்தார் <br> உள்ளத்து ளெல்லாம் உளன்."</p>
             <p class="pillar__explain"><strong>விளக்கம்:</strong> உள்ளமும் செயலுமாக பொய் இல்லாமல் வெளிப்படையாக நடந்தா- அதுதான் trust உருவாக்கும். மறைவு/மறைமுகம் trust-ஐ உடைக்கும்.</p>
@@ -431,15 +425,15 @@
 <section class="ect-partner" id="ectPartner" aria-labelledby="ect-partner-title">
   <div class="ect-partner__inner">
     <div class="ect-partner__logos">
-      <div class="ect-partner__logo ect-partner__logo--1" aria-label="Client logo 1"><img src="{% static 'img/logo1.jpeg' %}" alt="Client logo 1"></div>
-      <div class="ect-partner__logo ect-partner__logo--2" aria-label="Client logo 2"><img src="{% static 'img/logo2.jpeg' %}" alt="Client logo 2"></div>
-      <div class="ect-partner__logo ect-partner__logo--3" aria-label="Client logo 3"><img src="{% static 'img/logo3.jpeg' %}" alt="Client logo 3"></div>
-      <div class="ect-partner__logo ect-partner__logo--4" aria-label="Client logo 4"><img src="{% static 'img/logo4.png' %}" alt="Client logo 4"></div>
-      <div class="ect-partner__logo ect-partner__logo--5" aria-label="Client logo 5"><img src="{% static 'img/logo5.jpeg' %}" alt="Client logo 5"></div>
-      <div class="ect-partner__logo ect-partner__logo--6" aria-label="Client logo 6"><img src="{% static 'img/logo6.jpeg' %}" alt="Client logo 6"></div>
-      <div class="ect-partner__logo ect-partner__logo--7" aria-label="Client logo 7"><img src="{% static 'img/logo7.jpeg' %}" alt="Client logo 7"></div>
-      <div class="ect-partner__logo ect-partner__logo--8" aria-label="Client logo 8"><img src="{% static 'img/logo8.jpeg' %}" alt="Client logo 8"></div>
-      <div class="ect-partner__logo ect-partner__logo--9" aria-label="Client logo 9"><img src="{% static 'img/logo9.jpeg' %}" alt="Client logo 9"></div>
+      <div class="ect-partner__logo ect-partner__logo--1" aria-label="Client logo 1"><img src="{% static 'img/logo1.jpeg' %}" alt="Client logo 1" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo1-480.webp' %} 480w, {% static 'img/logo1-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+      <div class="ect-partner__logo ect-partner__logo--2" aria-label="Client logo 2"><img src="{% static 'img/logo2.jpeg' %}" alt="Client logo 2" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo2-480.webp' %} 480w, {% static 'img/logo2-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+      <div class="ect-partner__logo ect-partner__logo--3" aria-label="Client logo 3"><img src="{% static 'img/logo3.jpeg' %}" alt="Client logo 3" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo3-480.webp' %} 480w, {% static 'img/logo3-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+      <div class="ect-partner__logo ect-partner__logo--4" aria-label="Client logo 4"><img src="{% static 'img/logo4.png' %}" alt="Client logo 4" width="39" height="38" decoding="async" loading="lazy"></div>
+      <div class="ect-partner__logo ect-partner__logo--5" aria-label="Client logo 5"><img src="{% static 'img/logo5.jpeg' %}" alt="Client logo 5" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo5-480.webp' %} 480w, {% static 'img/logo5-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+      <div class="ect-partner__logo ect-partner__logo--6" aria-label="Client logo 6"><img src="{% static 'img/logo6.jpeg' %}" alt="Client logo 6" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo6-480.webp' %} 480w, {% static 'img/logo6-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+      <div class="ect-partner__logo ect-partner__logo--7" aria-label="Client logo 7"><img src="{% static 'img/logo7.jpeg' %}" alt="Client logo 7" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo7-480.webp' %} 480w, {% static 'img/logo7-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+      <div class="ect-partner__logo ect-partner__logo--8" aria-label="Client logo 8"><img src="{% static 'img/logo8.jpeg' %}" alt="Client logo 8" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo8-480.webp' %} 480w, {% static 'img/logo8-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+      <div class="ect-partner__logo ect-partner__logo--9" aria-label="Client logo 9"><img src="{% static 'img/logo9.jpeg' %}" alt="Client logo 9" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo9-480.webp' %} 480w, {% static 'img/logo9-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
     </div>
 
     <div class="ect-partner__content" data-partner-reveal>

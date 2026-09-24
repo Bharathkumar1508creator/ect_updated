@@ -33,7 +33,7 @@ If Codex usage stops, resume this task, inspect `git status`, read this file, ve
 | 2 | Security, settings, contact handling, and removal of local career uploads | Complete | `checkpoint-phase-2` |
 | 3 | Shared navigation, popup, project pages, media logic, and integration resilience | Complete | `checkpoint-phase-3` |
 | 4 | Responsive layouts, Montserrat typography, accessibility, and cross-browser behavior | Complete, including Website subtitle follow-up | `checkpoint-phase-4-website-subtitle` |
-| 5 | Image/video optimization, WebP selection, posters, caching, and frontend performance | Skipped and reverted per user | — |
+| 5 | Selected image/video optimization, WebP delivery, posters, caching, fonts, and frontend performance | Complete — approved items only | `checkpoint-phase-5-selected` |
 | 6 | Complete technical, on-page, and Coimbatore/Tamil Nadu local SEO | Complete | `checkpoint-phase-6` |
 | 7 | Automated regression tests and full viewport/browser QA | Complete | `checkpoint-phase-7` |
 | 8 | Final clean package, review evidence, deployment guide, and rollback guide | Pending | — |
@@ -95,18 +95,16 @@ Restored after Phase 7 at the user's request and revalidated against the current
 
 Completed in `docs/PHASE_4_RESPONSIVE_ACCESSIBILITY.md`, with manual-test corrections recorded in `docs/PHASE_4_OVERFLOW_CSP_FOLLOWUP.md`, `docs/PHASE_4_FOOTER_IMPORT_FOLLOWUP.md`, `docs/PHASE_4_REMAINING_CSS_IMPORT_FOLLOWUP.md`, and `docs/PHASE_4_WEBSITE_SUBTITLE_FOLLOWUP.md`. Manual testing exposed shared-footer overflow at 320px, transformed Projects cards crossing 320px/360px, a Careers horizontal rail at 1024px, mobile Website hero paint overflow, incomplete SalesIQ CSP sources, an obsolete footer override on IT Infrastructure/Software, and five ignored late CSS imports across four served stylesheets. These are repaired. The latest Chrome and Edge matrices passed 234 combined cases with zero overflow and zero hard failures; focused checks confirmed identical mobile footers, zero late-import issues, a 16px desktop Website subtitle matching the WEB SOLUTIONS label, and complete unclipped mobile subtitle text. Native Firefox, Safari, and physical Android/iOS execution remains unavailable.
 
-### Phase 5 — Performance and assets
+### Phase 5 — Selected performance and assets
 
-Skipped per the user's instruction. Its previous implementation was reverted; Phase 6 does not restore any Phase 5 code or generated optimized-media cache.
+Completed in `docs/PHASE_5_SELECTED_PERFORMANCE.md` for the user-approved items **1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, and 16**.
 
-
-- Optimize only assets with measurable benefit.
-- Use high-quality or lossless WebP when appearance is preserved; retain originals.
-- Prefer suitable SVG assets for logos/icons.
-- Add responsive image variants and intrinsic dimensions.
-- Compress videos without visible degradation and add posters without changing autoplay behavior.
-- Reduce duplicate CSS/JavaScript, timers, queries, and repeated external requests.
-- Establish reliable cache versioning and production compression guidance.
+- Static images now have intrinsic dimensions, asynchronous decoding, appropriate lazy loading, quality-checked WebP delivery, and responsive candidates. Original PNG/JPEG files remain preserved.
+- Project cards use non-destructive cached WebP variants, and future affected admin uploads are orientation-safe, capped at 1920 pixels, and converted to WebP. Existing uploads and database rows remain unchanged.
+- Nine static videos use optimized H.264 copies and WebP posters while preserving muted inline autoplay, looping, and no controls. Project-detail videos retain controls.
+- Manifest static storage provides content-hashed asset URLs. Hostinger/Nginx cache and compression steps are documented separately and have not been applied to the live server.
+- Duplicate Google Fonts requests are consolidated without changing font-family declarations. Development-only Tailwind source and temporary CSS are outside public static discovery.
+- Items 10 and 15 remain excluded by design.
 
 ### Phase 6 — SEO
 
@@ -161,3 +159,4 @@ This phase begins only after:
 | 2026-09-24 | Phase 4 footer/import follow-up | `checkpoint-phase-4-footer-import` | 54 Django tests, no migration drift, 20 JavaScript checks, identical shared footers at 440px, zero late-import issues, and 234 Chrome/Edge cases with zero hard failures or overflow | Phase 5 remains skipped; no schema/data/media/external-submission/live-server changes |
 | 2026-09-24 | Phase 4 remaining CSS imports | `checkpoint-phase-4-css-import-complete` | 54 Django tests, no migration drift, 20 JavaScript checks, and 6 focused Chrome cases with zero import issues, page errors, or overflow | All served imports valid; Phase 5 remains skipped; no schema/data/media/external-submission/live-server changes |
 | 2026-09-24 | Phase 4 Website subtitle | `checkpoint-phase-4-website-subtitle` | 54 Django tests, no migration drift, 20 JavaScript checks, and 6 Chrome widths with matched 16px desktop typography and zero subtitle clipping or overflow | Phase 5 remains skipped; no schema/data/media/external-submission/live-server changes |
+| 2026-09-24 | Phase 5 selected performance | `checkpoint-phase-5-selected` | 56 Django tests, no migration drift, 20 JavaScript checks, successful 656-file manifest collection, focused image/video checks, and 234 Chrome/Edge cases with zero hard failures or overflow | Approved items 1–9, 11–14, and 16 only; originals preserved; no schema/data/external-submission/live-server changes |

@@ -7,16 +7,14 @@
   {% include 'components/favicon.html' %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   {% include "components/seo_meta.html" %}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
-  <!-- External Libraries -->
+<!-- External Libraries -->
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Custom Styles -->
+<!-- Custom Styles -->
   <link rel="stylesheet" href="{% static 'css/contact.css' %}?v=11">
   <link rel="stylesheet" href="{% static 'css/base.css' %}?v=46">
   <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
@@ -73,7 +71,7 @@
         <img
           src="{% static 'img/circleicon.png' %}"
           alt="ECT Logo"
-        />
+         width="319" height="313" decoding="async"/>
       </div>
 
       <div class="ect-map-card" id="ectMapCard">
@@ -119,7 +117,7 @@
     <div class="contact-card-wrapper">
         <div class="contact-card-image">
             <!-- Add the actual green Enter key image source here -->
-            <img src="{% static 'img/getintouch.png' %}" alt="Keyboard Enter">
+            <img src="{% static 'img/getintouch.webp' %}" alt="Keyboard Enter" width="1169" height="1345" decoding="async" loading="lazy" srcset="{% static 'img/getintouch-480.webp' %} 480w, {% static 'img/getintouch-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw">
         </div>
         
         <div class="contact-card-form">
