@@ -277,6 +277,8 @@ class ProjectFunctionalityTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, '<h1 id="caseStudyTitle">Structured case study</h1>')
         self.assertContains(response, '<h2 id="overviewTitle">Overview</h2>')
+        content = response.content.decode()
+        self.assertLess(content.index('class="case-study__intro'), content.index('class="case-study__hero'))
         self.assertContains(response, "Approach copy")
         self.assertContains(response, "Impact copy")
         self.assertContains(response, 'alt="Responsive project screens"')

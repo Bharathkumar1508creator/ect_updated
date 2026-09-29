@@ -1,6 +1,6 @@
 # Website project case studies
 
-Website Development projects now use a reusable case-study page based on the approved EcoG Products design. The public page keeps the shared site navbar and footer and renders a project introduction, metadata, Overview, showcase, Approach, Impact, next-project feature, and related projects.
+Website Development projects now use a reusable case-study page based on the approved EcoG Products design. The public page keeps the shared site navbar and footer and renders the project introduction and metadata above the hero, followed by Overview, showcase, Approach, Impact, next-project feature, and related projects.
 
 ## Admin workflow
 

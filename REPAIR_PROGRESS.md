@@ -161,6 +161,8 @@ Completed in `docs/WEBSITE_CASE_STUDY_ADMIN.md`. Website Development projects no
 
 The case-study button notch now protects the full border at every tested width. The next-project panel has independent image, alternative-text, crop-position, and button-label controls. Admin dashboard and app-list links use progressive in-page navigation with browser-history support and a normal-navigation fallback.
 
+The project title, summary, and metadata now appear before the hero image, with responsive spacing that clears the shared navbar.
+
 ## Checkpoint log
 
 | Date | Phase | Commit | Verification | Notes |
@@ -190,3 +192,4 @@ The case-study button notch now protects the full border at every tested width. 
 | 2026-09-29 | Projects shared button interaction | `checkpoint-project-button-interaction` | Focused Django test plus Chrome/Edge hover-animation audits | Applied the sitewide CTA lift, sweep, press, focus, and reduced-motion behavior to View Project; no data/live-server changes |
 | 2026-09-29 | Website project case study and Admin | `checkpoint-website-case-study-admin` | Django system/migration checks, full Django tests, manifest static collection, Admin change-page render, and diff integrity | Website Development only; EcoG Products content seeded while its stable URL is retained; section images await Admin upload; no live-server deployment |
 | 2026-09-29 | Case-study controls and Admin navigation | `checkpoint-case-study-admin-followup` | 61 Django tests, migration/system checks, JavaScript syntax, manifest collection, Chrome button geometry at 320/360/768/1440px, and in-page Admin navigation checks | Both notch buttons retain an 8px inset; next-project presentation is independently editable; no live-server deployment |
+| 2026-09-29 | Case-study introduction order | `checkpoint-case-study-intro-order` | Full Django tests plus Chrome layout checks at 320/360/768/1024/1440px | Title, summary, and metadata moved above the hero with navbar clearance and zero horizontal overflow; no live-server deployment |

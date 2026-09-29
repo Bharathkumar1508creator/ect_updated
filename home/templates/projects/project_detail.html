@@ -11,22 +11,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
   {% include "components/seo_meta.html" %}
   <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=46">
-  <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=8">
+  <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=9">
   <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
 </head>
 <body class="website-case-study-page">
   {% include 'components/navbar.html' %}
   <main class="case-study">
-    <section class="case-study__hero" aria-labelledby="caseStudyTitle">
-      {% if project.hero_media_type == 'image' and project.hero_image %}
-        <img src="{{ project.hero_image.url }}" alt="{{ project.hero_image_alt|default:project.title }}"
-             class="case-study__image case-study__hero-image object-position-{{ project.hero_focal_point }}"
-             decoding="async" fetchpriority="high">
-      {% elif project.hero_media_type == 'video' and project.hero_video or project.hero_media_type == 'youtube' and project.hero_youtube_url %}
-        {% include 'projects/components/project_media.html' with type=project.hero_media_type image=project.hero_image video=project.hero_video youtube=project.hero_youtube_url alt=project.hero_image_alt|default:project.title %}
-      {% else %}<div class="case-study__placeholder" role="img" aria-label="{{ project.title }} showcase image pending">Showcase image pending</div>{% endif %}
-    </section>
-
     <header class="case-study__intro case-study__container">
       <h1 id="caseStudyTitle">{{ project.title }}</h1>
       {% if project.short_description %}<p class="case-study__summary">{{ project.short_description }}</p>{% endif %}
@@ -39,6 +29,16 @@
         </dl>
       {% endif %}
     </header>
+
+    <section class="case-study__hero" aria-labelledby="caseStudyTitle">
+      {% if project.hero_media_type == 'image' and project.hero_image %}
+        <img src="{{ project.hero_image.url }}" alt="{{ project.hero_image_alt|default:project.title }}"
+             class="case-study__image case-study__hero-image object-position-{{ project.hero_focal_point }}"
+             decoding="async" fetchpriority="high">
+      {% elif project.hero_media_type == 'video' and project.hero_video or project.hero_media_type == 'youtube' and project.hero_youtube_url %}
+        {% include 'projects/components/project_media.html' with type=project.hero_media_type image=project.hero_image video=project.hero_video youtube=project.hero_youtube_url alt=project.hero_image_alt|default:project.title %}
+      {% else %}<div class="case-study__placeholder" role="img" aria-label="{{ project.title }} showcase image pending">Showcase image pending</div>{% endif %}
+    </section>
 
     <section class="case-study__split case-study__container" aria-labelledby="overviewTitle">
       <div class="case-study__copy">
