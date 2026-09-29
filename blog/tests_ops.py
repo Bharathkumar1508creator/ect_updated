@@ -152,14 +152,15 @@ class SoftwareDevelopmentGuideTests(TestCase):
         self.assertIn("Frequently Asked Questions", blog.article_content)
         self.assertEqual(blog.tags.count(), 5)
 
-    def test_software_guide_has_optimized_hero_and_five_contextual_images(self):
+    def test_software_guide_has_visual_hero_and_five_contextual_images(self):
         blog = Blog.objects.get(slug=SOFTWARE_GUIDE_SLUG)
         self.assertEqual(
             str(blog.hero_image),
-            "blog/software-development-business-2026/software-development-business-2026-infographic.webp",
+            "blog/software-development-business-2026/software-development-business-2026-hero-v2.webp",
         )
         self.assertEqual(str(blog.open_graph_image), str(blog.hero_image))
         self.assertTrue(blog.hero_image_alt)
+        self.assertEqual(blog.author_profile_url, "https://www.ragupathinamachivayam.com/")
         self.assertEqual(blog.article_content.count("<figure>"), 5)
         self.assertEqual(blog.article_content.count('loading="lazy"'), 5)
         self.assertEqual(blog.article_content.count('width="1600" height="900"'), 5)
@@ -202,14 +203,15 @@ class ZohoConsultingGuideTests(TestCase):
         self.assertIn("Frequently Asked Questions", blog.article_content)
         self.assertEqual(blog.tags.count(), 5)
 
-    def test_zoho_guide_has_six_optimized_infographics(self):
+    def test_zoho_guide_has_visual_hero_and_five_contextual_infographics(self):
         blog = Blog.objects.get(slug=ZOHO_GUIDE_SLUG)
         self.assertEqual(
             str(blog.hero_image),
-            "blog/zoho-consulting-services-business-2026/zoho-consulting-services-2026-infographic.webp",
+            "blog/zoho-consulting-services-business-2026/zoho-consulting-services-2026-hero-v2.webp",
         )
         self.assertEqual(str(blog.open_graph_image), str(blog.hero_image))
         self.assertTrue(blog.hero_image_alt)
+        self.assertEqual(blog.author_profile_url, "https://www.ragupathinamachivayam.com/")
         self.assertEqual(blog.article_content.count("<figure>"), 5)
         self.assertEqual(blog.article_content.count('loading="lazy"'), 5)
         self.assertEqual(blog.article_content.count('width="1600" height="900"'), 5)
@@ -221,6 +223,9 @@ class ZohoConsultingGuideTests(TestCase):
         self.assertContains(response, "What are Zoho Consulting Services?")
         self.assertContains(response, '"@type": "FAQPage"', html=False)
         self.assertContains(response, "Expert Zoho Consulting Services to Accelerate Growth")
+        self.assertContains(response, 'href="https://www.ragupathinamachivayam.com/"')
+        self.assertContains(response, "Founder &amp; Managing Director, ECOG Groups")
+        self.assertContains(response, "Updated 29 September 2026")
 
 
 class PublishedGuideLinkPolicyTests(TestCase):
