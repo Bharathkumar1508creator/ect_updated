@@ -96,6 +96,9 @@ class ProjectCategoryAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     list_filter = ('status',)
 
+    def get_queryset(self, request):
+        return super().get_queryset(request).exclude(slug='website-development')
+
 class OptimizedImageAdminForm(forms.ModelForm):
     image_fields = ()
     image_sizes = {}
@@ -110,7 +113,10 @@ class OptimizedImageAdminForm(forms.ModelForm):
 
 
 class ProjectAdminForm(OptimizedImageAdminForm):
-    image_fields = ("hero_image", "og_image")
+    image_fields = (
+        "hero_image", "card_image", "overview_image", "showcase_image",
+        "approach_image", "impact_image", "og_image",
+    )
     image_sizes = {"og_image": (1600, 900)}
 
     class Meta:
@@ -157,6 +163,14 @@ class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ('title', 'client_name', 'short_description')
     inlines = [ProjectSectionInline]
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).exclude(category__slug='website-development')
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == 'category':
+            kwargs['queryset'] = ProjectCategory.objects.exclude(slug='website-development')
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
     fieldsets = (
         ('Project Information', {
             'fields': ('category', 'title', 'slug', 'short_description', 'client_name', 'completion_date', 'display_order', 'featured', 'status')
@@ -196,5 +210,4 @@ class DigitalMarketingOverviewAdmin(admin.ModelAdmin):
             'fields': ('innovation_title', 'innovation_description')
         }),
     )
-
 

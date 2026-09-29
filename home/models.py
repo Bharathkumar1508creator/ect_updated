@@ -183,6 +183,13 @@ class Project(models.Model):
         ('video', 'Uploaded Video'),
         ('youtube', 'YouTube Video'),
     )
+    FOCAL_POINT_CHOICES = (
+        ('center', 'Center'),
+        ('top', 'Top'),
+        ('bottom', 'Bottom'),
+        ('left', 'Left'),
+        ('right', 'Right'),
+    )
     
     category = models.ForeignKey(ProjectCategory, on_delete=models.CASCADE, related_name='projects')
     title = models.CharField(max_length=255)
@@ -195,6 +202,53 @@ class Project(models.Model):
     hero_image = models.ImageField(upload_to='projects/hero/images/', blank=True, null=True)
     hero_video = models.FileField(upload_to='projects/hero/videos/', blank=True, null=True)
     hero_youtube_url = models.URLField(blank=True, null=True)
+    card_image = models.ImageField(
+        upload_to='projects/cards/', blank=True, null=True,
+        help_text='Recommended: 1200 × 950 px or larger, landscape WebP/JPG/PNG.',
+    )
+    card_image_alt = models.CharField(max_length=255, blank=True)
+    hero_image_alt = models.CharField(max_length=255, blank=True)
+    hero_focal_point = models.CharField(max_length=10, choices=FOCAL_POINT_CHOICES, default='center')
+
+    service = models.CharField(max_length=120, blank=True)
+    industry = models.CharField(max_length=120, blank=True)
+    project_type = models.CharField(max_length=120, blank=True)
+
+    overview_title = models.CharField(max_length=120, default='Overview', blank=True)
+    overview_content = models.TextField(blank=True)
+    overview_link_text = models.CharField(max_length=120, blank=True)
+    overview_link_url = models.URLField(blank=True)
+    overview_image = models.ImageField(
+        upload_to='projects/overview/', blank=True, null=True,
+        help_text='Recommended: 1200 × 1000 px or larger.',
+    )
+    overview_image_alt = models.CharField(max_length=255, blank=True)
+    overview_focal_point = models.CharField(max_length=10, choices=FOCAL_POINT_CHOICES, default='center')
+
+    showcase_image = models.ImageField(
+        upload_to='projects/showcases/', blank=True, null=True,
+        help_text='Recommended: 2400 × 1000 px or larger, wide landscape.',
+    )
+    showcase_image_alt = models.CharField(max_length=255, blank=True)
+    showcase_focal_point = models.CharField(max_length=10, choices=FOCAL_POINT_CHOICES, default='center')
+
+    approach_title = models.CharField(max_length=120, default='Approach', blank=True)
+    approach_content = models.TextField(blank=True)
+    approach_image = models.ImageField(
+        upload_to='projects/approach/', blank=True, null=True,
+        help_text='Recommended: 1200 × 1000 px or larger.',
+    )
+    approach_image_alt = models.CharField(max_length=255, blank=True)
+    approach_focal_point = models.CharField(max_length=10, choices=FOCAL_POINT_CHOICES, default='center')
+
+    impact_title = models.CharField(max_length=120, default='Impact', blank=True)
+    impact_content = models.TextField(blank=True)
+    impact_image = models.ImageField(
+        upload_to='projects/impact/', blank=True, null=True,
+        help_text='Recommended: 1200 × 1000 px or larger.',
+    )
+    impact_image_alt = models.CharField(max_length=255, blank=True)
+    impact_focal_point = models.CharField(max_length=10, choices=FOCAL_POINT_CHOICES, default='center')
     
     display_order = models.IntegerField(default=0)
     featured = models.BooleanField(default=False)
@@ -203,11 +257,22 @@ class Project(models.Model):
     button_text = models.CharField(max_length=100, blank=True, null=True)
     button_url = models.URLField(blank=True, null=True)
     open_button_new_tab = models.BooleanField(default=False)
+
+    next_project_override = models.ForeignKey(
+        'self', on_delete=models.SET_NULL, blank=True, null=True,
+        related_name='previous_project_overrides',
+        help_text='Optional. Leave empty to use the next published project by display order.',
+    )
+    related_projects = models.ManyToManyField(
+        'self', symmetrical=False, blank=True, related_name='manually_related_from',
+        help_text='Optional. Select up to three; otherwise related projects are chosen automatically.',
+    )
     
     seo_title = models.CharField(max_length=255, blank=True, null=True)
     seo_description = models.TextField(blank=True, null=True)
     seo_keywords = models.TextField(blank=True, null=True)
     og_image = models.ImageField(upload_to='projects/seo/', blank=True, null=True)
+    og_image_alt = models.CharField(max_length=255, blank=True)
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -217,6 +282,10 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+    def image_alt(self, field_name, section_name):
+        value = getattr(self, field_name, '')
+        return value.strip() if value else f'{self.title} {section_name}'.strip()
 
 class ProjectSection(models.Model):
     LAYOUT_CHOICES = (

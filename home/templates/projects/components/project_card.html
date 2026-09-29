@@ -7,8 +7,10 @@
     {% endif %}
 
     <div class="card-media {% if project.hero_media_type == 'video' and project.hero_video %}has-video{% endif %}" data-media-frame>
-        {% if project.hero_media_type == 'image' and project.hero_image %}
-            <img src="{{ project.hero_image.url }}" alt="{{ project.title }}" loading="lazy" data-media-image>
+        {% if project.card_image %}
+            <img src="{{ project.card_image.url }}" alt="{{ project.card_image_alt|default:project.title }}" loading="lazy" decoding="async" data-media-image>
+        {% elif project.hero_media_type == 'image' and project.hero_image %}
+            <img src="{{ project.hero_image.url }}" alt="{{ project.hero_image_alt|default:project.title }}" loading="lazy" decoding="async" data-media-image>
         {% elif project.hero_media_type == 'video' and project.hero_video %}
             <video class="card-video" src="{{ project.hero_video.url }}"
                    {% if project.hero_image %}poster="{{ project.hero_image.url }}"{% endif %}

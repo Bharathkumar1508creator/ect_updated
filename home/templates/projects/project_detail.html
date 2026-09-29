@@ -1,60 +1,98 @@
-{% load static %}
+{% load static project_media %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   {% include 'components/google_tag.html' %}
   {% include 'components/favicon.html' %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
-    {% include "components/seo_meta.html" %}
-    <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=46">
-    <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=3">
-    <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
-
+  {% include "components/seo_meta.html" %}
+  <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=46">
+  <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=7">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
 </head>
-<body>
-    {% include 'components/navbar.html' %}
-
-    <!-- 1. Project Hero -->
-    <h1 class="seo-page-title">{{ project.title }}</h1>
-
-
-    <section class="project-detail-hero">
-        <div class="hero-media-wrapper">
-            {% include 'projects/components/project_media.html' with type=project.hero_media_type image=project.hero_image video=project.hero_video youtube=project.hero_youtube_url alt=project.title %}
-        </div>
-
+<body class="website-case-study-page">
+  {% include 'components/navbar.html' %}
+  <main class="case-study">
+    <section class="case-study__hero" aria-labelledby="caseStudyTitle">
+      {% if project.hero_media_type == 'image' and project.hero_image %}
+        <img src="{{ project.hero_image.url }}" alt="{{ project.hero_image_alt|default:project.title }}"
+             class="case-study__image case-study__hero-image object-position-{{ project.hero_focal_point }}"
+             decoding="async" fetchpriority="high">
+      {% elif project.hero_media_type == 'video' and project.hero_video or project.hero_media_type == 'youtube' and project.hero_youtube_url %}
+        {% include 'projects/components/project_media.html' with type=project.hero_media_type image=project.hero_image video=project.hero_video youtube=project.hero_youtube_url alt=project.hero_image_alt|default:project.title %}
+      {% else %}<div class="case-study__placeholder" role="img" aria-label="{{ project.title }} showcase image pending">Showcase image pending</div>{% endif %}
     </section>
 
-    <!-- 2. Project Sections -->
-    <div class="project-sections-container">
-        {% for section in sections %}
-            {% include 'projects/components/project_section.html' with section=section %}
-        {% endfor %}
-    </div>
+    <header class="case-study__intro case-study__container">
+      <h1 id="caseStudyTitle">{{ project.title }}</h1>
+      {% if project.short_description %}<p class="case-study__summary">{{ project.short_description }}</p>{% endif %}
+      {% if project.service or project.industry or project.completion_date or project.project_type %}
+        <dl class="case-study__meta" aria-label="Project information">
+          {% if project.service %}<div><dt>Service</dt><dd>{{ project.service }}</dd></div>{% endif %}
+          {% if project.industry %}<div><dt>Industry</dt><dd>{{ project.industry }}</dd></div>{% endif %}
+          {% if project.completion_date %}<div><dt>Completed</dt><dd>{{ project.completion_date|date:'Y' }}</dd></div>{% endif %}
+          {% if project.project_type %}<div><dt>Project type</dt><dd>{{ project.project_type }}</dd></div>{% endif %}
+        </dl>
+      {% endif %}
+    </header>
 
-    <!-- 3. CTA -->
-    {% if project.button_text and project.button_url %}
-    <section class="project-cta text-center py-5">
-        <a href="{{ project.button_url }}" class="btn btn-primary btn-lg" {% if project.open_button_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
-            {{ project.button_text }}
-        </a>
+    <section class="case-study__split case-study__container" aria-labelledby="overviewTitle">
+      <div class="case-study__copy">
+        <h2 id="overviewTitle">{{ project.overview_title|default:'Overview' }}</h2>
+        {% if project.overview_content %}<div class="case-study__body">
+          {% if project.overview_link_url %}<a href="{{ project.overview_link_url }}" target="_blank" rel="noopener noreferrer">{{ project.overview_link_text|default:project.title }}</a>{% endif %}
+          {{ project.overview_content|linebreaks }}
+        </div>{% endif %}
+      </div>
+      {% if project.overview_image %}<div class="case-study__media case-study__media--square">
+        <img src="{{ project.overview_image.url }}" alt="{{ project.overview_image_alt|default:project.title }}"
+             class="case-study__image object-position-{{ project.overview_focal_point }}" loading="lazy" decoding="async">
+      </div>{% endif %}
     </section>
-    {% endif %}
 
-    <!-- 4. Next Project -->
-    {% if next_project %}
-        {% include 'projects/components/next_project.html' with next_project=next_project %}
-    {% endif %}
+    {% if project.showcase_image %}<section class="case-study__showcase case-study__container" aria-label="{{ project.title }} project showcase">
+      <img src="{{ project.showcase_image.url }}" alt="{{ project.showcase_image_alt|default:project.title }}"
+           class="case-study__image object-position-{{ project.showcase_focal_point }}" loading="lazy" decoding="async">
+      {% if project.button_url %}<div class="case-study__notch">
+        <a href="{{ project.button_url }}" class="case-study__notch-button ect-micro-btn"
+           {% if project.open_button_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.button_text|default:'Visit Live Site' }}</a>
+      </div>{% endif %}
+    </section>{% endif %}
 
-    <!-- 5. Related Projects -->
-    {% if related_projects %}
-        {% include 'projects/components/related_projects.html' with related_projects=related_projects %}
-    {% endif %}
+    <section class="case-study__story case-study__container" aria-label="Project approach and impact">
+      <div class="case-study__story-row case-study__story-row--media-left">
+        {% if project.approach_image %}<div class="case-study__media case-study__media--story">
+          <img src="{{ project.approach_image.url }}" alt="{{ project.approach_image_alt|default:project.title }}"
+               class="case-study__image object-position-{{ project.approach_focal_point }}" loading="lazy" decoding="async">
+        </div>{% endif %}
+        <div class="case-study__copy"><h2>{{ project.approach_title|default:'Approach' }}</h2><div class="case-study__body">{{ project.approach_content|linebreaks }}</div></div>
+      </div>
+      <div class="case-study__story-row case-study__story-row--text-left">
+        <div class="case-study__copy"><h2>{{ project.impact_title|default:'Impact' }}</h2><div class="case-study__body">{{ project.impact_content|linebreaks }}</div></div>
+        {% if project.impact_image %}<div class="case-study__media case-study__media--story">
+          <img src="{{ project.impact_image.url }}" alt="{{ project.impact_image_alt|default:project.title }}"
+               class="case-study__image object-position-{{ project.impact_focal_point }}" loading="lazy" decoding="async">
+        </div>{% endif %}
+      </div>
+    </section>
 
-{% include 'components/project_page_end.html' %}
+    {% if next_project %}<section class="case-study__next case-study__container" aria-labelledby="nextProjectTitle">
+      <h2 id="nextProjectTitle" class="case-study__visually-hidden">Next project: {{ next_project.title }}</h2>
+      {% project_preview_url next_project as next_preview %}
+      {% if next_preview %}<img src="{{ next_preview }}" alt="{{ next_project.card_image_alt|default:next_project.title }}" class="case-study__image" loading="lazy" decoding="async">
+      {% else %}<div class="case-study__placeholder" role="img" aria-label="{{ next_project.title }} preview pending">Next project preview pending</div>{% endif %}
+      <div class="case-study__notch"><a href="{% url 'project_detail' next_project.slug %}" class="case-study__notch-button ect-micro-btn">View Next Project</a></div>
+    </section>{% endif %}
+
+    {% if related_projects %}<section class="case-study__related case-study__container" aria-labelledby="relatedProjectsTitle">
+      <h2 id="relatedProjectsTitle">Related Projects</h2>
+      <div class="project-grid">{% for rel_project in related_projects %}{% include 'projects/components/project_card.html' with project=rel_project %}{% endfor %}</div>
+    </section>{% endif %}
+  </main>
+  {% include 'components/project_page_end.html' %}
 </body>
 </html>

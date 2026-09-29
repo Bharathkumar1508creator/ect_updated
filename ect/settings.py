@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'home.apps.HomeConfig',
+    'our_work.apps.OurWorkConfig',
     'blog.apps.BlogConfig',
     'newsletter.apps.NewsletterConfig',
 ]

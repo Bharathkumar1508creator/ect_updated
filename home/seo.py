@@ -60,4 +60,8 @@ def build_project_seo(project,canonical_path,image_url=""):
     desc=(project.seo_description or project.short_description or f"View the {project.title} project by {BRAND}.").strip()
     crumb={"@type":"BreadcrumbList","@id":f"{canonical}#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":absolute_url("/")},{"@type":"ListItem","position":2,"name":"Projects","item":absolute_url(reverse("project_list"))},{"@type":"ListItem","position":3,"name":project.title,"item":canonical}]}
     work={"@type":"CreativeWork","@id":f"{canonical}#project","name":project.title,"description":desc,"url":canonical,"creator":{"@id":absolute_url("/#organization")},"dateCreated":project.created_at.date().isoformat(),"dateModified":project.updated_at.date().isoformat(),"inLanguage":"en-IN","image":image}
+    if project.service: work["about"] = project.service
+    if project.industry: work["industry"] = project.industry
+    if project.project_type: work["genre"] = project.project_type
+    if project.completion_date: work["datePublished"] = project.completion_date.isoformat()
     return {"seo_title":title,"seo_description":desc,"seo_canonical_url":canonical,"seo_robots":"index,follow,max-image-preview:large","seo_og_type":"article","seo_image_url":image,"seo_schema_json":json_for_html({"@context":"https://schema.org","@graph":[work,crumb]})}

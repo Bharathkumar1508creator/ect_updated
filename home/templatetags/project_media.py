@@ -76,6 +76,10 @@ def _file_url(field):
 
 @register.simple_tag
 def project_preview_url(project):
+    card_image = getattr(project, "card_image", None)
+    card_url = optimized_media_image_url(card_image)
+    if card_url:
+        return card_url
     hero_image = getattr(project, "hero_image", None)
     image_url = optimized_media_image_url(hero_image)
     media_type = getattr(project, "hero_media_type", "")

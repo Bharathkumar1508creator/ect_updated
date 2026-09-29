@@ -84,8 +84,10 @@ def digital_marketing_detail(request, slug):
         status='published'
     ).order_by('display_order', 'id'))
 
-    next_project = None
-    if len(same_category_projects) > 1:
+    next_project = project.next_project_override
+    if next_project and next_project.status != 'published':
+        next_project = None
+    if next_project is None and len(same_category_projects) > 1:
         current_index = -1
         for i, p in enumerate(same_category_projects):
             if p.id == project.id:
@@ -102,10 +104,14 @@ def digital_marketing_detail(request, slug):
             next_project = all_projects[0]
 
     # Related Projects for Innovation Section (exclude current, limit 3)
-    related_projects = Project.objects.filter(
-        category=project.category,
-        status='published'
-    ).exclude(id=project.id).order_by('display_order', 'id')[:3]
+    manual_related = project.related_projects.filter(status='published').exclude(id=project.id)[:3]
+    if manual_related:
+        related_projects = manual_related
+    else:
+        related_projects = Project.objects.filter(
+            category=project.category,
+            status='published'
+        ).exclude(id=project.id).order_by('display_order', 'id')[:3]
 
     if not related_projects.exists():
         related_projects = Project.objects.filter(status='published').exclude(id=project.id).order_by('display_order', 'id')[:3]
@@ -126,6 +132,7 @@ def digital_marketing_detail(request, slug):
         'next_project': next_project,
         'related_projects': related_projects,
         'social_image_url': social_image_url,
+        'seo_image_alt': project.og_image_alt or project.hero_image_alt or project.title,
     })
 
     return render(request, 'projects/digital_marketing_detail.html', context)
@@ -196,8 +203,10 @@ def project_detail(request, slug):
         status='published'
     ).order_by('display_order', 'id'))
 
-    next_project = None
-    if len(same_category_projects) > 1:
+    next_project = project.next_project_override
+    if next_project and next_project.status != 'published':
+        next_project = None
+    if next_project is None and len(same_category_projects) > 1:
         current_index = -1
         for i, p in enumerate(same_category_projects):
             if p.id == project.id:
@@ -209,10 +218,23 @@ def project_detail(request, slug):
             next_project = same_category_projects[next_index]
 
     # Related Projects (same category, exclude current, limit 3)
-    related_projects = Project.objects.filter(
-        category=project.category,
-        status='published'
-    ).exclude(id=project.id).order_by('display_order', 'id')[:3]
+    manual_related = list(
+        project.related_projects.filter(status='published').exclude(id=project.id)[:3]
+    )
+    if manual_related:
+        related_projects = manual_related
+    else:
+        related_projects = list(Project.objects.filter(
+            category=project.category,
+            status='published'
+        ).exclude(id=project.id).order_by('display_order', 'id')[:3])
+
+    if not related_projects:
+        related_projects = list(
+            Project.objects.filter(status='published')
+            .exclude(id=project.id)
+            .order_by('display_order', 'id')[:3]
+        )
 
     social_image_url = get_project_social_image_url(request, project)
     context.update(build_project_seo(
@@ -226,6 +248,7 @@ def project_detail(request, slug):
         'next_project': next_project,
         'related_projects': related_projects,
         'social_image_url': social_image_url,
+        'seo_image_alt': project.og_image_alt or project.hero_image_alt or project.title,
     })
 
     return render(request, 'projects/project_detail.html', context)

@@ -16,6 +16,7 @@ from .image_utils import optimize_uploaded_image
 from .models import Career, ContactMessage, JobApplication, Project, ProjectCategory
 from .templatetags.content_security import sanitized_rich_html
 from .templatetags.project_media import extract_youtube_id, project_preview_url, youtube_embed_url
+from our_work.models import WebsiteProject
 
 
 class ExternalFormOnlyTests(TestCase):
@@ -253,6 +254,53 @@ class ProjectFunctionalityTests(TestCase):
             response,
             f"http://testserver{reverse('project_detail', args=[project.slug])}/media/",
         )
+
+    def test_website_case_study_renders_semantic_sections_and_admin_content(self):
+        project = Project.objects.create(
+            category=self.general_category,
+            title="Structured case study",
+            slug="structured-case-study",
+            status="published",
+            short_description="A clear case-study summary.",
+            service="Website Development",
+            industry="Manufacturing",
+            project_type="Corporate Website",
+            overview_content="Overview copy",
+            approach_content="Approach copy",
+            impact_content="Impact copy",
+            showcase_image="projects/showcases/showcase.webp",
+            showcase_image_alt="Responsive project screens",
+            button_text="Visit Live Site",
+            button_url="https://example.com/",
+        )
+        response = self.client.get(reverse("project_detail", args=[project.slug]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, '<h1 id="caseStudyTitle">Structured case study</h1>')
+        self.assertContains(response, '<h2 id="overviewTitle">Overview</h2>')
+        self.assertContains(response, "Approach copy")
+        self.assertContains(response, "Impact copy")
+        self.assertContains(response, 'alt="Responsive project screens"')
+        self.assertContains(response, 'loading="lazy"')
+        self.assertContains(response, 'class="case-study__notch-button ect-micro-btn"')
+
+    def test_next_project_override_and_manual_related_projects_are_honored(self):
+        current = Project.objects.create(category=self.general_category, title="Current", slug="current", status="published", display_order=1)
+        automatic = Project.objects.create(category=self.general_category, title="Automatic", slug="automatic", status="published", display_order=2)
+        selected = Project.objects.create(category=self.general_category, title="Selected", slug="selected", status="published", display_order=3)
+        related = Project.objects.create(category=self.general_category, title="Related", slug="related", status="published", display_order=4)
+        current.next_project_override = selected
+        current.save(update_fields=["next_project_override"])
+        current.related_projects.add(related)
+        response = self.client.get(reverse("project_detail", args=[current.slug]))
+        self.assertContains(response, reverse("project_detail", args=[selected.slug]))
+        self.assertNotContains(response, reverse("project_detail", args=[automatic.slug]))
+        self.assertContains(response, "Related")
+
+    def test_our_work_proxy_contains_only_website_projects(self):
+        website_category = ProjectCategory.objects.create(name="Website Development", slug="website-development", status="published")
+        website = Project.objects.create(category=website_category, title="Website", slug="website", status="published")
+        Project.objects.create(category=self.digital_category, title="Social", slug="social", status="published")
+        self.assertEqual(list(WebsiteProject.objects.filter(category__slug="website-development")), [website])
 
     def test_youtube_project_renders_privacy_enhanced_embed(self):
         project = Project.objects.create(
