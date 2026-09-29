@@ -163,6 +163,10 @@ The case-study button notch now protects the full border at every tested width. 
 
 The project title, summary, and metadata now appear before the hero image, with responsive spacing that clears the shared navbar.
 
+### Website Development guide content update
+
+The required Website Development guide now contains the complete approved 2026 article, with damaged pasted fragments repaired and the official ECOG domain retained. Its slug, meta title, meta description, canonical URL, Open Graph data, and Twitter description are synchronized. The former article URL permanently redirects to the new URL, and a data migration applies the same update without deleting unrelated articles.
+
 ## Checkpoint log
 
 | Date | Phase | Commit | Verification | Notes |
@@ -193,3 +197,4 @@ The project title, summary, and metadata now appear before the hero image, with 
 | 2026-09-29 | Website project case study and Admin | `checkpoint-website-case-study-admin` | Django system/migration checks, full Django tests, manifest static collection, Admin change-page render, and diff integrity | Website Development only; EcoG Products content seeded while its stable URL is retained; section images await Admin upload; no live-server deployment |
 | 2026-09-29 | Case-study controls and Admin navigation | `checkpoint-case-study-admin-followup` | 61 Django tests, migration/system checks, JavaScript syntax, manifest collection, Chrome button geometry at 320/360/768/1440px, and in-page Admin navigation checks | Both notch buttons retain an 8px inset; next-project presentation is independently editable; no live-server deployment |
 | 2026-09-29 | Case-study introduction order | `checkpoint-case-study-intro-order` | Full Django tests plus Chrome layout checks at 320/360/768/1024/1440px | Title, summary, and metadata moved above the hero with navbar clearance and zero horizontal overflow; no live-server deployment |
+| 2026-09-29 | Website Development guide update | `checkpoint-website-guide-content` | 62 Django tests, migration/system checks, old-slug redirect test, and Chrome mobile metadata/content/overflow verification | Complete corrected article and requested SEO metadata applied; official domain retained; no live-server deployment |

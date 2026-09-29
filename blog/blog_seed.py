@@ -18,7 +18,8 @@ from django.utils.text import slugify
 
 from .utils import prepare_article_html
 
-TARGET_SLUG = "website-development-guide-2026"
+TARGET_SLUG = "website-development-ultimate-guide-for-business"
+PREVIOUS_TARGET_SLUG = "website-development-guide-2026"
 TARGET_TITLE = "Website Development: The Ultimate Guide for Businesses in 2026"
 LEGACY_SLUG = "website-intro"
 LEGACY_TITLE = "Why Every Business Needs a Professional Website"
@@ -33,17 +34,17 @@ HERO_DESCRIPTION = (
     "A practical 2026 guide to planning, designing, developing, optimizing, "
     "and launching a modern business website."
 )
-META_TITLE = "Website Development Guide for Businesses in 2026 | ECT"
+META_TITLE = "Website Development: Ultimate Guide for Businesses in 2026"
 META_DESCRIPTION = (
-    "Learn the 2026 website development process, technologies, SEO, AI, costs, "
-    "mistakes and launch checklist for a modern business website."
+    "Discover the ultimate guide to website development for businesses in 2026, "
+    "including types, features, technologies, SEO, AI, costs, and future trends."
 )
 PRIMARY_KEYWORD = "website development"
 SECONDARY_KEYWORDS = (
     "business website development, website development guide, web development process, "
     "website development cost, responsive business website"
 )
-CANONICAL_URL = "https://ecogcoretechnologies.com/blog/website-development-guide-2026/"
+CANONICAL_URL = "https://ecogcoretechnologies.com/blog/website-development-ultimate-guide-for-business/"
 
 AUTHOR_NAME = "Ragupathi Namachivayam"
 AUTHOR_DESIGNATION = "Founder & Managing Director, ECOG Groups"
@@ -133,6 +134,7 @@ def ensure_required_blog(Blog, BlogCategory, BlogTag):
 
     blog = (
         Blog.objects.filter(slug=TARGET_SLUG).first()
+        or Blog.objects.filter(slug=PREVIOUS_TARGET_SLUG).first()
         or Blog.objects.filter(title=TARGET_TITLE).first()
     )
     creating = blog is None

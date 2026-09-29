@@ -25,8 +25,14 @@ class RequiredBlogBootstrapTests(TestCase):
         self.assertTrue(blog.article_content)
         self.assertEqual(
             blog.canonical_url,
-            "https://ecogcoretechnologies.com/blog/website-development-guide-2026/",
+            "https://ecogcoretechnologies.com/blog/website-development-ultimate-guide-for-business/",
         )
+        self.assertEqual(
+            blog.meta_title,
+            "Website Development: Ultimate Guide for Businesses in 2026",
+        )
+        self.assertIn("Professional website design and development", blog.article_content)
+        self.assertIn("A successful website is not just a digital address", blog.article_content)
         self.assertEqual(blog.author, "Ragupathi Namachivayam")
         self.assertTrue(blog.hero_image)
         self.assertEqual(blog.tags.count(), 5)
@@ -76,6 +82,11 @@ class RequiredBlogPublicPageTests(TestCase):
         response = self.client.get(f"/blog/{TARGET_SLUG}/")
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Ragupathi Namachivayam")
+
+    def test_previous_required_blog_slug_redirects_permanently(self):
+        response = self.client.get("/blog/website-development-guide-2026/")
+        self.assertEqual(response.status_code, 301)
+        self.assertEqual(response.url, f"/blog/{TARGET_SLUG}/")
 
     def test_hero_image_is_served_and_returns_200(self):
         # The test runner forces DEBUG=False, which is when ect/urls.py skips
