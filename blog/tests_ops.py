@@ -155,7 +155,7 @@ class SoftwareDevelopmentGuideTests(TestCase):
         blog = Blog.objects.get(slug=SOFTWARE_GUIDE_SLUG)
         self.assertEqual(
             str(blog.hero_image),
-            "blog/software-development-business-2026/software-development-business-2026-hero.webp",
+            "blog/software-development-business-2026/software-development-business-2026-infographic.webp",
         )
         self.assertEqual(str(blog.open_graph_image), str(blog.hero_image))
         self.assertTrue(blog.hero_image_alt)
