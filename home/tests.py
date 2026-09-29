@@ -289,12 +289,24 @@ class ProjectFunctionalityTests(TestCase):
         selected = Project.objects.create(category=self.general_category, title="Selected", slug="selected", status="published", display_order=3)
         related = Project.objects.create(category=self.general_category, title="Related", slug="related", status="published", display_order=4)
         current.next_project_override = selected
-        current.save(update_fields=["next_project_override"])
+        current.next_project_image = "projects/next/custom-next.webp"
+        current.next_project_image_alt = "Custom next project presentation"
+        current.next_project_focal_point = "top"
+        current.next_project_button_text = "Explore the next website"
+        current.save(update_fields=[
+            "next_project_override", "next_project_image",
+            "next_project_image_alt", "next_project_focal_point",
+            "next_project_button_text",
+        ])
         current.related_projects.add(related)
         response = self.client.get(reverse("project_detail", args=[current.slug]))
         self.assertContains(response, reverse("project_detail", args=[selected.slug]))
         self.assertNotContains(response, reverse("project_detail", args=[automatic.slug]))
         self.assertContains(response, "Related")
+        self.assertContains(response, "/media/projects/next/custom-next.webp")
+        self.assertContains(response, 'alt="Custom next project presentation"')
+        self.assertContains(response, "object-position-top")
+        self.assertContains(response, "Explore the next website")
 
     def test_our_work_proxy_contains_only_website_projects(self):
         website_category = ProjectCategory.objects.create(name="Website Development", slug="website-development", status="published")

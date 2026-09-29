@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
   {% include "components/seo_meta.html" %}
   <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=46">
-  <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=7">
+  <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=8">
   <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
 </head>
 <body class="website-case-study-page">
@@ -82,10 +82,14 @@
 
     {% if next_project %}<section class="case-study__next case-study__container" aria-labelledby="nextProjectTitle">
       <h2 id="nextProjectTitle" class="case-study__visually-hidden">Next project: {{ next_project.title }}</h2>
-      {% project_preview_url next_project as next_preview %}
+      {% if project.next_project_image %}
+        <img src="{{ project.next_project_image.url }}" alt="{{ project.next_project_image_alt|default:next_project.title }}"
+             class="case-study__image object-position-{{ project.next_project_focal_point }}" loading="lazy" decoding="async">
+      {% else %}{% project_preview_url next_project as next_preview %}
       {% if next_preview %}<img src="{{ next_preview }}" alt="{{ next_project.card_image_alt|default:next_project.title }}" class="case-study__image" loading="lazy" decoding="async">
       {% else %}<div class="case-study__placeholder" role="img" aria-label="{{ next_project.title }} preview pending">Next project preview pending</div>{% endif %}
-      <div class="case-study__notch"><a href="{% url 'project_detail' next_project.slug %}" class="case-study__notch-button ect-micro-btn">View Next Project</a></div>
+      {% endif %}
+      <div class="case-study__notch"><a href="{% url 'project_detail' next_project.slug %}" class="case-study__notch-button ect-micro-btn">{{ project.next_project_button_text|default:'View Next Project' }}</a></div>
     </section>{% endif %}
 
     {% if related_projects %}<section class="case-study__related case-study__container" aria-labelledby="relatedProjectsTitle">

@@ -9,7 +9,7 @@ from .models import WebsiteProject, WebsiteProjectCategory
 class WebsiteProjectAdminForm(OptimizedImageAdminForm):
     image_fields = (
         'hero_image', 'card_image', 'overview_image', 'showcase_image',
-        'approach_image', 'impact_image', 'og_image',
+        'approach_image', 'impact_image', 'next_project_image', 'og_image',
     )
     image_sizes = {
         'card_image': (1600, 1280),
@@ -18,6 +18,7 @@ class WebsiteProjectAdminForm(OptimizedImageAdminForm):
         'showcase_image': (2400, 1400),
         'approach_image': (1600, 1400),
         'impact_image': (1600, 1400),
+        'next_project_image': (2400, 1400),
         'og_image': (1600, 900),
     }
 
@@ -108,7 +109,11 @@ class WebsiteProjectAdmin(admin.ModelAdmin):
             )
         }),
         ('Project Navigation', {
-            'fields': ('next_project_override', 'related_projects')
+            'fields': (
+                'next_project_override', 'next_project_image',
+                'next_project_image_alt', 'next_project_focal_point',
+                'next_project_button_text', 'related_projects',
+            )
         }),
         ('SEO and Social Sharing', {
             'fields': (

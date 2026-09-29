@@ -159,6 +159,8 @@ Completed in `docs/PROJECT_FILTER_INTERACTION_FOLLOWUP.md`. Category filters and
 
 Completed in `docs/WEBSITE_CASE_STUDY_ADMIN.md`. Website Development projects now use the approved reusable case-study structure with the existing navbar/footer, semantic content sections, stable responsive media, accessible interactions, per-image alternative text and crop controls, project metadata, project-specific SEO/social fields, automatic or overridden next-project navigation, and automatic or manually selected related projects. A dedicated **Our Work** Admin area separates these Website Development controls from other service designs. The historical `excel-packs` URL is preserved while its visible project data is upgraded to EcoG Products. Final section images remain ready for user upload through Admin.
 
+The case-study button notch now protects the full border at every tested width. The next-project panel has independent image, alternative-text, crop-position, and button-label controls. Admin dashboard and app-list links use progressive in-page navigation with browser-history support and a normal-navigation fallback.
+
 ## Checkpoint log
 
 | Date | Phase | Commit | Verification | Notes |
@@ -187,3 +189,4 @@ Completed in `docs/WEBSITE_CASE_STUDY_ADMIN.md`. Website Development projects no
 | 2026-09-29 | Projects hover seam correction | `checkpoint-project-card-hover-seam` | Focused Django test plus Chrome/Edge hover audits | Removed card-level hover translation while retaining image and button micro-interactions; no data/live-server changes |
 | 2026-09-29 | Projects shared button interaction | `checkpoint-project-button-interaction` | Focused Django test plus Chrome/Edge hover-animation audits | Applied the sitewide CTA lift, sweep, press, focus, and reduced-motion behavior to View Project; no data/live-server changes |
 | 2026-09-29 | Website project case study and Admin | `checkpoint-website-case-study-admin` | Django system/migration checks, full Django tests, manifest static collection, Admin change-page render, and diff integrity | Website Development only; EcoG Products content seeded while its stable URL is retained; section images await Admin upload; no live-server deployment |
+| 2026-09-29 | Case-study controls and Admin navigation | `checkpoint-case-study-admin-followup` | 61 Django tests, migration/system checks, JavaScript syntax, manifest collection, Chrome button geometry at 320/360/768/1440px, and in-page Admin navigation checks | Both notch buttons retain an 8px inset; next-project presentation is independently editable; no live-server deployment |

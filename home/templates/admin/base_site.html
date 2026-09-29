@@ -8,6 +8,11 @@
 </a></h1>
 {% endblock %}
 
+{% block extrahead %}
+{{ block.super }}
+<script src="{% static 'js/admin-navigation.js' %}" defer></script>
+{% endblock %}
+
 {% block extrastyle %}
 {{ block.super }}
 <style>

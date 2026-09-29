@@ -263,6 +263,17 @@ class Project(models.Model):
         related_name='previous_project_overrides',
         help_text='Optional. Leave empty to use the next published project by display order.',
     )
+    next_project_image = models.ImageField(
+        upload_to='projects/next/', blank=True, null=True,
+        help_text='Optional custom image for this page’s next-project panel. Recommended: 2400 × 1000 px or larger.',
+    )
+    next_project_image_alt = models.CharField(max_length=255, blank=True)
+    next_project_focal_point = models.CharField(
+        max_length=10, choices=FOCAL_POINT_CHOICES, default='center',
+    )
+    next_project_button_text = models.CharField(
+        max_length=100, default='View Next Project', blank=True,
+    )
     related_projects = models.ManyToManyField(
         'self', symmetrical=False, blank=True, related_name='manually_related_from',
         help_text='Optional. Select up to three; otherwise related projects are chosen automatically.',

@@ -115,7 +115,7 @@ class OptimizedImageAdminForm(forms.ModelForm):
 class ProjectAdminForm(OptimizedImageAdminForm):
     image_fields = (
         "hero_image", "card_image", "overview_image", "showcase_image",
-        "approach_image", "impact_image", "og_image",
+        "approach_image", "impact_image", "next_project_image", "og_image",
     )
     image_sizes = {"og_image": (1600, 900)}
 
@@ -210,4 +210,3 @@ class DigitalMarketingOverviewAdmin(admin.ModelAdmin):
             'fields': ('innovation_title', 'innovation_description')
         }),
     )
-

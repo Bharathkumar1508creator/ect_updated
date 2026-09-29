@@ -765,8 +765,8 @@
 .case-study__story { padding-block: 48px; }
 .case-study__story-row { margin-bottom: 48px; align-items: center; }
 .case-study__notch {
-    position: absolute; right: 0; bottom: 0; z-index: 3; width: 206px; height: 64px;
-    display: flex; align-items: center; justify-content: flex-end; padding: 10px 0 0 14px;
+    position: absolute; right: 0; bottom: 0; z-index: 3; width: 214px; height: 66px;
+    display: flex; align-items: center; justify-content: flex-end; padding: 10px 8px 8px 14px;
     border-top-left-radius: 22px; background: #fff;
 }
 .case-study__notch::before, .case-study__notch::after { content: ''; position: absolute; width: 24px; height: 24px; background: transparent; border-bottom-right-radius: 24px; box-shadow: 10px 10px 0 10px #fff; }
@@ -814,7 +814,7 @@
     .case-study__body { font-size: .95rem; }
     .case-study__media { border-radius: 16px; }
     .case-study__showcase, .case-study__next { aspect-ratio: 4 / 3; border-radius: 16px; }
-    .case-study__notch { width: 174px; height: 58px; }
+    .case-study__notch { width: 182px; height: 60px; padding-right: 8px; padding-bottom: 8px; }
     .case-study__notch-button { width: 160px; min-height: 42px; padding: 8px 12px; font-size: .88rem; }
     .case-study__story { padding-block: 36px; }
     .case-study__story-row { margin-bottom: 36px; }
