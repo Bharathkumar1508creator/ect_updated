@@ -173,6 +173,8 @@ def add_heading_ids(value):
         base = slugify(strip_tags(body))[:80] or f"section-{len(used) + 1}"
         candidate = slugify(existing.group(1)) if existing else base
         candidate = candidate or base
+        if candidate[0].isdigit():
+            candidate = f"section-{candidate}"
         original = candidate
         suffix = 2
         while candidate in used:

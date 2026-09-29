@@ -30,6 +30,10 @@ class ArticleHtmlTests(TestCase):
         self.assertIn('id="seo-guide-2"', result)
         self.assertIn('rel="noopener noreferrer"', result)
 
+    def test_numbered_heading_ids_are_safe_css_targets(self):
+        result = prepare_article_html("<h2>7 Ways Software Helps</h2>")
+        self.assertIn('id="section-7-ways-software-helps"', result)
+
     @override_settings(SITE_URL="https://ecogcoretechnologies.com")
     def test_normalizes_supported_internal_link_formats(self):
         self.assertEqual(normalize_article_url("blog/what-is-seo/"), "/blog/what-is-seo/")

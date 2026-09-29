@@ -167,6 +167,10 @@ The project title, summary, and metadata now appear before the hero image, with 
 
 The required Website Development guide now contains the complete approved 2026 article, with damaged pasted fragments repaired and the official ECOG domain retained. Its slug, meta title, meta description, canonical URL, Open Graph data, and Twitter description are synchronized. The former article URL permanently redirects to the new URL, and a data migration applies the same update without deleting unrelated articles.
 
+### Software Development guide
+
+The new 2026 Software Development guide is created from the approved supplied content with 16 semantic H2 sections, a server-rendered TOC, ten FAQs, internal service links, focus/supporting keywords, canonical and social metadata, automatic reading time, five tags, and responsive validation. Numbered heading IDs now receive a CSS-safe prefix, repairing TOC navigation for headings such as “7 Ways…”. Six original image placements and prompts are recorded in `docs/SOFTWARE_BLOG_IMAGE_PLAN.md`; asset generation is pending because the built-in image-generation account limit was reached.
+
 ## Checkpoint log
 
 | Date | Phase | Commit | Verification | Notes |
@@ -198,3 +202,4 @@ The required Website Development guide now contains the complete approved 2026 a
 | 2026-09-29 | Case-study controls and Admin navigation | `checkpoint-case-study-admin-followup` | 61 Django tests, migration/system checks, JavaScript syntax, manifest collection, Chrome button geometry at 320/360/768/1440px, and in-page Admin navigation checks | Both notch buttons retain an 8px inset; next-project presentation is independently editable; no live-server deployment |
 | 2026-09-29 | Case-study introduction order | `checkpoint-case-study-intro-order` | Full Django tests plus Chrome layout checks at 320/360/768/1024/1440px | Title, summary, and metadata moved above the hero with navbar clearance and zero horizontal overflow; no live-server deployment |
 | 2026-09-29 | Website Development guide update | `checkpoint-website-guide-content` | 62 Django tests, migration/system checks, old-slug redirect test, and Chrome mobile metadata/content/overflow verification | Complete corrected article and requested SEO metadata applied; official domain retained; no live-server deployment |
+| 2026-09-29 | Software Development guide content | `checkpoint-software-guide-content` | Full Django tests, fresh migration checks, and Chrome content/TOC/FAQ/metadata/overflow checks at 320/390/768/1440px | Article complete; six generated images pending due account image-generation limit; no live-server deployment |
