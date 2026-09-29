@@ -151,6 +151,10 @@ This phase begins only after:
 
 Completed in `docs/PERFORMANCE_READINESS_FOLLOWUP.md`. Production CSS and active JavaScript now have a repeatable minified build; shared navbar CSS is merged into the base production bundle; external Font Awesome is replaced by local SVG icons; the unused homepage ripple request is removed; below-the-fold homepage videos load near the viewport while retaining automatic muted playback; and above-the-fold font, popup-style, and hero-paint delays are reduced. The first valid clean mobile Lighthouse comparison improved Performance from 55 to 65 and reduced initial transfer from about 4.6 MiB to 1.26 MiB. Optional Analytics and SalesIQ now require cookie consent, Bigin loads on form interaction, and a clean audit reports Accessibility, Best Practices, and SEO at 100. Professional policy content and a valid final production Performance trace remain pending.
 
+### Projects interaction follow-up
+
+Completed in `docs/PROJECT_FILTER_INTERACTION_FOLLOWUP.md`. Category filters and pagination now update only the Projects listing while retaining real URLs, Back/Forward behavior, keyboard focus, live status announcements, and non-JavaScript fallback navigation. Dynamically inserted project media is reinitialized safely. Visible card and button shadows are removed, and buttons use consistent hover, press, focus, and reduced-motion behavior.
+
 ## Checkpoint log
 
 | Date | Phase | Commit | Verification | Notes |
@@ -173,3 +177,4 @@ Completed in `docs/PERFORMANCE_READINESS_FOLLOWUP.md`. Production CSS and active
 | 2026-09-29 | Performance readiness follow-up | `checkpoint-performance-readiness-1` | 57 Django tests, no migration drift, production asset build, npm audit, 662-file manifest collection, 234 Chrome/Edge responsive cases, and Chrome/Edge media audits with zero failures | Valid clean Lighthouse Performance improved 55→65 before later CSS/font refinements; Zoho cookie findings remain; no schema/data/external-submission/live-server changes |
 | 2026-09-29 | Consent and third-party loading | `checkpoint-performance-consent` | 58 Django tests, consent/interaction network audit, 664-file manifest collection, clean Lighthouse Accessibility/Best Practices/SEO 100, and Chrome responsive/media audits with zero failures | Optional Analytics/SalesIQ require consent; Bigin loads on form interaction; final Lighthouse Performance trace hit `NO_NAVSTART`; no schema/data/external-submission/live-server changes |
 | 2026-09-29 | Projects hero navbar clearance | `checkpoint-project-hero-clearance` | 7 focused Django tests and 18 Chrome/Edge viewport cases from 320px to 1920px | Transformation Projects overline and title remain below the fixed navbar with zero overflow; no data/live-server changes |
+| 2026-09-29 | Projects filters and card interactions | `checkpoint-project-filter-interactions` | 58 Django tests, JavaScript syntax checks, Chrome/Edge in-page filtering and history checks, and 18 viewport cases | No full reload, visible card/button shadows, local request failures, page errors, or overflow; no data/live-server changes |

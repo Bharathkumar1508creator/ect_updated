@@ -42,20 +42,22 @@
         </div>
     </section>
 
-    <section class="project-listing py-5">
+    <section class="project-listing py-5" data-project-listing>
         <div class="container">
             <div class="filters d-flex justify-content-between align-items-center mb-4">
-                <div class="category-filters d-flex align-items-center" style="gap: 15px;">
+                <nav class="category-filters d-flex align-items-center" style="gap: 15px;" aria-label="Filter projects by category">
                     <span style="font-weight: 600; font-size: 18px; margin-right: 15px;">Filter:</span>
-                    <a href="{% url 'project_list' %}" class="btn-filter {% if not current_category %}active{% endif %}">All Projects</a>
+                    <a href="{% url 'project_list' %}" class="btn-filter {% if not current_category %}active{% endif %}" aria-controls="projectResults"{% if not current_category %} aria-current="page"{% endif %}>All Projects</a>
                     {% for cat in categories %}
-                        <a href="{% url 'project_list' %}?category={{ cat.slug }}" class="btn-filter {% if current_category == cat.slug %}active{% endif %}">{{ cat.name }}</a>
+                        <a href="{% url 'project_list' %}?category={{ cat.slug }}" class="btn-filter {% if current_category == cat.slug %}active{% endif %}" aria-controls="projectResults"{% if current_category == cat.slug %} aria-current="page"{% endif %}>{{ cat.name }}</a>
                     {% endfor %}
-                </div>
+                </nav>
 
             </div>
 
-            <div class="project-grid">
+            <p class="project-filter-status" data-project-filter-status role="status" aria-live="polite" aria-atomic="true"></p>
+
+            <div class="project-grid" id="projectResults">
                 {% for project in projects %}
                     {% include 'projects/components/project_card.html' with project=project %}
                 {% empty %}
@@ -89,6 +91,7 @@
     </section>
 
 
+<script src="{% static 'js/project-list.js' %}?v=1" defer></script>
 {% include 'components/project_page_end.html' %}
 </body>
 </html>

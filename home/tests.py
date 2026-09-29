@@ -225,6 +225,9 @@ class ProjectFunctionalityTests(TestCase):
         self.assertContains(response, "Media unavailable")
         self.assertContains(response, staticfiles_storage.url("js/base.js"))
         self.assertContains(response, staticfiles_storage.url("js/project-media.js"))
+        self.assertContains(response, staticfiles_storage.url("js/project-list.js"))
+        self.assertContains(response, 'data-project-listing')
+        self.assertContains(response, 'aria-controls="projectResults"')
         self.assertContains(response, 'id="ectContactPopup"')
         self.assertContains(response, "ECOGCORETECHNOLOGIES")
 

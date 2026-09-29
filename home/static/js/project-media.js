@@ -66,16 +66,19 @@
     start();
   }
 
-  function init() {
-    initCarousel();
-    document.querySelectorAll("[data-media-image], [data-media-video]").forEach(function (media) {
+  function initMedia(root) {
+    root.querySelectorAll("[data-media-image], [data-media-video]").forEach(function (media) {
+      if (media.dataset.mediaFallbackReady === "true") return;
+      media.dataset.mediaFallbackReady = "true";
       media.addEventListener("error", function () { showFallback(media); }, { once: true });
       if (media.tagName === "IMG" && media.complete && media.naturalWidth === 0) {
         showFallback(media);
       }
     });
 
-    document.querySelectorAll("[data-card-video-button]").forEach(function (button) {
+    root.querySelectorAll("[data-card-video-button]").forEach(function (button) {
+      if (button.dataset.videoControlReady === "true") return;
+      button.dataset.videoControlReady = "true";
       const frame = button.closest("[data-media-frame]");
       const video = frame && frame.querySelector("video");
       if (!video) {
@@ -97,6 +100,15 @@
       video.addEventListener("ended", function () { updateVideoButton(video, button); });
     });
   }
+
+  function init() {
+    initCarousel();
+    initMedia(document);
+  }
+
+  document.addEventListener("projects:updated", function (event) {
+    initMedia(event.detail && event.detail.root ? event.detail.root : document);
+  });
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init, { once: true });

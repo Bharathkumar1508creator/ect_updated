@@ -124,15 +124,15 @@
     background: #fff;
     /* Remove padding to allow image to bleed to edges */
     padding: 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.25s ease;
     height: 350px;
     overflow: hidden; /* Rounds the outer corners */
-    box-shadow: inset 2px 2px 14.6px rgba(0, 0, 0, 0.11);
+    box-shadow: none;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: none;
 }
 
 .card-link {
@@ -217,7 +217,7 @@
     height: 46px; /* approximate button height */
     background: #0C3C01;
     border-radius: 8px;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
@@ -225,14 +225,24 @@
     color: #FFFFFF;
     text-decoration: none;
     z-index: 10;
-    transition: background 0.3s ease, transform 0.2s ease;
-    /* Optional glow matching Figma Rectangle 92 */
-    box-shadow: 0 4px 10px rgba(91, 109, 73, 0.4);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: none;
 }
 
-.btn-notch:hover {
+.project-card:hover .btn-notch,
+.project-card:focus-within .btn-notch {
     background: #072501;
     transform: translateY(-2px);
+}
+
+.project-card:active .btn-notch {
+    transform: translateY(0) scale(0.98);
+}
+
+.card-link:focus-visible {
+    outline: 3px solid #2f7d32;
+    outline-offset: -4px;
+    border-radius: 16px;
 }
 
 /* Social Card */
@@ -241,7 +251,7 @@
     border-radius: 24px;
     overflow: hidden;
     background: #000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: none;
     aspect-ratio: 1 / 1;
 }
 
@@ -336,7 +346,8 @@
     border: 1px solid #ddd;
     text-decoration: none;
     font-size: 0.9rem;
-    transition: all 0.2s;
+    transition: background-color 0.2s ease, border-color 0.2s ease,
+                color 0.2s ease, transform 0.2s ease;
     font-weight: 500;
 }
 
@@ -345,6 +356,51 @@
     background: #145a20; /* Darker green to match UI */
     color: #fff;
     border-color: #145a20;
+}
+
+.btn-filter:hover {
+    transform: translateY(-2px);
+}
+
+.btn-filter:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.btn-filter:focus-visible,
+.pagination .page-link:focus-visible {
+    outline: 3px solid rgba(20, 90, 32, 0.35);
+    outline-offset: 3px;
+}
+
+.project-listing {
+    transition: opacity 0.18s ease;
+}
+
+.project-listing.is-loading {
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.project-filter-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .card-media img,
+    .btn-notch,
+    .btn-filter,
+    .project-listing {
+        transition: none;
+    }
 }
 
 /* Media Elements */
