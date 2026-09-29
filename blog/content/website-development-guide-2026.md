@@ -386,7 +386,7 @@ Where applicable, structured data can help search engines understand information
 
 #### Core Web Vitals
 
-Pay attention to Google's Core Web Vitals and the recommendations in the <a href="https://developers.google.com/search/docs/fundamentals/get-started-developers" target="_blank" rel="noopener noreferrer">official Google SEO guide for web developers</a>, including:
+Pay attention to Google's Core Web Vitals and the recommendations in the <a href="https://developers.google.com/search/docs/fundamentals/get-started-developers" target="_blank" rel="nofollow noopener noreferrer">official Google SEO guide for web developers</a>, including:
 
 - **LCP** – Loading performance
 - **INP** – Responsiveness

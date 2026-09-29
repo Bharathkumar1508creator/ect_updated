@@ -3,6 +3,8 @@ media serving, diagnostics and link preservation.
 """
 import io
 from importlib import reload
+from html.parser import HTMLParser
+from urllib.parse import urlparse
 
 import ect.urls as ect_urls
 from django.core.management import call_command
@@ -15,6 +17,22 @@ from .utils import normalize_article_url
 
 
 SOFTWARE_GUIDE_SLUG = "why-software-development-important-businesses-2026"
+
+
+class ArticleLinkParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.links = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "a":
+            self.links.append(dict(attrs))
+
+
+def article_links(blog):
+    parser = ArticleLinkParser()
+    parser.feed(blog.article_content)
+    return parser.links
 
 
 class RequiredBlogBootstrapTests(TestCase):
@@ -143,6 +161,24 @@ class SoftwareDevelopmentGuideTests(TestCase):
             response,
             f'https://ecogcoretechnologies.com/blog/{SOFTWARE_GUIDE_SLUG}/',
         )
+
+
+class PublishedGuideLinkPolicyTests(TestCase):
+    def test_required_guides_have_five_internal_and_one_safe_external_link(self):
+        for slug in (TARGET_SLUG, SOFTWARE_GUIDE_SLUG):
+            with self.subTest(slug=slug):
+                links = article_links(Blog.objects.get(slug=slug))
+                internal = [link for link in links if link.get("href", "").startswith("/")]
+                external = [
+                    link
+                    for link in links
+                    if urlparse(link.get("href", "")).scheme in {"http", "https"}
+                ]
+                self.assertGreaterEqual(len(internal), 5)
+                self.assertEqual(len(external), 1)
+                self.assertEqual(external[0].get("target"), "_blank")
+                rel = set(external[0].get("rel", "").split())
+                self.assertTrue({"nofollow", "noopener", "noreferrer"}.issubset(rel))
 
 
 class InternalLinkPreservationTests(TestCase):
