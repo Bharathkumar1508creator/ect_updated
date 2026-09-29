@@ -100,6 +100,14 @@ class RequiredBlogPublicPageTests(TestCase):
         response = self.client.get(reverse("blog:blog_list"))
         self.assertEqual(response.status_code, 200)
 
+    def test_blog_listing_uses_one_hero_cta_and_clickable_cards(self):
+        response = self.client.get(reverse("blog:blog_list"))
+        self.assertContains(response, ">Read Article<", count=1, html=False)
+        self.assertNotContains(response, "Explore Opportunities")
+        self.assertNotContains(response, 'class="link-row"')
+        self.assertContains(response, 'class="card"', count=3)
+        self.assertContains(response, 'class="card__date"', count=3)
+
     def test_blog_detail_returns_200(self):
         response = self.client.get(f"/blog/{TARGET_SLUG}/")
         self.assertEqual(response.status_code, 200)

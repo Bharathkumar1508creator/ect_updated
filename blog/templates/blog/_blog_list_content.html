@@ -20,7 +20,7 @@
                 {% endif %}
             </div>
             <div class="featured-hero__right">
-                <a href="{{ featured_blog.get_absolute_url }}" class="featured-hero__btn">Explore Opportunities</a>
+                <a href="{{ featured_blog.get_absolute_url }}" class="featured-hero__btn">Read Article</a>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
 <section class="blog-section">
     <div class="blog-grid">
         {% for blog in blogs %}
-            <div class="card">
+            <a href="{{ blog.get_absolute_url }}" class="card" aria-label="Read {{ blog.title }}">
                 <div class="image">
                     <img class="image-inner"
                          src="{% if blog.hero_image %}{{ blog.hero_image.url }}{% else %}{{ fallback_image_url }}{% endif %}"
@@ -56,19 +56,11 @@
                          width="365" height="258" data-fallback-src="{{ fallback_image_url }}">
                 </div>
 
-                <div class="date-pill-bg"></div>
-                <div class="dot"></div>
-                <div class="date-text">{{ blog.publish_date|date:"d F Y" }}</div>
-
-                <a href="{{ blog.get_absolute_url }}" class="title" style="color: #000000; text-decoration: none;">
-                    {{ blog.title }}
-                </a>
-
-                <a href="{{ blog.get_absolute_url }}" class="link-row" style="text-decoration: none;">
-                    <span class="link-label">Read Article</span>
-                    <span class="link-arrow" aria-hidden="true">→</span>
-                </a>
-            </div>
+                <div class="card__body">
+                    <div class="card__date"><span class="dot" aria-hidden="true"></span>{{ blog.publish_date|date:"d F Y" }}</div>
+                    <h2 class="title">{{ blog.title }}</h2>
+                </div>
+            </a>
         {% empty %}
             <p>No blogs found.</p>
         {% endfor %}
