@@ -18,6 +18,8 @@ Project media initialization now supports dynamically inserted cards without dup
 
 A two-pixel white mask now covers the antialiased media edge that browsers could render beneath the button notch. The shared card rule applies the correction to every Projects card without changing its image, rounded corners, link area, or button position.
 
+The Projects listing now versions its stylesheet URL. This forces already-open browsers to fetch the corrected CSS instead of reusing the unversioned pre-fix stylesheet from cache.
+
 ## Verification
 
 - All 58 Django tests passed.

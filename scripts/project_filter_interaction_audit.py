@@ -43,6 +43,7 @@ def main():
           marker: window.__projectFilterPageMarker,
           category: document.querySelector('.btn-filter.active')?.textContent.trim(),
           focusRetained: document.activeElement?.classList.contains('btn-filter'),
+          stylesheetVersioned: [...document.styleSheets].some(sheet => sheet.href?.includes('/projects.css?v=4')),
           url: location.href,
           busy: document.querySelector('[data-project-listing]')?.hasAttribute('aria-busy'),
           projectShadows: [...document.querySelectorAll('.project-card')].map(el => getComputedStyle(el).boxShadow),
@@ -68,6 +69,8 @@ def main():
         failures.append("selected filter did not become active")
     if not filtered["focusRetained"]:
         failures.append("keyboard focus was not retained after filtering")
+    if not filtered["stylesheetVersioned"]:
+        failures.append("the Projects stylesheet URL is not cache-versioned")
     if filtered["busy"]:
         failures.append("loading state did not clear")
     if any(value != "none" for value in filtered["projectShadows"] + filtered["buttonShadows"]):
