@@ -244,7 +244,13 @@
 .project-card:hover .btn-notch,
 .project-card:focus-within .btn-notch {
     background: #072501;
-    transform: translateY(-2px);
+    transform: translateY(-0.1875rem);
+}
+
+.project-card:hover .btn-notch::after,
+.project-card:focus-within .btn-notch::after {
+    opacity: 1;
+    animation: sweep-move 1s linear infinite alternate;
 }
 
 .project-card:active .btn-notch {

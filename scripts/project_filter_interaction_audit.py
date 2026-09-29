@@ -43,7 +43,7 @@ def main():
           marker: window.__projectFilterPageMarker,
           category: document.querySelector('.btn-filter.active')?.textContent.trim(),
           focusRetained: document.activeElement?.classList.contains('btn-filter'),
-          stylesheetVersioned: [...document.styleSheets].some(sheet => sheet.href?.includes('/projects.css?v=5')),
+          stylesheetVersioned: [...document.styleSheets].some(sheet => sheet.href?.includes('/projects.css?v=6')),
           url: location.href,
           busy: document.querySelector('[data-project-listing]')?.hasAttribute('aria-busy'),
           projectShadows: [...document.querySelectorAll('.project-card')].map(el => getComputedStyle(el).boxShadow),
@@ -57,7 +57,18 @@ def main():
 
         first_card = page.locator(".project-card").first
         first_card.hover()
+        page.wait_for_timeout(400)
         hover_transform = first_card.evaluate("el => getComputedStyle(el).transform")
+        button_interaction = first_card.locator(".btn-notch").evaluate("""el => {
+          const button = getComputedStyle(el);
+          const sweep = getComputedStyle(el, '::after');
+          return {
+            hasSharedClass: el.classList.contains('ect-micro-btn'),
+            transform: button.transform,
+            sweepOpacity: sweep.opacity,
+            sweepAnimation: sweep.animationName
+          };
+        }""")
 
         page.go_back(wait_until="commit")
         page.wait_for_function("document.querySelector('.btn-filter.active')?.textContent.trim() === 'All Projects'")
@@ -88,6 +99,12 @@ def main():
         failures.append("filter result introduced horizontal overflow")
     if hover_transform != "none":
         failures.append("project card still moves on hover and can expose an edge seam")
+    if not button_interaction["hasSharedClass"]:
+        failures.append("View Project is missing the shared micro-interaction class")
+    if button_interaction["transform"] == "none":
+        failures.append("View Project does not lift on hover")
+    if button_interaction["sweepOpacity"] != "1" or button_interaction["sweepAnimation"] != "sweep-move":
+        failures.append("View Project light-sweep animation is not active on hover")
     if history_marker != "preserved":
         failures.append("Back navigation caused a full document reload")
     if mobile_overflow:
@@ -102,6 +119,7 @@ def main():
         "filter": expected_label,
         "filtered": filtered,
         "hoverTransform": hover_transform,
+        "buttonInteraction": button_interaction,
         "historyMarker": history_marker,
         "mobileOverflow": mobile_overflow,
         "pageErrors": page_errors,

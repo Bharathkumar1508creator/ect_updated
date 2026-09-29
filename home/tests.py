@@ -228,7 +228,8 @@ class ProjectFunctionalityTests(TestCase):
         self.assertContains(response, staticfiles_storage.url("js/project-list.js"))
         self.assertContains(response, 'data-project-listing')
         self.assertContains(response, 'aria-controls="projectResults"')
-        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=5')
+        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=6')
+        self.assertContains(response, 'class="btn-notch ect-micro-btn"')
         self.assertContains(response, 'id="ectContactPopup"')
         self.assertContains(response, "ECOGCORETECHNOLOGIES")
 

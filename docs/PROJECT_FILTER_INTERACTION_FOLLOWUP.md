@@ -22,6 +22,8 @@ The Projects listing now versions its stylesheet URL. This forces already-open b
 
 The project card itself no longer translates vertically on hover because transformed rounded clipping created a browser-compositing seam beneath the hovered card. Image zoom and button hover/press feedback remain active, so the interaction remains visible without moving the card boundary.
 
+The **View Project** control now uses the same `ect-micro-btn` interaction as CTA buttons on the other pages: a three-pixel lift, animated light sweep, and press-down response. Because the visible control sits inside the card's overlay link, the card hover/focus state activates the shared animation while the card boundary remains stationary.
+
 ## Verification
 
 - All 58 Django tests passed.
