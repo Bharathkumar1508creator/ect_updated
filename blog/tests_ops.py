@@ -161,6 +161,10 @@ class SoftwareDevelopmentGuideTests(TestCase):
         self.assertEqual(str(blog.open_graph_image), str(blog.hero_image))
         self.assertTrue(blog.hero_image_alt)
         self.assertEqual(blog.author_profile_url, "https://www.ragupathinamachivayam.com/")
+        self.assertEqual(
+            str(blog.author_photo),
+            "blog/authors/ragupathi-namachivayam.png",
+        )
         self.assertEqual(blog.article_content.count("<figure>"), 5)
         self.assertEqual(blog.article_content.count('loading="lazy"'), 5)
         self.assertEqual(blog.article_content.count('width="1600" height="900"'), 5)
@@ -212,6 +216,10 @@ class ZohoConsultingGuideTests(TestCase):
         self.assertEqual(str(blog.open_graph_image), str(blog.hero_image))
         self.assertTrue(blog.hero_image_alt)
         self.assertEqual(blog.author_profile_url, "https://www.ragupathinamachivayam.com/")
+        self.assertEqual(
+            str(blog.author_photo),
+            "blog/authors/ragupathi-namachivayam.png",
+        )
         self.assertEqual(blog.article_content.count("<figure>"), 5)
         self.assertEqual(blog.article_content.count('loading="lazy"'), 5)
         self.assertEqual(blog.article_content.count('width="1600" height="900"'), 5)
@@ -224,6 +232,7 @@ class ZohoConsultingGuideTests(TestCase):
         self.assertContains(response, '"@type": "FAQPage"', html=False)
         self.assertContains(response, "Expert Zoho Consulting Services to Accelerate Growth")
         self.assertContains(response, 'href="https://www.ragupathinamachivayam.com/"')
+        self.assertContains(response, 'src="/media/blog/authors/ragupathi-namachivayam.png"')
         self.assertContains(response, "Founder &amp; Managing Director, ECOG Groups")
         self.assertContains(response, "Updated 29 September 2026")
 
