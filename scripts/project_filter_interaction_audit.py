@@ -47,6 +47,10 @@ def main():
           busy: document.querySelector('[data-project-listing]')?.hasAttribute('aria-busy'),
           projectShadows: [...document.querySelectorAll('.project-card')].map(el => getComputedStyle(el).boxShadow),
           buttonShadows: [...document.querySelectorAll('.btn-notch')].map(el => getComputedStyle(el).boxShadow),
+          edgeMasks: [...document.querySelectorAll('.project-card')].map(el => {
+            const style = getComputedStyle(el, '::after');
+            return {content: style.content, height: style.height, background: style.backgroundColor};
+          }),
           overflow: document.documentElement.scrollWidth > innerWidth + 1
         })""")
 
@@ -68,6 +72,11 @@ def main():
         failures.append("loading state did not clear")
     if any(value != "none" for value in filtered["projectShadows"] + filtered["buttonShadows"]):
         failures.append("a project card or View Project button still has a visible shadow")
+    if any(
+        mask["content"] == "none" or mask["height"] != "2px" or mask["background"] != "rgb(255, 255, 255)"
+        for mask in filtered["edgeMasks"]
+    ):
+        failures.append("a project card is missing the bottom-edge mask")
     if filtered["overflow"]:
         failures.append("filter result introduced horizontal overflow")
     if history_marker != "preserved":

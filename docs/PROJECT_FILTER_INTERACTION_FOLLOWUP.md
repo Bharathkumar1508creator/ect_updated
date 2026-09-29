@@ -16,6 +16,8 @@ The selected filter exposes `aria-current`, the results region has a stable targ
 
 Project media initialization now supports dynamically inserted cards without duplicating event listeners. Card and button shadows are disabled, while short transform and color transitions provide hover and press feedback. All motion transitions are disabled when the user prefers reduced motion.
 
+A two-pixel white mask now covers the antialiased media edge that browsers could render beneath the button notch. The shared card rule applies the correction to every Projects card without changing its image, rounded corners, link area, or button position.
+
 ## Verification
 
 - All 58 Django tests passed.
@@ -23,6 +25,7 @@ Project media initialization now supports dynamically inserted cards without dup
 - Chrome and Edge kept the same document marker through category filtering and Back navigation.
 - Chrome and Edge retained keyboard focus, reported no page errors or failed local requests, and computed all tested card/button shadows as `none`.
 - The Projects page had no horizontal overflow at 360px after filtering.
+- Every tested card exposed the shared two-pixel white bottom-edge mask.
 - The nine-width Chrome and Edge hero matrix from 320px through 1920px retained navbar clearance and zero overflow.
 
 No database schema, production data, uploaded media, third-party submission, or live-server files were changed.
