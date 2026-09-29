@@ -124,14 +124,13 @@
     background: #fff;
     /* Remove padding to allow image to bleed to edges */
     padding: 0;
-    transition: transform 0.25s ease;
     height: 350px;
     overflow: hidden; /* Rounds the outer corners */
     box-shadow: none;
 }
 
 .project-card:hover {
-    transform: translateY(-3px);
+    transform: none;
     box-shadow: none;
 }
 

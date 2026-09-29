@@ -43,7 +43,7 @@ def main():
           marker: window.__projectFilterPageMarker,
           category: document.querySelector('.btn-filter.active')?.textContent.trim(),
           focusRetained: document.activeElement?.classList.contains('btn-filter'),
-          stylesheetVersioned: [...document.styleSheets].some(sheet => sheet.href?.includes('/projects.css?v=4')),
+          stylesheetVersioned: [...document.styleSheets].some(sheet => sheet.href?.includes('/projects.css?v=5')),
           url: location.href,
           busy: document.querySelector('[data-project-listing]')?.hasAttribute('aria-busy'),
           projectShadows: [...document.querySelectorAll('.project-card')].map(el => getComputedStyle(el).boxShadow),
@@ -54,6 +54,10 @@ def main():
           }),
           overflow: document.documentElement.scrollWidth > innerWidth + 1
         })""")
+
+        first_card = page.locator(".project-card").first
+        first_card.hover()
+        hover_transform = first_card.evaluate("el => getComputedStyle(el).transform")
 
         page.go_back(wait_until="commit")
         page.wait_for_function("document.querySelector('.btn-filter.active')?.textContent.trim() === 'All Projects'")
@@ -82,6 +86,8 @@ def main():
         failures.append("a project card is missing the bottom-edge mask")
     if filtered["overflow"]:
         failures.append("filter result introduced horizontal overflow")
+    if hover_transform != "none":
+        failures.append("project card still moves on hover and can expose an edge seam")
     if history_marker != "preserved":
         failures.append("Back navigation caused a full document reload")
     if mobile_overflow:
@@ -95,6 +101,7 @@ def main():
         "browser": args.browser,
         "filter": expected_label,
         "filtered": filtered,
+        "hoverTransform": hover_transform,
         "historyMarker": history_marker,
         "mobileOverflow": mobile_overflow,
         "pageErrors": page_errors,

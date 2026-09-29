@@ -20,6 +20,8 @@ A two-pixel white mask now covers the antialiased media edge that browsers could
 
 The Projects listing now versions its stylesheet URL. This forces already-open browsers to fetch the corrected CSS instead of reusing the unversioned pre-fix stylesheet from cache.
 
+The project card itself no longer translates vertically on hover because transformed rounded clipping created a browser-compositing seam beneath the hovered card. Image zoom and button hover/press feedback remain active, so the interaction remains visible without moving the card boundary.
+
 ## Verification
 
 - All 58 Django tests passed.
