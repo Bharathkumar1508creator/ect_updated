@@ -164,14 +164,29 @@ def add_local_image_dimensions(value):
 HEADING_RE = re.compile(r"<h([2-6])([^>]*)>(.*?)</h\1>", re.I | re.S)
 
 
+def decode_html_entities(value):
+    """Decode nested entities left by repeated rich-text sanitization."""
+    decoded = value or ""
+    for _ in range(3):
+        next_value = unescape(decoded)
+        if next_value == decoded:
+            break
+        decoded = next_value
+    return decoded
+
+
 def add_heading_ids(value):
     used = set()
 
     def replace(match):
         level, attrs, body = match.groups()
         existing = re.search(r'\bid=["\']([^"\']+)["\']', attrs, re.I)
-        base = slugify(strip_tags(body))[:80] or f"section-{len(used) + 1}"
-        candidate = slugify(existing.group(1)) if existing else base
+        heading_text = decode_html_entities(strip_tags(body))
+        base = slugify(heading_text)[:80] or f"section-{len(used) + 1}"
+        existing_id = slugify(decode_html_entities(existing.group(1))) if existing else ""
+        # Older generated IDs encoded apostrophes as the literal fragment
+        # "x27". Rebuild those IDs from the decoded heading text.
+        candidate = base if "x27" in existing_id else (existing_id or base)
         candidate = candidate or base
         if candidate[0].isdigit():
             candidate = f"section-{candidate}"
@@ -198,7 +213,13 @@ def extract_toc(value):
             continue
         match = re.search(r'\bid=["\']([^"\']+)["\']', attrs, re.I)
         if match:
-            items.append({"id": match.group(1), "text": strip_tags(body).strip()})
+            item_id = match.group(1)
+            text = decode_html_entities(strip_tags(body)).strip()
+            if "x27" in item_id:
+                item_id = slugify(text)[:80]
+                if item_id and item_id[0].isdigit():
+                    item_id = f"section-{item_id}"
+            items.append({"id": item_id, "text": text})
     return items
 
 

@@ -16,7 +16,7 @@ from newsletter.models import Subscriber
 
 from .migration_guards import block_unreviewed_destructive_blog_migration
 from .models import Blog, BlogCategory, BlogSlugRedirect, BlogTag, NewsletterSubscriber
-from .utils import extract_faq_items, normalize_article_url, prepare_article_html
+from .utils import extract_faq_items, extract_toc, normalize_article_url, prepare_article_html
 
 
 class ArticleHtmlTests(TestCase):
@@ -33,6 +33,19 @@ class ArticleHtmlTests(TestCase):
     def test_numbered_heading_ids_are_safe_css_targets(self):
         result = prepare_article_html("<h2>7 Ways Software Helps</h2>")
         self.assertIn('id="section-7-ways-software-helps"', result)
+
+    def test_nested_apostrophe_entity_is_decoded_in_heading_and_toc(self):
+        source = (
+            '<h2 id="why-zoho-alone-isnx27t-enough">'
+            "Why Zoho Alone Isn&amp;#x27;t Enough"
+            "</h2>"
+        )
+        result = prepare_article_html(source)
+        self.assertIn('id="why-zoho-alone-isnt-enough"', result)
+        self.assertEqual(
+            extract_toc(result),
+            [{"id": "why-zoho-alone-isnt-enough", "text": "Why Zoho Alone Isn't Enough"}],
+        )
 
     def test_extracts_faq_questions_and_answers_for_structured_data(self):
         html = prepare_article_html(
