@@ -7,12 +7,14 @@ The repaired project uses Django manifest static storage. `collectstatic` produc
 Run these after updating the application and installing dependencies, before restarting the application service:
 
 ```bash
+npm ci
+npm run build:production-assets
 python manage.py check --deploy
 python manage.py collectstatic --noinput --clear
 python manage.py warm_media_variants
 ```
 
-If `collectstatic` reports a missing reference, stop the deployment and correct it. Do not restart the live service with an incomplete static manifest.
+If the production asset build or `collectstatic` reports an error, stop the deployment and correct it. Do not restart the live service with incomplete production assets or an incomplete static manifest.
 
 ## Nginx configuration
 

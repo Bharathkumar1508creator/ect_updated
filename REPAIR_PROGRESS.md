@@ -147,6 +147,10 @@ This phase begins only after:
 - Deployment and rollback commands are reviewed.
 - Explicit live-deployment authorization is received.
 
+### Performance readiness follow-up
+
+Completed in `docs/PERFORMANCE_READINESS_FOLLOWUP.md`. Production CSS and active JavaScript now have a repeatable minified build; shared navbar CSS is merged into the base production bundle; external Font Awesome is replaced by local SVG icons; the unused homepage ripple request is removed; below-the-fold homepage videos load near the viewport while retaining automatic muted playback; and above-the-fold font, popup-style, and hero-paint delays are reduced. The first valid clean mobile Lighthouse comparison improved Performance from 55 to 65 and reduced initial transfer from about 4.6 MiB to 1.26 MiB. Best Practices remains limited by Zoho third-party cookies pending a consent-loading decision and professional policy content.
+
 ## Checkpoint log
 
 | Date | Phase | Commit | Verification | Notes |
@@ -166,3 +170,4 @@ This phase begins only after:
 | 2026-09-24 | Phase 5 selected performance | `checkpoint-phase-5-selected` | 56 Django tests, no migration drift, 20 JavaScript checks, successful 656-file manifest collection, focused image/video checks, and 234 Chrome/Edge cases with zero hard failures or overflow | Approved items 1–9, 11–14, and 16 only; originals preserved; no schema/data/external-submission/live-server changes |
 | 2026-09-24 | Phase 5 srcset follow-up | `checkpoint-phase-5-srcset` | 57 Django tests, no migration drift, successful 656-file manifest collection, and 52 Chrome/Edge cases covering 688 responsive-image instances with zero malformed candidates, console warnings, or failed local images | 66 generated WebP filenames and 95 references made URL-safe; originals preserved; no schema/data/live-server changes |
 | 2026-09-24 | Phase 8 final handoff | `checkpoint-phase-8` | 57 Django tests, production settings check, no migration drift, Python dependency check, Tailwind build, 20 JavaScript checks, npm audit, 656-file manifest collection, and 234 Chrome/Edge cases with zero failures or overflow | Clean tracked-file ZIP, checksum, deployment/rollback guide, and server examples; no schema/data/external-submission/live-server changes |
+| 2026-09-29 | Performance readiness follow-up | `checkpoint-performance-readiness-1` | 57 Django tests, no migration drift, production asset build, npm audit, 662-file manifest collection, 234 Chrome/Edge responsive cases, and Chrome/Edge media audits with zero failures | Valid clean Lighthouse Performance improved 55→65 before later CSS/font refinements; Zoho cookie findings remain; no schema/data/external-submission/live-server changes |

@@ -40,19 +40,26 @@ def main():
               const localImages = images.filter(img => img.currentSrc.startsWith(location.origin));
               const imageFailures = localImages.filter(img => img.complete && img.naturalWidth === 0).map(img => img.currentSrc);
               const videos = [...document.querySelectorAll('video')];
-              const videoData = await Promise.all(videos.map(async video => {
+              const videoData = [];
+              for (const video of videos) {
+                if (video.hasAttribute('data-deferred-video')) {
+                  video.scrollIntoView({block: 'center'});
+                  await new Promise(resolve => setTimeout(resolve, 750));
+                }
                 let playResult = 'not-autoplay';
-                if (video.autoplay) {
+                const shouldAutoplay = video.autoplay || video.dataset.autoplay === 'true';
+                if (shouldAutoplay) {
                   try { await video.play(); playResult = 'played'; }
                   catch (error) { playResult = error.name || String(error); }
                 }
-                return {
-                  autoplay: video.autoplay, muted: video.muted, loop: video.loop,
+                videoData.push({
+                  autoplay: shouldAutoplay, deferred: video.hasAttribute('data-deferred-video'),
+                  muted: video.muted, loop: video.loop,
                   playsinline: video.playsInline, controls: video.controls, poster: video.poster,
                   source: video.currentSrc || video.querySelector('source')?.src || '',
                   readyState: video.readyState, playResult,
-                };
-              }));
+                });
+              }
               return {imageCount: images.length, imageFailures, videos: videoData};
             }""")
             page.remove_listener("response", handler)

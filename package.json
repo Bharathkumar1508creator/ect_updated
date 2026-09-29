@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "tailwindcss -i home/assets/css/tailwind-src.css -o home/static/css/tailwind-about.css --minify",
+    "build:production-assets": "npm run build:css && cleancss -o home/static/css/base.min.css home/static/css/base.css home/static/css/navbar.css && terser home/static/js/base.js -c -m -o home/static/js/base.min.js && terser home/static/js/contact-popup.js -c -m -o home/static/js/contact-popup.min.js && terser home/static/js/project-media.js -c -m -o home/static/js/project-media.min.js && terser home/static/js/deferred-media.js -c -m -o home/static/js/deferred-media.min.js",
     "watch:css": "tailwindcss -i home/assets/css/tailwind-src.css -o home/static/css/tailwind-about.css --watch"
   },
   "repository": {
@@ -22,6 +23,8 @@
   "homepage": "https://github.com/Nithishkumar10Nk/ECT#readme",
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
-    "tailwindcss": "^4.3.3"
+    "clean-css-cli": "^5.6.3",
+    "tailwindcss": "^4.3.3",
+    "terser": "^5.51.2"
   }
 }

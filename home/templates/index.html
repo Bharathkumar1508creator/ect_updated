@@ -9,10 +9,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Montserrat:wght@100..900&family=Outfit:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Montserrat:wght@100..900&family=Outfit:wght@400&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Montserrat:wght@100..900&family=Outfit:wght@400&display=swap" rel="stylesheet"></noscript>
   {% include "components/seo_meta.html" %}
-  <link rel="stylesheet" href="{% static 'css/base.css' %}?v=79">
-  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+  <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=81">
+  <link rel="preload" as="style" href="{% static 'css/contact-popup.css' %}?v=27" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27"></noscript>
 
 </head>
 
@@ -326,8 +328,8 @@
 
   <section class="ect-hero">
     <!-- Replace src with your video file -->
-    <video class="ect-hero__video" autoplay muted loop playsinline poster="{% static 'video/homebg-poster.webp' %}">
-      <source src="{% static 'video/homebg-optimized.mp4' %}" type="video/mp4">
+    <video class="ect-hero__video" muted loop playsinline preload="none" data-deferred-video data-autoplay="true" poster="{% static 'video/homebg-poster.webp' %}">
+      <source data-src="{% static 'video/homebg-optimized.mp4' %}" type="video/mp4">
     </video>
 
     <div class="ect-hero__overlay"></div>
@@ -728,8 +730,8 @@
     <div class="custom-cbs-inner">
 
       <div class="custom-cbs-image-wrap">
-        <video src="{% static 'video/connected_busi-optimized.mp4' %}" class="custom-cbs-image" autoplay loop muted
-          playsinline poster="{% static 'video/connected_busi-poster.webp' %}"></video>
+        <video data-src="{% static 'video/connected_busi-optimized.mp4' %}" class="custom-cbs-image" loop muted
+          playsinline preload="none" data-deferred-video data-autoplay="true" poster="{% static 'video/connected_busi-poster.webp' %}"></video>
       </div>
 
       <div class="custom-cbs-content">
@@ -1381,9 +1383,9 @@
   </section>
   {% endif %}
 
-  <script src="{% static 'js/base.js' %}?v=52"></script>
-  <script src="{% static 'js/project-media.js' %}?v=1"></script>
-  <script src="{% static 'js/ripple.js' %}"></script>
+  <script src="{% static 'js/base.min.js' %}?v=53"></script>
+  <script src="{% static 'js/project-media.min.js' %}?v=2"></script>
+  <script src="{% static 'js/deferred-media.min.js' %}?v=1"></script>
 
 
 
@@ -1391,7 +1393,7 @@
   {% include 'footer.html' %}
   {% include 'components/contact_popup.html' %}
 
-  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+  <script src="{% static 'js/contact-popup.min.js' %}?v=30"></script>
 {% include 'components/zoho_salesiq.html' %}
 
 <!-- ================= UNIFORM 100PX SECTION GAPS (home page only) =================

@@ -1,6 +1,15 @@
 {% load static %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="{% static 'css/navbar.css' %}?v=3">
+<svg aria-hidden="true" class="ect-icon-sprite">
+    <symbol id="ect-icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></symbol>
+    <symbol id="ect-icon-code" viewBox="0 0 24 24"><path d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"/></symbol>
+    <symbol id="ect-icon-diagram" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><path d="M6 8v4h12v4M6 12v4"/></symbol>
+    <symbol id="ect-icon-users" viewBox="0 0 24 24"><path d="M16 20v-1.5a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4V20M9 10.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM17 11a3 3 0 1 0 0-6M22 20v-1.5a4 4 0 0 0-3-3.7"/></symbol>
+    <symbol id="ect-icon-bullhorn" viewBox="0 0 24 24"><path d="M3 11v2a2 2 0 0 0 2 2h3l7 4V5L8 9H5a2 2 0 0 0-2 2ZM8 15l1.5 5h3"/><path d="M19 8a5 5 0 0 1 0 8"/></symbol>
+    <symbol id="ect-icon-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01M11 7h7M11 17h7"/></symbol>
+    <symbol id="ect-icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="ect-icon-envelope" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="ect-icon-book" viewBox="0 0 24 24"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H11v17H7.5A3.5 3.5 0 0 0 4 22V5.5ZM20 5.5A3.5 3.5 0 0 0 16.5 2H13v17h3.5A3.5 3.5 0 0 1 20 22V5.5Z"/></symbol>
+</svg>
 
 <!-- =========================================================
      ECT FIGMA NAVBAR
@@ -72,7 +81,7 @@
                                 class="ect-dropdown-item"
                             >
                                 <span class="ect-dropdown-icon" aria-hidden="true">
-                                    <i class="fa-solid fa-globe"></i>
+                                    <svg aria-hidden="true"><use href="#ect-icon-globe"></use></svg>
                                 </span>
                                 <span>Website Development</span>
                             </a>
@@ -83,7 +92,7 @@
                                 class="ect-dropdown-item"
                             >
                                 <span class="ect-dropdown-icon" aria-hidden="true">
-                                    <i class="fa-solid fa-code"></i>
+                                    <svg aria-hidden="true"><use href="#ect-icon-code"></use></svg>
                                 </span>
                                 <span>Software Development</span>
                             </a>
@@ -94,7 +103,7 @@
                                 class="ect-dropdown-item"
                             >
                                 <span class="ect-dropdown-icon" aria-hidden="true">
-                                    <i class="fa-solid fa-diagram-project"></i>
+                                    <svg aria-hidden="true"><use href="#ect-icon-diagram"></use></svg>
                                 </span>
                                 <span>Zoho Consulting</span>
                             </a>
@@ -105,7 +114,7 @@
                                 class="ect-dropdown-item"
                             >
                                 <span class="ect-dropdown-icon" aria-hidden="true">
-                                    <i class="fa-solid fa-users"></i>
+                                    <svg aria-hidden="true"><use href="#ect-icon-users"></use></svg>
                                 </span>
                                 <span>HR Consulting</span>
                             </a>
@@ -116,7 +125,7 @@
                                 class="ect-dropdown-item"
                             >
                                 <span class="ect-dropdown-icon" aria-hidden="true">
-                                    <i class="fa-solid fa-bullhorn"></i>
+                                    <svg aria-hidden="true"><use href="#ect-icon-bullhorn"></use></svg>
                                 </span>
                                 <span>Digital Marketing</span>
                             </a>
@@ -127,7 +136,7 @@
                                 class="ect-dropdown-item"
                             >
                                 <span class="ect-dropdown-icon" aria-hidden="true">
-                                    <i class="fa-solid fa-server"></i>
+                                    <svg aria-hidden="true"><use href="#ect-icon-server"></use></svg>
                                 </span>
                                 <span>IT Infrastructure</span>
                             </a>
@@ -186,7 +195,7 @@
                                 class="ect-dropdown-item"
                             >
                                 <span class="ect-dropdown-icon" aria-hidden="true">
-                                    <i class="fa-solid fa-circle-info"></i>
+                                    <svg aria-hidden="true"><use href="#ect-icon-info"></use></svg>
                                 </span>
                                 <span>About</span>
                             </a>
@@ -197,7 +206,7 @@
                                 class="ect-dropdown-item"
                             >
                                 <span class="ect-dropdown-icon" aria-hidden="true">
-                                    <i class="fa-solid fa-envelope"></i>
+                                    <svg aria-hidden="true"><use href="#ect-icon-envelope"></use></svg>
                                 </span>
                                 <span>Contact</span>
                             </a>
@@ -256,7 +265,7 @@
                                 class="ect-dropdown-item"
                             >
                                 <span class="ect-dropdown-icon" aria-hidden="true">
-                                    <i class="fa-solid fa-book-open"></i>
+                                    <svg aria-hidden="true"><use href="#ect-icon-book"></use></svg>
                                 </span>
                                 <span>Blog</span>
                             </a>

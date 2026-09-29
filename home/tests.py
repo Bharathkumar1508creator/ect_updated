@@ -136,7 +136,10 @@ class SecurityBoundaryTests(TestCase):
         self.assertIsNone(finders.find("templates/contact.html"))
         self.assertIsNone(finders.find("migrations/0001_initial.py"))
         self.assertTrue(finders.find("css/base.css"))
+        self.assertTrue(finders.find("css/base.min.css"))
         self.assertTrue(finders.find("js/base.js"))
+        self.assertTrue(finders.find("js/base.min.js"))
+        self.assertTrue(finders.find("js/deferred-media.min.js"))
 
     def test_security_headers_are_present(self):
         response = self.client.get(reverse("index"))
@@ -306,7 +309,11 @@ class ProjectFunctionalityTests(TestCase):
             response,
             reverse("digital_marketing_detail", args=[project.slug]),
         )
-        self.assertContains(response, staticfiles_storage.url("js/project-media.js"))
+        self.assertContains(response, staticfiles_storage.url("js/project-media.min.js"))
+        self.assertContains(response, staticfiles_storage.url("js/deferred-media.min.js"))
+        self.assertContains(response, 'data-deferred-video', count=2)
+        self.assertContains(response, 'data-autoplay="true"', count=2)
+        self.assertNotContains(response, "cdnjs.cloudflare.com/ajax/libs/font-awesome")
 
 
 class PublicSeoTests(TestCase):

@@ -5300,7 +5300,8 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: clamp(1.5rem, 3vw, 3rem);
-  animation: heroFadeUp .8s ease-out both;
+  /* Above-the-fold content paints immediately so it can become LCP without
+     waiting for a decorative entrance animation. */
 }
 
 @keyframes heroFadeUp {

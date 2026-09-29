@@ -305,6 +305,13 @@
     line-height: 1;
 }
 
+.ect-icon-sprite {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
 .ect-dropdown-item:hover .ect-dropdown-icon {
     background: #e8f1e5;
     transform: scale(1.12);
