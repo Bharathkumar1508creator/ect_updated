@@ -17,6 +17,7 @@ from .utils import normalize_article_url
 
 
 SOFTWARE_GUIDE_SLUG = "why-software-development-important-businesses-2026"
+ZOHO_GUIDE_SLUG = "zoho-consulting-services-for-business"
 
 
 class ArticleLinkParser(HTMLParser):
@@ -174,10 +175,57 @@ class SoftwareDevelopmentGuideTests(TestCase):
             f'https://ecogcoretechnologies.com/blog/{SOFTWARE_GUIDE_SLUG}/',
         )
 
+    @override_settings(SITE_URL="https://www.ecogcoretechnologies.com")
+    def test_default_canonical_tracks_a_future_www_domain_change(self):
+        response = self.client.get(f"/blog/{SOFTWARE_GUIDE_SLUG}/")
+        self.assertContains(
+            response,
+            f'https://www.ecogcoretechnologies.com/blog/{SOFTWARE_GUIDE_SLUG}/',
+        )
+        self.assertNotContains(
+            response,
+            f'href="https://ecogcoretechnologies.com/blog/{SOFTWARE_GUIDE_SLUG}/"',
+        )
+
+
+class ZohoConsultingGuideTests(TestCase):
+    def test_migration_creates_complete_published_zoho_guide(self):
+        blog = Blog.objects.get(slug=ZOHO_GUIDE_SLUG)
+        self.assertEqual(blog.status, "published")
+        self.assertEqual(blog.primary_keyword, "Zoho Consulting Services")
+        self.assertEqual(
+            blog.meta_title,
+            "Expert Zoho Consulting Services to Accelerate Growth",
+        )
+        self.assertGreater(len(blog.article_content.split()), 3000)
+        self.assertIn("How to Measure the ROI of Zoho Consulting", blog.article_content)
+        self.assertIn("Frequently Asked Questions", blog.article_content)
+        self.assertEqual(blog.tags.count(), 5)
+
+    def test_zoho_guide_has_six_optimized_infographics(self):
+        blog = Blog.objects.get(slug=ZOHO_GUIDE_SLUG)
+        self.assertEqual(
+            str(blog.hero_image),
+            "blog/zoho-consulting-services-business-2026/zoho-consulting-services-2026-infographic.webp",
+        )
+        self.assertEqual(str(blog.open_graph_image), str(blog.hero_image))
+        self.assertTrue(blog.hero_image_alt)
+        self.assertEqual(blog.article_content.count("<figure>"), 5)
+        self.assertEqual(blog.article_content.count('loading="lazy"'), 5)
+        self.assertEqual(blog.article_content.count('width="1600" height="900"'), 5)
+
+    def test_zoho_guide_renders_metadata_toc_and_faq_schema(self):
+        response = self.client.get(f"/blog/{ZOHO_GUIDE_SLUG}/")
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "What Is Zoho Consulting?")
+        self.assertContains(response, "What are Zoho Consulting Services?")
+        self.assertContains(response, '"@type": "FAQPage"', html=False)
+        self.assertContains(response, "Expert Zoho Consulting Services to Accelerate Growth")
+
 
 class PublishedGuideLinkPolicyTests(TestCase):
     def test_required_guides_have_five_internal_and_one_safe_external_link(self):
-        for slug in (TARGET_SLUG, SOFTWARE_GUIDE_SLUG):
+        for slug in (TARGET_SLUG, SOFTWARE_GUIDE_SLUG, ZOHO_GUIDE_SLUG):
             with self.subTest(slug=slug):
                 links = article_links(Blog.objects.get(slug=slug))
                 internal = [link for link in links if link.get("href", "").startswith("/")]

@@ -5,7 +5,7 @@ from django.http import HttpResponsePermanentRedirect
 
 
 class CanonicalHostMiddleware:
-    """Redirect the public www hostname to the configured non-www origin."""
+    """Redirect the alternate www/non-www hostname to the configured origin."""
 
     def __init__(self, get_response):
         self.get_response = get_response
@@ -14,7 +14,10 @@ class CanonicalHostMiddleware:
         canonical = urlsplit(settings.SITE_URL)
         request_host = request.get_host().split(":", 1)[0].lower()
         canonical_host = canonical.hostname.lower() if canonical.hostname else ""
-        if canonical_host and request_host == f"www.{canonical_host}":
+        alternate_host = (
+            canonical_host[4:] if canonical_host.startswith("www.") else f"www.{canonical_host}"
+        )
+        if canonical_host and request_host == alternate_host:
             target = f"{canonical.scheme or 'https'}://{canonical.netloc}{request.get_full_path()}"
             return HttpResponsePermanentRedirect(target)
         return self.get_response(request)

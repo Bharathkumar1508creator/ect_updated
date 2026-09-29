@@ -21,6 +21,7 @@
   {% if social_image_url %}<meta name="twitter:image" content="{{ social_image_url }}">{% endif %}
   <script type="application/ld+json">{{ blog_schema_json|safe }}</script>
   <script type="application/ld+json">{{ breadcrumb_schema_json|safe }}</script>
+  {% if faq_schema_json %}<script type="application/ld+json">{{ faq_schema_json|safe }}</script>{% endif %}
 {% endblock %}
 
 {% block content %}

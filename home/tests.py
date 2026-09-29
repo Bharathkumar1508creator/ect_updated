@@ -445,6 +445,22 @@ class PublicSeoTests(TestCase):
             "https://ecogcoretechnologies.com/projects/?page=2",
         )
 
+    @override_settings(
+        SITE_URL="https://www.ecogcoretechnologies.com",
+        ALLOWED_HOSTS=["ecogcoretechnologies.com", "www.ecogcoretechnologies.com"],
+    )
+    def test_non_www_host_redirects_when_www_becomes_canonical(self):
+        response = self.client.get(
+            "/blog/?page=2",
+            HTTP_HOST="ecogcoretechnologies.com",
+            secure=True,
+        )
+        self.assertEqual(response.status_code, 301)
+        self.assertEqual(
+            response.url,
+            "https://www.ecogcoretechnologies.com/blog/?page=2",
+        )
+
     def test_project_filters_are_noindex_and_canonicalize_to_collection(self):
         response = self.client.get(reverse("project_list"), {"search": "software"})
         self.assertContains(response, 'content="noindex,follow"')

@@ -1,5 +1,5 @@
 import re
-from html import escape
+from html import escape, unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, urlunparse
@@ -199,4 +199,30 @@ def extract_toc(value):
         match = re.search(r'\bid=["\']([^"\']+)["\']', attrs, re.I)
         if match:
             items.append({"id": match.group(1), "text": strip_tags(body).strip()})
+    return items
+
+
+def extract_faq_items(value):
+    """Extract adjacent H3 question and paragraph answer pairs from an FAQ section."""
+    marker = re.search(
+        r"<h2\b[^>]*>\s*Frequently Asked Questions\s*</h2>",
+        value or "",
+        re.I,
+    )
+    if not marker:
+        return []
+    section = (value or "")[marker.end():]
+    next_h2 = re.search(r"<h2\b", section, re.I)
+    if next_h2:
+        section = section[:next_h2.start()]
+    items = []
+    pattern = re.compile(
+        r"<h3\b[^>]*>(.*?)</h3>\s*<p\b[^>]*>(.*?)</p>",
+        re.I | re.S,
+    )
+    for question, answer in pattern.findall(section):
+        question = re.sub(r"^\s*\d+\.\s*", "", unescape(strip_tags(question))).strip()
+        answer = unescape(strip_tags(answer)).strip()
+        if question and answer:
+            items.append({"question": question, "answer": answer})
     return items

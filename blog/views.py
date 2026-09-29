@@ -1,5 +1,5 @@
 import json
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlsplit
 
 from django.conf import settings
 from django.contrib import messages
@@ -19,6 +19,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import DetailView, ListView
 
 from .models import Blog, BlogCategory, BlogComment, BlogSlugRedirect, BlogTag, NewsletterSubscriber
+from .utils import extract_faq_items
 
 
 def absolute_url(request, value):
@@ -175,7 +176,11 @@ class BlogDetailView(DetailView):
         ).order_by("publish_date").first()
         context["comments"] = blog.comments.filter(is_approved=True).order_by("-created_at")
 
-        canonical = blog.canonical_url or absolute_url(self.request, blog.get_absolute_url())
+        stored_canonical_path = urlsplit(blog.canonical_url).path if blog.canonical_url else ""
+        if stored_canonical_path.rstrip("/") == blog.get_absolute_url().rstrip("/"):
+            canonical = absolute_url(self.request, blog.get_absolute_url())
+        else:
+            canonical = blog.canonical_url or absolute_url(self.request, blog.get_absolute_url())
         image = blog.open_graph_image or blog.hero_image
         image_url = absolute_url(self.request, image.url) if image else ""
         publisher_logo = absolute_url(self.request, settings.BLOG_PUBLISHER_LOGO)
@@ -216,11 +221,33 @@ class BlogDetailView(DetailView):
                 {"@type": "ListItem", "position": 3, "name": blog.title, "item": canonical},
             ],
         }
+        faq_items = extract_faq_items(blog.article_content)
+        faq_schema = None
+        if faq_items:
+            faq_schema = {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": item["question"],
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": item["answer"],
+                        },
+                    }
+                    for item in faq_items
+                ],
+            }
         context.update({
             "canonical_url": canonical,
             "social_image_url": image_url,
             "blog_schema_json": json.dumps(schema, ensure_ascii=False).replace("</", "<\\/"),
             "breadcrumb_schema_json": json.dumps(breadcrumb_schema, ensure_ascii=False).replace("</", "<\\/"),
+            "faq_schema_json": (
+                json.dumps(faq_schema, ensure_ascii=False).replace("</", "<\\/")
+                if faq_schema else ""
+            ),
             "fallback_image_url": settings.BLOG_FALLBACK_IMAGE,
             "is_preview": self.is_preview,
         })

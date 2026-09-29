@@ -16,7 +16,7 @@ from newsletter.models import Subscriber
 
 from .migration_guards import block_unreviewed_destructive_blog_migration
 from .models import Blog, BlogCategory, BlogSlugRedirect, BlogTag, NewsletterSubscriber
-from .utils import normalize_article_url, prepare_article_html
+from .utils import extract_faq_items, normalize_article_url, prepare_article_html
 
 
 class ArticleHtmlTests(TestCase):
@@ -33,6 +33,20 @@ class ArticleHtmlTests(TestCase):
     def test_numbered_heading_ids_are_safe_css_targets(self):
         result = prepare_article_html("<h2>7 Ways Software Helps</h2>")
         self.assertIn('id="section-7-ways-software-helps"', result)
+
+    def test_extracts_faq_questions_and_answers_for_structured_data(self):
+        html = prepare_article_html(
+            "<h2>Frequently Asked Questions</h2>"
+            "<h3>1. What is Zoho consulting?</h3>"
+            "<p>It aligns Zoho applications with business requirements.</p>"
+        )
+        self.assertEqual(
+            extract_faq_items(html),
+            [{
+                "question": "What is Zoho consulting?",
+                "answer": "It aligns Zoho applications with business requirements.",
+            }],
+        )
 
     @override_settings(SITE_URL="https://ecogcoretechnologies.com")
     def test_normalizes_supported_internal_link_formats(self):
