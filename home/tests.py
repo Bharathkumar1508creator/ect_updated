@@ -157,6 +157,15 @@ class SecurityBoundaryTests(TestCase):
         ):
             self.assertIn(salesiq_source, csp)
 
+    def test_optional_third_parties_require_consent_or_form_interaction(self):
+        response = self.client.get(reverse("index"))
+        html = response.content.decode()
+        self.assertIn('id="ectConsent"', html)
+        self.assertIn(staticfiles_storage.url("js/third-party-loader.min.js"), html)
+        self.assertNotIn('<script async src="https://www.googletagmanager.com', html)
+        self.assertNotIn('id="zsiqscript" src=', html)
+        self.assertIn("id='wf_script' data-src='https://bigin.zoho.in", html)
+
     def test_project_rich_text_removes_executable_markup(self):
         rendered = str(
             sanitized_rich_html(

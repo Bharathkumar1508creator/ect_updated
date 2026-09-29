@@ -1,6 +1,18 @@
-<!-- Zoho SalesIQ -->
+{% load static %}
+<aside class="ect-consent" id="ectConsent" aria-labelledby="ectConsentTitle" aria-describedby="ectConsentText" hidden>
+  <div class="ect-consent__copy">
+    <strong id="ectConsentTitle">Your cookie choices</strong>
+    <p id="ectConsentText">Optional cookies help us measure website use and provide Zoho live chat. Essential website features continue without them.</p>
+  </div>
+  <div class="ect-consent__actions">
+    <button type="button" class="ect-consent__secondary" data-consent-essential>Essential only</button>
+    <button type="button" class="ect-consent__primary" data-consent-accept>Accept optional cookies</button>
+  </div>
+</aside>
+<button type="button" class="ect-cookie-settings" data-consent-settings hidden>Cookie settings</button>
 <script>
-  window.$zoho = window.$zoho || {};
-  $zoho.salesiq = $zoho.salesiq || { ready: function(){} };
+  window.ectThirdPartyConfig = {
+    salesIqUrl: 'https://salesiq.zohopublic.in/widget?wc=siqadcf89a6d8d615fecd98232dec5d93f7b6e340417f4a0a1ce0680b17ffa6407bbd95d3041d4293757719da53501be05f'
+  };
 </script>
-<script id="zsiqscript" src="https://salesiq.zohopublic.in/widget?wc=siqadcf89a6d8d615fecd98232dec5d93f7b6e340417f4a0a1ce0680b17ffa6407bbd95d3041d4293757719da53501be05f" defer></script>
+<script src="{% static 'js/third-party-loader.min.js' %}?v=1" defer></script>
