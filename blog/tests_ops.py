@@ -151,6 +151,18 @@ class SoftwareDevelopmentGuideTests(TestCase):
         self.assertIn("Frequently Asked Questions", blog.article_content)
         self.assertEqual(blog.tags.count(), 5)
 
+    def test_software_guide_has_optimized_hero_and_five_contextual_images(self):
+        blog = Blog.objects.get(slug=SOFTWARE_GUIDE_SLUG)
+        self.assertEqual(
+            str(blog.hero_image),
+            "blog/software-development-business-2026/software-development-business-2026-hero.webp",
+        )
+        self.assertEqual(str(blog.open_graph_image), str(blog.hero_image))
+        self.assertTrue(blog.hero_image_alt)
+        self.assertEqual(blog.article_content.count("<figure>"), 5)
+        self.assertEqual(blog.article_content.count('loading="lazy"'), 5)
+        self.assertEqual(blog.article_content.count('width="1600" height="900"'), 5)
+
     def test_software_guide_renders_metadata_toc_and_faq(self):
         response = self.client.get(f"/blog/{SOFTWARE_GUIDE_SLUG}/")
         self.assertEqual(response.status_code, 200)

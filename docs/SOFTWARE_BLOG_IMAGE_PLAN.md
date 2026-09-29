@@ -1,6 +1,6 @@
 # Software Development blog image plan
 
-The article content, TOC, FAQ, SEO metadata, internal links, and responsive public layout are complete. Six original landscape images remain pending because the built-in image-generation account limit was reached on 2026-09-29.
+The article content, TOC, FAQ, SEO metadata, internal links, responsive public layout, and six original landscape images are complete. The final WebP assets were generated, optimized, added to the article, and verified on 2026-09-29.
 
 All outputs should use a consistent premium editorial style, realistic Indian business context, white/deep-green/sage palette, natural lighting, no logos, no watermark, and no unreliable paragraphs of generated text. Final files should be converted to optimized WebP, include intrinsic dimensions, and use the article's existing lazy-loading behavior below the fold.
 
@@ -11,4 +11,4 @@ All outputs should use a consistent premium editorial style, realistic Indian bu
 5. `software-development-business-benefits.webp` — cohesive dashboard scene representing automation, efficiency, customer experience, decisions, integrations, scalability, and competitive advantage.
 6. `custom-software-future-technologies.webp` — practical custom-versus-ready-made comparison supported by AI, cloud computing, APIs, analytics, automation, and cybersecurity.
 
-The hero is assigned to the Blog hero-image field. The remaining five files replace the named `IMAGE_SLOT` comments in `blog/content/software-development-business-2026.html`, each with descriptive alt text and a concise caption.
+The hero is assigned to both the Blog hero-image and Open Graph image fields. The remaining five files replace the named `IMAGE_SLOT` comments in `blog/content/software-development-business-2026.html`, each with descriptive alt text, intrinsic dimensions, lazy loading, asynchronous decoding, and a concise caption.
