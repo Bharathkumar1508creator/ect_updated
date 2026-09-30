@@ -13,10 +13,28 @@ from django.test import RequestFactory, TestCase, override_settings
 from django.urls import reverse
 
 from .image_utils import optimize_uploaded_image
-from .models import Career, ContactMessage, JobApplication, Project, ProjectCategory
+from .models import Career, ContactMessage, JobApplication, Project, ProjectCategory, Testimonial
 from .templatetags.content_security import sanitized_rich_html
 from .templatetags.project_media import extract_youtube_id, project_preview_url, youtube_embed_url
 from our_work.models import WebsiteProject
+
+
+class HomeTestimonialsVisibilityTests(TestCase):
+    def test_demo_testimonials_section_is_not_rendered(self):
+        Testimonial.objects.create(
+            name="Demo Client",
+            company="Demo Company",
+            message="Demo testimonial that must remain hidden.",
+            is_active=True,
+        )
+
+        response = self.client.get(reverse("index"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertNotContains(response, "ECT Clients")
+        self.assertNotContains(response, "Partnerships That Drive Growth")
+        self.assertNotContains(response, "Demo testimonial that must remain hidden.")
+        self.assertNotContains(response, 'id="clients-data"')
 
 
 class ExternalFormOnlyTests(TestCase):

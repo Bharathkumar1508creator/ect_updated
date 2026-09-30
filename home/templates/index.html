@@ -1257,6 +1257,13 @@
 
 
 
+  {% comment %}
+  ECT CLIENT TESTIMONIALS TEMPORARILY DISABLED
+  The current records are demo testimonials. To restore this section after real
+  testimonials are added, remove this opening Django comment tag and the matching
+  closing Django comment tag below. Keep the existing testimonials condition so
+  the section only renders when active testimonials are available.
+
   <!-- ECT Clients Section -->
   {% if testimonials %}
   <section class="clients-section" aria-labelledby="clients-heading">
@@ -1344,6 +1351,7 @@
     {{ testimonials_json|json_script:"clients-data" }}
   </section>
   {% endif %}
+  {% endcomment %}
 
   <!-- BUSINESS GROWTH INSIGHTS — latest blog posts, pulled live from the blog app -->
   {% if latest_blogs %}

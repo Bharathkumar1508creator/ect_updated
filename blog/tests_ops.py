@@ -10,6 +10,7 @@ import ect.urls as ect_urls
 from django.core.management import call_command
 from django.test import TestCase, override_settings
 from django.urls import clear_url_caches, reverse
+from django.utils.formats import date_format
 
 from .blog_seed import TARGET_SLUG
 from .models import Blog, BlogCategory
@@ -242,7 +243,11 @@ class ZohoConsultingGuideTests(TestCase):
         self.assertContains(response, 'href="https://www.ragupathinamachivayam.com/"')
         self.assertContains(response, 'src="/media/blog/authors/ragupathi-namachivayam.png"')
         self.assertContains(response, "Founder &amp; Managing Director, ECOG Groups")
-        self.assertContains(response, "Updated 29 September 2026")
+        blog = Blog.objects.get(slug=ZOHO_GUIDE_SLUG)
+        self.assertContains(
+            response,
+            f"Updated {date_format(blog.updated_at, 'd F Y')}",
+        )
 
 
 class PublishedGuideLinkPolicyTests(TestCase):
