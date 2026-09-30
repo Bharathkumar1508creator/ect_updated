@@ -10,11 +10,19 @@
 
   function announce(listing) {
     const status = listing.querySelector("[data-project-filter-status]");
-    if (!status) return;
     const activeFilter = listing.querySelector(".btn-filter.active");
     const count = listing.querySelectorAll(".project-card").length;
+    const grid = listing.querySelector("#projectResults");
+    const total = grid ? Number(grid.dataset.totalResults || count) : count;
     const category = activeFilter ? activeFilter.textContent.trim() : "Projects";
-    status.textContent = category + ": " + count + (count === 1 ? " project" : " projects") + " displayed.";
+    const visibleCount = listing.querySelector("[data-project-visible-count]");
+    const totalCount = listing.querySelector("[data-project-total]");
+    if (visibleCount) visibleCount.textContent = count;
+    if (totalCount) totalCount.textContent = total;
+    if (status) {
+      status.textContent = category + ": " + count + " of " + total +
+        (total === 1 ? " project" : " projects") + " displayed.";
+    }
   }
 
   async function updateProjects(url, addHistory) {
@@ -67,8 +75,73 @@
     }
   }
 
+  async function loadMore(link) {
+    const listing = getListing();
+    const grid = listing && listing.querySelector("#projectResults");
+    if (!listing || !grid) {
+      window.location.assign(link.href);
+      return;
+    }
+
+    if (activeRequest) activeRequest.abort();
+    const controller = new AbortController();
+    activeRequest = controller;
+    link.classList.add("is-loading");
+    link.setAttribute("aria-disabled", "true");
+    const label = link.querySelector("[data-load-more-label]");
+    if (label) label.textContent = "Loading…";
+
+    try {
+      const response = await fetch(link.href, {
+        credentials: "same-origin",
+        headers: { "X-Requested-With": "XMLHttpRequest" },
+        signal: controller.signal
+      });
+      if (!response.ok) throw new Error("Project request failed with status " + response.status);
+
+      const parsed = new DOMParser().parseFromString(await response.text(), "text/html");
+      const nextListing = parsed.querySelector(selector);
+      const nextGrid = nextListing && nextListing.querySelector("#projectResults");
+      if (!nextGrid) throw new Error("Project results were missing from the response");
+
+      const cards = Array.prototype.slice.call(nextGrid.querySelectorAll(".project-card"));
+      cards.forEach(function (card) {
+        grid.appendChild(document.importNode(card, true));
+      });
+
+      const currentWrap = listing.querySelector("[data-load-more-wrap]");
+      const nextWrap = nextListing.querySelector("[data-load-more-wrap]");
+      if (currentWrap) {
+        if (nextWrap) currentWrap.replaceWith(document.importNode(nextWrap, true));
+        else currentWrap.remove();
+      }
+
+      announce(listing);
+      document.dispatchEvent(new CustomEvent("projects:updated", {
+        detail: { root: grid, appended: true }
+      }));
+      if (cards.length) cards[0].querySelector(".card-link")?.focus({ preventScroll: true });
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      window.location.assign(link.href);
+    } finally {
+      if (activeRequest === controller) activeRequest = null;
+    }
+  }
+
   document.addEventListener("click", function (event) {
-    const link = event.target.closest(".btn-filter, .pagination a.page-link");
+    const loadMoreLink = event.target.closest("[data-load-more]");
+    if (loadMoreLink && getListing() && !event.defaultPrevented && event.button === 0 &&
+        !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+      const loadUrl = new URL(loadMoreLink.href, window.location.href);
+      if (loadUrl.origin === window.location.origin) {
+        event.preventDefault();
+        loadMore(loadMoreLink);
+      }
+      return;
+    }
+
+    const link = event.target.closest(".btn-filter");
     if (!link || !getListing() || event.defaultPrevented || event.button !== 0 ||
         event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 

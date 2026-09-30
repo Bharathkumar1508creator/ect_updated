@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
     {% include "components/seo_meta.html" %}
     <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=42">
-    <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=6">
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=7">
     <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
 
 </head>
@@ -44,9 +44,9 @@
 
     <section class="project-listing py-5" data-project-listing>
         <div class="container">
-            <div class="filters d-flex justify-content-between align-items-center mb-4">
-                <nav class="category-filters d-flex align-items-center" style="gap: 15px;" aria-label="Filter projects by category">
-                    <span style="font-weight: 600; font-size: 18px; margin-right: 15px;">Filter:</span>
+            <div class="filters mb-4">
+                <nav class="category-filters" aria-label="Filter projects by category">
+                    <span class="filter-label">Filter:</span>
                     <a href="{% url 'project_list' %}" class="btn-filter {% if not current_category %}active{% endif %}" aria-controls="projectResults"{% if not current_category %} aria-current="page"{% endif %}>All Projects</a>
                     {% for cat in categories %}
                         <a href="{% url 'project_list' %}?category={{ cat.slug }}" class="btn-filter {% if current_category == cat.slug %}active{% endif %}" aria-controls="projectResults"{% if current_category == cat.slug %} aria-current="page"{% endif %}>{{ cat.name }}</a>
@@ -55,9 +55,14 @@
 
             </div>
 
+            <p class="project-results-summary">
+                Showing <strong data-project-visible-count>{{ projects|length }}</strong>
+                of <strong data-project-total>{{ projects.paginator.count }}</strong>
+                project{{ projects.paginator.count|pluralize }}
+            </p>
             <p class="project-filter-status" data-project-filter-status role="status" aria-live="polite" aria-atomic="true"></p>
 
-            <div class="project-grid" id="projectResults">
+            <div class="project-grid" id="projectResults" data-total-results="{{ projects.paginator.count }}">
                 {% for project in projects %}
                     {% include 'projects/components/project_card.html' with project=project %}
                 {% empty %}
@@ -68,30 +73,19 @@
                 {% endfor %}
             </div>
 
-            {% if projects.has_other_pages %}
-            <div class="pagination mt-5">
-                {% if projects.has_previous %}
-                    <a href="?page={{ projects.previous_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}" class="page-link">&laquo; Prev</a>
-                {% endif %}
-
-                {% for i in projects.paginator.page_range %}
-                    {% if projects.number == i %}
-                        <span class="page-link active">{{ i }}</span>
-                    {% else %}
-                        <a href="?page={{ i }}{% if current_category %}&category={{ current_category }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}" class="page-link">{{ i }}</a>
-                    {% endif %}
-                {% endfor %}
-
-                {% if projects.has_next %}
-                    <a href="?page={{ projects.next_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}" class="page-link">Next &raquo;</a>
-                {% endif %}
+            {% if projects.has_next %}
+            <div class="project-load-more-wrap" data-load-more-wrap>
+                <a href="?page={{ projects.next_page_number }}{% if current_category %}&category={{ current_category|urlencode }}{% endif %}{% if search_query %}&search={{ search_query|urlencode }}{% endif %}"
+                   class="project-load-more ect-micro-btn" data-load-more aria-controls="projectResults">
+                    <span data-load-more-label>Load More</span>
+                </a>
             </div>
             {% endif %}
         </div>
     </section>
 
 
-<script src="{% static 'js/project-list.js' %}?v=1" defer></script>
+<script src="{% static 'js/project-list.js' %}?v=2" defer></script>
 {% include 'components/project_page_end.html' %}
 </body>
 </html>

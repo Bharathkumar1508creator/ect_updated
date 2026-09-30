@@ -847,3 +847,200 @@
   .hero-carousel-card[data-offset="1"]  { transform: translate(48px, 12px) rotate(0) scale(.82); }
   .hero-carousel-card[data-offset="2"]  { transform: translate(80px, 24px) rotate(0) scale(.70); }
 }
+
+/* Scalable project collection: responsive grid, category rail and Load More. */
+.project-hero {
+    overflow-x: clip;
+}
+
+.project-hero .hero-title {
+    font-size: clamp(2rem, 4.4vw, 3rem) !important;
+    text-wrap: balance;
+}
+
+.project-listing .container {
+    width: min(1200px, calc(100% - clamp(30px, 5vw, 80px)));
+    max-width: none;
+    padding-inline: 0;
+}
+
+.filters {
+    width: 100%;
+    min-width: 0;
+}
+
+.category-filters {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 4px 10px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #9baa96 transparent;
+}
+
+.filter-label {
+    position: sticky;
+    left: -4px;
+    z-index: 2;
+    flex: 0 0 auto;
+    padding: 8px 12px 8px 4px;
+    background: #fff;
+    font-size: 18px;
+    font-weight: 650;
+}
+
+.btn-filter {
+    flex: 0 0 auto;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.project-results-summary {
+    margin: 4px 0 18px;
+    color: #5d655f;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+}
+
+.project-results-summary strong {
+    color: #0c3c01;
+}
+
+.project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(18px, 2.2vw, 30px);
+    margin-top: 0;
+}
+
+.project-card {
+    width: 100%;
+    height: auto;
+    min-height: 260px;
+    aspect-ratio: 397 / 350;
+    contain: layout paint;
+}
+
+.notch-wrapper {
+    width: clamp(156px, 48%, 190px);
+}
+
+.btn-notch {
+    width: calc(100% - 24px);
+    min-width: 132px;
+    font-size: clamp(13px, 1.4vw, 16px);
+}
+
+.project-load-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(30px, 4vw, 48px);
+}
+
+.project-load-more {
+    min-width: 168px;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    border: 1px solid #0c3c01;
+    border-radius: 9px;
+    background: #0c3c01;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform .25s ease, background-color .25s ease, box-shadow .25s ease;
+}
+
+.project-load-more:hover,
+.project-load-more:focus-visible {
+    background: #082901;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(12, 60, 1, .2);
+}
+
+.project-load-more:focus-visible {
+    outline: 3px solid rgba(12, 60, 1, .32);
+    outline-offset: 4px;
+}
+
+.project-load-more.is-loading {
+    opacity: .7;
+    pointer-events: none;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-carousel-container { height: 390px; overflow: clip; }
+    .hero-carousel { width: 300px; height: 360px; }
+    .hero-carousel-card {
+        width: 240px;
+        height: 332px;
+        margin-left: -120px;
+        margin-top: -166px;
+    }
+    .hero-carousel-card[data-offset="-2"] { transform: translate(-180px, 38px) rotate(-10deg) scale(.78); }
+    .hero-carousel-card[data-offset="-1"] { transform: translate(-98px, 20px) rotate(-5deg) scale(.9); }
+    .hero-carousel-card[data-offset="1"] { transform: translate(98px, 20px) rotate(5deg) scale(.9); }
+    .hero-carousel-card[data-offset="2"] { transform: translate(180px, 38px) rotate(10deg) scale(.78); }
+}
+
+@media (max-width: 1023px) {
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .project-hero.py-5 {
+        padding-top: calc(60px + 2rem);
+        padding-bottom: 2rem;
+    }
+    .project-hero .hero-title {
+        margin-block: 1.5rem !important;
+        font-size: clamp(1.85rem, 9.5vw, 2.55rem) !important;
+    }
+    .hero-carousel-container {
+        margin-top: 1.75rem;
+        margin-bottom: 0;
+    }
+    .project-listing.py-5 {
+        padding-block: 2.25rem;
+    }
+    .project-listing .container {
+        width: calc(100% - 24px);
+    }
+    .category-filters {
+        margin-inline: -2px;
+        padding-bottom: 8px;
+    }
+    .filter-label {
+        font-size: 15px;
+    }
+    .btn-filter {
+        padding-inline: 16px;
+        font-size: 13px;
+    }
+    .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+    .project-card {
+        max-width: 520px;
+        margin-inline: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-load-more { transition: none; }
+    .project-load-more:hover,
+    .project-load-more:focus-visible { transform: none; }
+}

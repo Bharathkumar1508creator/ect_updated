@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
-from django.db.models import Q
+from django.db.models import Count, Q
 from django.views.decorators.http import require_GET
 from django.urls import reverse
 from .models import (
@@ -141,7 +141,17 @@ def project_list(request):
     context = get_common_context()
 
     projects = Project.objects.filter(status='published').select_related('category').order_by('display_order')
-    categories = ProjectCategory.objects.filter(status='published').order_by('display_order')
+    categories = (
+        ProjectCategory.objects.filter(status='published')
+        .annotate(
+            published_project_count=Count(
+                'projects',
+                filter=Q(projects__status='published'),
+            )
+        )
+        .filter(published_project_count__gt=0)
+        .order_by('display_order', 'name')
+    )
 
     # Search
     search_query = request.GET.get('search', '')
@@ -156,7 +166,8 @@ def project_list(request):
     if category_slug:
         projects = projects.filter(category__slug=category_slug)
 
-    # Pagination (9 per page)
+    # Keep the first response small; subsequent pages are appended by the
+    # accessible Load More control without downloading every project at once.
     paginator = Paginator(projects, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

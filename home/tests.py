@@ -261,10 +261,58 @@ class ProjectFunctionalityTests(TestCase):
         self.assertContains(response, staticfiles_storage.url("js/project-list.js"))
         self.assertContains(response, 'data-project-listing')
         self.assertContains(response, 'aria-controls="projectResults"')
-        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=6')
+        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=7')
         self.assertContains(response, 'class="btn-notch ect-micro-btn"')
         self.assertContains(response, 'id="ectContactPopup"')
         self.assertContains(response, "ECOGCORETECHNOLOGIES")
+
+    def test_project_list_uses_filtered_load_more_batches(self):
+        for index in range(12):
+            Project.objects.create(
+                category=self.general_category,
+                title=f"Scalable project {index + 1}",
+                slug=f"scalable-project-{index + 1}",
+                status="published",
+                display_order=index,
+            )
+
+        first = self.client.get(
+            reverse("project_list"),
+            {"category": self.general_category.slug},
+        )
+        self.assertEqual(first.status_code, 200)
+        self.assertContains(first, 'class="project-card"', count=9)
+        self.assertContains(first, "Load More")
+        self.assertContains(first, "Showing <strong data-project-visible-count>9</strong>")
+        self.assertContains(first, "data-project-total>12</strong>")
+        self.assertContains(first, "category=software-projects")
+        self.assertNotContains(first, 'class="pagination')
+
+        second = self.client.get(
+            reverse("project_list"),
+            {"category": self.general_category.slug, "page": 2},
+        )
+        self.assertEqual(second.status_code, 200)
+        self.assertContains(second, 'class="project-card"', count=3)
+        self.assertNotContains(second, "data-load-more")
+
+    def test_project_filters_show_only_categories_with_published_projects(self):
+        empty = ProjectCategory.objects.create(
+            name="Future Empty Category",
+            slug="future-empty-category",
+            status="published",
+        )
+        Project.objects.create(
+            category=self.general_category,
+            title="Visible category project",
+            slug="visible-category-project",
+            status="published",
+        )
+
+        response = self.client.get(reverse("project_list"))
+
+        self.assertContains(response, self.general_category.name)
+        self.assertNotContains(response, empty.name)
 
     def test_project_detail_builds_absolute_open_graph_image(self):
         project = Project.objects.create(
