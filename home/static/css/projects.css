@@ -953,8 +953,11 @@
     flex: 1 1 auto;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
-    scrollbar-width: thin;
-    scrollbar-color: #9baa96 transparent;
+    scrollbar-width: none;
+}
+
+.category-filter-scroll::-webkit-scrollbar {
+    display: none;
 }
 
 .category-filter-scroll:focus-visible {
