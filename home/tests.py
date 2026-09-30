@@ -349,8 +349,14 @@ class ProjectFunctionalityTests(TestCase):
             industry="Manufacturing",
             project_type="Corporate Website",
             overview_content="Overview copy",
+            overview_image="projects/overview/overview.webp",
+            overview_image_alt="Overview visual",
             approach_content="Approach copy",
+            approach_image="projects/approach/approach.webp",
+            approach_image_alt="Approach visual",
             impact_content="Impact copy",
+            impact_image="projects/impact/impact.webp",
+            impact_image_alt="Impact visual",
             showcase_image="projects/showcases/showcase.webp",
             showcase_image_alt="Responsive project screens",
             button_text="Visit Live Site",
@@ -364,10 +370,16 @@ class ProjectFunctionalityTests(TestCase):
         self.assertLess(content.index('class="case-study__intro'), content.index('class="case-study__hero'))
         self.assertContains(response, "Approach copy")
         self.assertContains(response, "Impact copy")
+        self.assertLess(content.index('id="overviewTitle"'), content.index('alt="Overview visual"'))
+        self.assertLess(content.index('alt="Overview visual"'), content.index("Overview copy"))
+        self.assertLess(content.index('id="approachTitle"'), content.index('alt="Approach visual"'))
+        self.assertLess(content.index('alt="Approach visual"'), content.index("Approach copy"))
+        self.assertLess(content.index('id="impactTitle"'), content.index('alt="Impact visual"'))
+        self.assertLess(content.index('alt="Impact visual"'), content.index("Impact copy"))
         self.assertContains(response, 'alt="Responsive project screens"')
         self.assertContains(response, 'loading="lazy"')
-        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=11')
-        self.assertContains(response, f'{staticfiles_storage.url("js/project-detail.js")}?v=1')
+        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=12')
+        self.assertContains(response, f'{staticfiles_storage.url("js/project-detail.js")}?v=2')
         self.assertContains(response, 'class="case-study__notch-button ect-micro-btn"')
 
     def test_project_detail_supports_expandable_related_project_rail(self):
@@ -393,8 +405,8 @@ class ProjectFunctionalityTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'data-related-rail')
-        self.assertContains(response, 'data-related-previous')
-        self.assertContains(response, 'data-related-next')
+        self.assertNotContains(response, 'data-related-previous')
+        self.assertNotContains(response, 'data-related-next')
         self.assertContains(response, 'data-related-more')
         self.assertContains(response, 'case-study__related-item--deferred', count=2)
         for recommendation in recommendations:
