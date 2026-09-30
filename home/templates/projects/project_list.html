@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
     {% include "components/seo_meta.html" %}
     <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=42">
-    <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=7">
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=8">
     <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
 
 </head>
@@ -45,13 +45,15 @@
     <section class="project-listing py-5" data-project-listing>
         <div class="container">
             <div class="filters mb-4">
-                <nav class="category-filters" aria-label="Filter projects by category">
-                    <span class="filter-label">Filter:</span>
-                    <a href="{% url 'project_list' %}" class="btn-filter {% if not current_category %}active{% endif %}" aria-controls="projectResults"{% if not current_category %} aria-current="page"{% endif %}>All Projects</a>
-                    {% for cat in categories %}
-                        <a href="{% url 'project_list' %}?category={{ cat.slug }}" class="btn-filter {% if current_category == cat.slug %}active{% endif %}" aria-controls="projectResults"{% if current_category == cat.slug %} aria-current="page"{% endif %}>{{ cat.name }}</a>
-                    {% endfor %}
-                </nav>
+                <span class="filter-label" id="projectFilterLabel">Filter:</span>
+                <div class="category-filter-scroll" tabindex="0" aria-labelledby="projectFilterLabel">
+                    <nav class="category-filters" aria-label="Filter projects by category">
+                        <a href="{% url 'project_list' %}" class="btn-filter {% if not current_category %}active{% endif %}" aria-controls="projectResults"{% if not current_category %} aria-current="page"{% endif %}>All Projects</a>
+                        {% for cat in categories %}
+                            <a href="{% url 'project_list' %}?category={{ cat.slug }}" class="btn-filter {% if current_category == cat.slug %}active{% endif %}" aria-controls="projectResults"{% if current_category == cat.slug %} aria-current="page"{% endif %}>{{ cat.name }}</a>
+                        {% endfor %}
+                    </nav>
+                </div>
 
             </div>
 
