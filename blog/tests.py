@@ -160,6 +160,39 @@ class BlogSeoTests(TestCase):
         self.assertContains(response, blog.category.name)
         self.assertNotContains(response, empty.name)
 
+    def test_category_listing_uses_nine_article_load_more_batches(self):
+        scalable_category = BlogCategory.objects.create(name="Scalable Insights")
+        articles = [
+            self.make_blog(
+                title=f"Scalable insight {index}",
+                category=scalable_category,
+                publish_date=timezone.now() - timedelta(minutes=index),
+            )
+            for index in range(12)
+        ]
+        url = reverse("blog:blog_list_category", args=[scalable_category.slug])
+
+        first = self.client.get(url)
+        self.assertEqual(first.status_code, 200)
+        self.assertContains(first, 'class="card"', count=9)
+        self.assertContains(first, "Load More Articles")
+        self.assertContains(first, "data-blog-grid")
+        self.assertContains(first, "data-blog-visible-count>9</strong>")
+        self.assertContains(first, "data-blog-total>12</strong>")
+        self.assertNotContains(first, 'class="pagination"')
+        self.assertContains(first, "responsive1")
+
+        second = self.client.get(
+            url,
+            {"page": 2},
+            HTTP_X_REQUESTED_WITH="XMLHttpRequest",
+        )
+        self.assertEqual(second.status_code, 200)
+        self.assertContains(second, 'class="card"', count=3)
+        self.assertNotContains(second, "data-blog-load-more")
+        for article in articles[:3]:
+            self.assertContains(first, article.title)
+
     def test_related_articles_use_fallback_image(self):
         blog = self.make_blog()
         related = self.make_blog(title="Related without media", slug="related-without-media")

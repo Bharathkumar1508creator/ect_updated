@@ -221,12 +221,62 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    function updateBlogCounts(container) {
+        const grid = container.querySelector('[data-blog-grid]');
+        if (!grid) return;
+        const visible = container.querySelector('[data-blog-visible-count]');
+        const total = container.querySelector('[data-blog-total]');
+        const count = grid.querySelectorAll('.card').length;
+        if (visible) visible.textContent = count;
+        if (total) total.textContent = grid.dataset.totalResults || count;
+    }
+
+    function loadMoreBlogs(link) {
+        const container = document.getElementById('blogContainer');
+        const grid = container && container.querySelector('[data-blog-grid]');
+        if (!container || !grid) return;
+
+        link.classList.add('is-loading');
+        link.setAttribute('aria-disabled', 'true');
+        const label = link.querySelector('[data-blog-load-more-label]');
+        if (label) label.textContent = 'Loading…';
+
+        fetch(link.href, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+            .then(res => {
+                if (!res.ok) throw new Error('Request failed');
+                return res.text();
+            })
+            .then(html => {
+                const parsed = new DOMParser().parseFromString(html, 'text/html');
+                const nextGrid = parsed.querySelector('[data-blog-grid]');
+                if (!nextGrid) throw new Error('Blog grid missing');
+                const cards = Array.from(nextGrid.querySelectorAll('.card'));
+                cards.forEach(card => grid.appendChild(document.importNode(card, true)));
+
+                const currentWrap = container.querySelector('[data-blog-load-more-wrap]');
+                const nextWrap = parsed.querySelector('[data-blog-load-more-wrap]');
+                if (currentWrap) {
+                    if (nextWrap) currentWrap.replaceWith(document.importNode(nextWrap, true));
+                    else currentWrap.remove();
+                }
+                updateBlogCounts(container);
+                if (cards.length) cards[0].focus({ preventScroll: true });
+            })
+            .catch(() => { window.location.href = link.href; });
+    }
+
     function buildSearchUrl(query) {
         const base = location.pathname;
         return query ? base + '?q=' + encodeURIComponent(query) : base;
     }
 
     document.addEventListener('click', (e) => {
+        const loadMore = e.target.closest('[data-blog-load-more]');
+        if (loadMore) {
+            e.preventDefault();
+            loadMoreBlogs(loadMore);
+            return;
+        }
         const link = e.target.closest('.category-filters .category-btn');
         if (!link) return;
 

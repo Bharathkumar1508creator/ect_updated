@@ -28,11 +28,13 @@
 {% endif %}
 
 <section class="blog-section list-controls">
-    <div class="list-controls__left category-filters">
+    <div class="list-controls__left category-filters" aria-label="Filter articles by category">
         <a href="{% url 'blog:blog_list' %}" class="category-btn {% if not current_category %}active{% endif %}">All Articles</a>
-        {% for cat in categories %}
-            <a href="{% url 'blog:blog_list_category' cat.slug %}" class="category-btn {% if current_category == cat.slug %}active{% endif %}">{{ cat.name }}</a>
-        {% endfor %}
+        <div class="category-filter-rail" tabindex="0">
+            {% for cat in categories %}
+                <a href="{% url 'blog:blog_list_category' cat.slug %}" class="category-btn {% if current_category == cat.slug %}active{% endif %}">{{ cat.name }}</a>
+            {% endfor %}
+        </div>
     </div>
     <div class="list-controls__right">
         <form action="" method="get" style="margin:0; position:relative;">
@@ -46,7 +48,12 @@
 </section>
 
 <section class="blog-section">
-    <div class="blog-grid">
+    <p class="blog-results-summary" role="status" aria-live="polite">
+        Showing <strong data-blog-visible-count>{{ blogs|length }}</strong> of
+        <strong data-blog-total>{{ paginator.count }}</strong>
+        article{{ paginator.count|pluralize }}
+    </p>
+    <div class="blog-grid" id="blogResults" data-blog-grid data-total-results="{{ paginator.count }}">
         {% for blog in blogs %}
             <a href="{{ blog.get_absolute_url }}" class="card" aria-label="Read {{ blog.title }}">
                 <div class="image">
@@ -59,6 +66,7 @@
                 <div class="card__body">
                     <div class="card__date"><span class="dot" aria-hidden="true"></span>{{ blog.publish_date|date:"d F Y" }}</div>
                     <h2 class="title">{{ blog.title }}</h2>
+                    {% if blog.hero_description %}<p class="card__summary">{{ blog.hero_description|truncatechars:130 }}</p>{% endif %}
                 </div>
             </a>
         {% empty %}
@@ -67,24 +75,13 @@
     </div>
 </section>
 
-{% if is_paginated %}
+{% if page_obj.has_next %}
 <section class="blog-section">
-    <div class="pagination">
-        {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}" class="page-btn">&laquo; Previous</a>
-        {% endif %}
-
-        {% for i in paginator.page_range %}
-            {% if page_obj.number == i %}
-                <span class="page-btn active">{{ i }}</span>
-            {% else %}
-                <a href="?page={{ i }}{% if search_query %}&q={{ search_query }}{% endif %}" class="page-btn">{{ i }}</a>
-            {% endif %}
-        {% endfor %}
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}" class="page-btn">Next &raquo;</a>
-        {% endif %}
+    <div class="blog-load-more-wrap" data-blog-load-more-wrap>
+        <a href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query|urlencode }}{% endif %}"
+           class="blog-load-more" data-blog-load-more aria-controls="blogResults">
+            <span data-blog-load-more-label>Load More Articles</span>
+        </a>
     </div>
 </section>
 {% endif %}
