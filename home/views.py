@@ -230,7 +230,7 @@ def project_detail(request, slug):
 
     # Related Projects (same category, exclude current, limit 3)
     manual_related = list(
-        project.related_projects.filter(status='published').exclude(id=project.id)[:3]
+        project.related_projects.filter(status='published').exclude(id=project.id)[:12]
     )
     if manual_related:
         related_projects = manual_related
@@ -238,13 +238,13 @@ def project_detail(request, slug):
         related_projects = list(Project.objects.filter(
             category=project.category,
             status='published'
-        ).exclude(id=project.id).order_by('display_order', 'id')[:3])
+        ).exclude(id=project.id).order_by('display_order', 'id')[:12])
 
     if not related_projects:
         related_projects = list(
             Project.objects.filter(status='published')
             .exclude(id=project.id)
-            .order_by('display_order', 'id')[:3]
+            .order_by('display_order', 'id')[:12]
         )
 
     social_image_url = get_project_social_image_url(request, project)

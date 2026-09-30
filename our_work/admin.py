@@ -28,8 +28,8 @@ class WebsiteProjectAdminForm(OptimizedImageAdminForm):
 
     def clean_related_projects(self):
         projects = self.cleaned_data.get('related_projects')
-        if projects and projects.count() > 3:
-            raise forms.ValidationError('Select no more than three related projects.')
+        if projects and projects.count() > 12:
+            raise forms.ValidationError('Select no more than twelve related projects.')
         if projects and self.instance.pk and projects.filter(pk=self.instance.pk).exists():
             raise forms.ValidationError('A project cannot be related to itself.')
         return projects

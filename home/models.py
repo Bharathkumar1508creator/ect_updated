@@ -276,7 +276,7 @@ class Project(models.Model):
     )
     related_projects = models.ManyToManyField(
         'self', symmetrical=False, blank=True, related_name='manually_related_from',
-        help_text='Optional. Select up to three; otherwise related projects are chosen automatically.',
+        help_text='Optional. Select up to twelve recommendations; otherwise related projects are chosen automatically.',
     )
     
     seo_title = models.CharField(max_length=255, blank=True, null=True)

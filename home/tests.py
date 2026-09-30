@@ -366,8 +366,39 @@ class ProjectFunctionalityTests(TestCase):
         self.assertContains(response, "Impact copy")
         self.assertContains(response, 'alt="Responsive project screens"')
         self.assertContains(response, 'loading="lazy"')
-        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=10')
+        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=11')
+        self.assertContains(response, f'{staticfiles_storage.url("js/project-detail.js")}?v=1')
         self.assertContains(response, 'class="case-study__notch-button ect-micro-btn"')
+
+    def test_project_detail_supports_expandable_related_project_rail(self):
+        current = Project.objects.create(
+            category=self.general_category,
+            title="Recommendation source",
+            slug="recommendation-source",
+            status="published",
+        )
+        recommendations = [
+            Project.objects.create(
+                category=self.general_category,
+                title=f"Recommended project {index}",
+                slug=f"recommended-project-{index}",
+                status="published",
+                display_order=index,
+            )
+            for index in range(1, 9)
+        ]
+        current.related_projects.add(*recommendations)
+
+        response = self.client.get(reverse("project_detail", args=[current.slug]))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'data-related-rail')
+        self.assertContains(response, 'data-related-previous')
+        self.assertContains(response, 'data-related-next')
+        self.assertContains(response, 'data-related-more')
+        self.assertContains(response, 'case-study__related-item--deferred', count=2)
+        for recommendation in recommendations:
+            self.assertContains(response, recommendation.title)
 
     def test_next_project_override_and_manual_related_projects_are_honored(self):
         current = Project.objects.create(category=self.general_category, title="Current", slug="current", status="published", display_order=1)
