@@ -41,7 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const target = document.querySelector(link.getAttribute('href'));
                 if (!target) return;
                 event.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                target.scrollIntoView({
+                    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+                    block: 'start'
+                });
                 history.replaceState(null, '', link.getAttribute('href'));
                 if (window.matchMedia('(max-width: 900px)').matches) {
                     toc.classList.add('is-collapsed');
