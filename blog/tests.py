@@ -122,7 +122,7 @@ class BlogSeoTests(TestCase):
         self.assertContains(response, 'application/ld+json')
         self.assertContains(response, 'href="#technical-seo"', html=False)
         self.assertContains(response, "SEO Friendly Website Guide")
-        self.assertContains(response, "responsive2")
+        self.assertContains(response, "responsive3")
         self.assertContains(response, "?v=7")
         content = response.content.decode()
         self.assertLess(content.index('class="blog-detail-header"'), content.index('class="blog-hero"'))

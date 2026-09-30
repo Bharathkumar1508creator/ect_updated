@@ -5,6 +5,7 @@
   var banner = document.getElementById('ectConsent');
   var settingsButton = document.querySelector('[data-consent-settings]');
   var optionalLoaded = false;
+  var salesIqLoaded = false;
 
   function readChoice() {
     try { return window.localStorage.getItem(STORAGE_KEY); }
@@ -23,6 +24,20 @@
     if (settingsButton) settingsButton.hidden = open;
   }
 
+  function loadSalesIq() {
+    if (salesIqLoaded || document.getElementById('zsiqscript')) return;
+    if (window.ectThirdPartyConfig && window.ectThirdPartyConfig.salesIqUrl) {
+      salesIqLoaded = true;
+      window.$zoho = window.$zoho || {};
+      window.$zoho.salesiq = window.$zoho.salesiq || { ready: function () {} };
+      var salesIqScript = document.createElement('script');
+      salesIqScript.id = 'zsiqscript';
+      salesIqScript.defer = true;
+      salesIqScript.src = window.ectThirdPartyConfig.salesIqUrl;
+      document.body.appendChild(salesIqScript);
+    }
+  }
+
   function loadOptionalServices() {
     if (optionalLoaded) return;
     optionalLoaded = true;
@@ -37,15 +52,6 @@
       document.head.appendChild(googleScript);
     }
 
-    if (window.ectThirdPartyConfig && window.ectThirdPartyConfig.salesIqUrl) {
-      window.$zoho = window.$zoho || {};
-      window.$zoho.salesiq = window.$zoho.salesiq || { ready: function () {} };
-      var salesIqScript = document.createElement('script');
-      salesIqScript.id = 'zsiqscript';
-      salesIqScript.defer = true;
-      salesIqScript.src = window.ectThirdPartyConfig.salesIqUrl;
-      document.body.appendChild(salesIqScript);
-    }
   }
 
   function choose(choice) {
@@ -60,6 +66,8 @@
     banner.querySelector('[data-consent-essential]').addEventListener('click', function () { choose('denied'); });
   }
   if (settingsButton) settingsButton.addEventListener('click', function () { setBanner(true); });
+
+  loadSalesIq();
 
   var choice = readChoice();
   if (choice === 'granted') {
