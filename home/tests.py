@@ -37,6 +37,20 @@ class HomeTestimonialsVisibilityTests(TestCase):
         self.assertNotContains(response, 'id="clients-data"')
 
 
+class HomeInsightsTests(TestCase):
+    def test_homepage_keeps_insights_compact_and_cards_clickable(self):
+        response = self.client.get(reverse("index"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.context["latest_blogs"]), 3)
+        self.assertContains(response, 'class="insight-card"', count=3)
+        self.assertContains(response, 'data-insight-index=', count=3)
+        self.assertContains(response, "View All Articles")
+        self.assertContains(response, reverse("blog:blog_list"))
+        self.assertContains(response, "home-insights.min.")
+        self.assertContains(response, "insights-carousel.min.")
+
+
 class ExternalFormOnlyTests(TestCase):
     def test_contact_page_keeps_bigin_and_rejects_local_posts(self):
         archived = ContactMessage.objects.create(

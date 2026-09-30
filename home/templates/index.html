@@ -13,6 +13,7 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Montserrat:wght@100..900&family=Outfit:wght@400&display=swap" rel="stylesheet"></noscript>
   {% include "components/seo_meta.html" %}
   <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=81">
+  <link rel="stylesheet" href="{% static 'css/home-insights.min.css' %}?v=1">
   <link rel="preload" as="style" href="{% static 'css/contact-popup.css' %}?v=27" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27"></noscript>
 
@@ -1367,25 +1368,34 @@
         drive growth, improve efficiency, and create measurable, long-term business success.
       </p>
 
-      <div class="insights-grid">
+      <div class="insights-grid" id="insightsCarousel">
         {% for blog in latest_blogs %}
-        <article class="insight-card">
+        <a class="insight-card" href="{{ blog.get_absolute_url }}" aria-label="Read {{ blog.title }}">
           <div class="insight-card__media">
             {% if blog.hero_image %}
-            <img src="{{ blog.hero_image.url }}" alt="{{ blog.hero_image_alt|default:blog.title }}" loading="lazy">
+            <img src="{{ blog.hero_image.url }}" alt="{{ blog.hero_image_alt|default:blog.title }}" loading="lazy" decoding="async">
             {% endif %}
           </div>
           <p class="insight-card__meta">
             <span class="insight-card__dot" aria-hidden="true"></span>
+            {% if blog.category %}<span>{{ blog.category.name }}</span><span aria-hidden="true">&middot;</span>{% endif %}
             {{ blog.publish_date|date:"d F Y" }}
           </p>
           <h3 class="insight-card__title">{{ blog.title }}</h3>
-          <a class="insight-card__link" href="{{ blog.get_absolute_url }}">
-            <span>Read Article</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
-          </a>
-        </article>
+          {% if blog.hero_description %}<p class="insight-card__description">{{ blog.hero_description|truncatechars:115 }}</p>{% endif %}
+          <span class="insight-card__action" aria-hidden="true">Read Article <span>&nearr;</span></span>
+        </a>
         {% endfor %}
+      </div>
+
+      <div class="insights-dots" id="insightsDots" aria-label="Choose an article">
+        {% for blog in latest_blogs %}
+        <button type="button" class="insights-dot{% if forloop.first %} is-active{% endif %}" data-insight-index="{{ forloop.counter0 }}" aria-label="Show article {{ forloop.counter }}"{% if forloop.first %} aria-current="true"{% endif %}></button>
+        {% endfor %}
+      </div>
+
+      <div class="insights-footer">
+        <a class="insights-view-all" href="{% url 'blog:blog_list' %}">View All Articles <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>
@@ -1394,6 +1404,7 @@
   <script src="{% static 'js/base.min.js' %}?v=53"></script>
   <script src="{% static 'js/project-media.min.js' %}?v=2"></script>
   <script src="{% static 'js/deferred-media.min.js' %}?v=1"></script>
+  <script src="{% static 'js/insights-carousel.min.js' %}?v=1" defer></script>
 
 
 
