@@ -366,6 +366,7 @@ class ProjectFunctionalityTests(TestCase):
         self.assertContains(response, "Impact copy")
         self.assertContains(response, 'alt="Responsive project screens"')
         self.assertContains(response, 'loading="lazy"')
+        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=10')
         self.assertContains(response, 'class="case-study__notch-button ect-micro-btn"')
 
     def test_next_project_override_and_manual_related_projects_are_honored(self):
