@@ -813,28 +813,6 @@ body {
 .blog-comment-form button,
 .blog-newsletter-form button { min-height: 48px; }
 
-/* Keep every major article block on one consistent visual axis. */
-.blog-detail-header,
-.blog-hero,
-.blog-article-layout,
-.blog-author-card,
-.blog-prev-next,
-.blog-related-section,
-.blog-newsletter-section,
-.blog-comments { margin-left: auto; margin-right: auto; }
-.blog-detail-header { text-align: center; }
-.blog-detail__small-headline,
-.blog-byline { justify-content: center; }
-.blog-detail__excerpt { margin-left: auto; margin-right: auto; }
-.blog-article-layout.without-toc { justify-content: center; }
-.blog-author-card,
-.blog-prev-next,
-.blog-related-section,
-.blog-newsletter-section,
-.blog-comments { width: min(100%, 980px); }
-.blog-related-section > h2,
-.blog-comments > h2 { margin-top: 0; }
-
 @media (max-width: 900px) {
     .blog-detail-page { width: calc(100% - 40px); padding-top: 84px; }
     .blog-article-layout { max-width: 780px; }
@@ -845,9 +823,6 @@ body {
 @media (max-width: 600px) {
     .blog-detail-page { width: calc(100% - 32px); padding: 76px 0 48px; }
     .blog-detail-header { margin-bottom: 28px; }
-    .blog-detail-header { text-align: left; }
-    .blog-detail__small-headline,
-    .blog-byline { justify-content: flex-start; }
     .blog-detail__main-headline { font-size: clamp(1.8rem, 8.3vw, 2.35rem); }
     .blog-hero { height: auto; aspect-ratio: auto; margin-bottom: 32px; }
     .blog-hero__media { height: auto; aspect-ratio: auto; }
