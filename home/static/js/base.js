@@ -1704,33 +1704,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// ECT Hero — interactive behaviors
-// Add any future JS logic here (e.g., button click tracking, video fallbacks, etc.)
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  // Pause video when it's completely off-screen (save resources)
-  var video = document.querySelector('.ect-hero__video');
-
-  if (video && 'IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          video.play();
-        } else {
-          video.pause();
-        }
-      });
-    }, { threshold: 0.25 });
-
-    observer.observe(video);
-  }
-
-});
-
-
-
-
 // connected business
 
 (function () {

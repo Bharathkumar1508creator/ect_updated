@@ -1401,9 +1401,9 @@
   </section>
   {% endif %}
 
-  <script src="{% static 'js/base.min.js' %}?v=53"></script>
+  <script src="{% static 'js/base.min.js' %}?v=54"></script>
   <script src="{% static 'js/project-media.min.js' %}?v=2"></script>
-  <script src="{% static 'js/deferred-media.min.js' %}?v=1"></script>
+  <script src="{% static 'js/deferred-media.min.js' %}?v=2"></script>
   <script src="{% static 'js/insights-carousel.min.js' %}?v=1" defer></script>
 
 
@@ -1446,6 +1446,79 @@
     .custom-cbs-section { padding-top: 24px !important; padding-bottom: 24px !important; }
     .ect-products { padding-top: 24px !important; padding-bottom: 24px !important; }
     .work { padding-top: 24px !important; }
+  }
+
+  /* Smooth the small-tablet to desktop hand-off without changing the
+     established mobile or wide-desktop compositions. */
+  @media (min-width: 901px) and (max-width: 1024px) {
+    .hero__container { padding-bottom: 32px !important; }
+    .features { padding-top: 32px !important; padding-bottom: 32px !important; }
+    .ect-hero { padding: 32px 0 !important; }
+    .cbs-section,
+    .ect-services,
+    .custom-cbs-section,
+    .ect-products { padding-top: 32px !important; padding-bottom: 32px !important; }
+    .work { padding-top: 32px !important; }
+  }
+
+  /* Keep the three-column desktop compositions through the narrow-laptop
+     interval where the old 1050px rule caused a large one-pixel layout jump. */
+  @media (min-width: 1025px) and (max-width: 1050px) {
+    .ect-services__header { grid-template-columns: minmax(0, 1fr) minmax(320px, 42%); gap: 28px; }
+    .ect-services__summary { width: 100%; margin-top: 38px; }
+    .ect-services__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .ect-services__column,
+    .ect-services__column--wide-gap,
+    .ect-services__column:last-child {
+      display: flex;
+      grid-column: auto;
+      grid-template-columns: none;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .ect-products__header { grid-template-columns: minmax(0, 1fr) minmax(320px, 42%); gap: 28px; }
+    .ect-products__header-right { padding-top: 38px; }
+    .ect-products__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .ect-pcard { width: 100%; margin: 0; }
+  }
+
+  /* Preserve the small visual dots while giving each control a dependable
+     touch target. */
+  @media (max-width: 640px) {
+    .insights-dots { gap: 0; }
+    .insights-dot,
+    .insights-dot.is-active {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 0;
+      background: transparent;
+    }
+    .insights-dot::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #c8cec9;
+      transform: translate(-50%, -50%);
+    }
+    .insights-dot.is-active::after { width: 26px; background: #0c3c01; }
+  }
+
+  @media (max-width: 360px) {
+    .features__mobile-arrow { min-width: 44px; min-height: 44px; }
+  }
+
+  @media (max-width: 900px) {
+    .ect-footer .ect-f-col li a,
+    .ect-bottom-bar .ect-b-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
   }
 </style>
 </body>
