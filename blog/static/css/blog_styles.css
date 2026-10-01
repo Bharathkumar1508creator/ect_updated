@@ -813,6 +813,20 @@ body {
 .blog-comment-form button,
 .blog-newsletter-form button { min-height: 48px; }
 
+/* Desktop sections follow the same full-width edge as the navbar and hero. */
+@media (min-width: 901px) {
+    .blog-detail-header,
+    .blog-author-card,
+    .blog-prev-next,
+    .blog-related-section,
+    .blog-newsletter-section,
+    .blog-comments {
+        width: 100%;
+        max-width: none;
+    }
+    .blog-detail__excerpt { max-width: 100%; }
+}
+
 @media (max-width: 900px) {
     .blog-detail-page { width: calc(100% - 40px); padding-top: 84px; }
     .blog-article-layout { max-width: 780px; }
@@ -844,6 +858,18 @@ body {
     }
     .blog-related-grid::-webkit-scrollbar { display: none; }
     .blog-related-grid a { scroll-snap-align: start; }
-    .blog-newsletter-section { margin-bottom: 48px; }
+    .blog-newsletter-section {
+        width: 100%;
+        max-width: 100%;
+        gap: 22px;
+        margin-bottom: 48px;
+        padding: 24px 20px;
+        box-sizing: border-box;
+    }
+    .blog-newsletter-section > div,
+    .blog-newsletter-form { width: 100%; min-width: 0; max-width: 100%; }
+    .blog-newsletter-section h2 { font-size: clamp(1.35rem, 7vw, 1.7rem); line-height: 1.3; }
+    .blog-newsletter-form input[type="email"],
+    .blog-newsletter-form button { display: block; width: 100%; max-width: 100%; box-sizing: border-box; }
     .blog-comments { margin-bottom: 48px; }
 }
