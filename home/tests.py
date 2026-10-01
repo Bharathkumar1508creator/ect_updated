@@ -382,7 +382,7 @@ class ProjectFunctionalityTests(TestCase):
         self.assertLess(content.index("Impact copy"), content.index('alt="Impact visual"'))
         self.assertContains(response, 'alt="Responsive project screens"')
         self.assertContains(response, 'loading="lazy"')
-        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=14')
+        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=15')
         self.assertContains(response, f'{staticfiles_storage.url("js/project-detail.js")}?v=3')
         self.assertContains(response, 'class="case-study__notch-button ect-micro-btn"')
 

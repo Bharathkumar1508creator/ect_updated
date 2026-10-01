@@ -839,8 +839,13 @@
     overscroll-behavior-inline: contain;
     scroll-snap-type: inline mandatory;
     scroll-padding-inline: 4px;
-    scrollbar-width: thin;
-    scrollbar-color: #9baa96 transparent;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.case-study__related .project-grid.case-study__related-rail::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
 }
 .case-study__related-item { min-width: 0; scroll-snap-align: start; }
 .case-study__related-item[hidden] { display: none; }
