@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
   {% include "components/seo_meta.html" %}
   <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=46">
-  <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=13">
+  <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=14">
   <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
 </head>
 <body class="website-case-study-page">
@@ -40,15 +40,17 @@
       {% else %}<div class="case-study__placeholder" role="img" aria-label="{{ project.title }} showcase image pending">Showcase image pending</div>{% endif %}
     </section>
 
-    <section class="case-study__topic case-study__topic--overview case-study__container" aria-labelledby="overviewTitle">
-      <h2 id="overviewTitle">{{ project.overview_title|default:'Overview' }}</h2>
-      {% if project.overview_image %}<div class="case-study__media case-study__topic-media">
-        <img src="{{ project.overview_image.url }}" alt="{{ project.overview_image_alt|default:project.title }}"
-             class="case-study__image object-position-{{ project.overview_focal_point }}" loading="lazy" decoding="async">
-      </div>{% endif %}
-      {% if project.overview_content %}<div class="case-study__body">
+    <section class="case-study__split case-study__container" aria-labelledby="overviewTitle">
+      <div class="case-study__copy">
+        <h2 id="overviewTitle">{{ project.overview_title|default:'Overview' }}</h2>
+        {% if project.overview_content %}<div class="case-study__body">
           {% if project.overview_link_url %}<a href="{{ project.overview_link_url }}" target="_blank" rel="noopener noreferrer">{{ project.overview_link_text|default:project.title }}</a>{% endif %}
           {{ project.overview_content|linebreaks }}
+        </div>{% endif %}
+      </div>
+      {% if project.overview_image %}<div class="case-study__media case-study__media--square">
+        <img src="{{ project.overview_image.url }}" alt="{{ project.overview_image_alt|default:project.title }}"
+             class="case-study__image object-position-{{ project.overview_focal_point }}" loading="lazy" decoding="async">
       </div>{% endif %}
     </section>
 
@@ -62,21 +64,19 @@
     </section>{% endif %}
 
     <section class="case-study__story case-study__container" aria-label="Project approach and impact">
-      <div class="case-study__topic case-study__topic--approach" aria-labelledby="approachTitle">
-        <h2 id="approachTitle">{{ project.approach_title|default:'Approach' }}</h2>
-        {% if project.approach_image %}<div class="case-study__media case-study__topic-media">
+      <div class="case-study__story-row case-study__story-row--media-left">
+        {% if project.approach_image %}<div class="case-study__media case-study__media--story">
           <img src="{{ project.approach_image.url }}" alt="{{ project.approach_image_alt|default:project.title }}"
                class="case-study__image object-position-{{ project.approach_focal_point }}" loading="lazy" decoding="async">
         </div>{% endif %}
-        <div class="case-study__body">{{ project.approach_content|linebreaks }}</div>
+        <div class="case-study__copy"><h2 id="approachTitle">{{ project.approach_title|default:'Approach' }}</h2><div class="case-study__body">{{ project.approach_content|linebreaks }}</div></div>
       </div>
-      <div class="case-study__topic case-study__topic--impact" aria-labelledby="impactTitle">
-        <h2 id="impactTitle">{{ project.impact_title|default:'Impact' }}</h2>
-        {% if project.impact_image %}<div class="case-study__media case-study__topic-media">
+      <div class="case-study__story-row case-study__story-row--text-left">
+        <div class="case-study__copy"><h2 id="impactTitle">{{ project.impact_title|default:'Impact' }}</h2><div class="case-study__body">{{ project.impact_content|linebreaks }}</div></div>
+        {% if project.impact_image %}<div class="case-study__media case-study__media--story">
           <img src="{{ project.impact_image.url }}" alt="{{ project.impact_image_alt|default:project.title }}"
                class="case-study__image object-position-{{ project.impact_focal_point }}" loading="lazy" decoding="async">
         </div>{% endif %}
-        <div class="case-study__body">{{ project.impact_content|linebreaks }}</div>
       </div>
     </section>
 
