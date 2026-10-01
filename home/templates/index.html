@@ -1520,6 +1520,29 @@
       min-height: 44px;
     }
   }
+
+  /* Desktop only: every service-card column uses the same vertical rhythm. */
+  @media (min-width: 1025px) {
+    .ect-services__column--wide-gap { gap: 24px; }
+  }
+
+  /* The mobile insight rail remains swipeable; pagination dots are omitted. */
+  @media (max-width: 640px) {
+    .insights-dots { display: none !important; }
+  }
+
+  /* At the narrowest supported width, allow the suitability pills to wrap
+     instead of forcing their combined intrinsic widths outside the hero. */
+  @media (max-width: 340px) {
+    .hero__pills {
+      flex-wrap: wrap;
+      row-gap: 8px;
+    }
+    .hero .pill {
+      flex: 0 1 auto;
+      max-width: 100%;
+    }
+  }
 </style>
 </body>
 
