@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
   {% include "components/seo_meta.html" %}
   <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=46">
-  <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=12">
+  <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=13">
   <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
 </head>
 <body class="website-case-study-page">
@@ -40,7 +40,7 @@
       {% else %}<div class="case-study__placeholder" role="img" aria-label="{{ project.title }} showcase image pending">Showcase image pending</div>{% endif %}
     </section>
 
-    <section class="case-study__topic case-study__container" aria-labelledby="overviewTitle">
+    <section class="case-study__topic case-study__topic--overview case-study__container" aria-labelledby="overviewTitle">
       <h2 id="overviewTitle">{{ project.overview_title|default:'Overview' }}</h2>
       {% if project.overview_image %}<div class="case-study__media case-study__topic-media">
         <img src="{{ project.overview_image.url }}" alt="{{ project.overview_image_alt|default:project.title }}"
@@ -62,7 +62,7 @@
     </section>{% endif %}
 
     <section class="case-study__story case-study__container" aria-label="Project approach and impact">
-      <div class="case-study__topic" aria-labelledby="approachTitle">
+      <div class="case-study__topic case-study__topic--approach" aria-labelledby="approachTitle">
         <h2 id="approachTitle">{{ project.approach_title|default:'Approach' }}</h2>
         {% if project.approach_image %}<div class="case-study__media case-study__topic-media">
           <img src="{{ project.approach_image.url }}" alt="{{ project.approach_image_alt|default:project.title }}"
@@ -70,7 +70,7 @@
         </div>{% endif %}
         <div class="case-study__body">{{ project.approach_content|linebreaks }}</div>
       </div>
-      <div class="case-study__topic" aria-labelledby="impactTitle">
+      <div class="case-study__topic case-study__topic--impact" aria-labelledby="impactTitle">
         <h2 id="impactTitle">{{ project.impact_title|default:'Impact' }}</h2>
         {% if project.impact_image %}<div class="case-study__media case-study__topic-media">
           <img src="{{ project.impact_image.url }}" alt="{{ project.impact_image_alt|default:project.title }}"
@@ -98,12 +98,16 @@
           <p class="case-study__related-eyebrow">Explore more work</p>
           <h2 id="relatedProjectsTitle">Related Projects</h2>
         </div>
+        <div class="case-study__related-controls" aria-label="Related project navigation">
+          <button type="button" class="case-study__rail-button" data-related-previous aria-label="Show previous related project">&larr;</button>
+          <button type="button" class="case-study__rail-button" data-related-next aria-label="Show next related project">&rarr;</button>
+        </div>
       </div>
       <div class="project-grid case-study__related-rail" data-related-rail tabindex="0">{% for rel_project in related_projects %}<div class="case-study__related-item{% if forloop.counter > 6 %} case-study__related-item--deferred{% endif %}">{% include 'projects/components/project_card.html' with project=rel_project %}</div>{% endfor %}</div>
       {% if related_projects|length > 6 %}<div class="case-study__related-more-wrap"><button type="button" class="case-study__related-more ect-micro-btn" data-related-more>Load More Recommendations</button></div>{% endif %}
     </section>{% endif %}
   </main>
-  <script src="{% static 'js/project-detail.js' %}?v=2" defer></script>
+  <script src="{% static 'js/project-detail.js' %}?v=3" defer></script>
   {% include 'components/project_page_end.html' %}
 </body>
 </html>

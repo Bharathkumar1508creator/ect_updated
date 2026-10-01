@@ -371,6 +371,9 @@ class ProjectFunctionalityTests(TestCase):
         self.assertLess(content.index('class="case-study__intro'), content.index('class="case-study__hero'))
         self.assertContains(response, "Approach copy")
         self.assertContains(response, "Impact copy")
+        self.assertContains(response, "case-study__topic--overview")
+        self.assertContains(response, "case-study__topic--approach")
+        self.assertContains(response, "case-study__topic--impact")
         self.assertLess(content.index('id="overviewTitle"'), content.index('alt="Overview visual"'))
         self.assertLess(content.index('alt="Overview visual"'), content.index("Overview copy"))
         self.assertLess(content.index('id="approachTitle"'), content.index('alt="Approach visual"'))
@@ -379,8 +382,8 @@ class ProjectFunctionalityTests(TestCase):
         self.assertLess(content.index('alt="Impact visual"'), content.index("Impact copy"))
         self.assertContains(response, 'alt="Responsive project screens"')
         self.assertContains(response, 'loading="lazy"')
-        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=12')
-        self.assertContains(response, f'{staticfiles_storage.url("js/project-detail.js")}?v=2')
+        self.assertContains(response, f'{staticfiles_storage.url("css/projects.css")}?v=13')
+        self.assertContains(response, f'{staticfiles_storage.url("js/project-detail.js")}?v=3')
         self.assertContains(response, 'class="case-study__notch-button ect-micro-btn"')
 
     def test_project_detail_supports_expandable_related_project_rail(self):
@@ -406,8 +409,8 @@ class ProjectFunctionalityTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'data-related-rail')
-        self.assertNotContains(response, 'data-related-previous')
-        self.assertNotContains(response, 'data-related-next')
+        self.assertContains(response, 'data-related-previous')
+        self.assertContains(response, 'data-related-next')
         self.assertContains(response, 'data-related-more')
         self.assertContains(response, 'case-study__related-item--deferred', count=2)
         for recommendation in recommendations:
