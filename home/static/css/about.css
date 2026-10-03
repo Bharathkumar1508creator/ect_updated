@@ -4053,6 +4053,10 @@ html body .track .card img {
 }
 
 @media (max-width: 1024px) {
+  .who-section .img-right {
+    display: none;
+  }
+
   .about-ect .about-ect__title {
     font-size: clamp(28px, 3.05vw, 31.25px) !important;
   }
