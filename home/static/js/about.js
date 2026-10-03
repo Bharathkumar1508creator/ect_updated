@@ -173,10 +173,10 @@ function render() {
 
   if (!heroTrack || !heroHeading || heroCards.every(card => !card)) return;
 
-  /* Mobile & tablet (<=1024px): skip the scroll-jack engine entirely.
+  /* Mobile, tablet and compact laptop (<=1100px): skip the scroll-jack engine entirely.
      CSS (.hero-compact) shows a static heading + centre image with no
      pinned scroll runway, so no scroll math or inline styles are needed. */
-  const heroCompactQuery = window.matchMedia('(max-width: 1024px)');
+  const heroCompactQuery = window.matchMedia('(max-width: 1100px)');
   if (heroCompactQuery.matches) {
     heroTrack.classList.add('hero-compact');
     heroCompactQuery.addEventListener('change', function () {

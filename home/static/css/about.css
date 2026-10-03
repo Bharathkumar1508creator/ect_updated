@@ -3723,7 +3723,7 @@ html body .track .card img {
    land on the heading/cards. Only the centre image (#c2) shows,
    in normal flow, with no pinned scroll runway.
 ============================================================ */
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   html body .track.hero-compact {
     height: auto;
     background: #0C3C01;
@@ -4046,13 +4046,13 @@ html body .track .card img {
   cursor: pointer;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1101px) {
   html body .track {
     height: 180vh;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   .who-section .img-right {
     display: none;
   }
@@ -4194,4 +4194,96 @@ html body .track .card img {
     font-size: 12px;
   }
 
+}
+
+/* Compact laptop bridge. The former 981/1025 desktop switches made the
+   About page jump between unrelated layouts around 960–1030px. Keep a
+   stable two-column composition until the full desktop has enough room. */
+@media (min-width: 821px) and (max-width: 1100px) {
+  .about-page .ect-navbar-menu,
+  .about-page .ect-consultation-trigger:not(.ect-mobile-consultation-btn) {
+    display: none;
+  }
+
+  .about-page .ect-mobile-toggle,
+  .about-page .ect-mobile-panel {
+    display: block;
+  }
+
+  .who-section .grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .who-section .grid > .col,
+  .who-section .grid > .col:not(.center),
+  .who-section .grid > .col.center {
+    position: relative !important;
+    display: flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .who-section .grid > .col.center {
+    order: 0 !important;
+  }
+
+  .who-section .grid > .col:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .who-section .img-center {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 1 / 1.02 !important;
+  }
+
+  .who-section .img-center img,
+  .who-section .in-view .img-center img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 26% !important;
+    transform: none !important;
+  }
+
+  .who-section .grid > .col:last-child .img-right {
+    display: none !important;
+  }
+
+  .who-section .svc-list.bottom {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 20px;
+    margin-top: 0;
+  }
+
+  .who-section .svc,
+  .who-section .svc-list {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .who-section .svc {
+    margin-left: 0;
+  }
+
+  .who-section .svc .txt {
+    max-width: calc(100% - 30px);
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
 }
