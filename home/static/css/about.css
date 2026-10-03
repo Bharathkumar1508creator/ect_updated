@@ -4194,7 +4194,4 @@ html body .track .card img {
     font-size: 12px;
   }
 
-  .about-page .ect-cookie-settings {
-    bottom: max(72px, calc(env(safe-area-inset-bottom) + 72px));
-  }
 }
