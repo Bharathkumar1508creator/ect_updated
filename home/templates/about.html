@@ -14,16 +14,17 @@
 
 
 <link rel="stylesheet" href="{% static 'css/tailwind-about.css' %}?v=2">
-  <script src="https://unpkg.com/lucide@latest"></script>
 <!-- Manrope font -->
 
-<link rel="stylesheet" href="{% static 'css/about.css' %}?v=33">
+<link rel="stylesheet" href="{% static 'css/about.css' %}?v=34">
   <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=46">
   <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
 </head>
-<body>
+<body class="about-page">
 
 {% include 'components/navbar.html' %}
+
+<main id="main-content">
 
   <!-- ================= MOBILE PANEL ================= -->
   
@@ -99,7 +100,7 @@
       <p class="about-ect__text">
         From strategy and consulting to development, implementation, and long-term support, we help businesses embrace digital transformation with confidence. Every solution we deliver is built around your goals, designed for your industry, and prepared for your future.
       </p>
-      <a class="about-ect__cta" href="#">Discover Our Story</a>
+      <a class="about-ect__cta" href="#whoSection">Discover Our Story</a>
     </div>
   </div>
 </section>
@@ -107,7 +108,7 @@
 
 
 <!-- who Section -->
-<section class="who-section">
+<section class="who-section" id="whoSection" aria-labelledby="who-headline">
   <div class="head-row" data-observe>
     <div>
       <span class="eyebrow"><span class="dot"></span>Who We Are</span>
@@ -194,7 +195,7 @@
               <div class="orbital-ring" style="animation-direction: reverse;"></div>
               <div class="orbital-ring-2" style="animation-direction: normal;"></div>
               <div class="orbital-icon">
-                <i data-lucide="eye" class="w-8 h-8"></i>
+                <svg class="w-8 h-8" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg>
               </div>
             </div>
             <h3 class="text-2xl md:text-3xl font-light tracking-tight mb-4">Our Vision</h3>
@@ -217,7 +218,7 @@
               <div class="orbital-ring"></div>
               <div class="orbital-ring-2"></div>
               <div class="orbital-icon">
-                <i data-lucide="target" class="w-8 h-8"></i>
+                <svg class="w-8 h-8" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
               </div>
             </div>
             <h3 class="text-2xl md:text-3xl font-light tracking-tight mb-4">Our Mission</h3>
@@ -276,7 +277,7 @@
         <h2 class="pillars-title" id="pillars-title">The Principles That<br>Define Who We Are</h2>
       </div>
       <p class="pillars-header__text">
-        At ECTour values shape every decision, every project, and every client relationship. They guide how we collaborate, innovate, and deliver meaningful business outcomes.
+        At ECT our values shape every decision, every project, and every client relationship. They guide how we collaborate, innovate, and deliver meaningful business outcomes.
       </p>
     </div>
 
@@ -299,11 +300,11 @@
     <div class="pillars-row" id="pillarsRow" data-pillars-row>
 
       <!-- P -->
-      <article class="pillar" data-pillar tabindex="0">
-        <div class="pillar__bar">
+      <article class="pillar" data-pillar>
+        <button class="pillar__bar" id="pillar-control-purposeful-profit" type="button" aria-expanded="false" aria-controls="pillar-panel-purposeful-profit">
           <span class="pillar__label">P-PURPOSEFUL PROFIT</span>
-        </div>
-        <div class="pillar__card">
+        </button>
+        <div class="pillar__card" id="pillar-panel-purposeful-profit" role="region" aria-labelledby="pillar-control-purposeful-profit" aria-hidden="true">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">P-PURPOSEFUL PROFIT</h3>
             <div class="pillar__card-media"><img src="{% static 'img/Ratan Tata (Purposeful Profit).jpg' %}" alt="Ratan Tata (Purposeful Profit)" class="pillar__card-img" onerror="this.style.display='none'" width="2560" height="1147" decoding="async" loading="lazy" srcset="{% static 'img/Ratan-Tata-Purposeful-Profit-480.webp' %} 480w, {% static 'img/Ratan-Tata-Purposeful-Profit-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
@@ -315,11 +316,11 @@
       </article>
 
       <!-- I -->
-      <article class="pillar" data-pillar tabindex="0">
-        <div class="pillar__bar">
+      <article class="pillar" data-pillar>
+        <button class="pillar__bar" id="pillar-control-integrity" type="button" aria-expanded="false" aria-controls="pillar-panel-integrity">
           <span class="pillar__label">I-INTEGRITY</span>
-        </div>
-        <div class="pillar__card">
+        </button>
+        <div class="pillar__card" id="pillar-panel-integrity" role="region" aria-labelledby="pillar-control-integrity" aria-hidden="true">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">I-INTEGRITY</h3>
             <div class="pillar__card-media"><img src="{% static 'img/V.O. Chidambaram Pillai (Integrity).jfif' %}" alt="V.O. Chidambaram Pillai (Integrity)" class="pillar__card-img" onerror="this.style.display='none'" width="480" height="320" decoding="async" loading="lazy"></div>
@@ -331,11 +332,11 @@
       </article>
 
       <!-- L - Learning -->
-      <article class="pillar" data-pillar tabindex="0">
-        <div class="pillar__bar">
+      <article class="pillar" data-pillar>
+        <button class="pillar__bar" id="pillar-control-learning-development" type="button" aria-expanded="false" aria-controls="pillar-panel-learning-development">
           <span class="pillar__label">L-LEARNING & DEVELOPMENT</span>
-        </div>
-        <div class="pillar__card">
+        </button>
+        <div class="pillar__card" id="pillar-panel-learning-development" role="region" aria-labelledby="pillar-control-learning-development" aria-hidden="true">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">L-LEARNING & DEVELOPMENT</h3>
             <div class="pillar__card-media"><img src="{% static 'img/A.P.J.-Abdul-Kalam-Learning-Development.webp' %}" alt="A.P.J. Abdul Kalam (Learning & Development)" class="pillar__card-img" onerror="this.style.display='none'" width="1672" height="940" decoding="async" loading="lazy" srcset="{% static 'img/A.P.J.-Abdul-Kalam-Learning-Development-480.webp' %} 480w, {% static 'img/A.P.J.-Abdul-Kalam-Learning-Development-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
@@ -347,11 +348,11 @@
       </article>
 
       <!-- L - Leadership -->
-      <article class="pillar" data-pillar tabindex="0">
-        <div class="pillar__bar">
+      <article class="pillar" data-pillar>
+        <button class="pillar__bar" id="pillar-control-leadership-ownership" type="button" aria-expanded="false" aria-controls="pillar-panel-leadership-ownership">
           <span class="pillar__label">L-LEADERSHIP THROUGH OWNERSHIP</span>
-        </div>
-        <div class="pillar__card">
+        </button>
+        <div class="pillar__card" id="pillar-panel-leadership-ownership" role="region" aria-labelledby="pillar-control-leadership-ownership" aria-hidden="true">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">L-LEADERSHIP THROUGH OWNERSHIP</h3>
             <div class="pillar__card-media"><img src="{% static 'img/N.R.-Narayana-Murthy-Leadership-Through-Ownership.webp' %}" alt="N.R. Narayana Murthy (Leadership Through Ownership)" class="pillar__card-img" onerror="this.style.display='none'" width="800" height="500" decoding="async" loading="lazy" srcset="{% static 'img/N.R.-Narayana-Murthy-Leadership-Through-Ownership-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw"></div>
@@ -363,11 +364,11 @@
       </article>
 
       <!-- A -->
-      <article class="pillar" data-pillar tabindex="0">
-        <div class="pillar__bar">
+      <article class="pillar" data-pillar>
+        <button class="pillar__bar" id="pillar-control-accountability-discipline" type="button" aria-expanded="false" aria-controls="pillar-panel-accountability-discipline">
           <span class="pillar__label">A- ACCOUNTABILITY & DISCIPLINE</span>
-        </div>
-        <div class="pillar__card">
+        </button>
+        <div class="pillar__card" id="pillar-panel-accountability-discipline" role="region" aria-labelledby="pillar-control-accountability-discipline" aria-hidden="true">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">A- ACCOUNTABILITY & DISCIPLINE</h3>
             <div class="pillar__card-media"><img src="{% static 'img/MS-Dhoni-Accountability-Discipline.webp' %}" alt="MS Dhoni (Accountability & Discipline)" class="pillar__card-img" onerror="this.style.display='none'" width="1920" height="1248" decoding="async" loading="lazy" srcset="{% static 'img/MS-Dhoni-Accountability-Discipline-480.webp' %} 480w, {% static 'img/MS-Dhoni-Accountability-Discipline-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
@@ -379,13 +380,13 @@
       </article>
 
       <!-- R -->
-      <article class="pillar" data-pillar tabindex="0">
-        <div class="pillar__bar">
-          <span class="pillar__label">R - RESPECT ALL - BIAS NON</span>
-        </div>
-        <div class="pillar__card">
+      <article class="pillar" data-pillar>
+        <button class="pillar__bar" id="pillar-control-respect-all" type="button" aria-expanded="false" aria-controls="pillar-panel-respect-all">
+          <span class="pillar__label">R - RESPECT ALL - BIAS NONE</span>
+        </button>
+        <div class="pillar__card" id="pillar-panel-respect-all" role="region" aria-labelledby="pillar-control-respect-all" aria-hidden="true">
           <div class="pillar__card-inner">
-            <h3 class="pillar__card-title">R - RESPECT ALL - BIAS NON</h3>
+            <h3 class="pillar__card-title">R - RESPECT ALL - BIAS NONE</h3>
             <div class="pillar__card-media"><img src="{% static 'img/Mother-Teresa-Respect-All-Bias-None.webp' %}" alt="Mother Teresa (Respect All – Bias None)" class="pillar__card-img" onerror="this.style.display='none'" width="1280" height="720" decoding="async" loading="lazy" srcset="{% static 'img/Mother-Teresa-Respect-All-Bias-None-480.webp' %} 480w, {% static 'img/Mother-Teresa-Respect-All-Bias-None-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
             <p class="pillar__kural-num">குறள் 115:</p>
             <p class="pillar__kural-text">"கேடும் பெருக்கமும் இல்லல்ல நெஞ்சத்துக் <br> கோடாமை சான்றோர்க்கு அணி."</p>
@@ -395,11 +396,11 @@
       </article>
 
       <!-- S -->
-      <article class="pillar" data-pillar tabindex="0">
-        <div class="pillar__bar">
+      <article class="pillar" data-pillar>
+        <button class="pillar__bar" id="pillar-control-transparency-trust" type="button" aria-expanded="false" aria-controls="pillar-panel-transparency-trust">
           <span class="pillar__label">S-STRAIGHTFORWARD, TRANSPARENCY & TRUST</span>
-        </div>
-        <div class="pillar__card">
+        </button>
+        <div class="pillar__card" id="pillar-panel-transparency-trust" role="region" aria-labelledby="pillar-control-transparency-trust" aria-hidden="true">
           <div class="pillar__card-inner">
             <h3 class="pillar__card-title">S-STRAIGHTFORWARD, TRANSPARENCY & TRUST</h3>
             <div class="pillar__card-media"><img src="{% static 'img/Kiran Bedi (Straightforward Transparency & Trust).jpg' %}" alt="Kiran Bedi (Straightforward Transparency & Trust)" class="pillar__card-img" onerror="this.style.display='none'" width="750" height="500" decoding="async" loading="lazy" srcset="{% static 'img/Kiran-Bedi-Straightforward-Transparency-Trust-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw"></div>
@@ -441,7 +442,7 @@
       <p class="ect-partner__text">
         Whether you're planning a new website, custom software, Zoho implementation, digital marketing strategy, or IT infrastructure solution, our team is ready to help you turn ideas into measurable business success.
       </p>
-      <a class="ect-partner__cta popup-trigger" href="javascript:void(0)">Get in Touch</a>
+      <button class="ect-partner__cta popup-trigger" type="button">Get in Touch</button>
     </div>
   </div>
 </section>
@@ -450,11 +451,13 @@
 
 <!-- ================= READY TO PARTNER SECTION END ================= -->
 
+</main>
 
 
 
 
-<script src="{% static 'js/about.js' %}?v=11"></script>
+
+<script src="{% static 'js/about.js' %}?v=12"></script>
   
 {% include 'footer.html' %}
 

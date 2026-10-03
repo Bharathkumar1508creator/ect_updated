@@ -173,10 +173,10 @@ function render() {
 
   if (!heroTrack || !heroHeading || heroCards.every(card => !card)) return;
 
-  /* Mobile & tablet (<=900px): skip the scroll-jack engine entirely.
+  /* Mobile & tablet (<=1024px): skip the scroll-jack engine entirely.
      CSS (.hero-compact) shows a static heading + centre image with no
      pinned scroll runway, so no scroll math or inline styles are needed. */
-  const heroCompactQuery = window.matchMedia('(max-width: 900px)');
+  const heroCompactQuery = window.matchMedia('(max-width: 1024px)');
   if (heroCompactQuery.matches) {
     heroTrack.classList.add('hero-compact');
     heroCompactQuery.addEventListener('change', function () {
@@ -906,22 +906,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const pillars = Array.from(row.querySelectorAll('[data-pillar]'));
   const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
+  function setExpandedState(activePillar) {
+    pillars.forEach(function (pillar) {
+      const control = pillar.querySelector('.pillar__bar');
+      const panel = pillar.querySelector('.pillar__card');
+      const expanded = pillar === activePillar;
+      if (control) control.setAttribute('aria-expanded', String(expanded));
+      if (panel) panel.setAttribute('aria-hidden', String(!expanded));
+    });
+  }
+
   function activate(pillar) {
     row.setAttribute('data-active', 'true');
     pillars.forEach(function (p) {
       p.classList.toggle('is-active', p === pillar);
     });
+    setExpandedState(pillar);
   }
 
   function deactivate() {
     row.removeAttribute('data-active');
     pillars.forEach(function (p) { p.classList.remove('is-active'); });
+    setExpandedState(null);
   }
 
   if (supportsHover) {
     pillars.forEach(function (pillar) {
+      const control = pillar.querySelector('.pillar__bar');
       pillar.addEventListener('mouseenter', function () { activate(pillar); });
-      pillar.addEventListener('focus', function () { activate(pillar); });
+      if (control) {
+        control.addEventListener('focus', function () { activate(pillar); });
+        control.addEventListener('click', function () { activate(pillar); });
+      }
     });
 
     row.addEventListener('mouseleave', deactivate);
@@ -931,7 +947,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   } else {
     pillars.forEach(function (pillar) {
-      pillar.addEventListener('click', function () {
+      const control = pillar.querySelector('.pillar__bar');
+      if (!control) return;
+      control.addEventListener('click', function () {
         const alreadyActive = pillar.classList.contains('is-active');
         if (alreadyActive) {
           deactivate();
@@ -941,4 +959,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  setExpandedState(null);
 })();
