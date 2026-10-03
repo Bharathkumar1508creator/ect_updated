@@ -511,7 +511,7 @@ function render() {
     ];
     sub.innerHTML = lines.map(function (line, idx) {
       return '<span class="ln"><span style="--d:' + (0.55 + idx * 0.12) + 's">' + line.join(' ') + '</span></span>';
-    }).join('');
+    }).join(' ');
   }
 
   /* ===== Observer ===== */
