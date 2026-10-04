@@ -4283,6 +4283,82 @@ body {
   .ect-route__title { margin-bottom: 48px; }
 }
 
+/* ============================================================
+   RESPONSIVE STABILITY PASS
+   Keep the established Career page composition while preventing
+   narrow-screen wrapping and unnecessary tablet overflow/height.
+============================================================ */
+.ect-btn-primary,
+.ect-btn-secondary {
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  /* The growth cards remain swipeable, without exposing the browser's
+     native scrollbar as an extra visual element. */
+  .ect-growth__grid {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .ect-growth__grid::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Card content already determines the required height at this
+     breakpoint. Removing the desktop-sized floor avoids the large
+     empty tablet area while retaining the same stacked card order. */
+  .ect-track {
+    min-height: 0;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1024px) {
+  /* Keep the scaled desktop hero intact and give its labels a little
+     more usable inline room at compact-laptop widths. */
+  .ect-btn-primary,
+  .ect-btn-secondary {
+    padding-inline: 6px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Preserve the existing two-button row on the narrowest supported
+     phones without allowing either label to escape its button. */
+  .ect-hero-stage {
+    padding-inline: 16px;
+  }
+  .ect-btn-row {
+    width: 100%;
+    gap: 6px;
+  }
+  .ect-btn-primary,
+  .ect-btn-secondary {
+    flex: 1 1 0;
+    justify-content: center;
+    padding-inline: 5px;
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* These elements start hidden because their normal entrance animation
+     supplies the visible end state. Apply that end state explicitly when
+     animation is reduced so the route section never becomes empty. */
+  .ect-route__eyebrow,
+  .ect-route__title .word,
+  .ect-track,
+  .ect-track__icon img,
+  .ect-pill,
+  .ect-arrow {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
 /* OUR JOURNEY gallery — show full images instead of a cropped
    portrait-style crop. Mobile/tablet only; desktop untouched. */
 @media (max-width: 1024px) {
