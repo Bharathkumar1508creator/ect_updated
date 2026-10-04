@@ -268,7 +268,7 @@ class ProjectFunctionalityTests(TestCase):
         self.assertContains(response, 'aria-labelledby="projectFilterLabel"')
         self.assertContains(response, 'class="btn-notch ect-micro-btn"')
         self.assertContains(response, 'id="ectContactPopup"')
-        self.assertContains(response, "ECOGCORETECHNOLOGIES")
+        self.assertContains(response, "ECOG CORE TECHNOLOGIES")
 
     def test_project_list_uses_filtered_load_more_batches(self):
         for index in range(12):

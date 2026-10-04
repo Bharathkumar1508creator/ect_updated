@@ -7,6 +7,27 @@
   var optionalLoaded = false;
   var salesIqLoaded = false;
 
+  function syncConsentSpace() {
+    if (!banner || banner.hidden) {
+      document.documentElement.style.removeProperty('--ect-consent-space');
+      document.body.classList.remove('ect-consent-open');
+      return;
+    }
+    document.body.classList.add('ect-consent-open');
+    document.documentElement.style.setProperty(
+      '--ect-consent-space',
+      Math.ceil(banner.getBoundingClientRect().height + 32) + 'px'
+    );
+  }
+
+  function placeSettingsInFooter() {
+    if (!settingsButton) return;
+    var bottomBar = document.querySelector('.ect-bottom-bar');
+    if (!bottomBar || settingsButton.parentElement === bottomBar) return;
+    bottomBar.appendChild(settingsButton);
+    settingsButton.classList.add('ect-cookie-settings--in-footer');
+  }
+
   function readChoice() {
     try { return window.localStorage.getItem(STORAGE_KEY); }
     catch (error) { return null; }
@@ -22,6 +43,7 @@
     banner.hidden = !open;
     banner.classList.toggle('is-visible', open);
     if (settingsButton) settingsButton.hidden = open;
+    window.requestAnimationFrame(syncConsentSpace);
   }
 
   function loadSalesIq() {
@@ -57,7 +79,10 @@
   function choose(choice) {
     saveChoice(choice);
     setBanner(false);
-    if (settingsButton) settingsButton.hidden = false;
+    if (settingsButton) {
+      placeSettingsInFooter();
+      settingsButton.hidden = false;
+    }
     if (choice === 'granted') loadOptionalServices();
   }
 
@@ -72,12 +97,20 @@
   var choice = readChoice();
   if (choice === 'granted') {
     loadOptionalServices();
-    if (settingsButton) settingsButton.hidden = false;
+    if (settingsButton) {
+      placeSettingsInFooter();
+      settingsButton.hidden = false;
+    }
   } else if (choice === 'denied') {
-    if (settingsButton) settingsButton.hidden = false;
+    if (settingsButton) {
+      placeSettingsInFooter();
+      settingsButton.hidden = false;
+    }
   } else {
     setBanner(true);
   }
+
+  window.addEventListener('resize', syncConsentSpace);
 
   var biginScript = document.getElementById('wf_script');
   var biginForm = document.querySelector('.ect-bigin-form');

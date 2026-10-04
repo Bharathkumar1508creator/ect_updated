@@ -1,15 +1,15 @@
 {% load static %}
 <!-- ========== ECOG Footer Section Start ========== -->
-<div class="ect-footer-section">
+<footer class="ect-footer-section">
   <!-- Main Green Footer -->
-  <footer class="ect-footer">
+  <div class="ect-footer">
     <div class="ect-footer-grid">
 
       <!-- Column 1: Brand & Newsletter -->
       <div class="ect-f-col ect-f-brand-col">
-        <div class="ect-f-brand-title">ECOGCORETECHNOLOGIES</div>
+        <div class="ect-f-brand-title">ECOG CORE TECHNOLOGIES</div>
         <p class="ect-f-brand-desc">Transforming businesses through innovative technology solutions. Your trusted partner in digital transformation and enterprise excellence.</p>
-        <div class="ect-f-nl-title">Newsletter</div>
+        <h2 class="ect-f-nl-title">Newsletter</h2>
         <p class="ect-f-nl-desc">Get eco tips, new arrivals and<br>exclusive offers in your inbox.</p>
         <form class="ect-f-nl-form" id="ectNlForm" method="post" action="{% url 'blog:subscribe_newsletter' %}">
           {% csrf_token %}
@@ -23,7 +23,7 @@
 
       <!-- Column 2: Services -->
       <div class="ect-f-col">
-        <div class="ect-f-col-title">SERVICES</div>
+        <h2 class="ect-f-col-title">SERVICES</h2>
         <ul>
           <li><a href="{% url 'website' %}">Website Development</a></li>
           <li><a href="{% url 'software' %}">Software Development</a></li>
@@ -36,12 +36,12 @@
 
       <!-- Column 3: Solutions & Our Work -->
       <div class="ect-f-col">
-        <div class="ect-f-col-title">SOLUTIONS</div>
+        <h2 class="ect-f-col-title">SOLUTIONS</h2>
         <ul>
           <li><a href="{% url 'under' %}">ECT CRM Software</a></li>
           <li><a href="{% url 'under' %}">Executive Profile Platform</a></li>
         </ul>
-        <div class="ect-f-sub-title">OUR WORK</div>
+        <h2 class="ect-f-sub-title">OUR WORK</h2>
         <ul>
           <li><a href="{% url 'project_list' %}">Case Studies</a></li>
         </ul>
@@ -49,7 +49,7 @@
 
       <!-- Column 4: Company -->
       <div class="ect-f-col">
-        <div class="ect-f-col-title">COMPANY</div>
+        <h2 class="ect-f-col-title">COMPANY</h2>
         <ul>
           <li><a href="{% url 'about' %}">About EcoG</a></li>
           <li><a href="{% url 'career' %}">Careers</a></li>
@@ -60,14 +60,14 @@
 
       <!-- Column 5: Resources -->
       <div class="ect-f-col">
-        <div class="ect-f-col-title ect-no-upper">Resources</div>
+        <h2 class="ect-f-col-title ect-no-upper">Resources</h2>
         <ul>
           <li><a href="{% url 'blog:blog_list' %}">Blog</a></li>
         </ul>
       </div>
 
     </div>
-  </footer>
+  </div>
 
   <!-- Social Bar -->
   <div class="ect-social-bar">
@@ -128,5 +128,5 @@
     </div>
     <div class="ect-b-copy">&copy; 2026 ECOG Core Technologies. All rights reserved.</div>
   </div>
-</div>
+</footer>
 <!-- ========== ECOG Footer Section End ========== -->
