@@ -125,7 +125,7 @@ body {
 }
 
 /* Tablet */
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .software-figma-hero {
     width: calc(100% - 48px);
     margin-bottom: 32px;
@@ -2072,7 +2072,7 @@ body {
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   /* ---------- Hero typography and alignment ---------- */
   .website-figma-hero,
   .software-figma-hero,
@@ -2643,14 +2643,14 @@ body {
   }
 }
 
-@media (prefers-reduced-motion: reduce) and (max-width: 1024px) {
+@media (prefers-reduced-motion: reduce) and (max-width: 1199px) {
   .ect-web-solutions__tabs {
     scroll-behavior: auto;
   }
 }
 
 /* SOFTWARE — FINAL PAGE-OWNED RESPONSIVE ALIGNMENT */
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .software-figma-hero .software-figma-hero__title {
     width: 100% !important;
     max-width: none !important;
@@ -2693,7 +2693,7 @@ body {
 /* APPROACH STEPS — tablet/mobile only; desktop remains unchanged */
 .web-solutions-section .approach-closing { display: none; }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .web-solutions-section .eyebrow {
     margin-bottom: 10px !important;
     font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
@@ -2812,7 +2812,7 @@ body {
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   /* Every remaining eyebrow/heading on this page, matched to the hero
      eyebrow ("Scalable software...") and hero title ("Build Custom
      Software...") tablet sizes. Ancestor classes are needed to outrank
@@ -2874,5 +2874,38 @@ body {
 
   .tb-tagline--bottom {
     margin: 20px 20px 0 !important;
+  }
+}
+
+/* Service page responsive guardrails: preserve the established layout while
+   extending its tablet treatment through narrow laptop widths. */
+@media (min-width: 1025px) and (max-width: 1199px) {
+  body.service-page .ect-navbar {
+    width: calc(100% - 24px);
+    padding-inline: 16px;
+  }
+  body.service-page .ect-navbar-menu { display: none; }
+  body.service-page .ect-navbar-actions { gap: 10px; }
+  body.service-page .ect-consultation-trigger:not(.ect-mobile-consultation-btn) { display: none; }
+  body.service-page .ect-mobile-toggle,
+  body.service-page .ect-mobile-panel { display: block; }
+}
+
+@media (max-width: 1199px) {
+  body.service-page :is(.ect-web-solutions__tabs, .work__grid, .tb-track-wrapper, .tb-track, [class*="carousel"], [class*="slider-track"]) {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  body.service-page :is(.ect-web-solutions__tabs, .work__grid, .tb-track-wrapper, .tb-track, [class*="carousel"], [class*="slider-track"])::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page :is(.ect-eyebrow, .ect-web-solutions__eyebrow, .faq-eyebrow, .tb-eyebrow, .work__label) {
+    font-size: 13px !important;
+    line-height: 1.4;
   }
 }

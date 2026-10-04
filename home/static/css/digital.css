@@ -79,7 +79,7 @@ body {
 }
 
 /* ===== TABLET (≤ 1024px) ===== */
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .hero {
     padding: 48px 24px 56px;
   }
@@ -1615,7 +1615,7 @@ body {
 }
 
 /* Tablet */
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 40px 32px;
@@ -2474,7 +2474,7 @@ body.digital-page {
 
 /* ---------- Responsive ---------- */
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .digital-page .hero {
     width: min(100% - 48px, 1240px);
     padding: 104px 0 80px;
@@ -2532,7 +2532,7 @@ body.digital-page {
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   /* ---------- Hero typography and alignment ---------- */
   .website-figma-hero,
   .software-figma-hero,
@@ -3103,14 +3103,14 @@ body.digital-page {
   }
 }
 
-@media (prefers-reduced-motion: reduce) and (max-width: 1024px) {
+@media (prefers-reduced-motion: reduce) and (max-width: 1199px) {
   .ect-web-solutions__tabs {
     scroll-behavior: auto;
   }
 }
 
 /* DIGITAL — FINAL PAGE-OWNED RESPONSIVE ALIGNMENT */
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   body.digital-page .hero__title {
     width: 100% !important;
     max-width: none !important;
@@ -3133,7 +3133,7 @@ body.digital-page {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   body.digital-page .ect-web-solutions__eyebrow { font-size: 16px !important; }
   body.digital-page .ect-web-solutions__heading { font-size: clamp(36px, 4.3vw, 44px) !important; }
 }
@@ -3150,7 +3150,7 @@ body.digital-page {
 /* APPROACH STEPS — tablet/mobile only; desktop remains unchanged */
 .web-solutions-section .approach-closing { display: none; }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .web-solutions-section .eyebrow {
     margin-bottom: 10px !important;
     font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
@@ -3258,7 +3258,7 @@ body.digital-page {
    High-Performing Teams...") sizes, per the site-wide request to keep
    these consistent across pages.
 ============================================================ */
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .tb-top .tb-eyebrow { font-size: 16px !important; }
   .tb-top .tb-heading { font-size: clamp(36px, 4.3vw, 44px) !important; }
 
@@ -3288,7 +3288,7 @@ body.digital-page {
 .faq-extra-tagline { display: none; }
 .tb-tagline--bottom { display: none; }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   /* The FAQ section's own intro ("Discover how our digital marketing
      solutions...") moves to the end of the FAQ list instead — see
      .faq-extra-tagline below, which now carries that text. Desktop
@@ -3332,4 +3332,37 @@ body.digital-page {
 
 @media (max-width: 640px) {
   .faq-extra-tagline { font-size: 15px !important; }
+}
+
+/* Service page responsive guardrails: preserve the established layout while
+   extending its tablet treatment through narrow laptop widths. */
+@media (min-width: 1025px) and (max-width: 1199px) {
+  body.service-page .ect-navbar {
+    width: calc(100% - 24px);
+    padding-inline: 16px;
+  }
+  body.service-page .ect-navbar-menu { display: none; }
+  body.service-page .ect-navbar-actions { gap: 10px; }
+  body.service-page .ect-consultation-trigger:not(.ect-mobile-consultation-btn) { display: none; }
+  body.service-page .ect-mobile-toggle,
+  body.service-page .ect-mobile-panel { display: block; }
+}
+
+@media (max-width: 1199px) {
+  body.service-page :is(.ect-web-solutions__tabs, .work__grid, .tb-track-wrapper, .tb-track, [class*="carousel"], [class*="slider-track"]) {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  body.service-page :is(.ect-web-solutions__tabs, .work__grid, .tb-track-wrapper, .tb-track, [class*="carousel"], [class*="slider-track"])::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page :is(.ect-eyebrow, .ect-web-solutions__eyebrow, .faq-eyebrow, .tb-eyebrow, .work__label) {
+    font-size: 13px !important;
+    line-height: 1.4;
+  }
 }

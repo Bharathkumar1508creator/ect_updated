@@ -138,7 +138,7 @@ body {
 }
 
 /* Tablet */
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .zoho-figma-hero.zoho-figma-hero {
     width: 100%;
     max-width: none;
@@ -1785,7 +1785,7 @@ body {
 }
 
 /* Tablet */
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 40px 32px;
@@ -1828,7 +1828,7 @@ body {
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   /* ---------- Hero typography and alignment ---------- */
   .website-figma-hero,
   .software-figma-hero,
@@ -2399,14 +2399,14 @@ body {
   }
 }
 
-@media (prefers-reduced-motion: reduce) and (max-width: 1024px) {
+@media (prefers-reduced-motion: reduce) and (max-width: 1199px) {
   .ect-web-solutions__tabs {
     scroll-behavior: auto;
   }
 }
 
 /* ZOHO — FINAL PAGE-OWNED RESPONSIVE ALIGNMENT */
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .zoho-figma-hero .zoho-figma-hero__title {
     width: 100% !important;
     max-width: none !important;
@@ -2460,7 +2460,7 @@ body {
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   body.zoho-page .zoho-implementation {
     width: 100% !important;
     max-width: none !important;
@@ -2651,7 +2651,7 @@ body {
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   /* Every remaining eyebrow/heading on this page, matched to the hero
      eyebrow ("Transform your business...") and hero title ("Transform
      Your Business with Smart Zoho Solutions") tablet sizes. Ancestor
@@ -2735,5 +2735,38 @@ body {
 
   .tech-desc--bottom {
     margin: 20px 0 0 !important;
+  }
+}
+
+/* Service page responsive guardrails: preserve the established layout while
+   extending its tablet treatment through narrow laptop widths. */
+@media (min-width: 1025px) and (max-width: 1199px) {
+  body.service-page .ect-navbar {
+    width: calc(100% - 24px);
+    padding-inline: 16px;
+  }
+  body.service-page .ect-navbar-menu { display: none; }
+  body.service-page .ect-navbar-actions { gap: 10px; }
+  body.service-page .ect-consultation-trigger:not(.ect-mobile-consultation-btn) { display: none; }
+  body.service-page .ect-mobile-toggle,
+  body.service-page .ect-mobile-panel { display: block; }
+}
+
+@media (max-width: 1199px) {
+  body.service-page :is(.ect-web-solutions__tabs, .work__grid, .tb-track-wrapper, .tb-track, [class*="carousel"], [class*="slider-track"]) {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  body.service-page :is(.ect-web-solutions__tabs, .work__grid, .tb-track-wrapper, .tb-track, [class*="carousel"], [class*="slider-track"])::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page :is(.ect-eyebrow, .ect-web-solutions__eyebrow, .faq-eyebrow, .tb-eyebrow, .work__label) {
+    font-size: 13px !important;
+    line-height: 1.4;
   }
 }

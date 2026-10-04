@@ -111,7 +111,7 @@
     ) : [];
     var previousButton = section && section.querySelector("#prevBtn");
     var nextButton = section && section.querySelector("#nextBtn");
-    var mediaQuery = window.matchMedia("(max-width: 1024px)");
+    var mediaQuery = window.matchMedia("(max-width: 1199px)");
     var touchStartX = 0;
     var touchStartY = 0;
 
@@ -241,7 +241,7 @@
 
   var SPEED = 0.5;
   var AUTO_PLAY_DELAY = 2000;
-  var responsiveQuery = window.matchMedia('(max-width: 1024px)');
+  var responsiveQuery = window.matchMedia('(max-width: 1199px)');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var autoplayTimer = null;
   var isInViewport = true;

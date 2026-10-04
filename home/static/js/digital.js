@@ -328,7 +328,7 @@ mq.addEventListener('change', toggleBreak);
     var tabs = rail ? Array.prototype.slice.call(
       rail.querySelectorAll(".ect-web-solutions__tab")
     ) : [];
-    var mediaQuery = window.matchMedia("(max-width: 1024px)");
+    var mediaQuery = window.matchMedia("(max-width: 1199px)");
     var scrollTimer = null;
 
     if (!rail || !tabs.length) return;

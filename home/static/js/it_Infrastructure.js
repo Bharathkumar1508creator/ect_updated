@@ -336,7 +336,7 @@ mq.addEventListener('change', toggleBreak);
   /* ── Init rows (tablet/mobile only — desktop keeps its static grid) ── */
   var row1 = document.getElementById('tb-row1');
   var row2 = document.getElementById('tb-row2');
-  var tbAutoScrollQuery = window.matchMedia('(max-width: 1024px)');
+  var tbAutoScrollQuery = window.matchMedia('(max-width: 1199px)');
   if (tbAutoScrollQuery.matches) {
     if (row1) initRow(row1, -1);  // scrolls left, infinitely
     if (row2) initRow(row2, 1);  // scrolls right, infinitely
@@ -471,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var tabs = rail ? Array.prototype.slice.call(
       rail.querySelectorAll(".ect-web-solutions__tab")
     ) : [];
-    var mediaQuery = window.matchMedia("(max-width: 1024px)");
+    var mediaQuery = window.matchMedia("(max-width: 1199px)");
     var scrollTimer = null;
 
     if (!rail || !tabs.length) return;
