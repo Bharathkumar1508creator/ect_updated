@@ -5110,3 +5110,46 @@ body.hr-page {
     line-height: 1.4;
   }
 }
+.hr-page #hr-services .tabs-track {
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.hr-page #hr-services .tab {
+  transition: background-color 220ms ease, color 220ms ease,
+    border-color 220ms ease, transform 220ms ease;
+}
+
+.hr-page #hr-services .content-image,
+.hr-page #hr-services .content-panel {
+  transition: opacity 300ms ease,
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.hr-page #hr-services.is-service-transitioning .content-image,
+.hr-page #hr-services.is-service-transitioning .content-panel {
+  opacity: 0;
+  transform: translateY(8px) scale(0.995);
+}
+
+@media (max-width: 1199px) {
+  .hr-page #hr-services .tabs-track {
+    transition-duration: 320ms;
+  }
+
+  .hr-page #hr-services .content-image,
+  .hr-page #hr-services .content-panel {
+    transition-duration: 220ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hr-page #hr-services .tabs-track,
+  .hr-page #hr-services .tab,
+  .hr-page #hr-services .content-image,
+  .hr-page #hr-services .content-panel {
+    transition: none !important;
+    animation: none !important;
+  }
+}

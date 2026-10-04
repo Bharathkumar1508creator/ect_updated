@@ -2770,3 +2770,46 @@ body {
     line-height: 1.4;
   }
 }
+#zoho-services .tabs-track {
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+#zoho-services .tab {
+  transition: background-color 220ms ease, color 220ms ease,
+    border-color 220ms ease, transform 220ms ease;
+}
+
+#zoho-services .content-image,
+#zoho-services .content-panel {
+  transition: opacity 300ms ease,
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+#zoho-services.is-service-transitioning .content-image,
+#zoho-services.is-service-transitioning .content-panel {
+  opacity: 0;
+  transform: translateY(8px) scale(0.995);
+}
+
+@media (max-width: 1199px) {
+  #zoho-services .tabs-track {
+    transition-duration: 320ms;
+  }
+
+  #zoho-services .content-image,
+  #zoho-services .content-panel {
+    transition-duration: 220ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #zoho-services .tabs-track,
+  #zoho-services .tab,
+  #zoho-services .content-image,
+  #zoho-services .content-panel {
+    transition: none !important;
+    animation: none !important;
+  }
+}

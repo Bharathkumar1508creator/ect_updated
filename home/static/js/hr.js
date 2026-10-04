@@ -132,10 +132,11 @@
    * by the Zoho services carousel.
    */
   var SPEED = 0.5;
-  var AUTO_PLAY_DELAY = 2000;
+  var AUTO_PLAY_DELAY = 3500;
   var responsiveQuery = window.matchMedia("(max-width: 1199px)");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var autoplayTimer = null;
+  var transitionTimer = null;
   var isInViewport = true;
 
   /*
@@ -181,6 +182,7 @@
   var loopWidth = 0;
   var positions = [];
   var resizeTimer = null;
+  var isTransitioning = false;
 
   function measure() {
     var trackStyle =
@@ -247,7 +249,7 @@
 
   function scheduleResponsiveAutoplay() {
     clearResponsiveAutoplay();
-    if (document.hidden || !isInViewport) {
+    if (document.hidden || !isInViewport || paused || isTransitioning) {
       return;
     }
 
@@ -321,9 +323,13 @@
     });
   }
 
-  function jumpTo(index) {
+  function jumpTo(index, immediate) {
     var normalizedIndex =
       ((index % total) + total) % total;
+
+    if (isTransitioning && !immediate) {
+      return;
+    }
 
     if (
       positions[normalizedIndex] !== undefined
@@ -345,8 +351,26 @@
     track.style.transform =
       "translate3d(-" + offsetX + "px, 0, 0)";
 
-    activate(normalizedIndex);
-    scheduleResponsiveAutoplay();
+    clearResponsiveAutoplay();
+    window.clearTimeout(transitionTimer);
+
+    if (immediate || reduceMotion || normalizedIndex === current) {
+      section.classList.remove("is-service-transitioning");
+      activate(normalizedIndex);
+      scheduleResponsiveAutoplay();
+      return;
+    }
+
+    isTransitioning = true;
+    section.classList.add("is-service-transitioning");
+    transitionTimer = window.setTimeout(function () {
+      activate(normalizedIndex);
+      section.classList.remove("is-service-transitioning");
+      transitionTimer = window.setTimeout(function () {
+        isTransitioning = false;
+        scheduleResponsiveAutoplay();
+      }, responsiveQuery.matches ? 220 : 300);
+    }, responsiveQuery.matches ? 140 : 180);
   }
 
   function animateTrack() {
@@ -416,6 +440,7 @@
       "mouseenter",
       function () {
         paused = true;
+        clearResponsiveAutoplay();
       }
     );
 
@@ -423,6 +448,7 @@
       "mouseleave",
       function () {
         paused = false;
+        scheduleResponsiveAutoplay();
       }
     );
 
@@ -430,6 +456,7 @@
       "focusin",
       function () {
         paused = true;
+        clearResponsiveAutoplay();
       }
     );
 
@@ -437,6 +464,7 @@
       "focusout",
       function () {
         paused = false;
+        scheduleResponsiveAutoplay();
       }
     );
   });
@@ -457,7 +485,7 @@
         window.setTimeout(
           function () {
             measure();
-            jumpTo(current);
+            jumpTo(current, true);
           },
           120
         );
@@ -489,7 +517,7 @@
   function syncResponsiveMode() {
     clearResponsiveAutoplay();
     measure();
-    jumpTo(current);
+    jumpTo(current, true);
   }
 
   if (typeof responsiveQuery.addEventListener === "function") {

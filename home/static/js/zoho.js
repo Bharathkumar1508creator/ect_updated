@@ -230,20 +230,24 @@
 
 
 (function () {
-  var wrapper = document.getElementById('tabsWrapper');
-  var track   = document.getElementById('tabsTrack');
-  var panels  = document.querySelectorAll('#contentPanel .panel');
-  var imageEl = document.getElementById('contentImage');
-  var prevBtn = document.getElementById('prevBtn');
-  var nextBtn = document.getElementById('nextBtn');
+  var section = document.getElementById('zoho-services');
+  if (!section) return;
+
+  var wrapper = section.querySelector('#tabsWrapper');
+  var track   = section.querySelector('#tabsTrack');
+  var panels  = section.querySelectorAll('#contentPanel .panel');
+  var imageEl = section.querySelector('#contentImage');
+  var prevBtn = section.querySelector('#prevBtn');
+  var nextBtn = section.querySelector('#nextBtn');
 
   if (!wrapper || !track || !panels.length) return;
 
   var SPEED = 0.5;
-  var AUTO_PLAY_DELAY = 2000;
+  var AUTO_PLAY_DELAY = 3500;
   var responsiveQuery = window.matchMedia('(max-width: 1199px)');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var autoplayTimer = null;
+  var transitionTimer = null;
   var isInViewport = true;
 
   var originals = Array.prototype.slice.call(track.children);
@@ -261,6 +265,7 @@
   var offsetX   = 0;
   var loopWidth = 0;
   var positions = [];
+  var isTransitioning = false;
 
   function measure() {
     var gap = parseFloat(getComputedStyle(track).gap) || 0;
@@ -291,7 +296,7 @@
 
   function scheduleResponsiveAutoplay() {
     clearResponsiveAutoplay();
-    if (document.hidden || !isInViewport) return;
+    if (document.hidden || !isInViewport || paused || isTransitioning) return;
 
     autoplayTimer = window.setTimeout(function () {
       jumpTo(current + 1);
@@ -322,7 +327,7 @@
       
       // Update the main image if this panel is active and has a data-image attribute
       if (isActive && p.dataset.image) {
-        var imgEl = document.querySelector('#contentImage img');
+        var imgEl = section.querySelector('#contentImage img');
         if (imgEl) {
           imgEl.removeAttribute('srcset');
           imgEl.removeAttribute('sizes');
@@ -332,8 +337,10 @@
     });
   }
 
-  function jumpTo(index) {
+  function jumpTo(index, immediate) {
     index = ((index % total) + total) % total;
+
+    if (isTransitioning && !immediate) return;
     offsetX = positions[index];
 
     if (responsiveQuery.matches) {
@@ -344,8 +351,26 @@
     }
 
     track.style.transform = 'translateX(-' + offsetX + 'px)';
-    activate(index);
-    scheduleResponsiveAutoplay();
+    clearResponsiveAutoplay();
+    window.clearTimeout(transitionTimer);
+
+    if (immediate || reduceMotion || index === current) {
+      section.classList.remove('is-service-transitioning');
+      activate(index);
+      scheduleResponsiveAutoplay();
+      return;
+    }
+
+    isTransitioning = true;
+    section.classList.add('is-service-transitioning');
+    transitionTimer = window.setTimeout(function () {
+      activate(index);
+      section.classList.remove('is-service-transitioning');
+      transitionTimer = window.setTimeout(function () {
+        isTransitioning = false;
+        scheduleResponsiveAutoplay();
+      }, responsiveQuery.matches ? 220 : 300);
+    }, responsiveQuery.matches ? 140 : 180);
   }
 
   allTabs.forEach(function (tab) {
@@ -362,16 +387,30 @@
     jumpTo(current - 1);
   });
 
-  [wrapper, document.querySelector('.content-area')].forEach(function (el) {
+  [wrapper, section.querySelector('.content-area')].forEach(function (el) {
     if (!el) return;
-    el.addEventListener('mouseenter', function () { paused = true;  });
-    el.addEventListener('mouseleave', function () { paused = false; });
+    el.addEventListener('mouseenter', function () {
+      paused = true;
+      clearResponsiveAutoplay();
+    });
+    el.addEventListener('mouseleave', function () {
+      paused = false;
+      scheduleResponsiveAutoplay();
+    });
+    el.addEventListener('focusin', function () {
+      paused = true;
+      clearResponsiveAutoplay();
+    });
+    el.addEventListener('focusout', function () {
+      paused = false;
+      scheduleResponsiveAutoplay();
+    });
   });
 
   measure();
   window.addEventListener('resize', function () {
     measure();
-    if (responsiveQuery.matches) jumpTo(current);
+    jumpTo(current, true);
   });
   activate(0);
 
@@ -395,7 +434,7 @@
   function syncResponsiveMode() {
     clearResponsiveAutoplay();
     measure();
-    jumpTo(current);
+    jumpTo(current, true);
   }
 
   if (typeof responsiveQuery.addEventListener === 'function') {
