@@ -291,7 +291,7 @@
 
   function scheduleResponsiveAutoplay() {
     clearResponsiveAutoplay();
-    if (!responsiveQuery.matches || reduceMotion || document.hidden || !isInViewport) return;
+    if (document.hidden || !isInViewport) return;
 
     autoplayTimer = window.setTimeout(function () {
       jumpTo(current + 1);
@@ -324,6 +324,8 @@
       if (isActive && p.dataset.image) {
         var imgEl = document.querySelector('#contentImage img');
         if (imgEl) {
+          imgEl.removeAttribute('srcset');
+          imgEl.removeAttribute('sizes');
           imgEl.src = p.dataset.image;
         }
       }
@@ -403,8 +405,6 @@
   }
 
   scheduleResponsiveAutoplay();
-
-  if (!reduceMotion) requestAnimationFrame(tickMarquee);
 })();
 
 

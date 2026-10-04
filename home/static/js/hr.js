@@ -247,7 +247,7 @@
 
   function scheduleResponsiveAutoplay() {
     clearResponsiveAutoplay();
-    if (!responsiveQuery.matches || reduceMotion || document.hidden || !isInViewport) {
+    if (document.hidden || !isInViewport) {
       return;
     }
 
@@ -269,6 +269,8 @@
       return;
     }
 
+    imageElement.removeAttribute("srcset");
+    imageElement.removeAttribute("sizes");
     imageElement.src =
       activePanel.dataset.image;
 
@@ -497,12 +499,6 @@
   }
 
   scheduleResponsiveAutoplay();
-
-  if (!reduceMotion) {
-    window.requestAnimationFrame(
-      animateTrack
-    );
-  }
 })();
 
 /* ==========================================================================

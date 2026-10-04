@@ -170,6 +170,11 @@ mq.addEventListener('change', toggleBreak);
     }
 
     function updatePanelContent(slide) {
+      // This image is controlled by the service carousel. Keeping the
+      // original responsive candidates would make the browser continue to
+      // render the first slide even after `src` changes.
+      image.removeAttribute("srcset");
+      image.removeAttribute("sizes");
       image.src = slide.image;
       image.alt = slide.alt;
       image.dataset.currentSlide = String(activeIndex);
