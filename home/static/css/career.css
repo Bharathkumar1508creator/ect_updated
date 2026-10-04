@@ -2997,7 +2997,7 @@ body {
    canvas for a natural stacked card instead; desktop (>1024px) is
    untouched.
 ============================================================ */
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
   .talent-wrap {
     width: calc(100% - 40px);
     height: auto;
@@ -4357,6 +4357,17 @@ body {
     transform: none !important;
     animation: none !important;
   }
+
+  /* Growth cards also use scroll-triggered entrance states. Keep the
+     complete L0-L7 path visible when motion is disabled. */
+  .ect-growth__eyebrow,
+  .ect-growth__title,
+  .ect-growth__lede,
+  .ect-level {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }
 
 /* OUR JOURNEY gallery — show full images instead of a cropped
@@ -4376,17 +4387,106 @@ body {
   overflow-x: clip;
 }
 
+/* The journey gallery is a deliberately wide, duplicated scrolling track.
+   Keep its paint and overflow accounting inside its own viewport while
+   preserving scrollLeft-based animation and the existing visual dimensions. */
+.gallery {
+  max-width: 100%;
+  overflow-x: hidden;
+  contain: paint;
+  isolation: isolate;
+  overscroll-behavior-inline: contain;
+}
+
 @media (max-width: 1287px) {
   .ect-join { width: 100%; max-width: 100%; }
 }
 
 @media (max-width: 640px) {
-  .ect-badge-label { font-size: 12px; }
   .ect-join__cta {
     min-width: 132px;
     width: auto;
     padding-inline: 14px;
     font-size: 12px;
+  }
+}
+
+/* ============================================================
+   CAREER PAGE — final responsive hardening
+   The design stays unchanged at its established desktop/mobile
+   breakpoints. This layer only closes intermediate-width leaks,
+   preserves complete card content, and improves anchor clearance.
+============================================================ */
+.ect-badge-label { font-size: 12px; }
+
+.ect-track {
+  height: auto;
+  min-height: 22rem;
+  overflow: visible;
+}
+
+.ect-join,
+.journey,
+.ect-growth,
+.ect-route,
+.ect-hiring,
+.talent-wrap,
+.career-faq {
+  scroll-margin-top: 88px;
+}
+
+@media (min-width: 1025px) and (max-width: 1279px) {
+  /* A single route column gives every progression pill enough room.
+     At full desktop width the original two-column composition remains. */
+  .ect-route__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  /* Match the proven tablet hiring layout at compact-laptop widths.
+     This removes label collisions around 1030/1100 without altering
+     the five-step desktop path at 1280px and above. */
+  .ect-hiring__path { display: none; }
+  .ect-hiring__steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+  }
+  .ect-hiring__step {
+    width: auto;
+    min-width: 0;
+    flex: none;
+    scroll-snap-align: none;
+  }
+  .ect-hiring__tooltip {
+    position: static !important;
+    width: 100% !important;
+    max-width: 27rem !important;
+    margin: 2rem auto 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  .ect-hiring__tooltip::after { display: none; }
+  .ect-hiring__desc--top { display: none !important; }
+  .ect-hiring__desc--bottom {
+    display: block !important;
+    max-width: 100% !important;
+    margin: 24px 0 0 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* The fixed privacy control remains available while clearing the
+     browser edge and the usual bottom-right support widget area. */
+  .career-page .ect-cookie-settings {
+    left: max(10px, env(safe-area-inset-left));
+    bottom: max(66px, calc(env(safe-area-inset-bottom) + 12px));
+    max-width: calc(100vw - 20px);
   }
 }
 /* Use an in-flow tablet grid instead of a page-width horizontal rail. */

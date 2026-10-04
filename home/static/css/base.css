@@ -2680,6 +2680,39 @@ a {
   .ect-pcard__imgwrap {
     width: calc(100% - 32px);
   }
+
+  /* The desktop cards become fluid below the 1240px canvas, so their
+     fixed 514px description must follow the available card width too. */
+  .ect-pcard__desc {
+    width: calc(100% - 32px);
+    max-width: 514px;
+  }
+}
+
+/* Preserve the two-column desktop header at compact-laptop widths while
+   allowing both columns to shrink inside the real container. The original
+   fixed 557px + 527px columns need 1124px before section padding. */
+@media (min-width: 1051px) and (max-width: 1187px) {
+  .ect-products__header {
+    grid-template-columns: minmax(0, 557px) minmax(0, 527px);
+    gap: 24px;
+  }
+
+  .ect-products__header-left,
+  .ect-products__headline,
+  .ect-products__header-right,
+  .ect-products__desc {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1187px) {
+  /* The source copy contains desktop line breaks. Let it reflow inside
+     the compact card so the narrowed text remains within its 72px area. */
+  .ect-pcard__desc br {
+    display: none;
+  }
 }
 
 @media (max-width: 1050px) {
@@ -10640,121 +10673,5 @@ textarea {
     flex: 0 0 44px;
     width: 44px;
     height: 44px;
-  }
-}
-
-/* Shared footer responsive and accessibility corrections. */
-.ect-footer-section {
-  position: relative;
-}
-
-.ect-footer-grid {
-  grid-template-columns: minmax(250px, 1.6fr) repeat(4, minmax(120px, 1fr));
-  gap: 24px clamp(20px, 2.2vw, 32px);
-}
-
-.ect-f-nl-title,
-.ect-f-col-title,
-.ect-f-sub-title {
-  line-height: 1.4;
-}
-
-.ect-f-col ul li {
-  margin-bottom: 0;
-}
-
-.ect-f-col ul li a,
-.ect-c-item,
-.ect-b-links a {
-  display: flex;
-  align-items: center;
-  min-width: 44px;
-  min-height: 44px;
-}
-
-.ect-social-bar {
-  border-top: 1px solid rgba(27, 58, 16, 0.14);
-  border-bottom: 1px solid rgba(27, 58, 16, 0.14);
-}
-
-body.ect-consent-open::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: var(--ect-consent-space, 140px);
-  pointer-events: none;
-}
-
-.ect-cookie-settings.ect-cookie-settings--in-footer {
-  position: static;
-  order: 3;
-  flex: 0 0 auto;
-  margin: 0;
-  min-height: 44px;
-  box-shadow: none;
-}
-
-@media (max-width: 1199px) and (min-width: 768px) {
-  .ect-footer-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 24px;
-  }
-
-  .ect-f-brand-col {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 767px) and (min-width: 480px) {
-  .ect-footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 24px;
-  }
-
-  .ect-f-brand-col {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 479px) {
-  .ect-footer {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
-
-  .ect-footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 16px;
-  }
-
-  .ect-f-brand-col {
-    grid-column: 1 / -1;
-  }
-
-  .ect-f-brand-desc {
-    margin-bottom: 16px;
-  }
-
-  .ect-f-col-title {
-    margin-bottom: 4px;
-  }
-
-  .ect-f-sub-title {
-    margin-top: 8px;
-    margin-bottom: 4px;
-  }
-}
-
-@media (max-width: 640px) {
-  .ect-b-links {
-    column-gap: 16px;
-  }
-
-  .ect-b-links a::after {
-    content: none !important;
-  }
-
-  .ect-cookie-settings.ect-cookie-settings--in-footer {
-    order: 0;
   }
 }

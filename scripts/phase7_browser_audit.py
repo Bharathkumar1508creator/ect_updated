@@ -1,12 +1,13 @@
 """Repeatable Phase 7 browser regression audit for the local Django site."""
 import argparse
 import json
+import os
 from pathlib import Path
 from urllib.parse import urlparse
 
 from playwright.sync_api import sync_playwright
 
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = os.environ.get("ECT_TEST_BASE_URL", "http://127.0.0.1:8000").rstrip("/")
 ROUTES = [
     "/", "/about/", "/career/", "/contact/", "/projects/", "/digital/",
     "/hr/", "/it-infrastructure/", "/software/", "/website/", "/zoho/",
@@ -190,6 +191,7 @@ def main():
     parser.add_argument("--widths", default="320,360,390,430,768,1024,1280,1440,1920")
     parser.add_argument("--output", required=True)
     parser.add_argument("--interactions", action="store_true")
+    parser.add_argument("--interactions-only", action="store_true")
     args = parser.parse_args()
 
     widths = [int(value) for value in args.widths.split(",") if value]
@@ -199,19 +201,20 @@ def main():
             headless=True,
             executable_path=BROWSERS[args.browser],
         )
-        for width in widths:
-            height = 844 if width <= 430 else 900
-            context = browser.new_context(viewport={"width": width, "height": height})
-            context.route(
-                "**/*",
-                lambda route: route.continue_()
-                if urlparse(route.request.url).hostname in {"127.0.0.1", "localhost"}
-                else route.abort(),
-            )
-            page = context.new_page()
-            for route in ROUTES:
-                results.append(audit_page(page, route, width, height))
-            context.close()
+        if not args.interactions_only:
+            for width in widths:
+                height = 844 if width <= 430 else 900
+                context = browser.new_context(viewport={"width": width, "height": height})
+                context.route(
+                    "**/*",
+                    lambda route: route.continue_()
+                    if urlparse(route.request.url).hostname in {"127.0.0.1", "localhost"}
+                    else route.abort(),
+                )
+                page = context.new_page()
+                for route in ROUTES:
+                    results.append(audit_page(page, route, width, height))
+                context.close()
         interactions = interaction_checks(browser) if args.interactions else {}
         browser.close()
 

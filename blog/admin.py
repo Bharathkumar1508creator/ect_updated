@@ -197,7 +197,7 @@ class BlogAdmin(admin.ModelAdmin):
     class Media:
         css = {"all": ("blog/css/admin_blog_editor.css",)}
         js = (
-            "https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js",
+            "vendor/tinymce/tinymce.min.js",
             "blog/js/admin_blog_editor.js",
             "blog/js/admin_media_toggle.js",
         )

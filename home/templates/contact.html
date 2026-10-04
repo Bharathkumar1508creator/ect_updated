@@ -7,15 +7,13 @@
   {% include 'components/favicon.html' %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  {% include 'components/local_fonts.html' %}
   {% include "components/seo_meta.html" %}
 
 <!-- External Libraries -->
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" crossorigin="anonymous">
 <!-- Custom Styles -->
-  <link rel="stylesheet" href="{% static 'css/contact.css' %}?v=11">
+  <link rel="stylesheet" href="{% static 'css/contact.css' %}?v=12">
   <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=46">
   <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
   <style>
@@ -49,7 +47,7 @@
     }
   </style>
 </head>
-<body>
+<body class="contact-page">
 
 {% include 'components/navbar.html' %}
 
@@ -111,6 +109,8 @@
 
 
 
+<main id="main-content">
+
 <!-- get in touch -->
 
 <section class="contact-section">
@@ -141,7 +141,7 @@
       <span class="faq-eyebrow">Frequently asked questions</span>
       <h2 class="faq-title" id="faq-heading">Modern Technologies.<br><span>Powerful Digital Solutions.</span></h2>
     </div>
-    <p class="faq-sub faq-sub--top">Get answers about our website development process, pricing, timelines, and post-launch support.</p>
+    <p class="faq-sub faq-sub--top">Get answers about contacting our team, consultations, project requirements, response times, and ongoing support.</p>
   </div>
 
   <div class="faq-grid" id="faqGrid">
@@ -228,8 +228,10 @@
 
   </div>
 
-  <p class="faq-sub faq-sub--bottom">Get answers about our website development process, pricing, timelines, and post-launch support.</p>
+  <p class="faq-sub faq-sub--bottom">Get answers about contacting our team, consultations, project requirements, response times, and ongoing support.</p>
 </section>
+
+</main>
 
 <!-- FAQ END -->
 
@@ -240,7 +242,7 @@
   <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js" crossorigin="anonymous"></script>
   
   <!-- Custom Script -->
-  <script src="{% static 'js/contact.js' %}?v=2"></script>
+  <script src="{% static 'js/contact.js' %}?v=3"></script>
   
 {% include 'footer.html' %}
 

@@ -127,8 +127,10 @@
   function fitStage(){
     if (!viewport || !stage || getComputedStyle(viewport).display === 'none') return;
     var containerW = viewport.clientWidth;
-    var scale = containerW / DESIGN_W;
+    var scale = Math.min(containerW / DESIGN_W, 1);
+    var renderedW = DESIGN_W * scale;
     stage.style.transform = 'scale(' + scale + ')';
+    stage.style.marginLeft = Math.max(0, (containerW - renderedW) / 2) + 'px';
     viewport.style.height = (DESIGN_H * scale) + 'px';
   }
 
@@ -250,26 +252,51 @@
   let startX = 0;
   let scrollLeftStart = 0;
   let speed = 1; // Auto-scroll speed
-  let setWidth = track.scrollWidth / 2;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const gallerySets = track.querySelectorAll('.gallery__set');
+
+  // Measure the real distance between duplicate sets. Dividing the complete
+  // track width by two loses half of the inter-set gap and causes a small jump
+  // whenever the loop resets.
+  function getSetWidth() {
+    if (gallerySets.length > 1) {
+      return gallerySets[1].offsetLeft - gallerySets[0].offsetLeft;
+    }
+    return track.scrollWidth / 2;
+  }
+
+  let setWidth = getSetWidth();
   
   // Recalculate on resize
   window.addEventListener('resize', () => {
-    setWidth = track.scrollWidth / 2;
+    const previousWidth = setWidth;
+    setWidth = getSetWidth();
+    if (previousWidth > 0 && setWidth > 0) {
+      scrollPos = (scrollPos / previousWidth) * setWidth;
+      gallery.scrollLeft = scrollPos;
+    }
   });
 
   // Auto-scrolling loop
   function tick() {
-    if(!isHovered && !isDragging) {
+    if(!reducedMotion.matches && !isHovered && !isDragging) {
       scrollPos += speed;
       if(scrollPos >= setWidth) {
-        scrollPos = 0;
+        scrollPos -= setWidth;
       } else if (scrollPos <= 0) {
-        scrollPos = setWidth;
+        scrollPos += setWidth;
       }
       gallery.scrollLeft = scrollPos;
     }
     requestAnimationFrame(tick);
   }
+
+  reducedMotion.addEventListener('change', (event) => {
+    if (event.matches) {
+      scrollPos = 0;
+      gallery.scrollLeft = 0;
+    }
+  });
   tick();
 
   // Custom Cursor Logic
@@ -688,11 +715,11 @@
 
 
 (function(){
-  // Desktop-only: below 1025px the separate mobile/tablet
+  // Desktop-only: below 1280px the compact static layout is used.
   // center-scroll carousel (further down this file) drives
   // .is-active instead, so the two systems don't fight over the
   // same class and cause flickering between cards.
-  if (!window.matchMedia('(min-width: 1025px)').matches) return;
+  if (!window.matchMedia('(min-width: 1280px)').matches) return;
 
   // State machine:
   //  - Idle: showcase cycles 1 -> 2 -> 3 -> 4 -> 5 -> 1 -> ... forever,

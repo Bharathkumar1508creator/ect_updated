@@ -108,3 +108,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+// Avoid covering FAQ controls with the fixed cookie settings button on small screens.
+document.addEventListener('DOMContentLoaded', function () {
+  var faqSection = document.querySelector('.faq-section');
+  if (!faqSection || !('IntersectionObserver' in window)) return;
+
+  var faqVisibilityObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      document.body.classList.toggle('is-faq-visible', entry.isIntersecting);
+    });
+  }, { threshold: 0.05 });
+
+  faqVisibilityObserver.observe(faqSection);
+});
+

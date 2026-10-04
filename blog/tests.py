@@ -304,6 +304,8 @@ class BlogAdminTests(TestCase):
         self.assertContains(response, "Live TOC preview")
         self.assertContains(response, "Live SEO check")
         self.assertContains(response, "Open admin guide")
+        self.assertContains(response, "/static/vendor/tinymce/tinymce.min")
+        self.assertNotContains(response, "cdnjs.cloudflare.com/ajax/libs/tinymce")
 
     def test_preview_requires_staff_and_renders_draft(self):
         category = BlogCategory.objects.create(name="Preview")

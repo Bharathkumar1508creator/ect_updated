@@ -7,19 +7,19 @@
   {% include 'components/favicon.html' %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+  {% include 'components/local_fonts.html' %}
   {% include "components/seo_meta.html" %}
 <!-- Link to the external CSS file -->
   <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=46">
-  <link rel="stylesheet" href="{% static 'css/career.css' %}?v=2026100401">
+  <link rel="stylesheet" href="{% static 'css/career.css' %}?v=2026100602">
   <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
 </head>
 
-<body>
+<body class="career-page">
 
 {% include 'components/navbar.html' %}
+
+<main id="main-content">
 
   <div class="ect-hero-outer">
     <div class="ect-hero-scaler" id="ectHeroScaler">
@@ -933,7 +933,7 @@
 
           <div class="ect-hiring__tooltip ect-hiring__tooltip--bottom" style="font-size:1.4rem;">
             Discuss the role, company culture, career opportunities, compensation, and expectations to ensure a great
-            fit for both you and ECT9.
+            fit for both you and ECT.
           </div>
         </div>
 
@@ -1091,8 +1091,10 @@
 
 
 
+</main>
+
   <!-- Link to the external JS file -->
-  <script src="{% static 'js/career.js' %}?v=2026091210"></script>
+  <script src="{% static 'js/career.js' %}?v=2026100602"></script>
 {% include 'footer.html' %}
 
 

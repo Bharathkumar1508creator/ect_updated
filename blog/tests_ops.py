@@ -133,7 +133,10 @@ class RequiredBlogPublicPageTests(TestCase):
             finally:
                 clear_url_caches()
                 reload(ect_urls)
-        self.assertEqual(response.status_code, 200)
+        try:
+            self.assertEqual(response.status_code, 200)
+        finally:
+            response.close()
 
     def test_toc_h2_anchor_links_are_present(self):
         blog = Blog.objects.get(slug=TARGET_SLUG)

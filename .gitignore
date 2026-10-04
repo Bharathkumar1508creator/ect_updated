@@ -17,6 +17,7 @@ node_modules/
 # Django
 *.log
 staticfiles/
+artifacts/
 
 # Editor / OS
 .vscode/

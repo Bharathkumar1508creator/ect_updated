@@ -6,9 +6,7 @@
   {% include 'components/favicon.html' %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+  {% include 'components/local_fonts.html' %}
     {% include "components/seo_meta.html" %}
     <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=42">
     <link rel="stylesheet" href="{% static 'css/projects.css' %}?v=9">
@@ -18,6 +16,8 @@
 <body>
     <!-- Assuming navbar is included or similar to index.html -->
     {% include 'components/navbar.html' %}
+
+    <main id="main-content">
 
     <section class="project-hero text-center py-5" style="background-image: url('{% static 'img/probg.png' %}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="container">
@@ -85,6 +85,8 @@
             {% endif %}
         </div>
     </section>
+
+    </main>
 
 
 <script src="{% static 'js/project-list.js' %}?v=2" defer></script>

@@ -1,7 +1,7 @@
 [Unit]
 Description=ECOG Core Technologies Django application
-After=network.target mysql.service
-Wants=network.target
+After=network.target mysql.service redis-server.service
+Wants=network.target redis-server.service
 
 [Service]
 Type=simple

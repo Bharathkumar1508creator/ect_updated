@@ -160,9 +160,17 @@ else:
             'PORT': os.environ.get('DB_PORT', '3306'),
             'CONN_MAX_AGE': int(os.environ.get('DB_CONN_MAX_AGE', '60')),
             'CONN_HEALTH_CHECKS': True,
-            'OPTIONS': {'charset': 'utf8mb4'},
+            'OPTIONS': {
+                'charset': 'utf8mb4',
+                'connect_timeout': int(os.environ.get('DB_CONNECT_TIMEOUT', '10')),
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+                'isolation_level': 'read committed',
+            },
         }
     }
+    database_ssl_ca = os.environ.get('DB_SSL_CA', '').strip()
+    if database_ssl_ca:
+        DATABASES['default']['OPTIONS']['ssl'] = {'ca': database_ssl_ca}
 
 
 # Password validation
@@ -214,6 +222,7 @@ STORAGES = {
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+TEST_RUNNER = 'ect.test_runner.IsolatedMediaTestRunner'
 
 # Public blog metadata. Set SITE_URL to the production origin, without a
 # trailing slash, when deploying (for example: https://www.example.com).
@@ -251,18 +260,17 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = int(os.environ.get('DJANGO_DATA_UPLOAD_MAX_MEMORY_
 DATA_UPLOAD_MAX_NUMBER_FIELDS = int(os.environ.get('DJANGO_DATA_UPLOAD_MAX_NUMBER_FIELDS', '200'))
 DATA_UPLOAD_MAX_NUMBER_FILES = int(os.environ.get('DJANGO_DATA_UPLOAD_MAX_NUMBER_FILES', '10'))
 
-# Start in report-only mode because the current pages contain inline styles/scripts and
-# third-party Zoho/analytics/map integrations. Phase 7 browser QA can promote this to an
-# enforced policy after every required endpoint is observed.
-SECURE_CSP_REPORT_ONLY = {
+# Enforce the policy after browser QA verified the required inline resources and
+# third-party Zoho, analytics, font, video, and map integrations.
+SECURE_CSP = {
     'default-src': [CSP.SELF],
     'base-uri': [CSP.SELF],
     'object-src': [CSP.NONE],
     'frame-ancestors': [CSP.NONE],
     'form-action': [CSP.SELF, 'https://bigin.zoho.in'],
     'script-src': [CSP.SELF, CSP.UNSAFE_INLINE, 'https://www.googletagmanager.com', 'https://salesiq.zohopublic.in', 'https://static.zohocdn.com', 'https://bigin.zoho.in', 'https://unpkg.com', 'https://cdnjs.cloudflare.com'],
-    'style-src': [CSP.SELF, CSP.UNSAFE_INLINE, 'https://fonts.googleapis.com', 'https://static.zohocdn.com', 'https://unpkg.com', 'https://cdnjs.cloudflare.com'],
-    'font-src': [CSP.SELF, 'https://fonts.gstatic.com', 'https://static.zohocdn.com', 'https://cdnjs.cloudflare.com', 'data:'],
+    'style-src': [CSP.SELF, CSP.UNSAFE_INLINE, 'https://static.zohocdn.com', 'https://unpkg.com', 'https://cdnjs.cloudflare.com'],
+    'font-src': [CSP.SELF, 'https://static.zohocdn.com', 'https://cdnjs.cloudflare.com', 'data:'],
     'img-src': [CSP.SELF, 'data:', 'https:'],
     'media-src': [CSP.SELF],
     'frame-src': [CSP.SELF, 'https://bigin.zoho.in', 'https://www.youtube.com', 'https://www.youtube-nocookie.com'],
@@ -273,16 +281,37 @@ SECURE_CSP_REPORT_ONLY = {
 TRUST_X_FORWARDED_FOR = _env_bool('DJANGO_TRUST_X_FORWARDED_FOR', default=False)
 PUBLIC_FORM_RATE_LIMIT = int(os.environ.get('DJANGO_PUBLIC_FORM_RATE_LIMIT', '8'))
 PUBLIC_FORM_RATE_WINDOW = int(os.environ.get('DJANGO_PUBLIC_FORM_RATE_WINDOW', '900'))
-CACHES = {
-    'default': {
-        'BACKEND': os.environ.get(
-            'DJANGO_CACHE_BACKEND',
-            'django.core.cache.backends.locmem.LocMemCache',
-        ),
-        'LOCATION': os.environ.get('DJANGO_CACHE_LOCATION', 'ect-default-cache'),
-        'TIMEOUT': int(os.environ.get('DJANGO_CACHE_TIMEOUT', '300')),
+CACHE_TIMEOUT = int(os.environ.get('DJANGO_CACHE_TIMEOUT', '300'))
+if DEBUG:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': os.environ.get('DJANGO_CACHE_LOCATION', 'ect-development-cache'),
+            'TIMEOUT': CACHE_TIMEOUT,
+        }
     }
-}
+else:
+    REDIS_URL = os.environ.get('REDIS_URL', '').strip()
+    if not REDIS_URL:
+        raise ImproperlyConfigured(
+            'Set REDIS_URL to a shared Redis database before running in production.'
+        )
+    if not REDIS_URL.startswith(('redis://', 'rediss://', 'unix://')):
+        raise ImproperlyConfigured(
+            'REDIS_URL must start with redis://, rediss://, or unix://.'
+        )
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+            'LOCATION': REDIS_URL,
+            'TIMEOUT': CACHE_TIMEOUT,
+            'KEY_PREFIX': 'ect',
+            'OPTIONS': {
+                'socket_connect_timeout': 5,
+                'socket_timeout': 5,
+            },
+        }
+    }
 
 if not DEBUG:
     SECURE_SSL_REDIRECT = _env_bool('DJANGO_SECURE_SSL_REDIRECT', default=True)

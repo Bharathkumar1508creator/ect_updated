@@ -22,6 +22,7 @@ from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import BlogSitemap
 from blog.views import robots_txt
 from home.sitemaps import ProjectSitemap, StaticViewSitemap
+from ect.health import health, readiness
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -30,6 +31,8 @@ sitemaps = {
 }
 
 urlpatterns = [
+    path('health/', health, name='health'),
+    path('ready/', readiness, name='readiness'),
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('blog/', include('blog.urls')),

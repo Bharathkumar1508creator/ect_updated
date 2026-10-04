@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     tinymce.init({
         selector: 'textarea#id_paragraph_1, textarea#id_paragraph_2, textarea#id_paragraph_3, textarea#id_paragraph_4, textarea#id_paragraph_5',
+        license_key: 'gpl',
         height: 600,
         plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table code help wordcount',
         toolbar: 'undo redo | blocks | ' +

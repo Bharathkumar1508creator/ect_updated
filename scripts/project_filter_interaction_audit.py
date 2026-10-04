@@ -1,6 +1,7 @@
 """Verify Projects filtering stays in-page and card shadows remain disabled."""
 import argparse
 import json
+import os
 
 from playwright.sync_api import sync_playwright
 
@@ -8,6 +9,7 @@ BROWSERS = {
     "chrome": r"C:\Program Files\Google\Chrome\Application\chrome.exe",
     "edge": r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
 }
+BASE_URL = os.environ.get("ECT_TEST_BASE_URL", "http://127.0.0.1:8000").rstrip("/")
 
 
 def main():
@@ -24,9 +26,9 @@ def main():
         page.on(
             "requestfailed",
             lambda request: failed_local_requests.append(request.url)
-            if request.url.startswith("http://127.0.0.1:8000/") else None,
+            if request.url.startswith(f"{BASE_URL}/") else None,
         )
-        page.goto("http://127.0.0.1:8000/projects/", wait_until="networkidle")
+        page.goto(f"{BASE_URL}/projects/", wait_until="networkidle")
 
         page.evaluate("window.__projectFilterPageMarker = 'preserved'")
         filter_link = page.locator(".btn-filter").filter(has_text="Website Development").first
@@ -34,16 +36,13 @@ def main():
             filter_link = page.locator(".btn-filter").nth(1)
         expected_label = filter_link.inner_text().strip()
         filter_link.click()
-        page.wait_for_function(
-            "label => document.querySelector('.btn-filter.active')?.textContent.trim() === label",
-            arg=expected_label,
-        )
+        page.locator(".btn-filter.active").filter(has_text=expected_label).wait_for()
 
-        filtered = page.evaluate("""() => ({
+        filtered = page.evaluate(r"""() => ({
           marker: window.__projectFilterPageMarker,
           category: document.querySelector('.btn-filter.active')?.textContent.trim(),
           focusRetained: document.activeElement?.classList.contains('btn-filter'),
-          stylesheetVersioned: [...document.styleSheets].some(sheet => sheet.href?.includes('/projects.css?v=6')),
+          stylesheetVersioned: [...document.styleSheets].some(sheet => /\/projects\.css\?v=\d+/.test(sheet.href || '')),
           url: location.href,
           busy: document.querySelector('[data-project-listing]')?.hasAttribute('aria-busy'),
           projectShadows: [...document.querySelectorAll('.project-card')].map(el => getComputedStyle(el).boxShadow),
@@ -71,7 +70,7 @@ def main():
         }""")
 
         page.go_back(wait_until="commit")
-        page.wait_for_function("document.querySelector('.btn-filter.active')?.textContent.trim() === 'All Projects'")
+        page.locator(".btn-filter.active").filter(has_text="All Projects").wait_for()
         history_marker = page.evaluate("window.__projectFilterPageMarker")
         page.set_viewport_size({"width": 360, "height": 800})
         mobile_overflow = page.evaluate("document.documentElement.scrollWidth > innerWidth + 1")

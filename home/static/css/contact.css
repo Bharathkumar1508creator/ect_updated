@@ -328,8 +328,8 @@ body { font-family: "Montserrat"; }
   border:1px solid var(--line);
   border-radius:var(--radius);
   overflow:hidden;
-  opacity:0;
-  transform:translateY(26px);
+  opacity:1;
+  transform:none;
   transition:border-color .3s var(--ease), box-shadow .35s var(--ease), transform .35s var(--ease);
   will-change:transform,opacity;
 }
@@ -797,6 +797,15 @@ body { font-family: "Montserrat"; }
     transition: background 0.3s;
 }
 
+.contact-section .wf-required {
+    color: #9c2f28;
+    font-weight: 600;
+}
+
+.contact-section .ect-bigin-form .wf-btn {
+    min-height: 44px;
+}
+
 .contact-section .btn-submit:hover {
     background-color: #062100;
 }
@@ -807,12 +816,17 @@ body { font-family: "Montserrat"; }
 }
 
 /* Mobile responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
     .contact-section .contact-card-wrapper {
         flex-direction: column;
     }
     .contact-section .contact-card-image {
-        min-height: 250px;
+        flex: none;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 10;
+        max-height: 485px;
+        min-height: 0;
     }
     .contact-section .contact-card-image img {
         padding: 10px;
@@ -845,7 +859,7 @@ body { font-family: "Montserrat"; }
   .ect-map-heading .ect-map-title { font-size: clamp(36px, 4.3vw, 44px) !important; }
 
   .faq-head .faq-eyebrow { font-size: 16px !important; }
-  .faq-head .faq-title { font-size: clamp(36px, 4.3vw, 44px) !important; }
+  .faq-head .faq-title { font-size: clamp(24px, 3.05vw, 31.25px) !important; }
 }
 
 @media (max-width: 640px) {
@@ -854,6 +868,35 @@ body { font-family: "Montserrat"; }
 
   .faq-head .faq-eyebrow { font-size: 15px !important; }
   .faq-head .faq-title { font-size: clamp(17px, 5.3vw, 24px) !important; }
+}
+
+@media (min-width: 961px) and (max-width: 1199px) {
+  .contact-section .contact-card-image {
+    flex-basis: clamp(400px, 42vw, 485px);
+  }
+  .contact-section .contact-card-form {
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-section .contact-card-image { aspect-ratio: 4 / 3; }
+  .contact-section .contact-card-form { padding: 24px 16px; }
+  .faq-section, .faq-item { scroll-margin-top: 72px; }
+  .contact-page .ect-cookie-settings {
+    bottom: max(68px, env(safe-area-inset-bottom));
+    transition: opacity .2s ease, visibility .2s ease;
+  }
+  .contact-page.is-faq-visible .ect-cookie-settings {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .contact-page .ect-mobile-toggle { min-width: 44px; min-height: 44px; }
+}
+
+@media (min-width: 1025px) {
+  .contact-page .ect-consultation-trigger { min-height: 44px; }
 }
 
 /* ============================================================

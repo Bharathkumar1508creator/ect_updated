@@ -158,6 +158,7 @@
 
     tinymce.init({
       selector: "textarea#id_article_content",
+      license_key: "gpl",
       height: 680,
       menubar: "edit insert format tools table help",
       plugins: "advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen table help wordcount",

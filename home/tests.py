@@ -6,12 +6,16 @@ from pathlib import Path
 from PIL import Image
 from django.contrib import admin
 from django.contrib.auth import get_user_model
+from django.conf import settings
 from django.contrib.staticfiles import finders
 from django.contrib.staticfiles.storage import staticfiles_storage
+from django.core.management import call_command
+from django.core.management.base import CommandError
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import RequestFactory, TestCase, override_settings
 from django.urls import reverse
 
+from blog.models import Blog as PublishedBlog
 from .image_utils import optimize_uploaded_image
 from .models import Career, ContactMessage, JobApplication, Project, ProjectCategory, Testimonial
 from .templatetags.content_security import sanitized_rich_html
@@ -49,6 +53,29 @@ class HomeInsightsTests(TestCase):
         self.assertContains(response, reverse("blog:blog_list"))
         self.assertContains(response, "home-insights.min.")
         self.assertContains(response, "insights-carousel.min.")
+
+
+class MainLandmarkTests(TestCase):
+    def test_public_pages_have_exactly_one_main_landmark(self):
+        urls = [
+            reverse("career"),
+            reverse("project_list"),
+            reverse("digital"),
+            reverse("hr"),
+            reverse("it_infrastructure"),
+            reverse("software"),
+            reverse("website"),
+            reverse("zoho"),
+            reverse("under"),
+            f'{reverse("project_list")}?category=website-development',
+        ]
+
+        for url in urls:
+            with self.subTest(url=url):
+                response = self.client.get(url)
+                self.assertEqual(response.status_code, 200)
+                self.assertContains(response, '<main id="main-content">', count=1)
+                self.assertContains(response, "</main>", count=1)
 
 
 class ExternalFormOnlyTests(TestCase):
@@ -163,7 +190,85 @@ class ImageUploadOptimizationTests(TestCase):
                 self.assertEqual(image.format, "WEBP")
 
 
+class MediaReferenceCommandTests(TestCase):
+    def setUp(self):
+        # Blog data migrations seed production records whose files deliberately
+        # live outside this test's isolated MEDIA_ROOT.
+        PublishedBlog.objects.all().delete()
+        self.category = ProjectCategory.objects.create(
+            name="Media validation", slug="media-validation", status="published"
+        )
+
+    def test_command_accepts_existing_database_media(self):
+        with tempfile.TemporaryDirectory() as media_root, self.settings(MEDIA_ROOT=media_root):
+            image_path = Path(media_root, "projects", "hero", "images", "existing.webp")
+            image_path.parent.mkdir(parents=True)
+            image_path.write_bytes(b"existing image")
+            Project.objects.create(
+                category=self.category,
+                title="Existing media",
+                slug="existing-media",
+                hero_image="projects/hero/images/existing.webp",
+            )
+
+            output = io.StringIO()
+            call_command("check_media_references", stdout=output)
+
+            self.assertIn("All database media references exist.", output.getvalue())
+
+    def test_command_fails_for_missing_database_media(self):
+        with tempfile.TemporaryDirectory() as media_root, self.settings(MEDIA_ROOT=media_root):
+            Project.objects.create(
+                category=self.category,
+                title="Missing media",
+                slug="missing-media",
+                hero_image="projects/hero/images/missing.webp",
+            )
+
+            with self.assertRaises(CommandError):
+                call_command("check_media_references", stdout=io.StringIO(), stderr=io.StringIO())
+
+
+class CacheDeploymentCommandTests(TestCase):
+    def test_check_cache_verifies_configured_cache(self):
+        output = io.StringIO()
+
+        call_command("check_cache", stdout=output)
+
+        self.assertIn("Default cache write/read/delete check passed.", output.getvalue())
+
+
 class SecurityBoundaryTests(TestCase):
+    def test_fonts_are_self_hosted_without_google_runtime_dependencies(self):
+        required_fonts = (
+            "montserrat-latin-wght-normal.woff2",
+            "inter-latin-wght-normal.woff2",
+            "manrope-latin-wght-normal.woff2",
+            "outfit-latin-wght-normal.woff2",
+            "plus-jakarta-sans-latin-wght-normal.woff2",
+            "mulish-latin-wght-normal.woff2",
+            "poppins-latin-400-normal.woff2",
+            "poppins-latin-500-normal.woff2",
+            "poppins-latin-600-normal.woff2",
+            "poppins-latin-700-normal.woff2",
+        )
+        for filename in required_fonts:
+            self.assertTrue(finders.find(f"fonts/{filename}"), filename)
+
+        source_roots = (
+            Path(settings.BASE_DIR, "home", "templates"),
+            Path(settings.BASE_DIR, "home", "static", "css"),
+            Path(settings.BASE_DIR, "home", "assets", "css"),
+            Path(settings.BASE_DIR, "blog", "templates"),
+        )
+        for source_root in source_roots:
+            for path in source_root.rglob("*"):
+                if path.suffix.lower() not in {".css", ".html"}:
+                    continue
+                source = path.read_text(encoding="utf-8", errors="replace")
+                self.assertNotIn("fonts.googleapis.com", source, str(path))
+                self.assertNotIn("fonts.gstatic.com", source, str(path))
+
     def test_source_files_are_not_static_assets(self):
         self.assertIsNone(finders.find("models.py"))
         self.assertIsNone(finders.find("templates/contact.html"))
@@ -180,8 +285,11 @@ class SecurityBoundaryTests(TestCase):
         self.assertEqual(response.headers["X-Frame-Options"], "DENY")
         self.assertEqual(response.headers["X-Content-Type-Options"], "nosniff")
         self.assertIn("camera=()", response.headers["Permissions-Policy"])
-        csp = response.headers["Content-Security-Policy-Report-Only"]
+        self.assertNotIn("Content-Security-Policy-Report-Only", response.headers)
+        csp = response.headers["Content-Security-Policy"]
         self.assertIn("object-src 'none'", csp)
+        self.assertNotIn("fonts.googleapis.com", csp)
+        self.assertNotIn("fonts.gstatic.com", csp)
         for salesiq_source in (
             "https://static.zohocdn.com",
             "wss://vts.zohopublic.in",
@@ -268,7 +376,7 @@ class ProjectFunctionalityTests(TestCase):
         self.assertContains(response, 'aria-labelledby="projectFilterLabel"')
         self.assertContains(response, 'class="btn-notch ect-micro-btn"')
         self.assertContains(response, 'id="ectContactPopup"')
-        self.assertContains(response, "ECOG CORE TECHNOLOGIES")
+        self.assertContains(response, "ECOGCORETECHNOLOGIES")
 
     def test_project_list_uses_filtered_load_more_batches(self):
         for index in range(12):
