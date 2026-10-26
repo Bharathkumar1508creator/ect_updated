@@ -30,3 +30,5 @@ Thumbs.db
 
 # Generated media derivatives; source uploads remain authoritative.
 media/.optimized/
+output/
+tmp/
