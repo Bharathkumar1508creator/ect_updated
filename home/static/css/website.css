@@ -3468,3 +3468,18 @@ body {
     line-height: 1.4;
   }
 }
+
+/* Website hero: wider heading and intro copy on desktop (Figma hero). */
+@media (min-width: 1025px) {
+  .website-figma-hero .website-figma-hero__title {
+    width: min(920px, 100%) !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    font-size: clamp(30px, 3.6vw, 39.06px) !important;
+    white-space: nowrap !important;
+  }
+
+  .website-figma-hero .website-figma-hero__subtitle {
+    width: min(760px, 100%) !important;
+  }
+}

@@ -11,6 +11,8 @@ from django.core.checks import run_checks
 from django.core.management import call_command
 from django.core.management.base import BaseCommand, CommandError
 
+from home.models import Project
+
 
 class Command(BaseCommand):
     help = "Run database, cache, media, static-file and security checks before deployment."
@@ -45,6 +47,7 @@ class Command(BaseCommand):
         verify("Django checks", lambda: self._check_django(production))
         verify("Environment", lambda: self._check_environment(production))
         verify("Database", self._check_database)
+        verify("Our Work content", self._check_our_work_content)
         verify("Cache", self._check_cache)
         verify("Media storage", self._check_media_storage)
         verify("Media references", self._check_media_references)
@@ -85,6 +88,7 @@ class Command(BaseCommand):
                 "DB_USER",
                 "DB_PASSWORD",
                 "REDIS_URL",
+                "DJANGO_MEDIA_ROOT",
             )
             if not os.environ.get(name, "").strip()
         ]
@@ -94,6 +98,8 @@ class Command(BaseCommand):
             raise CommandError("DJANGO_DEBUG must be False.")
         if settings.DATABASES["default"]["ENGINE"] != "django.db.backends.mysql":
             raise CommandError("Production must use the MySQL backend.")
+        if not Path(settings.MEDIA_ROOT).is_absolute():
+            raise CommandError("DJANGO_MEDIA_ROOT must be an absolute path to the served media directory.")
         cache_backend = settings.CACHES["default"]["BACKEND"]
         if cache_backend != "django.core.cache.backends.redis.RedisCache":
             raise CommandError("Production must use the shared Redis cache backend.")
@@ -112,6 +118,21 @@ class Command(BaseCommand):
 
     def _check_database(self):
         return self._run_command("check_database", require_current=True)
+
+    def _check_our_work_content(self):
+        required = {'ecog-products', 'excel-packs', 'ics'}
+        published = set(
+            Project.objects.filter(slug__in=required, status='published')
+            .values_list('slug', flat=True)
+        )
+        missing = sorted(required - published)
+        if missing:
+            raise CommandError(
+                'Missing published Our Work projects: '
+                + ', '.join(missing)
+                + '. Run python manage.py migrate before deployment.'
+            )
+        return 'EcoG Products, Excel Packs, and ICS are published'
 
     def _check_cache(self):
         return self._run_command("check_cache")

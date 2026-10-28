@@ -1,0 +1,401 @@
+/* Website page: "Why Choose ECOG Core Technologies for Website Development?"
+   Two modes:
+   - default (tablet, mobile, reduced motion, no JS): a plain section with a
+     swipeable card strip;
+   - data-mode="scene" (set by website-why.js on desktop): a pinned scroll scene
+     that reveals a circle, shows the intro, then slides the cards across. */
+
+.ect-why,
+.ect-why * {
+  box-sizing: border-box;
+}
+
+.ect-why {
+  --why-green: #6f7f5f;
+  --why-dark: #0c3c01;
+  --why-gray: #f1f1ef;
+  position: relative;
+  background: var(--why-gray);
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-why__disc,
+.ect-why__logo {
+  display: none;
+}
+
+/* ---------- default layout ---------- */
+.ect-why__scene {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 56px 0 56px;
+}
+
+.ect-why__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+body.service-page .ect-why .ect-why__heading {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: clamp(28px, 6vw, 42px) !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-why__line {
+  display: inline;
+}
+
+.ect-why__lead {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.ect-why__controls {
+  display: none;
+}
+
+.ect-why__track {
+  display: flex;
+  gap: 16px;
+  margin: 8px -24px 0;
+  padding: 0 24px 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 24px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ect-why__track::-webkit-scrollbar {
+  display: none;
+}
+
+.ect-why__highlight {
+  display: none;
+}
+
+.ect-why__card {
+  --on: 0;
+  display: flex;
+  flex: 0 0 min(466px, 84vw);
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 16px;
+  scroll-snap-align: center;
+  background: color-mix(in srgb, var(--why-green) calc(var(--on) * 100%), #fff);
+  color: color-mix(in srgb, #fff calc(var(--on) * 100%), #000);
+  transition: background-color 400ms ease, color 400ms ease;
+}
+
+.ect-why__title {
+  min-height: 76px;
+  margin: 0 0 -8px;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: inherit;
+}
+
+.ect-why__media {
+  height: 323px;
+  margin-top: -8px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #d9d9d9;
+}
+
+.ect-why__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ect-why__text {
+  flex: 1 1 auto;
+  min-height: 143px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: inherit;
+}
+
+.ect-why__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  height: 36px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  background: var(--why-dark);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.ect-why__cta:hover {
+  background: #0f4a02;
+  transform: translateY(-2px);
+}
+
+.ect-why__cta:focus-visible,
+.ect-why__arrow:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.3);
+  outline-offset: 3px;
+}
+
+.ect-why__cta--intro {
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .ect-why__cta {
+    white-space: normal;
+    height: auto;
+    min-height: 36px;
+  }
+
+  .ect-why__title {
+    font-size: 22px;
+    min-height: 0;
+  }
+
+  .ect-why__media {
+    height: 240px;
+  }
+
+  .ect-why__text {
+    min-height: 0;
+  }
+}
+
+/* ---------- pinned scroll scene (desktop) ---------- */
+.ect-why[data-mode="scene"] {
+  background: #fff;
+}
+
+.ect-why[data-mode="scene"] .ect-why__runway {
+  position: relative;
+  height: 500vh;
+}
+
+.ect-why[data-mode="scene"] .ect-why__scene {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.ect-why[data-mode="scene"] .ect-why__disc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: var(--disc-size, 3000px);
+  height: var(--disc-size, 3000px);
+  margin: calc(var(--disc-size, 3000px) / -2) 0 0 calc(var(--disc-size, 3000px) / -2);
+  border-radius: 50%;
+  background: var(--why-gray);
+  transform: scale(0);
+  will-change: transform;
+}
+
+.ect-why[data-mode="scene"] .ect-why__logo {
+  /* Fixed to the screen, so it can fall from the navbar before the stage has arrived. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  pointer-events: none;
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 0;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.ect-why[data-mode="scene"] .ect-why__logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ect-why[data-mode="scene"] .ect-why__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: block;
+  transform-origin: 0 0;
+}
+
+.ect-why[data-mode="scene"] .ect-why__heading,
+.ect-why[data-mode="scene"] .ect-why__lead,
+.ect-why[data-mode="scene"] .ect-why__cta--intro,
+.ect-why[data-mode="scene"] .ect-why__controls,
+.ect-why[data-mode="scene"] .ect-why__track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  will-change: transform, opacity;
+}
+
+body.service-page .ect-why[data-mode="scene"] .ect-why__heading {
+  font-size: 42px !important;
+  white-space: nowrap;
+}
+
+.ect-why[data-mode="scene"] .ect-why__line {
+  display: block;
+  width: max-content;
+}
+
+.ect-why[data-mode="scene"] .ect-why__lead {
+  width: 967px;
+  text-align: center;
+}
+
+.ect-why[data-mode="scene"] .ect-why__cta--intro {
+  width: 349px;
+}
+
+.ect-why[data-mode="scene"] .ect-why__controls {
+  display: flex;
+  gap: 16px;
+}
+
+.ect-why[data-mode="scene"] .ect-why__arrow {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--why-dark);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 200ms ease, background-color 200ms ease;
+}
+
+.ect-why[data-mode="scene"] .ect-why__arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ect-why[data-mode="scene"] .ect-why__arrow:hover:not(:disabled) {
+  background: #0f4a02;
+}
+
+.ect-why[data-mode="scene"] .ect-why__arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.ect-why[data-mode="scene"] .ect-why__track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  height: var(--why-card-h, 658px);
+  padding: 0;
+  overflow: visible;
+  scroll-snap-type: none;
+}
+
+.ect-why[data-mode="scene"] .ect-why__highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: block;
+  width: var(--why-card-w, 466px);
+  height: var(--why-card-h, 658px);
+  border-radius: 16px;
+  background: var(--why-green) url("../img/website-card-noise.png") repeat;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.ect-why[data-mode="scene"] .ect-why__card {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 var(--why-card-w, 466px);
+  width: var(--why-card-w, 466px);
+  height: var(--why-card-h, 658px);
+  background: rgba(255, 255, 255, calc(1 - var(--on)));
+  color: color-mix(in srgb, #fff calc(var(--ink, var(--on)) * 100%), #000);
+  scroll-snap-align: none;
+  transition: none;
+  will-change: transform, opacity;
+}
+
+.ect-why[data-mode="scene"] .ect-why__title {
+  min-height: 76px;
+}
+
+.ect-why[data-mode="scene"] .ect-why__media {
+  flex: none;
+  height: var(--why-media-h, 323px);
+}
+
+.ect-why[data-mode="scene"] .ect-why__text {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.ect-why[data-mode="scene"] .ect-why__card .ect-why__cta {
+  width: min(349px, 100%);
+  margin-top: auto;
+}
+
+/* Exact Figma spacing inside the 466 x 658 card (24px padding, 418px wide). */
+.ect-why[data-mode="scene"] .ect-why__card {
+  gap: 0;
+}
+
+.ect-why[data-mode="scene"] .ect-why__title {
+  min-height: 76px;
+  margin: 0 0 8px;
+}
+
+.ect-why[data-mode="scene"] .ect-why__media {
+  margin: 0 0 8px;
+  border-radius: 24px;
+}
+
+.ect-why[data-mode="scene"] .ect-why__text {
+  margin: 0;
+}
+
+.ect-why[data-mode="scene"] .ect-why__card .ect-why__cta {
+  margin-top: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ect-why__card {
+    transition: none;
+  }
+}

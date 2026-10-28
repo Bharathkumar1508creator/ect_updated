@@ -1,0 +1,455 @@
+/* Website page: "Our Website Development Solutions" section.
+   Figma layout: heading + intro on the left, arrows on the right, a sliding
+   strip of tabs, and a panel (image + text) joined to the active tab. */
+
+.ect-web-solutions__heading-group {
+  min-width: 0;
+}
+
+.ect-web-solutions__intro {
+  margin: 0;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  body.service-page .ect-web-solutions {
+    width: min(1240px, calc(100% - 48px));
+    height: auto;
+    margin: 72px auto;
+    overflow: visible;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__header {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 125px;
+    height: auto;
+    margin-bottom: 24px;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__heading-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 1010px;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__heading {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 42px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__intro {
+    max-width: 948px;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__controls {
+    position: static;
+    flex: none;
+    width: auto;
+    gap: 16px;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__component {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    height: auto;
+  }
+
+  /* Tab strip: the active tab always slides to the left edge (see website.js). */
+  body.service-page .ect-web-solutions .ect-web-solutions__tabs {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    scroll-behavior: smooth;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__tabs::after {
+    content: "";
+    flex: 0 0 100%;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__tab {
+    position: relative;
+    top: auto;
+    left: auto;
+    flex: 0 0 auto;
+    width: auto;
+    height: 70px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    background: #f1f1ef;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__tab:hover {
+    background: #e9e9e5;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__tab.is-active {
+    width: auto;
+    height: 86px;
+    padding-bottom: 32px;
+    border-radius: 8px 8px 0 0;
+    background: #f5f5f3;
+    color: #000;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__tab-label {
+    width: auto;
+    padding: 0;
+    font-size: 25px;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  /* Every panel sits in the same grid cell, so the section keeps one height. */
+  body.service-page .ect-web-solutions .ect-web-solutions__panel {
+    position: relative;
+    top: auto;
+    left: auto;
+    grid-area: 2 / 1;
+    display: grid;
+    grid-template-columns: 608px minmax(0, 1fr);
+    column-gap: 24px;
+    align-items: start;
+    width: 100%;
+    height: auto;
+    padding: 24px 33px 24px 24px;
+    border-radius: 0 24px 24px 24px;
+    background: #f5f5f3;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__panel.is-transitioning {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__media {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 608 / 435;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__content-title,
+  body.service-page .ect-web-solutions .ect-web-solutions__description,
+  body.service-page .ect-web-solutions .ect-web-solutions__perfect-label,
+  body.service-page .ect-web-solutions .ect-web-solutions__audience,
+  body.service-page .ect-web-solutions .ect-web-solutions__cta {
+    position: static;
+    width: auto;
+    min-height: 0;
+    margin: 0;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__content-title {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__description {
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__perfect-label {
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__audience {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__cta {
+    height: 36px;
+    margin-top: 24px;
+    padding: 8px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+}
+
+/* Tablet and mobile: keep the existing stacked layout, add the intro text. */
+@media (max-width: 1199px) {
+  .ect-web-solutions__content {
+    display: contents;
+  }
+
+  .ect-web-solutions__intro {
+    margin-top: 8px;
+    font-size: 15px;
+  }
+}
+
+/* "Our Website Development Process" (class web-solutions-section):
+   Figma heading + intro stacked on the left, black step text. */
+@media (min-width: 1200px) {
+  body.service-page .web-solutions-section {
+    width: min(1240px, calc(100% - 48px));
+    margin: 72px auto;
+    padding: 0;
+  }
+
+  body.service-page .web-solutions-section .header {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  body.service-page .web-solutions-section .header h2 {
+    max-width: none;
+    margin: 0;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 42px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    color: #000 !important;
+  }
+
+  body.service-page .web-solutions-section .header p {
+    max-width: 720px;
+    margin: 8px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000;
+    text-align: left;
+  }
+
+  /* Figma cell: 305px tall. Icon at 32px, STEP at 145px, heading at 173px,
+     text at 201px, so every cell lines up across a row. */
+  body.service-page .web-solutions-section {
+    --border: #5b6d49;
+    --bw: 1px;
+  }
+
+  body.service-page .web-solutions-section .cell {
+    min-height: 305px;
+    padding: 32px 6px 24px 7.54%;
+  }
+
+  body.service-page .web-solutions-section .cell .icon {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: auto;
+    height: 60px;
+    margin: 0 0 53px;
+  }
+
+  body.service-page .web-solutions-section .cell .icon img {
+    flex: none;
+    width: auto;
+    height: 52px;
+    object-fit: contain;
+  }
+
+  body.service-page .web-solutions-section .step {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: 0;
+    color: #000;
+  }
+
+  body.service-page .web-solutions-section .cell h3 {
+    margin: 0 0 4px;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.25;
+    white-space: nowrap;
+    color: #000;
+  }
+
+  body.service-page .web-solutions-section .cell p {
+    max-width: 356px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000;
+  }
+}
+
+/* Tablet and mobile: the intro line is now real content, so show it. */
+@media (max-width: 1199px) {
+  body.service-page .web-solutions-section .header > p {
+    display: block !important;
+    margin: 12px 0 0 !important;
+    font-size: clamp(15px, 1.7vw, 16px) !important;
+    line-height: 1.5 !important;
+    color: #000;
+  }
+}
+
+/* "Tools & Technologies We Use for Website Development" (Figma): heading on the
+   left, intro on the right, two rows of logos on the 1240px grid. */
+@media (min-width: 1200px) {
+  body.service-page .tb-section {
+    width: min(1240px, calc(100% - 48px));
+    max-width: none;
+    margin: 72px auto;
+  }
+
+  body.service-page .tb-top {
+    justify-content: flex-start;
+    gap: 92px;
+    margin-bottom: 24px;
+    padding: 0;
+  }
+
+  body.service-page .tb-top-left {
+    max-width: 751px;
+  }
+
+  body.service-page .tb-top-left .tb-heading {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 42px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    color: #000 !important;
+  }
+
+  body.service-page .tb-tagline {
+    max-width: 394px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+  }
+
+  body.service-page .tb-track-wrapper {
+    width: 100%;
+    margin: 0 0 24px;
+  }
+
+  body.service-page .tb-track-wrapper:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+/* "Explore Our Website Development Projects" (class work): heading and intro on top,
+   three project cards, arrows centred underneath (Figma). */
+body.service-page .work .work__inner {
+  width: min(1240px, calc(100% - 48px));
+  max-width: none;
+}
+
+body.service-page .work .work__head {
+  display: flex;
+  width: 100%;
+  min-height: 0;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+body.service-page .work .work__title {
+  flex: 0 1 auto;
+  width: auto;
+  min-width: 0;
+  min-height: 0;
+  max-width: none;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000;
+}
+
+body.service-page .work .work__intro {
+  flex: none;
+  width: 440px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* base.min.css hides .work__nav everywhere; the new design shows the arrows under the cards. */
+body.service-page .work .work__nav--below {
+  display: flex !important;
+  justify-content: center;
+  gap: 24px;
+  padding: 40px 0 0;
+}
+
+@media (max-width: 1199px) {
+  body.service-page .work .work__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  body.service-page .work .work__title {
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  body.service-page .work .work__intro {
+    width: auto;
+    max-width: 560px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page .work .work__inner {
+    width: calc(100% - 32px);
+  }
+
+  body.service-page .work .work__title {
+    font-size: 26px !important;
+  }
+
+  body.service-page .work .work__nav--below {
+    padding-top: 24px;
+  }
+}

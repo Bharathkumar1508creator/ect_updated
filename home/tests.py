@@ -192,9 +192,9 @@ class ImageUploadOptimizationTests(TestCase):
 
 class MediaReferenceCommandTests(TestCase):
     def setUp(self):
-        # Blog data migrations seed production records whose files deliberately
-        # live outside this test's isolated MEDIA_ROOT.
+        # Seeded content lives outside this test's temporary MEDIA_ROOT.
         PublishedBlog.objects.all().delete()
+        Project.objects.all().delete()
         self.category = ProjectCategory.objects.create(
             name="Media validation", slug="media-validation", status="published"
         )
@@ -550,10 +550,15 @@ class ProjectFunctionalityTests(TestCase):
         self.assertContains(response, "Explore the next website")
 
     def test_our_work_proxy_contains_only_website_projects(self):
-        website_category = ProjectCategory.objects.create(name="Website Development", slug="website-development", status="published")
+        website_category, _ = ProjectCategory.objects.get_or_create(
+            slug="website-development",
+            defaults={"name": "Website Development", "status": "published"},
+        )
         website = Project.objects.create(category=website_category, title="Website", slug="website", status="published")
-        Project.objects.create(category=self.digital_category, title="Social", slug="social", status="published")
-        self.assertEqual(list(WebsiteProject.objects.filter(category__slug="website-development")), [website])
+        social = Project.objects.create(category=self.digital_category, title="Social", slug="social", status="published")
+        website_projects = WebsiteProject.objects.filter(category__slug="website-development")
+        self.assertIn(website, website_projects)
+        self.assertNotIn(social, website_projects)
 
     def test_youtube_project_renders_privacy_enhanced_embed(self):
         project = Project.objects.create(

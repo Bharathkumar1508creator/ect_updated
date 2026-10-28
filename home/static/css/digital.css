@@ -2293,7 +2293,7 @@ body.digital-page {
 
   color: #000000;
   font-family: "Montserrat", sans-serif;
-  font-size: 48.83px;
+  font-size: 42px;
   font-style: normal;
   font-weight: 700;
   line-height: 1.25;
@@ -2301,7 +2301,8 @@ body.digital-page {
 }
 
 .digital-page .hero__subtitle {
-  margin: 18px 0 0;
+  width: min(880px, 100%);
+  margin: 24px auto 0;
 
   color: #000000;
   font-family: "Montserrat", sans-serif;
@@ -2313,8 +2314,8 @@ body.digital-page {
 }
 
 .digital-page .hero__cta {
-  min-width: 269px;
-  height: 48px;
+  min-width: 0;
+  height: 36px;
   margin-top: 24px;
   padding: 8px 10px;
 
@@ -2322,18 +2323,19 @@ body.digital-page {
   align-items: center;
   justify-content: center;
 
-  border: 1px solid #F1F1EF;
+  border: 0;
   border-radius: 8px;
 
   background: var(--dm-green);
   color: #FFFFFF;
 
-  font-family: "Outfit", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 1.5;
+  font-weight: 600;
+  line-height: 1.25;
   text-decoration: none;
+  white-space: nowrap;
 
   transition:
     transform 180ms ease,
@@ -2481,7 +2483,7 @@ body.digital-page {
   }
 
   .digital-page .hero__title {
-    font-size: clamp(38px, 5.4vw, 48.83px);
+    font-size: clamp(30px, 4.2vw, 42px);
   }
 
   .digital-page .hero__image-wrap {
@@ -2497,18 +2499,21 @@ body.digital-page {
   }
 
   .digital-page .hero__title {
-    font-size: clamp(30px, 9vw, 38px);
+    font-size: clamp(24px, 7vw, 32px);
   }
 
   .digital-page .hero__subtitle {
-    margin-top: 14px;
+    margin-top: 16px;
   }
 
   .digital-page .hero__cta {
     width: 100%;
     min-width: 0;
     max-width: 300px;
+    height: auto;
+    min-height: 36px;
     margin-top: 20px;
+    white-space: normal;
   }
 
   .digital-page .hero__image-wrap {
