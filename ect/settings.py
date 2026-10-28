@@ -221,7 +221,7 @@ STORAGES = {
 }
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = Path(os.environ.get('DJANGO_MEDIA_ROOT') or BASE_DIR / 'media')
 TEST_RUNNER = 'ect.test_runner.IsolatedMediaTestRunner'
 
 # Public blog metadata. Set SITE_URL to the production origin, without a

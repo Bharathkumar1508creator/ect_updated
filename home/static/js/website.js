@@ -101,7 +101,7 @@ mq.addEventListener('change', toggleBreak);
 
 
 (() => {
-  const AUTO_PLAY_DELAY = 2000;
+  const AUTO_PLAY_DELAY = 4500;
   const SLIDE_TRANSITION_DURATION = 240;
 
   const numSlides = 6;
@@ -112,7 +112,7 @@ mq.addEventListener('change', toggleBreak);
       return;
     }
 
-    const tabs = Array.from(section.querySelectorAll(".ect-web-solutions__tab"));
+    const tabs = Array.from(section.querySelectorAll(".ect-web-solutions__tab:not(.ect-web-solutions__tab--clone)"));
     const panels = Array.from(section.querySelectorAll(".ect-web-solutions__panel"));
     const tabList = section.querySelector(".ect-web-solutions__tabs");
     const prevButton = section.querySelector(".ect-web-solutions__arrow--prev");
@@ -134,6 +134,10 @@ mq.addEventListener('change', toggleBreak);
     let transitionTimer = null;
     let isInViewport = false;
     let isPageHidden = document.hidden;
+    let isHovered = false;
+    let railJumpTimer = null;
+    const desktopQuery = window.matchMedia("(min-width: 1200px)");
+    const component = section.querySelector(".ect-web-solutions__component");
 
     function clearAutoplayTimer() {
       if (autoplayTimer !== null) {
@@ -150,7 +154,7 @@ mq.addEventListener('change', toggleBreak);
     }
 
     function canAutoplay() {
-      return isInViewport && !isPageHidden;
+      return isInViewport && !isPageHidden && !isHovered;
     }
 
     function scheduleAutoplay() {
@@ -172,6 +176,58 @@ mq.addEventListener('change', toggleBreak);
         tab.setAttribute("aria-selected", active ? "true" : "false");
         tab.tabIndex = active ? 0 : -1;
       });
+
+      getClones().forEach((clone, cloneIndex) => {
+        clone.classList.toggle("is-active", cloneIndex === index);
+      });
+    }
+
+    // Desktop: copies of the tabs follow the last one, so the strip loops forever.
+    function getClones() {
+      return Array.from(tabList.querySelectorAll(".ect-web-solutions__tab--clone"));
+    }
+
+    function buildClones() {
+      if (getClones().length) return;
+      tabs.forEach((tab, index) => {
+        const clone = tab.cloneNode(true);
+        clone.removeAttribute("id");
+        clone.removeAttribute("aria-controls");
+        clone.setAttribute("aria-hidden", "true");
+        clone.setAttribute("role", "presentation");
+        clone.tabIndex = -1;
+        clone.classList.add("ect-web-solutions__tab--clone");
+        clone.classList.toggle("is-active", index === activeIndex);
+        clone.addEventListener("click", () => goToSlide(index, { force: true }));
+        tabList.appendChild(clone);
+      });
+    }
+
+    function removeClones() {
+      getClones().forEach((clone) => clone.remove());
+    }
+
+    function jumpRail(left) {
+      tabList.scrollTo({ left, behavior: "instant" });
+    }
+
+    function slideRail(previous, next) {
+      if (!desktopQuery.matches) return;
+      const clones = getClones();
+      const last = tabs.length - 1;
+      window.clearTimeout(railJumpTimer);
+
+      if (clones.length && previous === last && next === 0) {
+        // Forward past the last tab: glide onto its copy, then snap back to the original.
+        tabList.scrollTo({ left: clones[0].offsetLeft, behavior: "smooth" });
+        railJumpTimer = window.setTimeout(() => jumpRail(tabs[0].offsetLeft), 700);
+      } else if (clones.length && previous === 0 && next === last) {
+        // Backward before the first tab: snap onto its copy, then glide back.
+        jumpRail(clones[0].offsetLeft);
+        tabList.scrollTo({ left: tabs[last].offsetLeft, behavior: "smooth" });
+      } else {
+        tabList.scrollTo({ left: tabs[next].offsetLeft, behavior: "smooth" });
+      }
     }
 
     function updatePanelContent(index) {
@@ -185,8 +241,10 @@ mq.addEventListener('change', toggleBreak);
     }
 
     function finalizeSlide(index) {
+      const previousIndex = activeIndex;
       activeIndex = index;
       setActiveTab(index);
+      slideRail(previousIndex, index);
       updatePanelContent(index);
     }
 
@@ -267,6 +325,32 @@ mq.addEventListener('change', toggleBreak);
       goToSlide(activeIndex + 1, { force: true });
     });
 
+    // Pause while the cursor is on the tabs or the card; resume when it leaves.
+    if (component) {
+      component.addEventListener("pointerenter", (event) => {
+        if (event.pointerType !== "mouse") return;
+        isHovered = true;
+        clearAutoplayTimer();
+      });
+      component.addEventListener("pointerleave", (event) => {
+        if (event.pointerType !== "mouse") return;
+        isHovered = false;
+        scheduleAutoplay();
+      });
+    }
+
+    function syncRailMode() {
+      if (desktopQuery.matches) {
+        buildClones();
+        jumpRail(tabs[activeIndex].offsetLeft);
+      } else {
+        removeClones();
+        jumpRail(0);
+      }
+    }
+
+    desktopQuery.addEventListener("change", syncRailMode);
+
     document.addEventListener("visibilitychange", () => {
       isPageHidden = document.hidden;
       if (isPageHidden) {
@@ -321,6 +405,7 @@ mq.addEventListener('change', toggleBreak);
     }
 
     finalizeSlide(0);
+    syncRailMode();
     if (!("IntersectionObserver" in window)) {
       scheduleAutoplay();
     }
@@ -490,7 +575,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var section = document.querySelector(".ect-web-solutions");
     var rail = section && section.querySelector(".ect-web-solutions__tabs");
     var tabs = rail ? Array.prototype.slice.call(
-      rail.querySelectorAll(".ect-web-solutions__tab")
+      rail.querySelectorAll(".ect-web-solutions__tab:not(.ect-web-solutions__tab--clone)")
     ) : [];
     var mediaQuery = window.matchMedia("(max-width: 1199px)");
     var scrollTimer = null;

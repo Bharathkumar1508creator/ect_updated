@@ -16,6 +16,7 @@ node_modules/
 
 # Django
 *.log
+*.sqlite3
 staticfiles/
 artifacts/
 

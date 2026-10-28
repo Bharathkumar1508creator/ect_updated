@@ -1,0 +1,139 @@
+/* Website page: "Build a Website That Supports Your Business Growth".
+   Figma: 1240 x 522, text card 559 wide + picture 657 wide, 24px gap. */
+
+.ect-consult,
+.ect-consult * {
+  box-sizing: border-box;
+}
+
+.ect-consult {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  width: min(1240px, calc(100% - 48px));
+  min-height: 522px;
+  margin: 72px auto;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  color: #000;
+}
+
+.ect-consult__card {
+  position: relative;
+  display: flex;
+  flex: 0 0 559px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 32px;
+  border-radius: 24px;
+  background-color: rgba(241, 241, 239, 0.49);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.38 0 0 0 0 0.3 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.ect-consult__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+body.service-page .ect-consult .ect-consult__heading {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-consult__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-consult__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(406px, 100%);
+  min-height: 36px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0c3c01;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.ect-consult__cta:hover {
+  background: #0f4a02;
+  transform: translateY(-2px);
+}
+
+.ect-consult__cta:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.26);
+  outline-offset: 3px;
+}
+
+.ect-consult__media {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #d9d9d9;
+}
+
+.ect-consult__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 1199px) {
+  .ect-consult {
+    flex-direction: column;
+    min-height: 0;
+    margin: 56px auto;
+  }
+
+  .ect-consult__card {
+    flex: none;
+  }
+
+  .ect-consult__media {
+    aspect-ratio: 657 / 522;
+    max-height: 520px;
+  }
+
+  body.service-page .ect-consult .ect-consult__heading {
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .ect-consult {
+    width: calc(100% - 32px);
+    gap: 16px;
+  }
+
+  .ect-consult__card {
+    padding: 24px;
+  }
+
+  body.service-page .ect-consult .ect-consult__heading {
+    font-size: 26px !important;
+  }
+
+  .ect-consult__cta {
+    width: 100%;
+  }
+}

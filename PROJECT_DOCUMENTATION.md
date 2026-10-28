@@ -67,6 +67,7 @@ Required or important variables include:
 
 - `DJANGO_SECRET_KEY`: long, random production secret
 - `DJANGO_DEBUG=False`
+- `DJANGO_MEDIA_ROOT`: persistent media directory also used by the Nginx `/media/` alias
 - `DJANGO_ALLOWED_HOSTS`: deployed domain names
 - `DJANGO_USE_SQLITE=False` in production
 - `DJANGO_CSRF_TRUSTED_ORIGINS`: full HTTPS origins
@@ -198,8 +199,8 @@ Nginx should serve versioned static assets with long-lived immutable caching and
 3. Use a dedicated least-privilege database account.
 4. Install pinned Python and Node dependencies.
 5. Build assets and run `collectstatic`.
-6. Run migrations.
-7. Run `deployment_preflight --production` and resolve every failure.
+6. Set `DJANGO_MEDIA_ROOT` to the persistent directory served by Nginx, then run `python manage.py migrate`. Migration `home.0011` restores the three Our Work case studies and copies any missing bundled project images into that media directory.
+7. Run `deployment_preflight --production` and resolve every failure. It now checks that EcoG Products, Excel Packs, and ICS are published, in addition to checking their media references.
 8. Start Gunicorn with the example systemd service adapted to the real user and paths.
 9. Enable the Nginx site, obtain TLS certificates, and verify redirects.
 10. Check `/health/`, `/ready/`, primary routes, admin login, forms, media, blog, sitemap, robots, and integrations.

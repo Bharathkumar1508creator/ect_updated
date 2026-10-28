@@ -1,0 +1,302 @@
+/* Digital Marketing page: "Building Digital Growth Through Strategy & Creativity".
+   Figma: two columns of tilted photo cards (261 x 325, 225px apart) scroll past a centred
+   text block that stays pinned while the cards move. */
+
+.ect-dm-growth,
+.ect-dm-growth * {
+  box-sizing: border-box;
+}
+
+.ect-dm-growth {
+  display: grid;
+  grid-template-columns: 261px minmax(0, 1fr) 261px;
+  align-items: start;
+  column-gap: 24px;
+  width: min(1359px, calc(100% - 24px));
+  margin: 72px auto;
+  overflow: clip;
+  overflow-clip-margin: 32px;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  color: #000;
+}
+
+/* Each column is a stack: a card scrolls up, pins just under the navbar, and the next
+   card slides up over it (as in the Figma prototype). */
+.ect-dm-growth__col {
+  display: block;
+  padding: 0;
+}
+
+.ect-dm-growth__col--right .ect-dm-growth__card {
+  margin-left: auto;
+}
+
+.ect-dm-growth__card {
+  position: sticky;
+  top: var(--dm-pin-top, 104px);
+  width: 261px;
+  height: 325px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #e9ecef;
+  transform: rotate(var(--tilt, 0deg));
+}
+
+/* The 225px gap sits above each following card, so a pinned card can stay pinned
+   until the last card has landed on top of it. */
+.ect-dm-growth__card + .ect-dm-growth__card {
+  margin-top: 225px;
+}
+
+.ect-dm-growth__card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The text block starts about 217px down, then stays pinned while the cards pass. */
+.ect-dm-growth__center {
+  position: sticky;
+  top: max(110px, 25vh);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 217px;
+  padding: 10px;
+  text-align: center;
+}
+
+body.service-page .ect-dm-growth .ect-dm-growth__heading {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 46.0855px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-dm-growth__text {
+  width: min(758px, 100%);
+  margin: 0;
+  font-size: 15.1007px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-dm-growth__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 251px;
+  max-width: 100%;
+  min-height: 36px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0c3c01;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.ect-dm-growth__cta:hover {
+  background: #0f4a02;
+  transform: translateY(-2px);
+}
+
+.ect-dm-growth__cta:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.26);
+  outline-offset: 3px;
+}
+
+/* Tablet and mobile: text first, then each side's three cards in a row. No pinning. */
+@media (max-width: 1100px) {
+  .ect-dm-growth {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: calc(100% - 48px);
+    margin: 56px auto;
+  }
+
+  .ect-dm-growth__center {
+    position: static;
+    order: -1;
+    margin: 0;
+    padding: 0;
+  }
+
+  body.service-page .ect-dm-growth .ect-dm-growth__heading {
+    font-size: clamp(28px, 5vw, 40px) !important;
+  }
+
+  .ect-dm-growth__col,
+  .ect-dm-growth__col--right {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: 16px;
+    padding: 8px 0;
+  }
+
+  .ect-dm-growth__card,
+  .ect-dm-growth__col--right .ect-dm-growth__card {
+    position: relative;
+    top: auto;
+    margin: 0 !important;
+    flex: 1 1 0;
+    width: auto;
+    max-width: 261px;
+    height: auto;
+    aspect-ratio: 261 / 325;
+  }
+}
+
+@media (max-width: 560px) {
+  .ect-dm-growth {
+    width: calc(100% - 32px);
+  }
+
+  .ect-dm-growth__col {
+    gap: 10px;
+  }
+
+  .ect-dm-growth__card {
+    border-radius: 12px;
+  }
+
+  .ect-dm-growth__cta {
+    width: 100%;
+  }
+}
+
+/* "What Are Digital Marketing Services and How Do They Work?" (Figma: two 608 x 756 cards, 24px gap). */
+.ect-dm-what,
+.ect-dm-what * {
+  box-sizing: border-box;
+}
+
+.ect-dm-what {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: min(1241px, calc(100% - 48px));
+  margin: 72px auto;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  color: #000;
+}
+
+body.service-page .ect-dm-what .ect-dm-what__heading {
+  max-width: 918px;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-dm-what__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.ect-dm-what__card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 756px;
+  padding: 24px;
+  border-radius: 16px;
+  background: #f1f1ef;
+}
+
+.ect-dm-what__card--flip {
+  gap: 16px;
+}
+
+.ect-dm-what__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.ect-dm-what__card--flip .ect-dm-what__copy {
+  gap: 7px;
+}
+
+body.service-page .ect-dm-what .ect-dm-what__title {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 30.51px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #000;
+}
+
+.ect-dm-what__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-dm-what__media {
+  flex: none;
+  height: 464px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.ect-dm-what__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 900px) {
+  .ect-dm-what {
+    margin: 56px auto;
+  }
+
+  body.service-page .ect-dm-what .ect-dm-what__heading {
+    font-size: clamp(28px, 5vw, 36px) !important;
+  }
+
+  .ect-dm-what__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ect-dm-what__card {
+    min-height: 0;
+  }
+
+  .ect-dm-what__media {
+    height: auto;
+    aspect-ratio: 560 / 464;
+  }
+}
+
+@media (max-width: 560px) {
+  .ect-dm-what {
+    width: calc(100% - 32px);
+  }
+
+  .ect-dm-what__card {
+    padding: 16px;
+  }
+
+  body.service-page .ect-dm-what .ect-dm-what__title {
+    font-size: 24px;
+  }
+}
