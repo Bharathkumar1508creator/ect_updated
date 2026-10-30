@@ -18,7 +18,7 @@ mq.addEventListener('change', toggleBreak);
   const SLIDE_TRANSITION_DURATION = 240;
 
   document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll(".ect-web-solutions");
+    const sections = document.querySelectorAll(".ect-web-solutions:not([data-panels])");
     sections.forEach((section) => {
       const tabs = Array.from(section.querySelectorAll(".ect-web-solutions__tab"));
       const numSlides = tabs.length;

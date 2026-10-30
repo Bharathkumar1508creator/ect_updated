@@ -1,0 +1,47 @@
+/* IT Infrastructure page: "Empower Your Workforce with Secure Cloud Workspace Solutions" (Figma).
+   Same section as the Zoho "Bring Your Entire Business Together with Zoho One" (zoho-one.css),
+   with five cards (green, grey, green, grey, green). Heading 770px, intro 440px. The picture
+   shows its alt text until an image is added. */
+
+body.service-page .ect-infra-cloud .ect-zoho-one__heading {
+  flex: 0 1 770px;
+}
+
+body.service-page .ect-infra-cloud .ect-zoho-one__header {
+  gap: 30px;
+}
+
+.ect-infra-cloud .ect-zoho-one__intro {
+  flex: 0 0 440px;
+}
+
+@media (min-width: 1200px) {
+  .ect-infra-cloud .ect-zoho-one__card:nth-child(1) .ect-zoho-one__title { max-width: 439px; }
+  .ect-infra-cloud .ect-zoho-one__card:nth-child(2) .ect-zoho-one__title { max-width: 567px; }
+  .ect-infra-cloud .ect-zoho-one__card:nth-child(3) .ect-zoho-one__title { max-width: 521px; }
+  .ect-infra-cloud .ect-zoho-one__card:nth-child(4) .ect-zoho-one__title { max-width: 567px; }
+  .ect-infra-cloud .ect-zoho-one__card:nth-child(5) .ect-zoho-one__title { max-width: 521px; }
+}
+
+.ect-infra-cloud .ect-zoho-one__media img:not([src]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 1199px) {
+  .ect-infra-cloud .ect-zoho-one__intro { flex: none; }
+}
+
+/* The page's body overflow-x:hidden turns body into a scroll box and stops position:sticky;
+   clip hides sideways overflow the same way without that side effect. */
+body.service-page {
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}

@@ -30,14 +30,19 @@
   //   4  card 1 left, card 4 arrived (cards 2, 3, 4)
   //   5  card 2 left, card 5 arrived (cards 3, 4, 5); the next scroll leaves the section
   const FIRST_STATE = 1;
-  const LAST_STATE = 5;
+  // States 1 to 3 are fixed; each card after the third adds one more state (5 cards: 5 states).
+  const LAST_STATE = Math.max(3, cards.length);
   const INTERVALS = LAST_STATE - FIRST_STATE; // 4 scroll intervals, one screen each
+  // The runway is one screen per interval plus the screen it is pinned on (5 cards: 500vh, 4 cards: 400vh),
+  // so every state sits exactly one screen of scrolling after the one before it.
+  section.style.setProperty("--why-runway-h", `${(INTERVALS + 1) * 100}vh`);
   const SLOTS = 3;
   const GAP = 24;
   // Exact Figma card: 466 x 658, picture 323 high. Never resized, only scaled as a whole if the screen is short.
   const CARD_WIDTH = 466;
-  const CARD_HEIGHT = 658;
-  const MEDIA_HEIGHT = 323;
+  // A page whose cards have shorter text can set data-card-height / data-media-height on the section.
+  const CARD_HEIGHT = Number(section.dataset.cardHeight) || 658;
+  const MEDIA_HEIGHT = Number(section.dataset.mediaHeight) || 298;
   // How long each move takes, in ms: 1->2, 2->3, 3->4, 4->5, and the glide into the section.
   const STATE_DURATIONS = [1800, 3000, 1900, 1900];
   const ENTRY_MS = 1300;
@@ -97,7 +102,13 @@
     const scale = Math.min(1, vh / (250 + cardHeight));
     const width = vw / scale;
     const height = vh / scale;
-    const left = (width - 1240) / 2;
+    // The title and arrows line up with the page column, exactly where the other section titles
+    // start. The scene may be scaled on short screens, so the screen position is converted back.
+    const clientWidth = document.documentElement.clientWidth;
+    const columnWidth = Math.min(1240, clientWidth - 48);
+    const columnLeft = (clientWidth - columnWidth) / 2;
+    const left = columnLeft / scale;
+    const columnRight = (columnLeft + columnWidth) / scale;
 
     // Three cards, 466px wide with 24px gaps, centred on the screen (as in the 1440px Figma frame).
     const step = CARD_WIDTH + GAP;
@@ -137,7 +148,7 @@
       leadY: introTop + 106 + 8,
       ctaX: (width - 349) / 2,
       ctaY: introTop + 106 + 8 + leadHeight + 16,
-      controlsX: left + 1240 - 100,
+      controlsX: columnRight - 100,
       controlsY: headerTop + 64,
       cardsTop: headerTop + 130,
       logoFrom: { x: from.x, y: Math.max(from.y, 20) },

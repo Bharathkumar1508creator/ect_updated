@@ -1,0 +1,59 @@
+/* IT Infrastructure page: "Keep Your Business Running with Proactive IT Support and Maintenance" (Figma).
+   Same section as the HR "Strengthen Employee Performance" (hr-performance.css) with the header stacked:
+   heading 871px, intro 824px beneath it; five rows with 16px gaps; a 470 x 605 picture on the right. */
+
+.ect-infra-sup .ect-hr-perf__header {
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+body.service-page .ect-infra-sup .ect-hr-perf__heading {
+  flex: none;
+  max-width: 871px;
+}
+
+.ect-infra-sup .ect-hr-perf__intro {
+  flex: none;
+  max-width: 824px;
+  margin: 0;
+}
+
+.ect-infra-sup .ect-hr-perf__body {
+  grid-template-columns: minmax(0, 1fr) 470px;
+}
+
+.ect-infra-sup .ect-hr-perf__list {
+  gap: 16px;
+}
+
+.ect-infra-sup .ect-hr-perf__item:last-child {
+  margin-top: 0;
+}
+
+.ect-infra-sup .ect-hr-perf__item:nth-child(3) .ect-hr-perf__title {
+  max-width: none;
+  white-space: nowrap;
+}
+
+.ect-infra-sup .ect-hr-perf__media {
+  min-height: 605px;
+}
+
+@media (max-width: 1199px) {
+  .ect-infra-sup .ect-hr-perf__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ect-infra-sup .ect-hr-perf__media {
+    min-height: 320px;
+  }
+}
+
+/* "Trusted Technologies Powering Our IT Infrastructure Solutions": intro box is 338px wide in Figma. */
+@media (min-width: 1200px) {
+  body.service-page .tb-section .tb-tagline--top {
+    flex: 0 0 338px;
+    max-width: 338px;
+  }
+}

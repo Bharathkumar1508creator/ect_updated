@@ -272,7 +272,8 @@
     letter-spacing:-.025em;
 }
 
-.ect-contact-popup-head h2 span{color:#5B6D49}
+/* !important: some pages carry a page-wide "h2 span { color: #fff !important }" rule that hid this text. */
+.ect-contact-popup-head h2 span{color:#5B6D49 !important}
 
 .ect-contact-popup-head p{
     max-width:650px;
@@ -393,3 +394,25 @@
 }
 
 body.ect-contact-popup-open{overflow:hidden!important;}
+
+/* Some pages carry a page-wide "section { padding: 0 !important; margin-bottom: 100px !important }" rule
+   (the Zoho page does). The dialog is a <section>, so it lost its top and bottom padding. */
+.ect-contact-popup .ect-contact-dialog{
+    padding-top:42px !important;
+    padding-bottom:38px !important;
+    margin:0 !important;
+}
+
+@media (max-width:900px){
+    .ect-contact-popup .ect-contact-dialog{
+        padding-top:36px !important;
+        padding-bottom:30px !important;
+    }
+}
+
+@media (max-width:640px){
+    .ect-contact-popup .ect-contact-dialog{
+        padding-top:34px !important;
+        padding-bottom:24px !important;
+    }
+}

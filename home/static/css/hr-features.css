@@ -1,0 +1,46 @@
+/* HR page: "Find the Right People for the Right Roles with Strategic Recruitment".
+   Same stacking cards as the website page (website-features.css / website-features.js).
+   Until a picture is added the img has no src, so its alt text shows in the grey box. */
+
+.ect-hr-features .ect-key-features__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ect-hr-features .ect-key-features__media img:not([src]) {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Figma header: heading 784px wide (two lines), intro 421px wide, both at the top. */
+@media (min-width: 1200px) {
+  .ect-hr-features .ect-key-features__header {
+    align-items: flex-start;
+    gap: 35px;
+  }
+
+  body.service-page .ect-hr-features .ect-key-features__heading {
+    max-width: 784px;
+  }
+
+  .ect-hr-features .ect-key-features__intro {
+    max-width: 421px;
+    margin-top: 11px;
+  }
+}
+
+/* The stacking cards use position: sticky. On the HR page the body had overflow-x: hidden, which turns
+   the body into its own scroll box (it never scrolls), so sticky had nothing to stick to and the cards
+   just scrolled away. "clip" still stops sideways scrolling but does not create a scroll box. */
+body.hr-page {
+  overflow-x: clip !important;
+  overflow-y: visible !important;
+}

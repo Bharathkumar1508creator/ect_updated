@@ -1,0 +1,213 @@
+/* HR page: "Building a More Strategic HR Function" (Figma).
+   Heading (625px) + intro (477px). Below: a tall light card on the left (503 x 560) and two green
+   cards on the right (713 x 268 each, 24px apart). Until pictures are added each img has no src,
+   so its alt text shows in the white box. */
+
+.ect-hr-strat,
+.ect-hr-strat * {
+  box-sizing: border-box;
+}
+
+.ect-hr-strat {
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-hr-strat__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 27px;
+}
+
+body.service-page .ect-hr-strat .ect-hr-strat__heading,
+body.hr-page .ect-hr-strat .ect-hr-strat__heading {
+  flex: 0 1 625px;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-hr-strat__intro {
+  flex: 0 0 477px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-hr-strat__grid {
+  display: grid;
+  grid-template-columns: 503px minmax(0, 713px);
+  grid-template-rows: 268px 268px;
+  gap: 24px;
+}
+
+.ect-hr-strat__card {
+  display: flex;
+  border-radius: 16px;
+}
+
+.ect-hr-strat__card--tall {
+  grid-row: 1 / span 2;
+  flex-direction: column;
+  padding: 16px;
+  background: rgba(241, 241, 239, 0.8);
+  color: #000;
+}
+
+.ect-hr-strat__card--green {
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: #5b6d49;
+  background-image: url("../img/noise-on-green.png");
+  background-size: 320px 320px;
+  color: #fff;
+}
+
+.ect-hr-strat__copy {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+body.service-page .ect-hr-strat .ect-hr-strat__title,
+body.hr-page .ect-hr-strat .ect-hr-strat__title {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 30.51px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: inherit;
+}
+
+.ect-hr-strat__card--tall .ect-hr-strat__title {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.ect-hr-strat__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: inherit;
+}
+
+.ect-hr-strat__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.ect-hr-strat__media--wide {
+  flex: none;
+  height: 333px;
+}
+
+.ect-hr-strat__media--a {
+  flex: none;
+  width: 300px;
+  height: 236px;
+}
+
+.ect-hr-strat__media--b {
+  flex: none;
+  width: 355px;
+  height: 236px;
+}
+
+.ect-hr-strat__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* No src yet: the browser shows the alt text, centred, until a picture is added. */
+.ect-hr-strat__media img:not([src]) {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Figma text widths. */
+@media (min-width: 1200px) {
+  .ect-hr-strat__card--tall .ect-hr-strat__title { max-width: 442px; }
+  .ect-hr-strat__card--tall .ect-hr-strat__text { max-width: 453px; }
+}
+
+/* Tablet and mobile: stacked. */
+@media (max-width: 1199px) {
+  .ect-hr-strat {
+    margin: 56px auto;
+  }
+
+  .ect-hr-strat__header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  body.service-page .ect-hr-strat .ect-hr-strat__heading,
+  body.hr-page .ect-hr-strat .ect-hr-strat__heading {
+    flex: none;
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-hr-strat__intro {
+    flex: none;
+    max-width: 640px;
+  }
+
+  .ect-hr-strat__grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+  }
+
+  .ect-hr-strat__card--tall {
+    grid-row: auto;
+  }
+
+  .ect-hr-strat__card--green {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ect-hr-strat__media--wide,
+  .ect-hr-strat__media--a,
+  .ect-hr-strat__media--b {
+    width: 100%;
+    height: auto;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-hr-strat {
+    width: calc(100% - 32px);
+  }
+
+  body.service-page .ect-hr-strat .ect-hr-strat__title,
+  body.hr-page .ect-hr-strat .ect-hr-strat__title {
+    font-size: 24px;
+  }
+}

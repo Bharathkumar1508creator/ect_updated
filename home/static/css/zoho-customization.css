@@ -1,0 +1,239 @@
+/* Zoho page: "Customize and Connect Your Business with Zoho Solutions" (Figma).
+   Heading (712px) + intro (422px); two 608px white feature cards (picture 302px + text);
+   three 424px cards (title, text, picture filling the rest, edge to edge); soft green
+   glows behind the gaps. Until pictures are added each img has no src, so its alt text shows. */
+
+.ect-zoho-custom,
+.ect-zoho-custom * {
+  box-sizing: border-box;
+}
+
+.ect-zoho-custom {
+  position: relative;
+  isolation: isolate;
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+/* Blurred green glows (Figma ellipses: #5B6D49 to #B0D38D, 168 x 156). */
+.ect-zoho-custom__glow {
+  position: absolute;
+  z-index: -1;
+  width: 168px;
+  height: 156px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #5b6d49 0%, #b0d38d 100%);
+  pointer-events: none;
+}
+
+.ect-zoho-custom__glow--a {
+  top: 608px;
+  left: calc(50% - 88px);
+  filter: blur(88px);
+}
+
+.ect-zoho-custom__glow--b {
+  top: 891px;
+  left: calc(50% - 304px);
+  filter: blur(117px);
+}
+
+.ect-zoho-custom__glow--c {
+  top: 891px;
+  left: calc(50% + 115px);
+  filter: blur(117px);
+}
+
+.ect-zoho-custom__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+
+body.service-page .ect-zoho-custom .ect-zoho-custom__heading,
+body.zoho-page .ect-zoho-custom .ect-zoho-custom__heading {
+  flex: 0 1 712px;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-zoho-custom__intro {
+  flex: 0 0 422px;
+  margin: 23px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-zoho-custom__top {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.ect-zoho-custom__feature {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.ect-zoho-custom__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 17px 16px 16px;
+}
+
+.ect-zoho-custom__row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.ect-zoho-custom__card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 424px;
+  padding: 16px 16px 0;
+  background: #fff;
+}
+
+body.service-page .ect-zoho-custom .ect-zoho-custom__title,
+body.zoho-page .ect-zoho-custom .ect-zoho-custom__title {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #000;
+}
+
+.ect-zoho-custom__title--narrow {
+  max-width: 503px;
+}
+
+.ect-zoho-custom__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-zoho-custom__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+}
+
+.ect-zoho-custom__media--wide {
+  flex: none;
+  height: 302px;
+  background: #d9d9d9;
+}
+
+/* The small cards: the picture fills what is left of the card, edge to edge. */
+.ect-zoho-custom__media--small {
+  flex: 1 1 0;
+  min-height: 0;
+  margin: 0 -16px;
+  background: #82b1cf;
+}
+
+.ect-zoho-custom__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* No src yet: the browser shows the alt text, centred, until a picture is added. */
+.ect-zoho-custom__media img:not([src]) {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 16px;
+  color: #0c3c01;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Figma title boxes of the three cards are a little wider than the text column: 373 / 381 / 395px. */
+@media (min-width: 1200px) {
+  .ect-zoho-custom__card:nth-child(1) .ect-zoho-custom__title { width: 373px; max-width: none; }
+  .ect-zoho-custom__card:nth-child(2) .ect-zoho-custom__title { width: 381px; max-width: none; }
+  .ect-zoho-custom__card:nth-child(3) .ect-zoho-custom__title { width: 395px; max-width: none; }
+}
+
+/* Tablet and mobile: stacked, no glows. */
+@media (max-width: 1199px) {
+  .ect-zoho-custom {
+    margin: 56px auto;
+  }
+
+  .ect-zoho-custom__glow {
+    display: none;
+  }
+
+  .ect-zoho-custom__header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  body.service-page .ect-zoho-custom .ect-zoho-custom__heading,
+  body.zoho-page .ect-zoho-custom .ect-zoho-custom__heading {
+    flex: none;
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-zoho-custom__intro {
+    flex: none;
+    max-width: 640px;
+    margin: 0;
+  }
+
+  .ect-zoho-custom__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ect-zoho-custom__card {
+    height: auto;
+    min-height: 424px;
+  }
+
+  .ect-zoho-custom__media--small {
+    flex: none;
+    height: 173px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-zoho-custom {
+    width: calc(100% - 32px);
+  }
+
+  .ect-zoho-custom__top,
+  .ect-zoho-custom__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.service-page .ect-zoho-custom .ect-zoho-custom__title,
+  body.zoho-page .ect-zoho-custom .ect-zoho-custom__title {
+    font-size: 24px;
+  }
+}

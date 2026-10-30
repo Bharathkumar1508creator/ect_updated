@@ -193,7 +193,7 @@ body.service-page .ect-why .ect-why__heading {
 
 .ect-why[data-mode="scene"] .ect-why__runway {
   position: relative;
-  height: 500vh;
+  height: var(--why-runway-h, 500vh);
 }
 
 .ect-why[data-mode="scene"] .ect-why__scene {
@@ -358,7 +358,7 @@ body.service-page .ect-why[data-mode="scene"] .ect-why__heading {
 
 .ect-why[data-mode="scene"] .ect-why__media {
   flex: none;
-  height: var(--why-media-h, 323px);
+  height: var(--why-media-h, 298px);
 }
 
 .ect-why[data-mode="scene"] .ect-why__text {

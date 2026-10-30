@@ -1,0 +1,53 @@
+/* HR page: "Building a Complete HR Lifecycle" (Figma).
+   Same section as the Digital and Zoho industries sections (digital-industries.css):
+   picture + card (340px tall), then rows of 396 x 298 cards; the last slot is a picture.
+   Heading 729px wide, intro 422px wide in small text, as in Figma. */
+
+.ect-dm-ind--hr .ect-dm-ind__header {
+  margin-bottom: 34px;
+}
+
+body.service-page .ect-dm-ind--hr .ect-dm-ind__heading,
+body.hr-page .ect-dm-ind--hr .ect-dm-ind__heading {
+  max-width: 729px;
+}
+
+.ect-dm-ind--hr .ect-dm-ind__intro {
+  width: 422px;
+  margin-top: 61px;
+  font-family: "Inter", "Montserrat", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+/* Rows two and three are 298px tall; the first row keeps its 340px. */
+.ect-dm-ind--hr .ect-dm-ind__grid {
+  grid-template-rows: 340px 298px 298px;
+}
+
+.ect-dm-ind--hr .ect-dm-ind__card:not(.ect-dm-ind__card--wide) {
+  min-height: 298px;
+}
+
+.ect-dm-ind--hr .ect-dm-ind__image--small {
+  grid-column: span 5;
+  height: 298px;
+}
+
+@media (max-width: 1199px) {
+  .ect-dm-ind--hr .ect-dm-ind__intro {
+    width: auto;
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .ect-dm-ind--hr .ect-dm-ind__grid {
+    grid-template-rows: none;
+  }
+
+  .ect-dm-ind--hr .ect-dm-ind__image--small {
+    grid-column: auto;
+    height: 220px;
+  }
+}

@@ -83,7 +83,8 @@ mq.addEventListener('change', toggleBreak);
 
   document.addEventListener("DOMContentLoaded", () => {
     const section = document.querySelector(".ect-web-solutions");
-    if (!section) {
+    // Sections built from separate panels are driven by digital-solutions.js.
+    if (!section || section.hasAttribute("data-panels")) {
       return;
     }
 
@@ -331,7 +332,7 @@ mq.addEventListener('change', toggleBreak);
     var section = document.querySelector(".ect-web-solutions");
     var rail = section && section.querySelector(".ect-web-solutions__tabs");
     var tabs = rail ? Array.prototype.slice.call(
-      rail.querySelectorAll(".ect-web-solutions__tab")
+      rail.querySelectorAll(".ect-web-solutions__tab:not(.ect-web-solutions__tab--clone)")
     ) : [];
     var mediaQuery = window.matchMedia("(max-width: 1199px)");
     var scrollTimer = null;

@@ -292,3 +292,15 @@
     transition: none;
   }
 }
+
+/* Sections with a different number of cards: no special small text on the fourth card. */
+.website-benefits--compact .website-benefits__card:nth-child(4) p {
+  font-size: 15px;
+}
+
+/* On desktop a click brings any card to the centre. */
+@media (min-width: 1025px) {
+  .website-benefits__card {
+    cursor: pointer;
+  }
+}

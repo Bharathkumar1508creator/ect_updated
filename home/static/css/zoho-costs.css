@@ -1,0 +1,252 @@
+/* Zoho page: "Understanding Zoho Consulting and Implementation Costs" (Figma).
+   Heading (715px) and intro (368px) on one row, 153px apart. Below, six grey cards placed on a
+   1240 x 934 stage with the ECOG leaf logo in the middle. Until pictures are added each img has
+   no src, so its alt text shows in the white picture box. */
+
+.ect-zoho-cost,
+.ect-zoho-cost * {
+  box-sizing: border-box;
+}
+
+.ect-zoho-cost {
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-zoho-cost__header {
+  display: flex;
+  align-items: flex-end;
+  gap: 153px;
+  margin-bottom: 24px;
+}
+
+body.service-page .ect-zoho-cost .ect-zoho-cost__heading,
+body.zoho-page .ect-zoho-cost .ect-zoho-cost__heading {
+  flex: 0 1 715px;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-zoho-cost__intro {
+  flex: 0 0 368px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-zoho-cost__link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.ect-zoho-cost__stage {
+  position: relative;
+  height: 934px;
+}
+
+.ect-zoho-cost__logo {
+  position: absolute;
+  left: 547px;
+  top: 405px;
+  width: 126px;
+  height: 124px;
+  object-fit: contain;
+}
+
+.ect-zoho-cost__card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-radius: 16px;
+  background-color: #f1f1ef;
+  background-image: url("../img/noise-on-gray.png");
+  background-size: 320px 320px;
+}
+
+.ect-zoho-cost__card--a { left: 0;     top: 0;   width: 503px; height: 205px; }
+.ect-zoho-cost__card--b { left: 0;     top: 221px; width: 503px; height: 339px; }
+.ect-zoho-cost__card--c { left: 527px; top: 0;   width: 713px; height: 343px; }
+.ect-zoho-cost__card--d { left: 719px; top: 369px; width: 521px; height: 287px; }
+.ect-zoho-cost__card--e { left: 0;     top: 587px; width: 695px; height: 343px; }
+.ect-zoho-cost__card--f { left: 719px; top: 681px; width: 521px; height: 251px; }
+
+.ect-zoho-cost__card--b,
+.ect-zoho-cost__card--d {
+  padding: 24px;
+}
+
+.ect-zoho-cost__card--e {
+  padding: 16px;
+  gap: 15px;
+}
+
+.ect-zoho-cost__copy {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+body.service-page .ect-zoho-cost .ect-zoho-cost__title,
+body.zoho-page .ect-zoho-cost .ect-zoho-cost__title {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 30.51px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #000;
+}
+
+.ect-zoho-cost__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-zoho-cost__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.ect-zoho-cost__card--b .ect-zoho-cost__media,
+.ect-zoho-cost__card--d .ect-zoho-cost__media {
+  width: 100%;
+  height: 100%;
+}
+
+.ect-zoho-cost__card--c .ect-zoho-cost__media {
+  flex: none;
+  width: 300px;
+  height: 100%;
+}
+
+.ect-zoho-cost__card--c .ect-zoho-cost__copy {
+  flex: 0 0 355px;
+}
+
+.ect-zoho-cost__card--e .ect-zoho-cost__media {
+  flex: none;
+  width: 300px;
+  height: 100%;
+}
+
+.ect-zoho-cost__card--e .ect-zoho-cost__copy {
+  flex: 0 0 333px;
+}
+
+.ect-zoho-cost__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* No src yet: the browser shows the alt text, centred, until a picture is added. */
+.ect-zoho-cost__media img:not([src]) {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Tablet and mobile: simple stack. */
+@media (max-width: 1199px) {
+  .ect-zoho-cost {
+    margin: 56px auto;
+  }
+
+  .ect-zoho-cost__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  body.service-page .ect-zoho-cost .ect-zoho-cost__heading,
+  body.zoho-page .ect-zoho-cost .ect-zoho-cost__heading {
+    flex: none;
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-zoho-cost__intro {
+    flex: none;
+    max-width: 640px;
+  }
+
+  .ect-zoho-cost__stage {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    height: auto;
+  }
+
+  .ect-zoho-cost__logo {
+    display: none;
+  }
+
+  .ect-zoho-cost__card,
+  .ect-zoho-cost__card--a,
+  .ect-zoho-cost__card--b,
+  .ect-zoho-cost__card--c,
+  .ect-zoho-cost__card--d,
+  .ect-zoho-cost__card--e,
+  .ect-zoho-cost__card--f {
+    position: static;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+  }
+
+  .ect-zoho-cost__card--c .ect-zoho-cost__copy,
+  .ect-zoho-cost__card--e .ect-zoho-cost__copy {
+    flex: none;
+  }
+
+  .ect-zoho-cost__media,
+  .ect-zoho-cost__card--b .ect-zoho-cost__media,
+  .ect-zoho-cost__card--c .ect-zoho-cost__media,
+  .ect-zoho-cost__card--d .ect-zoho-cost__media,
+  .ect-zoho-cost__card--e .ect-zoho-cost__media {
+    flex: none;
+    width: 100%;
+    height: auto;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-zoho-cost {
+    width: calc(100% - 32px);
+  }
+
+  .ect-zoho-cost__stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.service-page .ect-zoho-cost .ect-zoho-cost__title,
+  body.zoho-page .ect-zoho-cost .ect-zoho-cost__title {
+    font-size: 24px;
+  }
+}

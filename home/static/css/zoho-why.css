@@ -1,0 +1,5 @@
+/* Zoho page: the page-wide rule "h2 span { color: #fff !important }" turned the two heading lines
+   of the "Why Choose" scene white. Let them follow the heading colour (the scene animates it). */
+body.service-page .ect-why .ect-why__heading .ect-why__line {
+  color: inherit !important;
+}

@@ -1,0 +1,44 @@
+/* HR page hero (Figma): heading 921px wide, 42px / 700; intro 748px wide, 16px; 188 x 36 button;
+   then the 1240 x 552 video. Heading 8px above the intro, intro 16px above the button,
+   button 24px above the video. The video itself is unchanged. */
+
+body.hr-page .hero__cta {
+  width: 188px;
+  min-height: 36px;
+  height: 36px;
+  border: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+@media (min-width: 1200px) {
+  body.hr-page .hero__title {
+    width: min(921px, 100%);
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 42px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    color: #000 !important;
+  }
+
+  body.hr-page .hero__subtitle {
+    width: min(748px, 100%);
+    margin: 8px auto 0;
+  }
+
+  body.hr-page .hero__cta {
+    margin-top: 16px;
+  }
+
+  body.hr-page .hero__image-wrap {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 1199px) {
+  body.hr-page .hero__cta {
+    height: auto;
+    min-height: 44px;
+  }
+}

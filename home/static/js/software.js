@@ -105,7 +105,7 @@ mq.addEventListener('change', toggleBreak);
   "use strict";
 
   function initResponsiveTopicRail() {
-    var section = document.querySelector(".ect-web-solutions");
+    var section = document.querySelector(".ect-web-solutions:not([data-panels])");
     var rail = section && section.querySelector(".ect-web-solutions__tabs");
     var tabs = rail ? Array.prototype.slice.call(
       rail.querySelectorAll(".ect-web-solutions__tab")
@@ -190,7 +190,7 @@ mq.addEventListener('change', toggleBreak);
   const numSlides = 6;
 
   document.addEventListener("DOMContentLoaded", () => {
-    const section = document.querySelector(".ect-web-solutions");
+    const section = document.querySelector(".ect-web-solutions:not([data-panels])");
     if (!section) {
       return;
     }

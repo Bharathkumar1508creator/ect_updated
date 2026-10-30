@@ -1,0 +1,37 @@
+/* Software page: key features of the custom software (six cards).
+   Same stacking cards as the website page's "Key Features of Our Professional Websites"
+   (website-features.css / website-features.js): 417px cards, alternating light green and grey, each one
+   pinning while the next slides over it. Until a picture is added the img has no src, so its alt text shows. */
+
+.ect-sw-features .ect-key-features__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ect-sw-features .ect-key-features__media img:not([src]) {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Header as in Figma: heading 722px wide (three lines), intro 421px wide, bottoms level, 16px above the cards. */
+@media (min-width: 1200px) {
+  .ect-sw-features .ect-key-features__header {
+    margin-bottom: 16px;
+  }
+
+  body.service-page .ect-sw-features .ect-key-features__heading {
+    max-width: 722px;
+  }
+
+  .ect-sw-features .ect-key-features__intro {
+    max-width: 421px;
+  }
+}

@@ -1,0 +1,8 @@
+/* Zoho page: "End-to-End Zoho Consulting, Implementation and Business Solutions".
+   Same section as the website page. Figma breaks the heading after "Consulting," on desktop;
+   on tablet and mobile it wraps naturally. */
+@media (max-width: 1199px) {
+  .zoho-solutions__break {
+    display: none;
+  }
+}

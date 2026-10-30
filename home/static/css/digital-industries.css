@@ -1,0 +1,200 @@
+/* Digital Marketing page: "Digital Marketing Solutions for Businesses Across All Industries" (Figma).
+   1240px wide, rows 340px tall, 24px gaps: picture 737 + card 474, then three cards of 396.
+   The sage zigzag shows only on the card under the cursor (or focused); no card is active otherwise. */
+
+.ect-dm-ind,
+.ect-dm-ind * {
+  box-sizing: border-box;
+}
+
+.ect-dm-ind {
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-dm-ind__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 14px;
+}
+
+body.service-page .ect-dm-ind .ect-dm-ind__heading {
+  max-width: 838px;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-dm-ind__intro {
+  flex: none;
+  width: 319px;
+  margin: 26px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-dm-ind__link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.ect-dm-ind__grid {
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.ect-dm-ind__image {
+  grid-column: span 9;
+  height: 340px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #f1f1ef;
+  background-image: url("../img/noise-on-gray.png");
+  background-size: 320px 320px;
+}
+
+.ect-dm-ind__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ect-dm-ind__card {
+  position: relative;
+  grid-column: span 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 340px;
+  padding: 16px 26px 16px 16px;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #f1f1ef;
+  background-image: url("../img/noise-on-gray.png");
+  background-size: 320px 320px;
+  isolation: isolate;
+}
+
+.ect-dm-ind__card--wide {
+  grid-column: span 6;
+  padding: 24px;
+}
+
+/* The zigzag brush stroke. */
+.ect-dm-ind__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("../img/zigzag.svg") center / cover no-repeat;
+  opacity: 0;
+  transition: opacity 600ms ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .ect-dm-ind__card:hover::before {
+    opacity: 1;
+  }
+}
+
+.ect-dm-ind__card:focus-within::before {
+  opacity: 1;
+}
+
+body.service-page .ect-dm-ind .ect-dm-ind__title {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #000;
+}
+
+.ect-dm-ind__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Tablet: two columns. */
+@media (max-width: 1199px) {
+  .ect-dm-ind {
+    margin: 56px auto;
+  }
+
+  .ect-dm-ind__header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  body.service-page .ect-dm-ind .ect-dm-ind__heading {
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-dm-ind__intro {
+    width: auto;
+    max-width: 560px;
+    margin: 0;
+  }
+
+  .ect-dm-ind__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ect-dm-ind__image,
+  .ect-dm-ind__card,
+  .ect-dm-ind__card--wide {
+    grid-column: auto;
+  }
+
+  .ect-dm-ind__image {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile: one column. */
+@media (max-width: 700px) {
+  .ect-dm-ind {
+    width: calc(100% - 32px);
+  }
+
+  .ect-dm-ind__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .ect-dm-ind__image {
+    grid-column: auto;
+    height: 220px;
+  }
+
+  .ect-dm-ind__card {
+    min-height: 0;
+    gap: 28px;
+  }
+
+  body.service-page .ect-dm-ind .ect-dm-ind__title {
+    font-size: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ect-dm-ind__card::before {
+    transition: none;
+  }
+}

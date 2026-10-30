@@ -1,0 +1,20 @@
+/* Digital Marketing page: "Why Choose ECOG Core Technologies for Digital Marketing?"
+   Uses the website page's scene (website-why.css / website-why.js). Until a picture is added
+   the img has no src, so the browser shows its alt text in the grey picture box. */
+.ect-why__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ect-why__media .ect-why__img:not([src]) {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}

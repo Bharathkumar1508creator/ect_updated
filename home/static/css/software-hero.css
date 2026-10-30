@@ -1,0 +1,49 @@
+/* Software page hero (Figma): heading 1054px wide, 42px / 700, centred; intro 754px wide, 16px;
+   178 x 36 button; then the 1240 x 699 video. Heading 8px above the intro, intro 16px above the
+   button, button 20px above the video. The video itself is unchanged. */
+
+body.service-page .software-figma-hero .software-figma-hero__title {
+  width: min(1054px, 100%);
+  min-height: 0;
+  font-size: 42px !important;
+  line-height: 1.25 !important;
+}
+
+body.service-page .software-figma-hero__subtitle {
+  width: min(754px, 100%);
+  height: auto;
+  margin: 8px auto 0;
+  line-height: 1.5;
+}
+
+body.service-page .software-figma-hero__cta {
+  width: 178px;
+  height: 36px;
+  margin-top: 16px;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+body.service-page .software-figma-hero__image-wrap {
+  aspect-ratio: 1240 / 699;
+  margin-top: 20px;
+}
+
+@media (max-width: 1199px) {
+  body.service-page .software-figma-hero .software-figma-hero__title {
+    font-size: clamp(28px, 4.3vw, 38px) !important;
+  }
+
+  body.service-page .software-figma-hero__cta {
+    height: auto;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page .software-figma-hero .software-figma-hero__title {
+    font-size: clamp(24px, 7vw, 30px) !important;
+    letter-spacing: 0 !important;
+  }
+}

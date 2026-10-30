@@ -1,0 +1,207 @@
+/* IT Infrastructure page: "Strengthen Your Business Infrastructure with Essential IT Security Measures" (Figma).
+   Heading 715px + intro 368px, bottom aligned. Below, a 1240 x 934 collage of grey cards placed as in
+   Figma (desktop), with the ECT mark in the middle. Pictures show their alt text until added;
+   below 1200px the cards stack. */
+
+.ect-infra-sec,
+.ect-infra-sec * {
+  box-sizing: border-box;
+}
+
+.ect-infra-sec {
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-infra-sec__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+
+body.service-page .ect-infra-sec .ect-infra-sec__heading {
+  flex: 0 1 715px;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-infra-sec__intro {
+  flex: 0 0 368px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-infra-sec__stage {
+  position: relative;
+  display: grid;
+  gap: 16px;
+}
+
+.ect-infra-sec__card {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: #f1f1ef;
+  background-image: url("../img/noise-on-gray.png");
+  background-size: 320px 320px;
+  color: #000;
+}
+
+.ect-infra-sec__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+body.service-page .ect-infra-sec .ect-infra-sec__title {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 30.51px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #000;
+}
+
+.ect-infra-sec__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-infra-sec__media {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.ect-infra-sec__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* No src yet: the browser shows the alt text, centred, until a picture is added. */
+.ect-infra-sec__media img:not([src]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.ect-infra-sec__mark {
+  display: none;
+}
+
+/* Desktop: the Figma collage, every box placed by its Figma position (stage = 1240 x 934). */
+@media (min-width: 1200px) {
+  .ect-infra-sec__stage {
+    display: block;
+    height: 934px;
+  }
+
+  .ect-infra-sec__card {
+    position: absolute;
+  }
+
+  .ect-infra-sec__card--firewall { left: 0; top: 0; width: 495px; height: 215px; flex-direction: column; }
+  .ect-infra-sec__card--firewall .ect-infra-sec__title { max-width: 381px; }
+  .ect-infra-sec__card--firewall .ect-infra-sec__text { max-width: 467px; }
+
+  .ect-infra-sec__card--auth { left: 527px; top: 5px; width: 713px; height: 343px; align-items: center; justify-content: space-between; padding-right: 16px; }
+  .ect-infra-sec__card--auth .ect-infra-sec__copy { width: 355px; }
+  .ect-infra-sec__card--auth .ect-infra-sec__media { width: 294px; height: 311px; }
+
+  .ect-infra-sec__card--pic-left { left: 0; top: 239px; width: 495px; height: 330px; padding: 16px; }
+  .ect-infra-sec__card--pic-left .ect-infra-sec__media { width: 100%; height: 100%; }
+
+  .ect-infra-sec__card--pic-right { left: 724px; top: 375px; width: 516px; height: 326px; padding: 16px; }
+  .ect-infra-sec__card--pic-right .ect-infra-sec__media { width: 100%; height: 100%; }
+
+  .ect-infra-sec__card--endpoint { left: 0; top: 593px; width: 697px; height: 341px; padding: 16px 24px 16px 16px; }
+  .ect-infra-sec__card--endpoint .ect-infra-sec__media { width: 290px; height: 100%; }
+  .ect-infra-sec__card--endpoint .ect-infra-sec__copy { align-self: flex-end; flex: 1 1 0; margin-left: 0; margin-right: -12px; margin-bottom: 8px; }
+
+  .ect-infra-sec__card--updates { left: 721px; top: 725px; width: 519px; height: 209px; align-items: center; }
+  .ect-infra-sec__card--updates .ect-infra-sec__copy { width: 474px; }
+
+  .ect-infra-sec__mark {
+    position: absolute;
+    display: block;
+    left: 547px;
+    top: 405px;
+    width: 126px;
+    height: 124px;
+    object-fit: contain;
+  }
+}
+
+/* Tablet and mobile: stacked. */
+@media (max-width: 1199px) {
+  .ect-infra-sec {
+    margin: 56px auto;
+  }
+
+  .ect-infra-sec__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  body.service-page .ect-infra-sec .ect-infra-sec__heading {
+    flex: none;
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-infra-sec__intro {
+    flex: none;
+    max-width: 640px;
+  }
+
+  .ect-infra-sec__card {
+    flex-direction: column;
+  }
+
+  .ect-infra-sec__card--pic-left,
+  .ect-infra-sec__card--pic-right {
+    padding: 16px;
+  }
+
+  .ect-infra-sec .ect-infra-sec__media {
+    width: 100%;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-infra-sec {
+    width: calc(100% - 32px);
+  }
+
+  body.service-page .ect-infra-sec .ect-infra-sec__title {
+    font-size: 24px;
+  }
+}

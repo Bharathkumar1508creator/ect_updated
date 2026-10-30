@@ -135,6 +135,7 @@ mq.addEventListener('change', toggleBreak);
     let isInViewport = false;
     let isPageHidden = document.hidden;
     let isHovered = false;
+    let isHeld = false;
     let railJumpTimer = null;
     const desktopQuery = window.matchMedia("(min-width: 1200px)");
     const component = section.querySelector(".ect-web-solutions__component");
@@ -154,7 +155,7 @@ mq.addEventListener('change', toggleBreak);
     }
 
     function canAutoplay() {
-      return isInViewport && !isPageHidden && !isHovered;
+      return isInViewport && !isPageHidden && !isHovered && !isHeld;
     }
 
     function scheduleAutoplay() {
@@ -328,15 +329,33 @@ mq.addEventListener('change', toggleBreak);
     // Pause while the cursor is on the tabs or the card; resume when it leaves.
     if (component) {
       component.addEventListener("pointerenter", (event) => {
-        if (event.pointerType !== "mouse") return;
+        if (event.pointerType !== "mouse" || !desktopQuery.matches) return;
         isHovered = true;
         clearAutoplayTimer();
       });
       component.addEventListener("pointerleave", (event) => {
-        if (event.pointerType !== "mouse") return;
+        if (event.pointerType !== "mouse" || !desktopQuery.matches) return;
         isHovered = false;
         scheduleAutoplay();
       });
+
+      // Holding a solution card freezes the current panel on touch devices.
+      // The tab rail keeps its existing native horizontal swipe behavior.
+      const holdCard = () => {
+        if (desktopQuery.matches) return;
+        isHeld = true;
+        clearAutoplayTimer();
+        clearTransitionTimer();
+        panels.forEach(panel => panel.classList.remove("is-transitioning"));
+      };
+      const releaseCard = () => {
+        if (!isHeld) return;
+        isHeld = false;
+        scheduleAutoplay();
+      };
+      panels.forEach(panel => panel.addEventListener("pointerdown", holdCard));
+      window.addEventListener("pointerup", releaseCard);
+      window.addEventListener("pointercancel", releaseCard);
     }
 
     function syncRailMode() {
@@ -349,7 +368,13 @@ mq.addEventListener('change', toggleBreak);
       }
     }
 
-    desktopQuery.addEventListener("change", syncRailMode);
+    desktopQuery.addEventListener("change", () => {
+      syncRailMode();
+      if (!desktopQuery.matches) {
+        isHovered = false;
+        scheduleAutoplay();
+      }
+    });
 
     document.addEventListener("visibilitychange", () => {
       isPageHidden = document.hidden;

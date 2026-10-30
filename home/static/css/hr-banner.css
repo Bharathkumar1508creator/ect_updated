@@ -1,0 +1,51 @@
+/* HR page: "Build a Stronger Workforce with Strategic HR Consulting Solutions" banner (Figma).
+   1240 x 524 on #F5F5F3, radius 24. Left: heading (30.51px / 600, 488px wide), text (488px), button.
+   Right: the HR picture, 640 x 521, fading into the grey on its left edge. */
+
+@media (min-width: 1200px) {
+  .hr-page .ect-hr-banner {
+    height: 524px;
+  }
+
+  .hr-page .ect-hr-banner .ect-it-banner__content {
+    width: 560px;
+    padding: 0 0 0 52px;
+  }
+
+  .hr-page .ect-hr-banner .ect-it-banner__title {
+    max-width: 488px;
+    margin: 0 0 8px;
+    font-size: 30.51px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .hr-page .ect-hr-banner .ect-it-banner__desc {
+    max-width: 488px;
+    margin: 0 0 16px;
+  }
+
+  .hr-page .ect-hr-banner .ect-it-banner__cta {
+    width: 207px;
+    min-height: 36px;
+    height: 36px;
+    padding: 8px 10px;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .hr-page .ect-hr-banner .ect-it-banner__image {
+    width: 640px;
+    height: 100%;
+    background-size: cover;
+    background-position: right top;
+  }
+}
+
+@media (max-width: 1199px) {
+  .hr-page .ect-hr-banner .ect-it-banner__title {
+    font-size: clamp(24px, 4vw, 30px);
+    font-weight: 600;
+  }
+}

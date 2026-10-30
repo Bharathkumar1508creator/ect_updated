@@ -1,0 +1,165 @@
+/* Zoho page: "Find the Right Zoho Solutions for Your Business Requirements" (Figma).
+   Three 550px cards, 24px gaps. Every card is grey with a soft grain; the card under the
+   cursor (or focused) turns green with white text. No card is green otherwise. */
+
+.ect-zoho-req,
+.ect-zoho-req * {
+  box-sizing: border-box;
+}
+
+.ect-zoho-req {
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-zoho-req__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 790px;
+  margin-bottom: 16px;
+}
+
+body.service-page .ect-zoho-req .ect-zoho-req__heading,
+body.zoho-page .ect-zoho-req .ect-zoho-req__heading {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-zoho-req__intro {
+  max-width: 762px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-zoho-req__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.ect-zoho-req__card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 550px;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: #f1f1ef;
+  background-image: url("../img/noise-on-gray.png");
+  background-size: 320px 320px;
+  color: #000;
+  outline: none;
+  transition: background-color 350ms ease, color 350ms ease;
+}
+
+body.service-page .ect-zoho-req .ect-zoho-req__title,
+body.zoho-page .ect-zoho-req .ect-zoho-req__title {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 30.51px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: inherit;
+}
+
+.ect-zoho-req__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: inherit;
+}
+
+.ect-zoho-req__link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.ect-zoho-req__media {
+  flex: none;
+  height: 228px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #d9d9d9;
+}
+
+.ect-zoho-req__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Text cards keep the picture at the bottom. */
+.ect-zoho-req__card:not(.ect-zoho-req__card--media-first) .ect-zoho-req__media {
+  margin-top: auto;
+}
+
+/* Only the card under the cursor (or focused) is green. */
+@media (hover: hover) {
+  .ect-zoho-req__card:hover {
+    background-color: #5b6d49;
+    background-image: url("../img/noise-on-green.png");
+    color: #fff;
+  }
+}
+
+.ect-zoho-req__card:focus-visible,
+.ect-zoho-req__card:focus-within {
+  background-color: #5b6d49;
+  background-image: url("../img/noise-on-green.png");
+  color: #fff;
+}
+
+/* Tablet: two columns, then one. */
+@media (max-width: 1199px) {
+  .ect-zoho-req {
+    margin: 56px auto;
+  }
+
+  body.service-page .ect-zoho-req .ect-zoho-req__heading,
+  body.zoho-page .ect-zoho-req .ect-zoho-req__heading {
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-zoho-req__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ect-zoho-req__card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-zoho-req {
+    width: calc(100% - 32px);
+  }
+
+  .ect-zoho-req__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  body.service-page .ect-zoho-req .ect-zoho-req__title,
+  body.zoho-page .ect-zoho-req .ect-zoho-req__title {
+    font-size: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ect-zoho-req__card {
+    transition: none;
+  }
+}

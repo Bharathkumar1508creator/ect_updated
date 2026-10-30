@@ -1,0 +1,191 @@
+/* Software page: "From Manual Processes to Intelligent Business Operations" (Figma).
+   Heading 772px. Grid (1240px): a tall grey card on the left (400 x 708: picture on top, text below),
+   a green card (816 x 309, picture left) and a grey-green card (816 x 375, picture right) on the right,
+   and a full-width green card (1240 x 288, picture left). Cards have 16px padding; pictures are white
+   boxes that show their alt text until a picture is added. */
+
+.ect-sw-flow,
+.ect-sw-flow * {
+  box-sizing: border-box;
+}
+
+.ect-sw-flow {
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-sw-flow__header {
+  margin-bottom: 29px;
+}
+
+body.service-page .ect-sw-flow .ect-sw-flow__heading {
+  max-width: 773px;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-sw-flow__grid {
+  display: grid;
+  grid-template-columns: 400px minmax(0, 1fr);
+  grid-template-rows: minmax(309px, auto) minmax(375px, auto) minmax(288px, auto);
+  gap: 24px;
+}
+
+.ect-sw-flow__card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #f1f1ef;
+  background-image: url("../img/noise-on-gray.png");
+  background-size: 320px 320px;
+  color: #000;
+}
+
+.ect-sw-flow__card--automate,
+.ect-sw-flow__card--decide {
+  background-color: #5b6d49;
+  background-image: url("../img/noise-on-green.png");
+  color: #fff;
+}
+
+.ect-sw-flow__card--unify {
+  background-color: #d1d4cb;
+}
+
+.ect-sw-flow__card--map {
+  grid-row: 1 / span 2;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+.ect-sw-flow__card--automate,
+.ect-sw-flow__card--unify {
+  grid-column: 2;
+}
+
+.ect-sw-flow__card--decide {
+  grid-column: 1 / -1;
+}
+
+.ect-sw-flow__media {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.ect-sw-flow__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* No src yet: the browser shows the alt text, centred, until a picture is added. */
+.ect-sw-flow__media img:not([src]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.ect-sw-flow__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+body.service-page .ect-sw-flow .ect-sw-flow__title {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 30.51px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: inherit;
+}
+
+.ect-sw-flow__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: inherit;
+}
+
+/* Figma picture and text sizes. */
+.ect-sw-flow__card--map .ect-sw-flow__media { height: 408px; }
+.ect-sw-flow__card--map .ect-sw-flow__copy { padding: 0 4px; }
+
+.ect-sw-flow__card--automate .ect-sw-flow__media { width: 431px; height: 277px; }
+.ect-sw-flow__card--automate .ect-sw-flow__copy { flex: 1 1 0; }
+
+.ect-sw-flow__card--unify .ect-sw-flow__copy { width: 322px; margin-right: auto; }
+.ect-sw-flow__card--unify .ect-sw-flow__media { width: 452px; height: 336px; }
+
+.ect-sw-flow__card--decide .ect-sw-flow__media { width: 718px; height: 258px; }
+.ect-sw-flow__card--decide .ect-sw-flow__copy { flex: 1 1 0; }
+
+/* Tablet and mobile: stacked. */
+@media (max-width: 1199px) {
+  .ect-sw-flow {
+    margin: 56px auto;
+  }
+
+  body.service-page .ect-sw-flow .ect-sw-flow__heading {
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-sw-flow__grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+  }
+
+  .ect-sw-flow__card,
+  .ect-sw-flow__card--map {
+    flex-direction: column;
+    align-items: stretch;
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .ect-sw-flow .ect-sw-flow__media,
+  .ect-sw-flow .ect-sw-flow__copy {
+    width: 100%;
+  }
+
+  .ect-sw-flow .ect-sw-flow__media {
+    height: auto;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-sw-flow {
+    width: calc(100% - 32px);
+  }
+
+  body.service-page .ect-sw-flow .ect-sw-flow__title {
+    font-size: 24px;
+  }
+}

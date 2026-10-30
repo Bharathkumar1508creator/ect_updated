@@ -1,0 +1,38 @@
+/* Zoho page: "Zoho Solutions Designed for Businesses Across Industries" (Figma).
+   Same section as the Digital Marketing page (digital-industries.css), with two more cards:
+   picture + card, three cards, card + mirrored picture. The intro is small text, as in Figma. */
+
+.ect-dm-ind--zoho .ect-dm-ind__header {
+  margin-bottom: 24px;
+}
+
+body.service-page .ect-dm-ind--zoho .ect-dm-ind__heading,
+body.zoho-page .ect-dm-ind--zoho .ect-dm-ind__heading {
+  max-width: 790px;
+}
+
+.ect-dm-ind--zoho .ect-dm-ind__intro {
+  width: 413px;
+  margin-top: 56px;
+  font-family: "Inter", "Montserrat", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+/* In Figma the lower picture is mirrored. */
+.ect-dm-ind--zoho .ect-dm-ind__image--bottom img {
+  transform: scaleX(-1);
+}
+
+@media (max-width: 1199px) {
+  .ect-dm-ind--zoho .ect-dm-ind__intro {
+    width: auto;
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .ect-dm-ind--zoho .ect-dm-ind__image--bottom {
+    order: 99;
+  }
+}

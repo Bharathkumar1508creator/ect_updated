@@ -1,0 +1,39 @@
+/* IT Infrastructure page: "Build Reliable Network Connectivity Across Your Business" (Figma).
+   Same section as the Digital marketing industries section (digital-industries.css): picture + wide
+   card (340px tall), three cards (298px tall), then a wide card + picture (340px tall).
+   Heading 768px, intro 422px, both at the top. The zigzag shows on the card under the cursor. */
+
+.ect-dm-ind--infra .ect-dm-ind__header {
+  margin-bottom: 34px;
+}
+
+body.service-page .ect-dm-ind--infra .ect-dm-ind__heading {
+  max-width: 768px;
+}
+
+.ect-dm-ind--infra .ect-dm-ind__intro {
+  width: 422px;
+  margin-top: 0;
+}
+
+.ect-dm-ind--infra .ect-dm-ind__grid {
+  grid-template-rows: 340px 298px 340px;
+}
+
+.ect-dm-ind--infra .ect-dm-ind__card:not(.ect-dm-ind__card--wide) {
+  min-height: 298px;
+}
+
+@media (max-width: 1199px) {
+  .ect-dm-ind--infra .ect-dm-ind__intro {
+    width: auto;
+  }
+
+  .ect-dm-ind--infra .ect-dm-ind__grid {
+    grid-template-rows: none;
+  }
+
+  .ect-dm-ind--infra .ect-dm-ind__image {
+    height: 280px;
+  }
+}

@@ -1,0 +1,44 @@
+/* Software page: "Custom Software vs Off-the-Shelf Solutions: Making the Right Choice" (Figma).
+   Same collage as the IT page's security section (infra-security.css): grey cards placed as in Figma
+   with the ECT mark in the middle. Only the header differs: heading 796px, intro 446px, bottoms level.
+   Pictures show their alt text until added. */
+
+body.service-page .ect-sw-vs .ect-infra-sec__heading {
+  flex: 0 1 796px;
+}
+
+.ect-sw-vs .ect-infra-sec__intro {
+  flex: 0 1 446px;
+}
+
+.ect-sw-vs .ect-infra-sec__link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (min-width: 1200px) {
+  .ect-sw-vs .ect-infra-sec__header {
+    gap: 0;
+  }
+
+  /* Card positions for this section (Figma): the first card is taller than on the IT page, so the
+     cards below it sit lower. */
+  .ect-sw-vs .ect-infra-sec__card--firewall { height: 247px; }
+  .ect-sw-vs .ect-infra-sec__card--auth { top: 3px; height: 340px; }
+  .ect-sw-vs .ect-infra-sec__card--pic-left { top: 271px; height: 288px; }
+  .ect-sw-vs .ect-infra-sec__card--pic-right { top: 368px; height: 286px; }
+  .ect-sw-vs .ect-infra-sec__card--endpoint { top: 584px; height: 350px; }
+  .ect-sw-vs .ect-infra-sec__card--updates { top: 680px; height: 254px; }
+
+  /* The "Comparing..." card has a four-line title and a six-line text; keep them centred in the card. */
+  .ect-sw-vs .ect-infra-sec__card--endpoint .ect-infra-sec__copy {
+    align-self: center;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 1199px) {
+  .ect-sw-vs .ect-infra-sec__intro {
+    flex: none;
+  }
+}

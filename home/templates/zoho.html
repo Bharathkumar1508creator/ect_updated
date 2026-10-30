@@ -11,9 +11,28 @@
   {% include "components/seo_meta.html" %}
   <!---->
   <link rel="stylesheet" href="{% static 'css/zoho.css' %}?v=22">
+  <link rel="stylesheet" href="{% static 'css/zoho-hero.css' %}?v=1">
+  <link rel="stylesheet" href="{% static 'css/zoho-requirements.css' %}?v=1">
+  <link rel="stylesheet" href="{% static 'css/ect-web-solutions-base.css' %}?v=1">
+  <link rel="stylesheet" href="{% static 'css/digital-solutions.css' %}?v=2">
+  <link rel="stylesheet" href="{% static 'css/zoho-solutions.css' %}?v=2">
+  <link rel="stylesheet" href="{% static 'css/website-benefits.css' %}?v=12">
+  <link rel="stylesheet" href="{% static 'css/zoho-applications.css' %}?v=2">
+  <link rel="stylesheet" href="{% static 'css/zoho-one.css' %}?v=3">
+  <link rel="stylesheet" href="{% static 'css/digital-industries.css' %}?v=4">
+  <link rel="stylesheet" href="{% static 'css/zoho-industries.css' %}?v=1">
+  <link rel="stylesheet" href="{% static 'css/zoho-customization.css' %}?v=3">
+  <link rel="stylesheet" href="{% static 'css/zoho-costs.css' %}?v=1">
+  <link rel="stylesheet" href="{% static 'css/zoho-build.css' %}?v=1">
+  <link rel="stylesheet" href="{% static 'css/faq-heading.css' %}?v=1">
+  <link rel="stylesheet" href="{% static 'css/zoho-process.css' %}?v=6">
+  <link rel="stylesheet" href="{% static 'css/website-why.css' %}?v=9">
+  <link rel="stylesheet" href="{% static 'css/digital-why.css' %}?v=1">
+  <link rel="stylesheet" href="{% static 'css/zoho-why.css' %}?v=1">
+  <link rel="stylesheet" href="{% static 'css/zoho-work.css' %}?v=2">
 
   <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=46">
-  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=27">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=29">
   <style>
     body, html, .hero {
       background-color: #ffffff !important;
@@ -120,21 +139,20 @@
   <div class="zoho-figma-hero__content">
 
     <h1 class="zoho-figma-hero__title" id="zohoHeroTitle">
-      Transform Your Business with
+      Zoho Consulting Services That Connect
       <br class="zoho-figma-hero__desktop-break">
-      Smart Zoho Solutions
+      Your People, Processes and Business
     </h1>
 
     <p class="zoho-figma-hero__subtitle">
-      Transform your business with expert Zoho solutions.
+      Simplify business operations with ECOG Core Technologies Private Limited, offering Zoho consulting services in Coimbatore to connect applications, automate workflows, and improve collaboration across your organization.
     </p>
 
     <a
-      class="zoho-figma-hero__cta"
-      href="#zoho-services"
-      data-smooth-scroll
+      class="zoho-figma-hero__cta popup-trigger"
+      href="javascript:void(0)"
     >
-      Explore Zoho Services
+      Talk to a Zoho Consultant
     </a>
 
   </div>
@@ -152,183 +170,382 @@
   </div>
 </section>
 
-  <section class="software-section" id="zoho-services">
+  <!-- Find the right Zoho solutions for your business requirements -->
+<section class="ect-zoho-req" id="zoho-requirements" aria-labelledby="ect-zoho-req-title">
+  <div class="ect-zoho-req__header">
+    <h2 class="ect-zoho-req__heading" id="ect-zoho-req-title">Find the Right Zoho Solutions for Your Business Requirements</h2>
+    <p class="ect-zoho-req__intro">Every business works in its own way. So before choosing any Zoho applications, we first need to understand how you work: your processes, the systems you already have, and the operational challenges you face.</p>
+  </div>
 
-    <div class="section-header">
-      <div>
-        <div class="eyebrow">Zoho Consulting Services</div>
-        <h2 class="section-title">Complete Zoho Solutions for<br>Every Business Function</h2>
+  <div class="ect-zoho-req__grid">
+    <article class="ect-zoho-req__card" tabindex="0">
+      <h3 class="ect-zoho-req__title">Understand Your Current Business Processes</h3>
+      <p class="ect-zoho-req__text">Our <a href="#" class="ect-zoho-req__link">Zoho consultants</a> look at how your organization functions day to day. They assess your daily workflows and departmental responsibilities, how your approval procedures work, and what your reporting requirements are.</p>
+      <figure class="ect-zoho-req__media"><img src="{% static 'img/z1.webp' %}" alt="Hands sketching a business process diagram on paper" width="349" height="228" decoding="async" loading="lazy"></figure>
+    </article>
+
+    <article class="ect-zoho-req__card ect-zoho-req__card--media-first" tabindex="0">
+      <figure class="ect-zoho-req__media"><img src="{% static 'img/z2.webp' %}" alt="Person reviewing notes on a whiteboard" width="349" height="228" decoding="async" loading="lazy"></figure>
+      <h3 class="ect-zoho-req__title">Identify Gaps in Existing Business Applications</h3>
+      <p class="ect-zoho-req__text">Manual activities, disconnected applications, duplicate records and system limitations may get in the way of employee productivity or information accuracy. We carefully review each of these to find the gaps.</p>
+    </article>
+
+    <article class="ect-zoho-req__card" tabindex="0">
+      <h3 class="ect-zoho-req__title">Match Zoho Applications to Your Business Needs</h3>
+      <p class="ect-zoho-req__text">Our recommendations are based on your requirements. That covers suitable applications, configurations and integration opportunities. If a piece of software isn’t necessary, we won’t introduce it.</p>
+      <figure class="ect-zoho-req__media"><img src="{% static 'img/z3.webp' %}" alt="Business dashboard with hiring metrics and charts" width="349" height="228" decoding="async" loading="lazy"></figure>
+    </article>
+  </div>
+</section>
+
+<!-- Zoho consulting, implementation and business solutions -->
+    <section class="ect-web-solutions" id="zoho-solutions" aria-labelledby="ect-web-solutions-title" data-panels>
+      <div class="ect-web-solutions__header">
+        <div class="ect-web-solutions__heading-group">
+          <h2 class="ect-web-solutions__heading" id="ect-web-solutions-title">End-to-End Zoho Consulting,<br class="zoho-solutions__break"> Implementation and Business Solutions</h2>
+          <p class="ect-web-solutions__intro">Our Zoho consulting services cover the whole process, from initial planning right through to application deployment. Put simply, we help your business adopt technology that fits how you operate.</p>
+        </div>
+
+        <div class="ect-web-solutions__controls" aria-label="Zoho service controls">
+          <button type="button" class="ect-web-solutions__arrow ect-web-solutions__arrow--prev" aria-label="Show previous Zoho service">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5L8 12L15 19" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </button>
+          <button type="button" class="ect-web-solutions__arrow ect-web-solutions__arrow--next" aria-label="Show next Zoho service">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5L16 12L9 19" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </button>
+        </div>
       </div>
-      <div class="nav-arrows">
-        <button id="prevBtn" aria-label="Previous">&#8592;</button>
-        <button id="nextBtn" aria-label="Next">&#8594;</button>
-      </div>
-    </div>
 
-    <div class="tabs-wrapper" id="tabsWrapper">
-      <div class="tabs-track" id="tabsTrack">
-        <div class="tab" data-index="0">Sales & CRM</div>
-        <div class="tab" data-index="1">Marketing Automation</div>
-        <div class="tab" data-index="2">Finance & Accounting</div>
-        <div class="tab" data-index="3">HR & People Operations</div>
-        <div class="tab" data-index="4">Customer Service</div>
-        <div class="tab" data-index="5">ERP & Operations</div>
-        <div class="tab" data-index="6">Project Managements</div>
-        <div class="tab" data-index="7">BI & Analytics</div>
-        <div class="tab" data-index="8">Email & Collaboration</div>
-        <div class="tab" data-index="9">Commerce & POS</div>
-        <div class="tab" data-index="10">Security & IT</div>
-        <div class="tab" data-index="11">Legal Solutions</div>
-        <div class="tab" data-index="12">Custom Development</div>
+      <div class="ect-web-solutions__component">
+        <div class="ect-web-solutions__tabs" role="tablist" aria-label="Zoho service types">
+          <button type="button" class="ect-web-solutions__tab is-active" id="ect-web-solutions-tab-0" role="tab" aria-selected="true" aria-controls="ect-web-solutions-panel-0" tabindex="0" data-slide-index="0">
+            <span class="ect-web-solutions__tab-label">Zoho Consultation and Business Requirement Analysis</span>
+          </button>
+          <button type="button" class="ect-web-solutions__tab" id="ect-web-solutions-tab-1" role="tab" aria-selected="false" aria-controls="ect-web-solutions-panel-1" tabindex="-1" data-slide-index="1">
+            <span class="ect-web-solutions__tab-label">Zoho Setup and Implementation Services</span>
+          </button>
+          <button type="button" class="ect-web-solutions__tab" id="ect-web-solutions-tab-2" role="tab" aria-selected="false" aria-controls="ect-web-solutions-panel-2" tabindex="-1" data-slide-index="2">
+            <span class="ect-web-solutions__tab-label">Zoho Customization and Configuration</span>
+          </button>
+          <button type="button" class="ect-web-solutions__tab" id="ect-web-solutions-tab-3" role="tab" aria-selected="false" aria-controls="ect-web-solutions-panel-3" tabindex="-1" data-slide-index="3">
+            <span class="ect-web-solutions__tab-label">Zoho Workflow Automation Services</span>
+          </button>
+          <button type="button" class="ect-web-solutions__tab" id="ect-web-solutions-tab-4" role="tab" aria-selected="false" aria-controls="ect-web-solutions-panel-4" tabindex="-1" data-slide-index="4">
+            <span class="ect-web-solutions__tab-label">Zoho Integration and API Development</span>
+          </button>
+          <button type="button" class="ect-web-solutions__tab" id="ect-web-solutions-tab-5" role="tab" aria-selected="false" aria-controls="ect-web-solutions-panel-5" tabindex="-1" data-slide-index="5">
+            <span class="ect-web-solutions__tab-label">Zoho Data Migration Services</span>
+          </button>
+          <button type="button" class="ect-web-solutions__tab" id="ect-web-solutions-tab-6" role="tab" aria-selected="false" aria-controls="ect-web-solutions-panel-6" tabindex="-1" data-slide-index="6">
+            <span class="ect-web-solutions__tab-label">Zoho User Training and Technical Support</span>
+          </button>
+        </div>
 
-      </div>
-    </div>
-
-    <div class="content-area">
-      <div class="content-image" id="contentImage">
-        <img src="{% static 'img/Sales & CRM 1.png' %}" alt="Feature Image"
-          style="width:100%; height:100%; object-fit:cover; border-radius: 12px;" width="608" height="435" decoding="async" loading="lazy" srcset="{% static 'img/Sales-CRM-1-480.webp' %} 480w" sizes="(max-width: 768px) 100vw, 50vw">
-      </div>
-
-      <div class="content-panel" id="contentPanel">
-
-        <div class="panel active" data-index="0" data-image="{% static 'img/Sales & CRM 1.png' %}">
-          <h3>Build Stronger Customer Relationships</h3>
-          <p>Manage leads, customer interactions, sales pipelines, and follow-ups through customized Zoho CRM solutions
-            that improve productivity and business growth.</p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho CRM, Zoho Bigin, Zoho SalesIQ, Zoho Sign, Zoho Bookings, Zoho RouteIQ</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">Sales Teams, Service Businesses, Healthcare, Real Estate, Educational Institutions
+        <div class="ect-web-solutions__panel is-active" id="ect-web-solutions-panel-0" role="tabpanel" aria-labelledby="ect-web-solutions-tab-0">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/Sales & CRM 1.png' %}" alt="Zoho Consultation and Business Requirement Analysis" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="eager">
           </div>
-          <a href="#" class="btn-demo" data-contact-trigger>Request a Consultation</a>
+          <div class="ect-web-solutions__content">
+            <h3 class="ect-web-solutions__content-title">Zoho Consultation and Business Requirement Analysis</h3>
+            <p class="ect-web-solutions__description">It starts with understanding your business. We examine your business goals, your existing software, your user roles, and the operational challenges you’re dealing with. From there, we develop a practical implementation roadmap that aligns with your business requirements and future objectives. We assess your current workflows, identify process gaps, evaluate system limitations, and determine opportunities for improvement. This approach helps define clear priorities, select suitable Zoho applications, plan configurations, and establish implementation requirements that support smoother operations, better productivity, effective system integration, and sustainable business growth.</p>
+            <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+          </div>
         </div>
-
-        <div class="panel" data-index="1" data-image="{% static 'img/Marketing-Automation-2.webp' %}">
-          <h3>Create Smarter Marketing Campaigns</h3>
-          <p>Automate campaigns, nurture leads, track engagement, and improve marketing performance with connected Zoho
-            marketing solutions for measurable business results.</p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho Campaigns, Zoho Marketing Automation, Zoho Social, Zoho Forms, Zoho Survey, Zoho
-            Webinar</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">Marketing Teams, Startups, Ecommerce, Retail, Growing Businesses</div>
-          <a href="#" class="btn-demo" data-contact-trigger>Grow Your Marketing</a>
+        <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-1" role="tabpanel" aria-labelledby="ect-web-solutions-tab-1">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/Marketing-Automation-2.webp' %}" alt="Zoho Setup and Implementation Services" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+          </div>
+          <div class="ect-web-solutions__content">
+            <h3 class="ect-web-solutions__content-title">Zoho Setup and Implementation Services</h3>
+            <p class="ect-web-solutions__description">Then comes the setup. What’s included depends on your project requirements, but our Zoho implementation services include application configuration, organizational settings, user permissions, module setup and deployment.</p>
+            <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+          </div>
         </div>
-
-        <div class="panel" data-index="2" data-image="{% static 'img/Finance & Accounting 2.png' %}">
-          <h3>Simplify Financial Management</h3>
-          <p>Manage accounting, invoicing, expenses, inventory, payments, and financial reporting through integrated
-            Zoho finance solutions.</p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho Books, Zoho Invoice, Zoho Expense, Zoho Inventory, Zoho Billing</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">Finance Teams, SMEs, Manufacturers, Retailers, Distributors</div>
-          <button class="btn-demo" data-contact-trigger>Optimize Finance</button>
+        <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-2" role="tabpanel" aria-labelledby="ect-web-solutions-tab-2">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/Finance & Accounting 2.png' %}" alt="Zoho Customization and Configuration" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+          </div>
+          <div class="ect-web-solutions__content">
+            <h3 class="ect-web-solutions__content-title">Zoho Customization and Configuration</h3>
+            <p class="ect-web-solutions__description">Then comes the setup. What’s included depends on your project requirements, but our Zoho implementation services include application configuration, organizational settings, user permissions, module setup, and deployment. We configure each application according to your business workflows, operational needs, and team responsibilities. Our approach ensures that the selected Zoho solutions are properly structured, essential features are enabled, and system settings align with your requirements. This helps create a reliable working environment, supports smoother operations, improves accessibility, and prepares your team for effective system adoption.</p>
+            <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+          </div>
         </div>
-
-        <div class="panel" data-index="3" data-image="{% static 'img/HR People &n Operations 2.png' %}">
-          <h3>Build Better People Systems</h3>
-          <p>Simplify recruitment, employee management, attendance, payroll, performance tracking, and HR operations.
-          </p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho People, Zoho Recruit, Zoho Payroll, Zoho Learn</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">HR Teams, Enterprises, Staffing Agencies, Growing Companies</div>
-          <button class="btn-demo" data-contact-trigger>Improve HR</button>
+        <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-3" role="tabpanel" aria-labelledby="ect-web-solutions-tab-3">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/HR People &n Operations 2.png' %}" alt="Zoho Workflow Automation Services" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+          </div>
+          <div class="ect-web-solutions__content">
+            <h3 class="ect-web-solutions__content-title">Zoho Workflow Automation Services</h3>
+            <p class="ect-web-solutions__description">How many times a day does someone on your team assign a task, chase an approval, or send a follow-up? Task assignments, approval requests, notifications, record updates, and sales follow-ups are all repetitive activities, and we automate them using supported Zoho automation capabilities. We analyse your existing workflows to identify tasks that can be automated, configure suitable automation rules, and establish triggers that execute actions based on defined conditions. This reduces manual effort, minimises repetitive work, improves consistency, and helps your team focus on important responsibilities while maintaining accurate records and ensuring timely communication across your business operations.</p>
+            <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+          </div>
         </div>
-
-        <div class="panel" data-index="4" data-image="{% static 'img/Customer Service 2.png' %}">
-          <h3>Deliver Exceptional Customer Support</h3>
-          <p>Deliver faster customer support and improve customer satisfaction with Zoho service solutions.</p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho Desk, Zoho Assist, Zoho Lens</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">Support Teams, SaaS, Healthcare, Ecommerce, IT Companies</div>
-          <button class="btn-demo" data-contact-trigger>Enhance Customer Support</button>
+        <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-4" role="tabpanel" aria-labelledby="ect-web-solutions-tab-4">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/Customer Service 2.png' %}" alt="Zoho Integration and API Development" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+          </div>
+          <div class="ect-web-solutions__content">
+            <h3 class="ect-web-solutions__content-title">Zoho Integration and API Development</h3>
+            <p class="ect-web-solutions__description">We connect compatible Zoho applications with third-party platforms using APIs, webhooks, and integration tools. That way, there’s less disconnected information across your systems. We begin by understanding your existing software, data flow, and integration requirements to identify suitable connection methods. Our team configures integrations to support seamless information exchange between connected applications, reduce duplicate data entry, and improve operational efficiency. We also consider data accuracy, system compatibility, and workflow requirements throughout the integration process. This helps your business maintain consistent records, improve collaboration between departments, simplify daily operations, and create a more connected digital working environment.</p>
+            <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+          </div>
         </div>
-
-        <div class="panel" data-index="5" data-image="{% static 'img/ERP-Operations-2.webp' %}">
-          <h3>Connect Business Operations</h3>
-          <p>Connect inventory, purchasing, sales, production, and business operations.</p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho Creator, Zoho Inventory, Zoho Flow, Workflow Automation</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">Manufacturers, Distributors, Retail, Logistics</div>
-          <button class="btn-demo" data-contact-trigger>Streamline Operations</button>
+        <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-5" role="tabpanel" aria-labelledby="ect-web-solutions-tab-5">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/ERP-Operations-2.webp' %}" alt="Zoho Data Migration Services" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+          </div>
+          <div class="ect-web-solutions__content">
+            <h3 class="ect-web-solutions__content-title">Zoho Data Migration Services</h3>
+            <p class="ect-web-solutions__description">Got data sitting in spreadsheets or an existing application? We help you plan the import, including field mapping, duplicate checks, validation, and migration testing. Our team reviews your existing data structure, identifies inconsistencies, and prepares information for accurate transfer into the appropriate Zoho applications. We establish clear migration steps to minimise data loss, maintain record accuracy, and ensure information remains organised throughout the process. Before completing the migration, we verify the transferred records, check data integrity, and address potential issues to support a reliable transition and uninterrupted business operations.</p>
+            <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+          </div>
         </div>
-
-        <div class="panel" data-index="6" data-image="{% static 'img/Project management.png' %}">
-          <h3>Deliver Projects Successfully</h3>
-          <p>Plan, track, and deliver projects successfully.</p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho Projects, Zoho Sprints, Zoho BugTracker</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">Software Companies, Agencies, Engineering</div>
-          <button class="btn-demo" data-contact-trigger>Manage Projects</button>
+        <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-6" role="tabpanel" aria-labelledby="ect-web-solutions-tab-6">
+          <div class="ect-web-solutions__media">
+            <img src="{% static 'img/Project management.png' %}" alt="Zoho User Training and Technical Support" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+          </div>
+          <div class="ect-web-solutions__content">
+            <h3 class="ect-web-solutions__content-title">Zoho User Training and Technical Support</h3>
+            <p class="ect-web-solutions__description">Our Zoho professional services include relevant user training and administrator guidance. We also handle troubleshooting and support arrangements, so your teams can use their applications effectively. We help users understand essential features, navigate application workflows, and perform their daily tasks with confidence. Our guidance is tailored to your business requirements, user roles, and configured systems. We also assist with resolving technical issues, reviewing application settings, and addressing operational challenges. This approach supports smoother adoption, reduces user difficulties, improves system utilisation, and helps your organisation maintain consistent performance across its Zoho applications.</p>
+            <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
+          </div>
         </div>
-
-        <div class="panel" data-index="7" data-image="{% static 'img/BI & Analytics 2.png' %}">
-          <h3>Make Data-Driven Decisions</h3>
-          <p>Transform business data into meaningful insights.</p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho Analytics, KPI Dashboards, Business Reports</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">Business Owners, Executives, Finance Teams</div>
-          <button class="btn-demo" data-contact-trigger>Explore Analytics</button>
-        </div>
-
-        <div class="panel" data-index="8" data-image="{% static 'img/Email-Collabaration-2.webp' %}">
-          <h3>Empower Team Collaboration</h3>
-          <p>Enable secure communication and collaboration.</p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho Mail, Zoho WorkDrive, Zoho Cliq, Zoho Meeting, Zoho Writer</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">Remote Teams, SMEs, Enterprises</div>
-          <button class="btn-demo" data-contact-trigger>Connect Your Team</button>
-        </div>
-
-        <div class="panel" data-index="9" data-image="{% static 'img/Commerce-POS.webp' %}">
-          <h3>Grow Your Online Business</h3>
-          <p>Manage online stores and sales channels.</p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho Commerce, Zoho Checkout, Zoho Payments</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">Retail, Ecommerce, Wholesalers</div>
-          <button class="btn-demo" data-contact-trigger>Grow Online Sales</button>
-        </div>
-
-        <div class="panel" data-index="10" data-image="{% static 'img/Security-IT-2.webp' %}">
-          <h3>Protect Your Digital Workplace</h3>
-          <p>Protect business systems with secure IT solutions.</p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho Vault, Zoho Directory, Zoho Assist</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">IT Teams, Enterprises, Financial Services</div>
-          <button class="btn-demo" data-contact-trigger>Secure Your Business</button>
-        </div>
-
-        <div class="panel" data-index="11" data-image="{% static 'img/Legal Solutions.png' %}">
-          <h3>Digitize Legal Processes</h3>
-          <p>Automate approvals, signatures, and compliance.</p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho Sign, Approval Workflows, Document Automation</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">Legal Firms, HR Teams, Compliance Teams</div>
-          <button class="btn-demo" data-contact-trigger>Simplify Legal Processes</button>
-        </div>
-
-        <div class="panel" data-index="12" data-image="{% static 'img/Custom Developement.png' %}">
-          <h3>Build Custom Business Applications</h3>
-          <p>Develop custom applications and integrations.</p>
-          <h4>Zoho Applications We Implement</h4>
-          <div class="apps-list">Zoho Creator, Deluge, Zoho Flow, APIs, Webhooks, Custom Functions</div>
-          <h4>Perfect For</h4>
-          <div class="apps-list">Businesses with Unique Processes, Startups, Enterprises</div>
-          <button class="btn-demo" data-contact-trigger>Build Custom Solutions</button>
-        </div>
-
       </div>
+    </section>
+
+  <!-- Explore Zoho applications for every business function -->
+  <section class="website-benefits website-benefits--compact website-benefits--zoho" id="zoho-applications" aria-labelledby="zoho-applications-title" data-website-benefits>
+    <div class="website-benefits__sticky">
+      <div class="website-benefits__orbit" role="list" aria-label="Zoho applications for every business function">
+        <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
+          <span class="website-benefits__number">01</span>
+          <h4>Zoho Sales and CRM Solutions</h4>
+          <div class="website-benefits__body">
+            <p class="website-benefits__apps">Zoho CRM, Zoho Bigin, Zoho SalesIQ, Zoho Bookings</p>
+            <p>Where did last week’s enquiry go? Who promised that customer a callback? With these apps, your leads, customer interactions, sales pipelines, <a href="{% url 'website' %}" class="website-benefits__link">website</a> conversations and appointment scheduling stay organized, so questions like these have answers. A small team doesn’t need a heavy system. Zoho CRM for small business requirements can support structured follow-ups and customer relationship management without unnecessary complexity.</p>
+          </div>
+        </article>
+        <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
+          <span class="website-benefits__number">02</span>
+          <h4>Zoho Marketing Automation Solutions</h4>
+          <div class="website-benefits__body">
+            <p class="website-benefits__apps">Zoho Campaigns, Zoho Marketing Automation, Zoho Social</p>
+            <p>Sending newsletters from one tool, posting on social media from another and tracking leads in a spreadsheet gets messy quickly. These apps let you manage email campaigns, audience segments, lead nurturing and social media publishing as connected marketing activities.</p>
+          </div>
+        </article>
+        <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
+          <span class="website-benefits__number">03</span>
+          <h4>Zoho Finance and Accounting Solutions</h4>
+          <div class="website-benefits__body">
+            <p class="website-benefits__apps">Zoho Books, Zoho Billing, Zoho Invoice, Zoho Expense</p>
+            <p>Invoices going out, expenses coming in, records to keep. These apps handle accounting, invoicing, recurring billing, expense tracking and financial records. Charging customers every month for a plan or a subscription? Zoho Billing software is particularly relevant for businesses managing subscription-based or recurring customer charges.</p>
+          </div>
+        </article>
+        <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
+          <span class="website-benefits__number">04</span>
+          <h4>Zoho ERP and Business Operations Solutions</h4>
+          <div class="website-benefits__body">
+            <p class="website-benefits__apps">Zoho ERP, Zoho Inventory, Zoho Commerce</p>
+            <p>Selling online, buying stock, getting orders out the door: operations has a lot to keep track of. These apps support financial operations, inventory tracking, order processing and online selling. Want to know what’s in stock without walking into the warehouse? Zoho inventory management software can help businesses monitor stock movement, purchase orders and sales-related inventory activities. Zoho ERP is a separate product with its own licensing and is not included in Zoho One.</p>
+          </div>
+        </article>
+        <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
+          <span class="website-benefits__number">05</span>
+          <h4>Zoho HR and People Management Solutions</h4>
+          <div class="website-benefits__body">
+            <p class="website-benefits__apps">Zoho People, Zoho Recruit, Zoho Payroll</p>
+            <p>From the day someone is hired to their monthly payslip, HR handles a lot of records. Employee information, attendance, recruitment, leave requests and payroll-related workflows can all be managed through suitable HR applications.</p>
+          </div>
+        </article>
+        <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
+          <span class="website-benefits__number">06</span>
+          <h4>Zoho Customer Service and Support Solutions</h4>
+          <div class="website-benefits__body">
+            <p class="website-benefits__apps">Zoho Desk, Zoho Assist, Zoho FSM</p>
+            <p>Organize support tickets, remote assistance, and field service activities. These applications can help structure Zoho customer service workflows and service team responsibilities.</p>
+          </div>
+        </article>
+        <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
+          <span class="website-benefits__number">07</span>
+          <h4>Zoho Project Management Solutions</h4>
+          <div class="website-benefits__body">
+            <p class="website-benefits__apps">Zoho Projects, Zoho Sprints</p>
+            <p>Coordinate project schedules, tasks, milestones, team responsibilities, and agile development activities through organized project management systems.</p>
+          </div>
+        </article>
+        <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
+          <span class="website-benefits__number">08</span>
+          <h4>Zoho Analytics and Business Intelligence Solutions</h4>
+          <div class="website-benefits__body">
+            <p class="website-benefits__apps">Zoho Analytics, Zoho DataPrep</p>
+            <p>Prepare business data, create interactive dashboards, analyze performance indicators, and generate reports that support informed decisions.</p>
+          </div>
+        </article>
+        <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
+          <span class="website-benefits__number">09</span>
+          <h4>Zoho Email and Collaboration Solutions</h4>
+          <div class="website-benefits__body">
+            <p class="website-benefits__apps">Zoho Mail, Zoho Cliq, Zoho WorkDrive</p>
+            <p>Support professional email communication, internal messaging, document sharing, and collaboration between employees and departments.</p>
+          </div>
+        </article>
+        <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
+          <span class="website-benefits__number">10</span>
+          <h4>Zoho Low-Code Development and Automation</h4>
+          <div class="website-benefits__body">
+            <p class="website-benefits__apps">Zoho Creator, Zoho Flow, Zoho Catalyst</p>
+            <p>Develop custom business applications, connect workflows, and build advanced application functionality based on technical and operational requirements.</p>
+          </div>
+        </article>
+        <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
+          <span class="website-benefits__number">11</span>
+          <h4>Zoho Security and Document Management</h4>
+          <div class="website-benefits__body">
+            <p class="website-benefits__apps">Zoho Vault, Zoho Sign, Zoho Contracts</p>
+            <p>Manage business credentials, electronic signatures, and contract processes using applications designed for secure information handling.</p>
+          </div>
+        </article>
+        <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
+          <span class="website-benefits__number">12</span>
+          <h4>Zoho IoT and Connected Business Solutions</h4>
+          <div class="website-benefits__body">
+            <p class="website-benefits__apps">Zoho IoT</p>
+            <p>Connect supported devices, collect operational data, monitor equipment-related information, and develop connected business applications where appropriate.</p>
+          </div>
+        </article>
+      </div>
+      <div class="website-benefits__intro">
+        <h2 id="zoho-applications-title">Explore Zoho Applications for<br class="website-benefits__desktop-break"> Every Business Function</h2>
+        <p>Zoho covers far more than sales. It has applications for customer relationship management, finance, marketing, HR, operations, analytics and collaboration. Picking the right ones is where ECOG comes in: we help identify suitable products based on your business requirements.</p>
+        <a href="javascript:void(0)" class="website-benefits__cta popup-trigger">Book A Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bring your entire business together with Zoho One -->
+  <section class="ect-zoho-one" id="zoho-one" aria-labelledby="ect-zoho-one-title">
+    <div class="ect-zoho-one__header">
+      <h2 class="ect-zoho-one__heading" id="ect-zoho-one-title">Bring Your Entire Business Together with Zoho One</h2>
+      <p class="ect-zoho-one__intro">Instead of buying apps one at a time, Zoho One gives you access to a broad collection of business applications under a unified <a href="{% url 'software' %}" class="ect-zoho-one__link">software</a> offering. With a carefully planned Zoho One implementation, it can improve coordination between departments.</p>
+    </div>
+
+    <div class="ect-zoho-one__body">
+      <figure class="ect-zoho-one__media">
+        <img src="{% static 'img/zoho-one.webp' %}" alt="Zoho One business ecosystem connecting sales, finance, HR and operations" width="608" height="563" decoding="async" loading="lazy">
+      </figure>
+
+      <div class="ect-zoho-one__cards">
+      <article class="ect-zoho-one__card ect-zoho-one__card--green">
+        <h3 class="ect-zoho-one__title">Connect Sales, Finance, HR and Operations</h3>
+        <p class="ect-zoho-one__text">Your sales team might work in one tool, finance in another, and HR and operations in two more. Zoho One brings relevant customer, financial, employee and operational activities into a more connected application environment.</p>
+      </article>
+      <article class="ect-zoho-one__card ect-zoho-one__card--gray">
+        <h3 class="ect-zoho-one__title">Centralize Business Information Across Departments</h3>
+        <p class="ect-zoho-one__text">When information is spread across many places, records end up fragmented. Integrated applications and shared data workflows help reduce that by organizing important business information so every department can reach it.</p>
+      </article>
+      <article class="ect-zoho-one__card ect-zoho-one__card--green">
+        <h3 class="ect-zoho-one__title">Automate Cross-Department Business Workflows</h3>
+        <p class="ect-zoho-one__text">Here’s a simple example: a deal marked as won in your CRM could start an invoice in your accounting app. You can create processes like this, where activities in one application initiate relevant actions in another, subject to integration capabilities.</p>
+      </article>
+      <article class="ect-zoho-one__card ect-zoho-one__card--gray">
+        <h3 class="ect-zoho-one__title">Improve Business Visibility with Connected Reporting</h3>
+        <p class="ect-zoho-one__text">Want sales, finance and operations in the same report? Information from supported sources can be combined, so you can monitor sales, financial activity, operational performance and departmental progress together.</p>
+      </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Zoho solutions designed for businesses across industries -->
+  <section class="ect-dm-ind ect-dm-ind--zoho" id="zoho-industries" aria-labelledby="ect-zoho-ind-title">
+    <div class="ect-dm-ind__header">
+      <h2 class="ect-dm-ind__heading" id="ect-zoho-ind-title">Zoho Solutions Designed for Businesses Across Industries</h2>
+      <p class="ect-dm-ind__intro">A retail shop and a hospital don’t work the same way. Different industries have distinct customer journeys, operational processes and reporting needs, so our Zoho consulting experts help identify suitable applications for each business environment.</p>
+    </div>
+
+    <div class="ect-dm-ind__grid">
+      <figure class="ect-dm-ind__image">
+        <img src="{% static 'img/dmsol.webp' %}" alt="Social media creatives and a phone showing a brand profile" width="737" height="340" decoding="async" loading="lazy">
+      </figure>
+
+      <article class="ect-dm-ind__card ect-dm-ind__card--wide">
+        <h3 class="ect-dm-ind__title">Zoho Solutions for Retail and FMCG</h3>
+        <p class="ect-dm-ind__text">In retail and FMCG, stock moves fast and so do orders. Relevant Zoho applications help you manage customer records, inventory movement, sales orders, purchasing and business reporting.</p>
+      </article>
+
+      <article class="ect-dm-ind__card">
+        <h3 class="ect-dm-ind__title">Zoho Solutions for Manufacturing</h3>
+        <p class="ect-dm-ind__text">Has the raw material been ordered? Where’s the stock? Which order is in production? With suitable configurations and integrations, Zoho can support procurement, stock tracking, order coordination, production-related workflows and operational visibility.</p>
+      </article>
+
+      <article class="ect-dm-ind__card">
+        <h3 class="ect-dm-ind__title">Zoho Solutions for Healthcare and Education</h3>
+        <p class="ect-dm-ind__text">Hospitals and schools both handle a lot of personal information. Zoho can organize enquiries, appointments, admissions, employee information and administrative workflows, while considering applicable data privacy requirements.</p>
+      </article>
+
+      <article class="ect-dm-ind__card">
+        <h3 class="ect-dm-ind__title">Zoho Solutions for Real Estate and Construction</h3>
+        <p class="ect-dm-ind__text">Property enquiries, customer follow-ups, project activities, quotations, documentation. Real estate and construction businesses deal with all of these, and Zoho applications can manage them along with related business processes.</p>
+      </article>
+
+      <article class="ect-dm-ind__card ect-dm-ind__card--wide">
+        <h3 class="ect-dm-ind__title">Zoho Solutions for Hospitality and Logistics</h3>
+        <p class="ect-dm-ind__text">Guests and shipments have something in common: both need timely communication and careful tracking. Configured applications can support customer communication, service requests, scheduling, order-related activities and operational tracking.</p>
+      </article>
+
+      <figure class="ect-dm-ind__image ect-dm-ind__image--bottom">
+        <img src="{% static 'img/dmsol.webp' %}" alt="Social media creatives and a phone showing a brand profile" width="737" height="340" decoding="async" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <!-- Customize and connect your business with Zoho solutions -->
+  <section class="ect-zoho-custom" id="zoho-customization" aria-labelledby="ect-zoho-custom-title">
+    <span class="ect-zoho-custom__glow ect-zoho-custom__glow--a" aria-hidden="true"></span>
+    <span class="ect-zoho-custom__glow ect-zoho-custom__glow--b" aria-hidden="true"></span>
+    <span class="ect-zoho-custom__glow ect-zoho-custom__glow--c" aria-hidden="true"></span>
+
+    <div class="ect-zoho-custom__header">
+      <h2 class="ect-zoho-custom__heading" id="ect-zoho-custom-title">Customize and Connect Your Business with Zoho Solutions</h2>
+      <p class="ect-zoho-custom__intro">Standard software settings may not fully match the way your business already works. That’s where customization and integration come in. They help adapt the Zoho environment to your requirements.</p>
+    </div>
+
+    <div class="ect-zoho-custom__top">
+      <article class="ect-zoho-custom__feature">
+        <figure class="ect-zoho-custom__media ect-zoho-custom__media--wide"><img alt="Custom modules, fields and page layouts in a Zoho application">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</figure>
+        <div class="ect-zoho-custom__copy">
+          <h3 class="ect-zoho-custom__title ect-zoho-custom__title--narrow">Custom Modules, Fields and Page Layouts</h3>
+          <p class="ect-zoho-custom__text">Every business tracks something slightly different. A manufacturer might need a machine serial number field, while a clinic might need one for the referring doctor. We create relevant fields, modules, record layouts and data structures that reflect the information your team needs to manage.</p>
+        </div>
+      </article>
+
+      <article class="ect-zoho-custom__feature">
+        <figure class="ect-zoho-custom__media ect-zoho-custom__media--wide"><img alt="Zoho workflow automation and Deluge functions">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</figure>
+        <div class="ect-zoho-custom__copy">
+          <h3 class="ect-zoho-custom__title">Zoho Workflow Automation and Deluge Functions</h3>
+          <p class="ect-zoho-custom__text">Some tasks need a little logic behind them. Using workflow rules and Deluge scripting, we automate supported calculations, approvals, notifications and business-specific processes to improve efficiency and reduce repetitive manual work across your daily business operations with greater accuracy and consistency.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="ect-zoho-custom__row">
+      <article class="ect-zoho-custom__card">
+        <h3 class="ect-zoho-custom__title">Third-Party Application and API Integrations</h3>
+        <p class="ect-zoho-custom__text">Already using a website, a payment platform or a communication app? Compatible websites, payment platforms, communication applications and existing business systems can be connected through supported integration methods.</p>
+        <figure class="ect-zoho-custom__media ect-zoho-custom__media--small"><img alt="Third-party application and API integrations">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</figure>
+      </article>
+
+      <article class="ect-zoho-custom__card">
+        <h3 class="ect-zoho-custom__title">Zoho Workflow Automation and Deluge Functions</h3>
+        <p class="ect-zoho-custom__text">Some tasks need a little logic behind them. Using workflow rules and Deluge scripting, we automate supported calculations, approvals, notifications and business-specific processes.</p>
+        <figure class="ect-zoho-custom__media ect-zoho-custom__media--small"><img alt="Zoho workflow automation with Deluge scripting">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</figure>
+      </article>
+
+      <article class="ect-zoho-custom__card">
+        <h3 class="ect-zoho-custom__title">Data Migration, Mapping and Synchronization</h3>
+        <p class="ect-zoho-custom__text">Already using a website, a payment platform or a communication app? Compatible websites, payment platforms, communication applications and existing business systems can be connected through supported integration methods.</p>
+        <figure class="ect-zoho-custom__media ect-zoho-custom__media--small"><img alt="Data migration, mapping and synchronization">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</figure>
+      </article>
     </div>
   </section>
 
@@ -342,76 +559,116 @@
 
 
 
-  <!-- ===== ZOHO IMPLEMENTATION SECTION ===== -->
-  <section class="zoho-implementation" id="zoho-implementation">
 
-    <span class="zoho-implementation__eyebrow">Our Approach</span>
 
-    <div class="zoho-implementation__header">
-      <h2 class="zoho-implementation__title">How We Implement<br>Zoho for Your Business</h2>
-      <p class="zoho-implementation__subtitle">A proven Zoho implementation process built for seamless business
-        transformation and sustainable long-term growth.</p>
+
+
+  <!-- ===== ZOHO IMPLEMENTATION PROCESS ===== -->
+  <section class="ect-zoho-process" id="zoho-implementation" aria-labelledby="ect-zoho-process-title">
+    <div class="ect-zoho-process__header">
+      <h2 class="ect-zoho-process__heading" id="ect-zoho-process-title">How ECOG Turns Your Business Requirements into Working Zoho Solutions</h2>
+      <p class="ect-zoho-process__intro">Activating a few applications isn’t the same as a successful implementation. Getting there requires suitable configuration, accurate data, testing and employee adoption.</p>
     </div>
 
-    <div class="zoho-implementation__grid">
-
-      <!-- Step 01 -->
-      <div class="zoho-implementation__cell" data-step="1">
-        <div class="zoho-implementation__icon">
-          <img src="{% static 'img/zoom.png' %}" alt="Zoom" width="52" height="52" decoding="async" loading="lazy">
-        </div>
-        <span class="zoho-implementation__step-label">Step 01</span>
-        <h3 class="zoho-implementation__cell-title">Discovery &amp; Planning</h3>
-        <p class="zoho-implementation__cell-desc">We understand your business processes, goals, and challenges to
-          recommend the right Zoho solutions and implementation strategy.</p>
+    <div class="ect-zoho-process__grid">
+      <div class="ect-zoho-process__cell ect-zoho-process__cell--wide">
+        <div class="ect-zoho-process__icon"><img src="{% static 'img/zoom.png' %}" alt="zoom" height="52" decoding="async" loading="lazy"></div>
+        <div class="ect-zoho-process__step">Step 01</div>
+        <h3 class="ect-zoho-process__title">Business Process Discovery and Planning</h3>
+        <p class="ect-zoho-process__text">First comes the groundwork. We identify your business goals, current challenges, users, application requirements and implementation priorities.</p>
       </div>
-
-      <!-- Step 02 -->
-      <div class="zoho-implementation__cell" data-step="2">
-        <div class="zoho-implementation__icon icon-zoom">
-          <img src="{% static 'img/soluction.png' %}" alt="soluction" width="50" height="48" decoding="async" loading="lazy">
-        </div>
-        <span class="zoho-implementation__step-label">Step 02</span>
-        <h3 class="zoho-implementation__cell-title">Solution Design &amp; Customization</h3>
-        <p class="zoho-implementation__cell-desc">We configure modules, customize workflows, automate processes, and
-          tailor Zoho applications to match your business requirements.</p>
+      <div class="ect-zoho-process__cell">
+        <div class="ect-zoho-process__icon is-zoom"><img src="{% static 'img/website.png' %}" alt="website" height="50" decoding="async" loading="lazy"></div>
+        <div class="ect-zoho-process__step">Step 02</div>
+        <h3 class="ect-zoho-process__title">Zoho Application Setup and Customization</h3>
+        <p class="ect-zoho-process__text">Next, an appropriate Zoho implementation specialist handles the setup. Applications, permissions, fields, layouts and business workflows are configured according to the agreed scope.</p>
       </div>
-
-      <!-- Step 03 -->
-      <div class="zoho-implementation__cell" data-step="3">
-        <div class="zoho-implementation__icon">
-          <img src="{% static 'img/implement.png' %}" alt="implement" width="52" height="52" decoding="async" loading="lazy">
-        </div>
-        <span class="zoho-implementation__step-label">Step 03</span>
-        <h3 class="zoho-implementation__cell-title">Implementation &amp; Integration</h3>
-        <p class="zoho-implementation__cell-desc">We deploy Zoho applications, migrate data, integrate third-party
-          systems, and thoroughly test every workflow for a smooth launch.</p>
+      <div class="ect-zoho-process__cell">
+        <div class="ect-zoho-process__icon is-zoom"><img src="{% static 'img/testing.png' %}" alt="testing" height="49" decoding="async" loading="lazy"></div>
+        <div class="ect-zoho-process__step">Step 03</div>
+        <h3 class="ect-zoho-process__title">Integration, Automation and Data Migration</h3>
+        <p class="ect-zoho-process__text">With the base in place, we implement the approved integrations and configure automation. Data imports are prepared with suitable validation checks.</p>
       </div>
-
-      <!-- Step 04 -->
-      <div class="zoho-implementation__cell" data-step="4">
-        <div class="zoho-implementation__icon">
-          <img src="{% static 'img/training.png' %}" alt="training" width="57" height="54" decoding="async" loading="lazy">
-        </div>
-        <span class="zoho-implementation__step-label">Step 04</span>
-        <h3 class="zoho-implementation__cell-title">Training &amp; Ongoing Support</h3>
-        <p class="zoho-implementation__cell-desc">We train your team, provide continuous support, and optimize your Zoho
-          environment as your business grows and evolves successfully.</p>
+      <div class="ect-zoho-process__cell">
+        <div class="ect-zoho-process__icon"><img src="{% static 'img/web.png' %}" alt="web" height="50" decoding="async" loading="lazy"></div>
+        <div class="ect-zoho-process__step">Step 04</div>
+        <h3 class="ect-zoho-process__title">Testing, User Training and Deployment</h3>
+        <p class="ect-zoho-process__text">Before launch, the configured workflows are tested. Relevant users get guidance on how to use them, and the applications are prepared for practical business use.</p>
       </div>
-
+      <div class="ect-zoho-process__cell">
+        <div class="ect-zoho-process__icon"><img src="{% static 'img/support.png' %}" alt="support" height="54" decoding="async" loading="lazy"></div>
+        <div class="ect-zoho-process__step">Step 05</div>
+        <h3 class="ect-zoho-process__title">Post-Implementation Support and Optimization</h3>
+        <p class="ect-zoho-process__text">Go-live isn’t the finish line. After deployment, we review technical issues, user feedback and additional requirements to identify appropriate improvements.</p>
+      </div>
     </div>
-
-    <!-- Tablet/mobile only: same subtitle, repositioned below the last
-         step card instead of beside the heading (see
-         .zoho-implementation__subtitle--closing in zoho.css). Currently
-         .zoho-implementation__subtitle is just hidden outright below
-         1024px with no replacement — this gives it one. Desktop keeps
-         the original subtitle beside the heading, untouched. -->
-    <p class="zoho-implementation__subtitle zoho-implementation__subtitle--closing">A proven Zoho implementation process built for seamless business
-      transformation and sustainable long-term growth.</p>
-
   </section>
-  <!-- ===== END ZOHO IMPLEMENTATION SECTION ===== -->
+  <!-- ===== END ZOHO IMPLEMENTATION PROCESS ===== -->
+
+    <!-- why choose ECOG (Zoho consulting) -->
+    <section class="ect-why" id="zoho-why-choose" aria-labelledby="ect-why-title" data-why data-card-height="640" data-media-height="323">
+      <div class="ect-why__runway" data-why-runway>
+      <div class="ect-why__scene" data-why-scene>
+        <div class="ect-why__disc" aria-hidden="true" data-why-disc></div>
+        <div class="ect-why__logo" aria-hidden="true" data-why-logo>
+          <img src="{% static 'img/roundlogo.webp' %}" alt="" width="256" height="251" decoding="async">
+        </div>
+
+        <div class="ect-why__content" data-why-content>
+          <h2 class="ect-why__heading" id="ect-why-title" data-why-heading>
+            <span class="ect-why__line" data-why-line1>Why Choose ECOG for Zoho Consulting</span>
+            <span class="ect-why__line" data-why-line2>and Implementation?</span>
+          </h2>
+
+          <p class="ect-why__lead" data-why-lead>At ECOG Core Technologies Private Limited, our focus is connecting business processes with relevant digital applications. A long feature list doesn’t solve much by itself, so our approach emphasizes operational requirements, not software features alone.</p>
+          <a href="javascript:void(0)" class="ect-why__cta ect-why__cta--intro popup-trigger" data-why-intro-cta>Talk to Our Zoho Consultant</a>
+
+          <div class="ect-why__controls" data-why-controls>
+            <button type="button" class="ect-why__arrow" data-why-prev aria-label="Show previous reason">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+            <button type="button" class="ect-why__arrow" data-why-next aria-label="Show next reason">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+          </div>
+
+          <div class="ect-why__track" data-why-track>
+            <div class="ect-why__highlight" aria-hidden="true" data-why-highlight></div>
+
+            <article class="ect-why__card" data-why-card>
+              <h3 class="ect-why__title">Business-Focused Zoho Consultation</h3>
+              <div class="ect-why__media"><img class="ect-why__img" alt="Team discussing business requirements before choosing Zoho applications">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+              <p class="ect-why__text">We start with one question: what does your organization need to accomplish? Only after that do we recommend application changes or additional functionality.</p>
+              <a href="javascript:void(0)" class="ect-why__cta popup-trigger">Talk to Our Zoho Consultant</a>
+            </article>
+
+            <article class="ect-why__card" data-why-card>
+              <h3 class="ect-why__title">Customized Zoho Implementation Solutions</h3>
+              <div class="ect-why__media"><img class="ect-why__img" alt="Zoho CRM configured around a sales team’s processes">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+              <p class="ect-why__text">No two sales teams work exactly the same way. Our Zoho CRM implementation services, along with broader application configurations, are designed around your sales processes, user responsibilities and reporting needs.</p>
+              <a href="javascript:void(0)" class="ect-why__cta popup-trigger">Talk to Our Zoho Consultant</a>
+            </article>
+
+            <article class="ect-why__card" data-why-card>
+              <h3 class="ect-why__title">Connected Business Applications and Workflows</h3>
+              <div class="ect-why__media"><img class="ect-why__img" alt="CRM, finance, operations and HR applications connected together">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+              <p class="ect-why__text">CRM, finance, operations and HR work better when they can share information. We help businesses explore integrations between CRM, finance, operations, HR and other supported systems.</p>
+              <a href="javascript:void(0)" class="ect-why__cta popup-trigger">Talk to Our Zoho Consultant</a>
+            </article>
+
+            <article class="ect-why__card" data-why-card>
+              <h3 class="ect-why__title">Practical Training and Ongoing Support</h3>
+              <div class="ect-why__media"><img class="ect-why__img" alt="Consultant training a team on Zoho applications">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+              <p class="ect-why__text">The right level of support depends on the project. We provide implementation guidance, user assistance and technical support arrangements appropriate to your project’s requirements.</p>
+              <a href="javascript:void(0)" class="ect-why__cta popup-trigger">Talk to Our Zoho Consultant</a>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </section>
+
 
 
 
@@ -479,22 +736,12 @@
 
   <!-- business section end -->
 
-  <section class="work zoho-work">
+  <section class="work zoho-work" aria-labelledby="work-title">
     <div class="work__inner">
 
       <div class="work__head">
-        <div>
-          <p class="work__label">ECT Work</p>
-          <h2 class="work__title">Turning Ideas<br>into Business Success</h2>
-        </div>
-        <div class="work__nav">
-          <button class="nav-btn" aria-label="Previous project"><svg viewBox="0 0 24 24">
-              <path d="M19 12H5M11 6l-6 6 6 6" />
-            </svg></button>
-          <button class="nav-btn" aria-label="Next project"><svg viewBox="0 0 24 24">
-              <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg></button>
-        </div>
+        <h2 class="work__title" id="work-title">Explore Real Business Solutions Built with Zoho Applications</h2>
+        <p class="work__intro">Practical Zoho project examples show how customization, integrations, and automation solve business challenges and improve operations.</p>
       </div>
 
       <div class="work__grid">
@@ -628,8 +875,101 @@
         </article>
 
       </div>
+
+        <div class="work__nav work__nav--below">
+          <button class="nav-btn" aria-label="Previous project"><svg viewBox="0 0 24 24">
+              <path d="M19 12H5M11 6l-6 6 6 6" />
+            </svg></button>
+          <button class="nav-btn" aria-label="Next project"><svg viewBox="0 0 24 24">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></button>
+        </div>
     </div>
   </section>
+
+  <!-- Understanding Zoho consulting and implementation costs -->
+  <section class="ect-zoho-cost" id="zoho-costs" aria-labelledby="ect-zoho-cost-title">
+    <div class="ect-zoho-cost__header">
+      <h2 class="ect-zoho-cost__heading" id="ect-zoho-cost-title">Understanding Zoho Consulting and Implementation Costs</h2>
+      <p class="ect-zoho-cost__intro">The cost of <a href="#" class="ect-zoho-cost__link">Zoho consulting services</a> depends on the applications selected, business complexity, implementation activities, and support requirements.</p>
+    </div>
+
+    <div class="ect-zoho-cost__stage">
+      <img class="ect-zoho-cost__logo" src="{% static 'img/roundlogo.webp' %}" alt="" width="126" height="124" decoding="async" loading="lazy">
+
+      <article class="ect-zoho-cost__card ect-zoho-cost__card--a">
+        <div class="ect-zoho-cost__copy">
+          <h3 class="ect-zoho-cost__title">Factors Affecting Zoho Implementation Pricing</h3>
+          <p class="ect-zoho-cost__text">The number of users, required configurations, workflows, reports, and operational requirements influence the overall project scope.</p>
+        </div>
+      </article>
+
+      <article class="ect-zoho-cost__card ect-zoho-cost__card--b">
+        <div class="ect-zoho-cost__media"><img alt="Factors that affect Zoho implementation pricing">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+      </article>
+
+      <article class="ect-zoho-cost__card ect-zoho-cost__card--c">
+        <div class="ect-zoho-cost__copy">
+          <h3 class="ect-zoho-cost__title">Customization and Integration Cost Considerations</h3>
+          <p class="ect-zoho-cost__text">Advanced automation, custom modules, Deluge functions, API connections, and data migration may require additional implementation effort.</p>
+        </div>
+        <div class="ect-zoho-cost__media"><img alt="Customization and integration cost considerations">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+      </article>
+
+      <article class="ect-zoho-cost__card ect-zoho-cost__card--d">
+        <div class="ect-zoho-cost__media"><img alt="Zoho automation and integration effort">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+      </article>
+
+      <article class="ect-zoho-cost__card ect-zoho-cost__card--e">
+        <div class="ect-zoho-cost__media"><img alt="Zoho licensing and subscription costs">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-zoho-cost__copy">
+          <h3 class="ect-zoho-cost__title">Zoho Licensing and Subscription Costs</h3>
+          <p class="ect-zoho-cost__text">Zoho subscription charges depend on the selected products, editions, number of users, billing terms, and applicable pricing. Licensing fees should be considered separately from consulting and implementation charges.</p>
+        </div>
+      </article>
+
+      <article class="ect-zoho-cost__card ect-zoho-cost__card--f">
+        <div class="ect-zoho-cost__copy">
+          <h3 class="ect-zoho-cost__title">Training, Maintenance and Support Expenses</h3>
+          <p class="ect-zoho-cost__text">User training, documentation, troubleshooting, future enhancements, and support arrangements can affect long-term operating costs. For an accurate estimate, share your requirements with ECOG rather than relying on generic package prices.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Build a smarter, more connected business with Zoho solutions -->
+  <section class="ect-zoho-build" id="zoho-build" aria-labelledby="ect-zoho-build-title">
+    <div class="ect-zoho-build__copy">
+      <h2 class="ect-zoho-build__heading" id="ect-zoho-build-title">Build a Smarter, More Connected Business with Zoho Solutions</h2>
+      <p class="ect-zoho-build__text">The value of Zoho comes from choosing suitable applications and configuring them to support the way your organization works.<br>At ECOG Core Technologies Private Limited, our Zoho consulting services help businesses plan implementations, customize workflows, connect applications, and improve operational efficiency. Whether you need a Zoho CRM consultant, assistance with Zoho One, or broader business application integration, our team can discuss your requirements.</p>
+      <a href="javascript:void(0)" class="ect-zoho-build__cta popup-trigger">Discuss Your Requirements</a>
+    </div>
+
+    <ul class="ect-zoho-build__grid" aria-label="Zoho applications">
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-forms 1.png' %}" alt="Zoho Forms" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-meeting 1.png' %}" alt="Zoho Meeting" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-workdrive 1.png' %}" alt="Zoho WorkDrive" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-crm 1.png' %}" alt="Zoho CRM" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-cliq 1.png' %}" alt="Zoho Cliq" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-inventory 1.png' %}" alt="Zoho Inventory" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-assist 1.png' %}" alt="Zoho Assist" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-shifts 1.png' %}" alt="Zoho Shifts" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-fsm 1.png' %}" alt="Zoho FSM" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-flow 1.png' %}" alt="Zoho Flow" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-sheet 1.png' %}" alt="Zoho Sheet" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-commerce 1.png' %}" alt="Zoho Commerce" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-campaigns 1.png' %}" alt="Zoho Campaigns" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-show 1.png' %}" alt="Zoho Show" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-vault 1.png' %}" alt="Zoho Vault" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-projects 1.png' %}" alt="Zoho Projects" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-expense 1.png' %}" alt="Zoho Expense" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-metools 1.png' %}" alt="ManageEngine tools" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-bigin 1.png' %}" alt="Zoho Bigin" width="50" decoding="async" loading="lazy"></li>
+        <li class="ect-zoho-build__tile"><img src="{% static 'img/zoho-pos 1.png' %}" alt="Zoho POS" width="50" decoding="async" loading="lazy"></li>
+    </ul>
+  </section>
+
+
 
 
 
@@ -686,184 +1026,60 @@
   <!-- FAQ Section -->
   <section class="faq-section" aria-labelledby="faq-heading">
     <div class="faq-head">
-      <div>
-        <span class="faq-eyebrow">Frequently asked questions</span>
-        <h2 class="faq-title" id="faq-heading">Everything You Need to<br>Know About Zoho Solutions</h2>
-      </div>
-      <p class="faq-sub faq-sub--top">Learn more about our Zoho services, implementation process, customization, integrations, and ongoing support.</p>
+      <h2 class="faq-title" id="faq-heading">Frequently Asked Questions About Zoho Consulting Services</h2>
     </div>
 
     <div class="faq-grid" id="faqGrid">
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          What Zoho services do you provide?
-          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-              stroke-linecap="round">
-              <path d="M6 9l6 6 6-6" />
-            </svg></span>
+          What Does a Zoho Consultant Do?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            <p>We provide Zoho consulting, implementation, customization, workflow automation, integrations, training,
-              migration, and ongoing support across the Zoho ecosystem.</p>
-          </div>
-        </div>
+        <div class="faq-a"><div class="faq-a-inner"><p>A Zoho consultant helps businesses select, configure, customize, integrate, and optimize Zoho applications. Consultants also assess workflows, plan automation, support data migration, and provide user guidance.</p></div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          Which Zoho applications do you implement?
-          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-              stroke-linecap="round">
-              <path d="M6 9l6 6 6-6" />
-            </svg></span>
+          Which Zoho Applications Can ECOG Implement?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            <p>We implement Zoho CRM, Zoho Books, Zoho People, Zoho Desk, Zoho Projects, Zoho Creator, Zoho Inventory,
-              Zoho One, and other Zoho business applications.</p>
-          </div>
-        </div>
+        <div class="faq-a"><div class="faq-a-inner"><p>ECOG works with business requirements involving Zoho CRM, Bigin, Books, Inventory, Creator, People, Recruit, Analytics, Desk, Zoho One, and other relevant applications. Implementation scope depends on the selected products and technical requirements.</p></div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          Can you customize Zoho based on our business processes?
-          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-              stroke-linecap="round">
-              <path d="M6 9l6 6 6-6" />
-            </svg></span>
+          How Long Does Zoho Implementation Take?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            <p>Yes. We customize modules, layouts, fields, workflows, approvals, reports, dashboards, and automations to
-              match your unique business requirements.</p>
-          </div>
-        </div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Implementation timelines vary depending on application complexity, customization, number of users, data quality, integrations, and testing requirements. A simple setup generally takes less time than a multi-department deployment.</p></div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          Do you migrate data from our existing system to Zoho?
-          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-              stroke-linecap="round">
-              <path d="M6 9l6 6 6-6" />
-            </svg></span>
+          Can Zoho Integrate with My Existing Business Software?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            <p>Yes. We securely migrate customer records, transactions, employee data, and other business information
-              from existing systems into Zoho.</p>
-          </div>
-        </div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes. Zoho applications support various native integrations, APIs, webhooks, and integration tools. Compatibility, licensing, data requirements, and technical restrictions should be evaluated before implementation.</p></div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          Can Zoho integrate with our existing software?
-          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-              stroke-linecap="round">
-              <path d="M6 9l6 6 6-6" />
-            </svg></span>
+          Can Existing Business Data Be Migrated to Zoho?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            <p>Yes. We integrate Zoho with ERP systems, accounting software, payment gateways, websites, WhatsApp, email
-              platforms, and third-party applications using APIs.</p>
-          </div>
-        </div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes. Customer information, products, transactions, and other supported records may be migrated from compatible data sources. Proper mapping, duplicate checks, validation, and backup planning help reduce migration risks.</p></div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          Do you provide workflow automation in Zoho?
-          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-              stroke-linecap="round">
-              <path d="M6 9l6 6 6-6" />
-            </svg></span>
+          How Much Do Zoho Consulting Services Cost?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            <p>Yes. We automate approvals, notifications, lead management, sales processes, task assignments, and other
-              business workflows to improve efficiency.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          Will you provide training after implementation?
-          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-              stroke-linecap="round">
-              <path d="M6 9l6 6 6-6" />
-            </svg></span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            <p>Yes. We provide user training, administrator training, documentation, and ongoing guidance to ensure your
-              team adopts Zoho successfully.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          Do you offer support after Zoho implementation?
-          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-              stroke-linecap="round">
-              <path d="M6 9l6 6 6-6" />
-            </svg></span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            <p>Yes. We provide continuous support, troubleshooting, system optimization, feature enhancements, and
-              maintenance after deployment.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          How long does a Zoho implementation take?
-          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-              stroke-linecap="round">
-              <path d="M6 9l6 6 6-6" />
-            </svg></span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            <p>The implementation timeline depends on your business requirements, selected Zoho applications,
-              customization needs, and integration complexity. A project timeline is shared after the initial
-              consultation.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          Why choose ECT for Zoho Consulting & Implementation?
-          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-              stroke-linecap="round">
-              <path d="M6 9l6 6 6-6" />
-            </svg></span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            <p>ECT combines business consulting with Zoho expertise to deliver customized, scalable, and fully
-              integrated solutions that improve productivity, automate operations, and support long-term business
-              growth.</p>
-          </div>
-        </div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Costs depend on the applications involved, implementation complexity, customization, integrations, training, and support needs. Zoho subscription fees and consulting charges should be evaluated separately.</p></div></div>
       </div>
 
     </div>
-
-    <!-- Tablet/mobile only: same sub-text, repositioned below the last FAQ
-         card instead of beside the heading (see .faq-sub--bottom in
-         zoho.css). Hidden on desktop, which keeps the original
-         (.faq-sub--top) above the accordion. -->
-    <p class="faq-sub faq-sub--bottom">Learn more about our Zoho services, implementation process, customization, integrations, and ongoing support.</p>
 
   </section>
 
@@ -873,13 +1089,16 @@
   </main>
 
   <script src="{% static 'js/zoho.js' %}?v=3"></script>
+  <script src="{% static 'js/digital-solutions.js' %}?v=1"></script>
+  <script src="{% static 'js/website-benefits.js' %}?v=9" defer></script>
+  <script src="{% static 'js/website-why.js' %}?v=16" defer></script>
 
 
 
   {% include 'footer.html' %}
   {% include 'components/contact_popup.html' %}
 
-  <script src="{% static 'js/contact-popup.js' %}?v=29"></script>
+  <script src="{% static 'js/contact-popup.js' %}?v=30"></script>
   <script src="{% static 'js/base.js' %}?v=33"></script>
 {% include 'components/zoho_salesiq.html' %}
 </body>

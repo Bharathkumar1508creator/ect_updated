@@ -1,0 +1,291 @@
+/* Zoho page: "How ECOG Turns Your Business Requirements into Working Zoho Solutions" (Figma).
+   1240px wide. Heading 1078px, intro 868px, then a bordered grid: a wide cell + one cell on top,
+   three cells below. Column lines sit at 409.19 / 818.39px, and a small notch points into the
+   next cell. Inside a cell: icon at 32px, STEP at 145px, title at 173px, text at 201px. */
+
+.ect-zoho-process,
+.ect-zoho-process * {
+  box-sizing: border-box;
+}
+
+.ect-zoho-process {
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-zoho-process__header {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+body.service-page .ect-zoho-process .ect-zoho-process__heading,
+body.zoho-page .ect-zoho-process .ect-zoho-process__heading {
+  max-width: 1078px;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-zoho-process__intro {
+  max-width: 868px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-zoho-process__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 409.19fr 409.2fr 421.61fr;
+  border: 1px solid #5b6d49;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.ect-zoho-process__cell {
+  --cell-bg: #fff;
+  position: relative;
+  min-height: 304px;
+  padding: 32px 24px 24px 31.8px;
+  background: var(--cell-bg);
+  transition: background 300ms ease;
+}
+
+/* Hover: soft tint, as on the website page's "Our Website Development Process". */
+.ect-zoho-process__cell:hover {
+  --cell-bg: #f8faf6;
+}
+
+/* Lines between cells. */
+.ect-zoho-process__cell:nth-child(n + 3) {
+  border-top: 1px solid #5b6d49;
+}
+
+.ect-zoho-process__cell:nth-child(2),
+.ect-zoho-process__cell:nth-child(4),
+.ect-zoho-process__cell:nth-child(5) {
+  border-left: 1px solid #5b6d49;
+}
+
+.ect-zoho-process__cell--wide {
+  grid-column: 1 / span 2;
+  padding-left: 63.6px;
+  z-index: 1;
+  border-top-left-radius: 15px;
+}
+
+/* Third cell of the second row keeps the right-hand column line. */
+.ect-zoho-process__cell:nth-child(2) {
+  border-top-right-radius: 15px;
+}
+
+.ect-zoho-process__cell:nth-child(3) {
+  border-bottom-left-radius: 15px;
+}
+
+.ect-zoho-process__cell:nth-child(5) {
+  border-bottom-right-radius: 15px;
+}
+
+/* The notch where one step leads into the next: a small outlined arrow on the column line.
+   It belongs to the cell on its left, so it takes that cell's hover tint too. */
+.ect-zoho-process__cell:nth-child(1),
+.ect-zoho-process__cell:nth-child(4) {
+  z-index: 2;
+}
+
+/* Cell 3 must sit above cell 4 so its notch is not covered. */
+.ect-zoho-process__cell:nth-child(3) {
+  z-index: 3;
+}
+
+.ect-zoho-process__cell:nth-child(1)::before,
+.ect-zoho-process__cell:nth-child(3)::before,
+.ect-zoho-process__cell:nth-child(4)::before,
+.ect-zoho-process__cell:nth-child(1)::after,
+.ect-zoho-process__cell:nth-child(3)::after,
+.ect-zoho-process__cell:nth-child(4)::after {
+  content: "";
+  position: absolute;
+  top: 141px;
+  left: 100%;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  pointer-events: none;
+}
+
+.ect-zoho-process__cell:nth-child(1)::before,
+.ect-zoho-process__cell:nth-child(3)::before,
+.ect-zoho-process__cell:nth-child(4)::before {
+  width: 14px;
+  height: 28px;
+  margin-left: -1px;
+  background: #5b6d49;
+}
+
+.ect-zoho-process__cell:nth-child(1)::after,
+.ect-zoho-process__cell:nth-child(3)::after,
+.ect-zoho-process__cell:nth-child(4)::after {
+  top: 142px;
+  width: 12.5px;
+  height: 26px;
+  margin-left: -1px;
+  background: var(--cell-bg, #fff);
+  transition: background 300ms ease;
+}
+
+.ect-zoho-process__icon {
+  display: flex;
+  align-items: flex-start;
+  height: 60px;
+  margin: 0 0 53px;
+}
+
+.ect-zoho-process__icon img {
+  display: block;
+  width: auto;
+  height: 52px;
+  object-fit: contain;
+}
+
+/* Hover: the icon spins, pauses, spins again; the "zoom" icons grow and shrink instead. */
+.ect-zoho-process__cell:hover .ect-zoho-process__icon:not(.is-zoom) img {
+  animation: zp-spin-pause 2.8s ease-in-out infinite;
+}
+
+.ect-zoho-process__cell:hover .ect-zoho-process__icon.is-zoom img {
+  animation: zp-zoom-pause 2.8s ease-in-out infinite;
+}
+
+@keyframes zp-spin-pause {
+  0%     { transform: rotate(0deg); }
+  28.57% { transform: rotate(360deg); }
+  100%   { transform: rotate(360deg); }
+}
+
+@keyframes zp-zoom-pause {
+  0%     { transform: scale(1); }
+  14.28% { transform: scale(1.2); }
+  28.57% { transform: scale(1); }
+  100%   { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ect-zoho-process__cell:hover .ect-zoho-process__icon img {
+    animation: none;
+  }
+}
+
+.ect-zoho-process__step {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #000;
+}
+
+body.service-page .ect-zoho-process .ect-zoho-process__title,
+body.zoho-page .ect-zoho-process .ect-zoho-process__title {
+  margin: 0 0 4px;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #000;
+}
+
+.ect-zoho-process__text {
+  max-width: 353px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000;
+}
+
+.ect-zoho-process__cell--wide .ect-zoho-process__text {
+  max-width: 717px;
+}
+
+/* Tablet: two columns, then one. No notches. */
+@media (max-width: 1199px) {
+  .ect-zoho-process {
+    margin: 56px auto;
+  }
+
+  body.service-page .ect-zoho-process .ect-zoho-process__heading,
+  body.zoho-page .ect-zoho-process .ect-zoho-process__heading {
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-zoho-process__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ect-zoho-process__cell,
+  .ect-zoho-process__cell--wide {
+    grid-column: auto;
+    min-height: 0;
+    padding: 28px 24px;
+    border: 0;
+    border-top: 1px solid #5b6d49;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .ect-zoho-process__cell:nth-child(even) {
+    border-left: 1px solid #5b6d49;
+  }
+
+  .ect-zoho-process__cell:first-child {
+    border-top: 0;
+    grid-column: 1 / -1;
+  }
+
+  .ect-zoho-process__cell::before,
+  .ect-zoho-process__cell::after {
+    display: none !important;
+  }
+
+  .ect-zoho-process__icon {
+    margin-bottom: 24px;
+  }
+
+  .ect-zoho-process__text,
+  .ect-zoho-process__cell--wide .ect-zoho-process__text {
+    max-width: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-zoho-process {
+    width: calc(100% - 32px);
+  }
+
+  .ect-zoho-process__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ect-zoho-process__cell:nth-child(even) {
+    border-left: 0;
+  }
+
+  body.service-page .ect-zoho-process .ect-zoho-process__title,
+  body.zoho-page .ect-zoho-process .ect-zoho-process__title {
+    font-size: 18px;
+  }
+}
+
+/* A link inside a step's text (HR page, last step). */
+.ect-zoho-process__link {
+  color: inherit;
+  text-decoration: underline;
+}

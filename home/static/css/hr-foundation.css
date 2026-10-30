@@ -1,0 +1,233 @@
+/* HR page: "Build a Strong HR Foundation with Structured Policies and Processes" (Figma).
+   Heading (772px) + intro (367px). Below, five cards placed on a 1240 x 1041 stage:
+   a tall grey card on the left, two wide green cards beside it, then a green and a grey card.
+   Until pictures are added each img has no src, so its alt text shows in the white box. */
+
+.ect-hr-base,
+.ect-hr-base * {
+  box-sizing: border-box;
+}
+
+.ect-hr-base {
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-hr-base__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+
+body.service-page .ect-hr-base .ect-hr-base__heading,
+body.hr-page .ect-hr-base .ect-hr-base__heading {
+  flex: 0 1 772.5px;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-hr-base__intro {
+  flex: 0 0 366.8px;
+  margin: 16px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-hr-base__stage {
+  position: relative;
+  height: 1041px;
+}
+
+.ect-hr-base__card {
+  position: absolute;
+  display: flex;
+  border-radius: 16px;
+}
+
+.ect-hr-base__card--a { left: 4px;   top: 0;     width: 396px; height: 708px; }
+.ect-hr-base__card--b { left: 424px; top: 0;     width: 816px; height: 309px; }
+.ect-hr-base__card--c { left: 424px; top: 333px; width: 816px; height: 309px; }
+.ect-hr-base__card--d { left: 4px;   top: 732px; width: 606px; height: 309px; }
+.ect-hr-base__card--e { left: 634px; top: 666px; width: 606px; height: 375px; }
+
+/* Grey cards and green cards, each with a soft grain. */
+.ect-hr-base__card--a,
+.ect-hr-base__card--e {
+  background-color: #f1f1ef;
+  background-image: url("../img/noise-on-gray.png");
+  background-size: 320px 320px;
+  color: #000;
+}
+
+.ect-hr-base__card--b,
+.ect-hr-base__card--c,
+.ect-hr-base__card--d {
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: #5b6d49;
+  background-image: url("../img/noise-on-green.png");
+  background-size: 320px 320px;
+  color: #fff;
+}
+
+.ect-hr-base__card--a {
+  flex-direction: column;
+  padding: 15px 16px 16px;
+}
+
+.ect-hr-base__card--e {
+  align-items: center;
+  gap: 16px;
+  padding: 17px 16px 16px 16px;
+}
+
+.ect-hr-base__copy {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+body.service-page .ect-hr-base .ect-hr-base__title,
+body.hr-page .ect-hr-base .ect-hr-base__title {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 30.51px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: inherit;
+}
+
+.ect-hr-base__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: inherit;
+}
+
+.ect-hr-base__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.ect-hr-base__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* No src yet: the browser shows the alt text, centred, until a picture is added. */
+.ect-hr-base__media img:not([src]) {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Picture sizes from Figma. */
+.ect-hr-base__card--a .ect-hr-base__media { flex: none; height: 443px; margin-bottom: 16px; }
+.ect-hr-base__card--a .ect-hr-base__title { margin-bottom: 8px; }
+.ect-hr-base__card--b .ect-hr-base__media { flex: none; width: 431px; height: 277px; }
+.ect-hr-base__card--c .ect-hr-base__media { flex: none; width: 452px; height: 277px; }
+.ect-hr-base__card--d .ect-hr-base__media { flex: none; width: 272px; height: 277px; }
+.ect-hr-base__card--e .ect-hr-base__media { flex: none; width: 248px; height: 342px; }
+
+.ect-hr-base__card--b .ect-hr-base__copy { padding-left: 15px; }
+.ect-hr-base__card--c .ect-hr-base__copy { padding-left: 0; }
+
+/* Tablet and mobile: simple stack. */
+@media (max-width: 1199px) {
+  .ect-hr-base {
+    margin: 56px auto;
+  }
+
+  .ect-hr-base__header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  body.service-page .ect-hr-base .ect-hr-base__heading,
+  body.hr-page .ect-hr-base .ect-hr-base__heading {
+    flex: none;
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-hr-base__intro {
+    flex: none;
+    max-width: 640px;
+    margin: 0;
+  }
+
+  .ect-hr-base__stage {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    height: auto;
+  }
+
+  .ect-hr-base__card,
+  .ect-hr-base__card--a,
+  .ect-hr-base__card--b,
+  .ect-hr-base__card--c,
+  .ect-hr-base__card--d,
+  .ect-hr-base__card--e {
+    position: static;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .ect-hr-base__card--a .ect-hr-base__media,
+  .ect-hr-base__card--b .ect-hr-base__media,
+  .ect-hr-base__card--c .ect-hr-base__media,
+  .ect-hr-base__card--d .ect-hr-base__media,
+  .ect-hr-base__card--e .ect-hr-base__media {
+    width: 100%;
+    height: auto;
+    min-height: 220px;
+  }
+
+  .ect-hr-base__card--b .ect-hr-base__copy {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-hr-base {
+    width: calc(100% - 32px);
+  }
+
+  .ect-hr-base__stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.service-page .ect-hr-base .ect-hr-base__title,
+  body.hr-page .ect-hr-base .ect-hr-base__title {
+    font-size: 24px;
+  }
+}

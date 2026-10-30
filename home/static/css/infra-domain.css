@@ -1,0 +1,222 @@
+/* IT Infrastructure page: "Keep Your Business Website and Digital Identity Running Reliably" (Figma).
+   Heading 772px + intro 416px. Grid: tall grey card (396 x 708) on the left, two green cards on the
+   right (816 x 309 and 816 x 375); below, a green and a grey card (606 x 309 each).
+   Every card has 16px padding; pictures are white boxes showing their alt text until added. */
+
+.ect-infra-dom,
+.ect-infra-dom * {
+  box-sizing: border-box;
+}
+
+.ect-infra-dom {
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-infra-dom__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+
+body.service-page .ect-infra-dom .ect-infra-dom__heading {
+  flex: 0 1 772px;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-infra-dom__intro {
+  flex: 0 0 416px;
+  margin: 16px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-infra-dom__grid {
+  display: grid;
+  grid-template-columns: 396px minmax(0, 1fr);
+  grid-template-rows: 309px 375px;
+  gap: 24px;
+}
+
+.ect-infra-dom__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 606px));
+  justify-content: space-between;
+  grid-auto-rows: 309px;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.ect-infra-dom__card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.ect-infra-dom__card--green,
+.ect-infra-dom__card--dns,
+.ect-infra-dom__card--migration,
+.ect-infra-dom__card--hosting {
+  background-color: #5b6d49;
+  background-image: url("../img/noise-on-green.png");
+  background-size: 320px 320px;
+  color: #fff;
+}
+
+.ect-infra-dom__card--domain,
+.ect-infra-dom__card--ssl {
+  background-color: #f1f1ef;
+  background-image: url("../img/noise-on-gray.png");
+  background-size: 320px 320px;
+  color: #000;
+}
+
+.ect-infra-dom__card--domain {
+  grid-row: 1 / span 2;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.ect-infra-dom__card--dns,
+.ect-infra-dom__card--migration {
+  grid-column: 2;
+}
+
+.ect-infra-dom__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+body.service-page .ect-infra-dom .ect-infra-dom__title {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 30.51px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: inherit;
+}
+
+.ect-infra-dom__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: inherit;
+}
+
+.ect-infra-dom__media {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.ect-infra-dom__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* No src yet: the browser shows the alt text, centred, until a picture is added. */
+.ect-infra-dom__media img:not([src]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Figma picture and text sizes. */
+.ect-infra-dom__card--domain .ect-infra-dom__media { width: 100%; height: 443px; }
+.ect-infra-dom__card--domain .ect-infra-dom__copy { width: 100%; }
+.ect-infra-dom__card--dns .ect-infra-dom__media { width: 430.61px; height: 277px; }
+.ect-infra-dom__card--dns .ect-infra-dom__copy { width: 338px; }
+.ect-infra-dom__card--migration .ect-infra-dom__copy { width: 322px; margin-right: auto; }
+.ect-infra-dom__card--migration .ect-infra-dom__media { width: 451.54px; height: 336px; }
+.ect-infra-dom__card--hosting .ect-infra-dom__media { width: 275px; height: 277px; }
+.ect-infra-dom__card--hosting .ect-infra-dom__copy { width: 297px; }
+.ect-infra-dom__card--ssl .ect-infra-dom__copy { width: 306px; margin-right: auto; }
+.ect-infra-dom__card--ssl .ect-infra-dom__media { width: 248px; height: 268px; }
+
+/* Tablet and mobile: stacked. */
+@media (max-width: 1199px) {
+  .ect-infra-dom {
+    margin: 56px auto;
+  }
+
+  .ect-infra-dom__header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  body.service-page .ect-infra-dom .ect-infra-dom__heading {
+    flex: none;
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-infra-dom__intro {
+    flex: none;
+    max-width: 640px;
+    margin-top: 0;
+  }
+
+  .ect-infra-dom__grid,
+  .ect-infra-dom__row {
+    grid-template-columns: minmax(0, 1fr);
+    justify-content: stretch;
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+  }
+
+  .ect-infra-dom__card,
+  .ect-infra-dom__card--domain {
+    flex-direction: column;
+    align-items: stretch;
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .ect-infra-dom .ect-infra-dom__media,
+  .ect-infra-dom .ect-infra-dom__copy {
+    width: 100%;
+  }
+
+  .ect-infra-dom .ect-infra-dom__media {
+    height: auto;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-infra-dom {
+    width: calc(100% - 32px);
+  }
+
+  body.service-page .ect-infra-dom .ect-infra-dom__title {
+    font-size: 24px;
+  }
+}

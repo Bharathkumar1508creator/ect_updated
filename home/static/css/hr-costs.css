@@ -1,0 +1,7 @@
+/* HR page: "Understanding HR Consulting and Recruitment Service Costs" (Figma).
+   Same layout as the Zoho costs section (zoho-costs.css); only the intro is a little wider (376px). */
+@media (min-width: 1200px) {
+  .ect-hr-cost .ect-zoho-cost__intro {
+    flex: 0 0 376px;
+  }
+}

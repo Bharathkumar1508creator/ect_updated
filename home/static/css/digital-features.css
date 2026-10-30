@@ -1,0 +1,52 @@
+/* Digital Marketing page: "Our Digital Marketing Projects and Campaign Success Stories".
+   Same stacking cards as the website page (website-features.css / website-features.js).
+   Figma differences: heading 751px, intro 373px, card text 25px / 500.
+   Until a picture is added the img has no src, so its alt text shows in the grey box. */
+
+.ect-dm-features .ect-key-features__header {
+  align-items: flex-start;
+}
+
+body.service-page .ect-dm-features .ect-key-features__heading {
+  max-width: 751px;
+}
+
+.ect-dm-features .ect-key-features__intro {
+  max-width: 373px;
+  margin-top: 20px;
+}
+
+.ect-dm-features .ect-key-features__text,
+.ect-dm-features .ect-key-features__card:first-child .ect-key-features__text {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.ect-dm-features .ect-key-features__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ect-dm-features .ect-key-features__media img:not([src]) {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 1199px) {
+  .ect-dm-features .ect-key-features__intro {
+    margin-top: 0;
+  }
+
+  .ect-dm-features .ect-key-features__text,
+  .ect-dm-features .ect-key-features__card:first-child .ect-key-features__text {
+    font-size: 16px;
+  }
+}

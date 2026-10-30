@@ -1,0 +1,265 @@
+/* Digital Marketing page: "Our Digital Marketing Services for Business Growth" (same layout as the website page services section).
+   Figma layout: heading + intro on the left, arrows on the right, a sliding
+   strip of tabs, and a panel (image + text) joined to the active tab. */
+
+.ect-web-solutions__heading-group {
+  min-width: 0;
+}
+
+.ect-web-solutions__intro {
+  margin: 0;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  body.service-page .ect-web-solutions {
+    width: min(1240px, calc(100% - 48px));
+    height: auto;
+    margin: 72px auto;
+    overflow: visible;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__header {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 125px;
+    height: auto;
+    margin-bottom: 24px;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__heading-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 1010px;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__heading {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 42px !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__intro {
+    max-width: 948px;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__controls {
+    position: static;
+    flex: none;
+    width: auto;
+    gap: 16px;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__component {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    height: auto;
+  }
+
+  /* Tab strip: the active tab always slides to the left edge (see website.js). */
+  body.service-page .ect-web-solutions .ect-web-solutions__tabs {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    scroll-behavior: smooth;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__tabs::after {
+    content: "";
+    flex: 0 0 100%;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__tab {
+    position: relative;
+    top: auto;
+    left: auto;
+    flex: 0 0 auto;
+    width: auto;
+    height: 70px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    background: #f1f1ef;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__tab:hover {
+    background: #e9e9e5;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__tab.is-active {
+    width: auto;
+    height: 86px;
+    padding-bottom: 32px;
+    border-radius: 8px 8px 0 0;
+    background: #f5f5f3;
+    color: #000;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__tab-label {
+    width: auto;
+    padding: 0;
+    font-size: 25px;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  /* Every panel sits in the same grid cell, so the section keeps one height. */
+  body.service-page .ect-web-solutions .ect-web-solutions__panel {
+    position: relative;
+    top: auto;
+    left: auto;
+    grid-area: 2 / 1;
+    display: grid;
+    grid-template-columns: 608px minmax(0, 1fr);
+    column-gap: 24px;
+    align-items: start;
+    width: 100%;
+    height: auto;
+    padding: 24px 33px 24px 24px;
+    border-radius: 0 24px 24px 24px;
+    background: #f5f5f3;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__panel.is-transitioning {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__media {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 608 / 435;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__content-title,
+  body.service-page .ect-web-solutions .ect-web-solutions__description,
+  body.service-page .ect-web-solutions .ect-web-solutions__perfect-label,
+  body.service-page .ect-web-solutions .ect-web-solutions__audience,
+  body.service-page .ect-web-solutions .ect-web-solutions__cta {
+    position: static;
+    width: auto;
+    min-height: 0;
+    margin: 0;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__content-title {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__description {
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__perfect-label {
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__audience {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  body.service-page .ect-web-solutions .ect-web-solutions__cta {
+    height: 36px;
+    margin-top: 24px;
+    padding: 8px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+}
+
+/* Tablet and mobile: keep the existing stacked layout, add the intro text. */
+@media (max-width: 1199px) {
+  .ect-web-solutions__content {
+    display: contents;
+  }
+
+  .ect-web-solutions__intro {
+    margin-top: 8px;
+    font-size: 15px;
+  }
+}
+
+/* Only the active panel is shown; the others stay hidden (same rules as the website page). */
+.ect-web-solutions__panel {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 240ms ease, transform 240ms ease, visibility 240ms ease;
+}
+
+.ect-web-solutions__panel.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (min-width: 1200px) {
+  body.service-page .ect-web-solutions .ect-web-solutions__panel.is-transitioning {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 1199px) {
+  .ect-web-solutions__panel {
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .ect-web-solutions__panel.is-active {
+    display: grid;
+  }
+}

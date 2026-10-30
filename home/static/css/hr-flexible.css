@@ -1,0 +1,66 @@
+/* HR page: "Flexible HR Consulting Solutions for Businesses of Every Size and Industry" (Figma).
+   Same cards as the Zoho "Find the Right Zoho Solutions" section (zoho-requirements.css), but in a
+   single row of 397 x 550 cards that scrolls sideways (Figma: overflow-x scroll). The card under the
+   cursor turns green; no card is green otherwise. Pictures show their alt text until added. */
+
+body.service-page .ect-hr-flex .ect-zoho-req__heading,
+body.hr-page .ect-hr-flex .ect-zoho-req__heading {
+  max-width: 1039px;
+}
+
+.ect-hr-flex .ect-zoho-req__header {
+  max-width: 1039px;
+}
+
+.ect-hr-flex .ect-zoho-req__intro {
+  max-width: 867px;
+}
+
+.ect-hr-flex .ect-zoho-req__grid {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.ect-hr-flex .ect-zoho-req__grid::-webkit-scrollbar {
+  display: none;
+}
+
+.ect-hr-flex .ect-zoho-req__grid.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.ect-hr-flex .ect-zoho-req__card {
+  flex: 0 0 397.33px;
+  height: 550px;
+  scroll-snap-align: start;
+}
+
+/* No src yet: the browser shows the alt text, centred, until a picture is added. */
+.ect-hr-flex .ect-zoho-req__media img:not([src]) {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 1199px) {
+  .ect-hr-flex .ect-zoho-req__grid {
+    display: flex;
+  }
+
+  .ect-hr-flex .ect-zoho-req__card {
+    flex-basis: min(340px, 82vw);
+    height: auto;
+    min-height: 520px;
+  }
+}

@@ -3,6 +3,7 @@
 
   let activePopup = null;
   let lastFocusedElement = null;
+  let scrollYAtOpen = 0;
 
   function focusableElements(popup) {
     return [...popup.querySelectorAll(
@@ -14,19 +15,21 @@
     if (!popup) return;
     activePopup = popup;
     lastFocusedElement = document.activeElement;
+    scrollYAtOpen = window.scrollY;
     popup.classList.add("is-open");
     popup.setAttribute("aria-hidden", "false");
     document.body.classList.add("ect-contact-popup-open");
 
     const first = focusableElements(popup)[0];
-    if (first) window.setTimeout(() => first.focus(), 50);
+    // preventScroll: moving focus must never scroll the page behind the form.
+    if (first) window.setTimeout(() => first.focus({ preventScroll: true }), 50);
   }
 
   function closePopup(popup) {
     if (!popup) return;
     if (activePopup === popup && popup.contains(document.activeElement)) {
       if (lastFocusedElement && document.contains(lastFocusedElement)) {
-        lastFocusedElement.focus();
+        lastFocusedElement.focus({ preventScroll: true });
       }
       if (popup.contains(document.activeElement)) document.activeElement.blur();
     }
@@ -35,6 +38,11 @@
     popup.setAttribute("aria-hidden", "true");
     document.body.classList.remove("ect-contact-popup-open");
     if (activePopup === popup) activePopup = null;
+
+    // Pages with pinned scroll scenes (the "Why Choose" cards) must come back exactly where they were.
+    if (Math.abs(window.scrollY - scrollYAtOpen) > 1) {
+      window.scrollTo({ top: scrollYAtOpen, left: 0, behavior: "instant" });
+    }
   }
 
   function init() {

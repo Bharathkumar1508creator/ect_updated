@@ -1,0 +1,223 @@
+/* HR page: "Strengthen Employee Performance with Clear Goals and Accountability" (Figma).
+   Heading (803px) + intro (369px). Below: five rows (93px circle icon, 25px title, 16px text)
+   on the left and a 470 x 569 picture on the right. Until the picture is added its img has
+   no src, so the alt text shows in the grey box. */
+
+.ect-hr-perf,
+.ect-hr-perf * {
+  box-sizing: border-box;
+}
+
+.ect-hr-perf {
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-hr-perf__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 49px;
+}
+
+body.service-page .ect-hr-perf .ect-hr-perf__heading,
+body.hr-page .ect-hr-perf .ect-hr-perf__heading {
+  flex: 0 1 803px;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-hr-perf__intro {
+  flex: 0 0 369px;
+  margin: 10px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-hr-perf__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 467px;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.ect-hr-perf__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 752px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Figma: the last row sits a little lower (125px step instead of 117px). */
+.ect-hr-perf__item:last-child {
+  margin-top: 8px;
+}
+
+.ect-hr-perf__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.ect-hr-perf__icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 93px;
+  height: 93px;
+  border-radius: 50%;
+  background: #e1e3dd;
+}
+
+.ect-hr-perf__icon img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 68px;
+  max-height: 68px;
+}
+
+.ect-hr-perf__copy {
+  min-width: 0;
+}
+
+body.service-page .ect-hr-perf .ect-hr-perf__title,
+body.hr-page .ect-hr-perf .ect-hr-perf__title {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #000;
+}
+
+.ect-hr-perf__text {
+  max-width: 627px;
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-hr-perf__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 569px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #d9d9d9;
+}
+
+.ect-hr-perf__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* No src yet: the browser shows the alt text, centred, until a picture is added. */
+.ect-hr-perf__media img:not([src]) {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Figma titles are one line each (their boxes are 540 to 635px wide). */
+@media (min-width: 1200px) {
+  body.service-page .ect-hr-perf .ect-hr-perf__title,
+  body.hr-page .ect-hr-perf .ect-hr-perf__title {
+    white-space: nowrap;
+  }
+
+  /* "...and Training Programs" is longer than Figma's "...and Training" and would run under the picture,
+     so this one title wraps to a second line. */
+  body.service-page .ect-hr-perf .ect-hr-perf__item:nth-child(3) .ect-hr-perf__title,
+  body.hr-page .ect-hr-perf .ect-hr-perf__item:nth-child(3) .ect-hr-perf__title {
+    max-width: 560px;
+    white-space: normal;
+  }
+}
+
+/* Tablet and mobile: the picture goes under the list. */
+@media (max-width: 1199px) {
+  .ect-hr-perf {
+    margin: 56px auto;
+  }
+
+  .ect-hr-perf__header {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  body.service-page .ect-hr-perf .ect-hr-perf__heading,
+  body.hr-page .ect-hr-perf .ect-hr-perf__heading {
+    flex: none;
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-hr-perf__intro {
+    flex: none;
+    max-width: 640px;
+    margin: 0;
+  }
+
+  .ect-hr-perf__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ect-hr-perf__item:last-child {
+    margin-top: 0;
+  }
+
+  .ect-hr-perf__media {
+    height: auto;
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-hr-perf {
+    width: calc(100% - 32px);
+  }
+
+  .ect-hr-perf__item {
+    gap: 16px;
+  }
+
+  .ect-hr-perf__icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .ect-hr-perf__icon img {
+    max-width: 40px;
+    max-height: 40px;
+  }
+
+  body.service-page .ect-hr-perf .ect-hr-perf__title,
+  body.hr-page .ect-hr-perf .ect-hr-perf__title {
+    font-size: 20px;
+  }
+}

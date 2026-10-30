@@ -1,0 +1,221 @@
+/* Digital Marketing page: conclusion banner "Build Your Digital Presence with ECOG".
+   Figma: full width, 579px tall, heading 42px, text 19px in a 901px block, 227 x 40 button.
+   The background is animated: three brand-green glows drift on their own and lean toward the
+   cursor, a soft light follows the pointer, and a faint grain sits on top. */
+
+.ect-dm-cta,
+.ect-dm-cta * {
+  box-sizing: border-box;
+}
+
+.ect-dm-cta {
+  --px: 0;
+  --py: 0;
+  --gx: 50%;
+  --gy: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 579px;
+  margin: 72px 0;
+  padding: 80px 24px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #020c05;
+  color: #fff;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-dm-cta__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% 120%, #06200a 0%, rgba(2, 12, 5, 0) 60%),
+    linear-gradient(180deg, #010806 0%, #031209 100%);
+}
+
+/* Each glow: the outer span leans toward the cursor, the inner <i> drifts by itself. */
+.ect-dm-cta__blob {
+  position: absolute;
+  display: block;
+  transform: translate3d(calc(var(--px) * var(--d, 40) * 1px), calc(var(--py) * var(--d, 40) * 1px), 0);
+  will-change: transform;
+}
+
+.ect-dm-cta__blob i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: blur(48px);
+  will-change: transform;
+}
+
+.ect-dm-cta__blob--a {
+  --d: 46;
+  top: -30%;
+  left: 22%;
+  width: 52vw;
+  height: 70%;
+  max-width: 760px;
+}
+
+.ect-dm-cta__blob--a i {
+  background: radial-gradient(closest-side, rgba(16, 120, 28, 1), rgba(12, 60, 1, 0) 72%);
+  animation: dm-cta-drift-a 16s ease-in-out infinite alternate;
+}
+
+.ect-dm-cta__blob--b {
+  --d: -62;
+  bottom: -45%;
+  left: -8%;
+  width: 46vw;
+  height: 95%;
+  max-width: 640px;
+}
+
+.ect-dm-cta__blob--b i {
+  background: radial-gradient(closest-side, rgba(24, 150, 40, 0.95), rgba(12, 60, 1, 0) 72%);
+  animation: dm-cta-drift-b 20s ease-in-out infinite alternate;
+}
+
+.ect-dm-cta__blob--c {
+  --d: 30;
+  top: 5%;
+  right: -6%;
+  width: 40vw;
+  height: 80%;
+  max-width: 560px;
+}
+
+.ect-dm-cta__blob--c i {
+  background: radial-gradient(closest-side, rgba(110, 135, 88, 0.85), rgba(91, 109, 73, 0) 72%);
+  animation: dm-cta-drift-c 18s ease-in-out infinite alternate;
+}
+
+@keyframes dm-cta-drift-a {
+  from { transform: translate3d(-6%, -4%, 0) scale(1); }
+  to   { transform: translate3d(8%, 6%, 0) scale(1.14); }
+}
+
+@keyframes dm-cta-drift-b {
+  from { transform: translate3d(4%, 5%, 0) scale(1.08); }
+  to   { transform: translate3d(-8%, -6%, 0) scale(0.94); }
+}
+
+@keyframes dm-cta-drift-c {
+  from { transform: translate3d(5%, -5%, 0) scale(0.96); }
+  to   { transform: translate3d(-7%, 6%, 0) scale(1.12); }
+}
+
+/* Soft light that follows the pointer. */
+.ect-dm-cta__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(360px circle at var(--gx) var(--gy), rgba(130, 210, 110, 0.28), rgba(120, 190, 100, 0) 70%);
+  opacity: 0.9;
+}
+
+.ect-dm-cta__grain {
+  position: absolute;
+  inset: 0;
+  background: url("../img/noise-on-green.png") repeat;
+  background-size: 320px 320px;
+  opacity: 0.1;
+  mix-blend-mode: soft-light;
+}
+
+.ect-dm-cta__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: min(930px, 100%);
+  text-align: center;
+}
+
+body.service-page .ect-dm-cta .ect-dm-cta__heading {
+  margin: 0 0 -16px;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #fff !important;
+}
+
+.ect-dm-cta__text {
+  width: min(901px, 100%);
+  margin: 0;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.ect-dm-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 227px;
+  height: 40px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #f1f2ed;
+  color: #0c3c01;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.ect-dm-cta__btn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.ect-dm-cta__btn:focus-visible {
+  outline: 3px solid rgba(241, 242, 237, 0.5);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1199px) {
+  .ect-dm-cta {
+    min-height: 0;
+    margin: 56px 0;
+    padding: 64px 24px;
+  }
+
+  body.service-page .ect-dm-cta .ect-dm-cta__heading {
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-dm-cta__text {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ect-dm-cta {
+    padding: 48px 16px;
+  }
+
+  .ect-dm-cta__text {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ect-dm-cta__blob i {
+    animation: none;
+  }
+
+  .ect-dm-cta__btn {
+    transition: none;
+  }
+}

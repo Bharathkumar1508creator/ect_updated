@@ -1,0 +1,114 @@
+/* IT Infrastructure page: "Reliable Server Management for Business-Critical Applications" (Figma).
+   Same cards as the HR "Flexible HR Consulting Solutions" row (zoho-requirements.css): five
+   397 x 550 cards in one row that scrolls sideways (no scrollbar), grey with the card under the cursor turning green (as on the Zoho page),
+   with round arrow buttons beside the heading. Pictures without a file show their alt text. */
+
+.ect-infra-srv__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ect-infra-srv .ect-zoho-req__header {
+  max-width: 867px;
+  margin-bottom: 0;
+}
+
+body.service-page .ect-infra-srv .ect-zoho-req__heading {
+  max-width: 867px;
+}
+
+.ect-infra-srv .ect-zoho-req__intro {
+  max-width: 867px;
+}
+
+.ect-infra-srv__controls {
+  display: flex;
+  flex: none;
+  gap: 16px;
+}
+
+.ect-infra-srv__arrow {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #0c3c01;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.ect-infra-srv__arrow:hover {
+  transform: scale(1.06);
+}
+
+.ect-infra-srv__arrow:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
+
+.ect-infra-srv__arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ect-infra-srv .ect-zoho-req__grid {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.ect-infra-srv .ect-zoho-req__grid::-webkit-scrollbar {
+  display: none;
+}
+
+.ect-infra-srv .ect-zoho-req__grid.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.ect-infra-srv .ect-zoho-req__card {
+  flex: 0 0 397.33px;
+  height: 550px;
+  scroll-snap-align: start;
+}
+
+/* No src yet: the browser shows the alt text, centred, until a picture is added. */
+.ect-infra-srv .ect-zoho-req__media img:not([src]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 1199px) {
+  .ect-infra-srv__top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ect-infra-srv .ect-zoho-req__grid {
+    display: flex;
+  }
+
+  .ect-infra-srv .ect-zoho-req__card {
+    flex-basis: min(340px, 82vw);
+    height: auto;
+    min-height: 520px;
+  }
+}

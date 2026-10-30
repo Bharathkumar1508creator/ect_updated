@@ -1,0 +1,228 @@
+/* IT Infrastructure page: closing banner "Build a Reliable Digital Foundation with Professional IT
+   Infrastructure Services" (Figma: 1442 x 578, rounded, dark with neon green diagonal bands and a
+   glass panel). The background is alive: a network of nodes and links drifts behind the panel, small
+   data packets travel along the links, the lime bands lean toward the cursor, and the nodes near the
+   pointer light up and connect to it (see infra-cta.js). */
+
+.ect-infra-cta,
+.ect-infra-cta * {
+  box-sizing: border-box;
+}
+
+.ect-infra-cta {
+  --px: 0;
+  --py: 0;
+  --gx: 50%;
+  --gy: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(1442px, 100%);
+  min-height: 578px;
+  margin: 72px auto;
+  padding: 64px 48px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 16px;
+  background: #050805;
+  color: #fff;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-infra-cta__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(70% 90% at 50% 50%, #0b100a 0%, #050805 70%);
+}
+
+/* The two neon diagonal bands from the Figma panel. The outer element leans toward the cursor,
+   the ::before drifts by itself. */
+.ect-infra-cta__band {
+  position: absolute;
+  display: block;
+  width: 62%;
+  height: 120%;
+  transform: translate3d(calc(var(--px) * var(--d, 40) * 1px), calc(var(--py) * var(--d, 40) * 1px), 0);
+  will-change: transform;
+}
+
+.ect-infra-cta__band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(210, 255, 60, 0) 30%, rgba(190, 240, 50, 0.55) 48%, rgba(120, 190, 30, 0.25) 56%, rgba(60, 120, 20, 0) 72%);
+  filter: blur(26px);
+  mix-blend-mode: screen;
+}
+
+.ect-infra-cta__band--a {
+  --d: 38;
+  top: -42%;
+  left: -14%;
+}
+
+.ect-infra-cta__band--a::before {
+  transform: rotate(-24deg);
+  animation: infra-cta-band-a 14s ease-in-out infinite alternate;
+}
+
+.ect-infra-cta__band--b {
+  --d: -46;
+  right: -16%;
+  bottom: -46%;
+}
+
+.ect-infra-cta__band--b::before {
+  transform: rotate(-24deg) scaleX(-1);
+  animation: infra-cta-band-b 17s ease-in-out infinite alternate;
+}
+
+@keyframes infra-cta-band-a {
+  from { opacity: 0.75; transform: rotate(-24deg) translate3d(-3%, -2%, 0); }
+  to   { opacity: 1;    transform: rotate(-21deg) translate3d(5%, 4%, 0); }
+}
+
+@keyframes infra-cta-band-b {
+  from { opacity: 0.7;  transform: rotate(-24deg) scaleX(-1) translate3d(3%, 3%, 0); }
+  to   { opacity: 1;    transform: rotate(-27deg) scaleX(-1) translate3d(-5%, -3%, 0); }
+}
+
+/* The network of nodes and links (drawn in infra-cta.js). */
+.ect-infra-cta__net {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Soft light that follows the pointer. */
+.ect-infra-cta__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(320px circle at var(--gx) var(--gy), rgba(190, 240, 60, 0.2), rgba(190, 240, 60, 0) 70%);
+}
+
+/* The glass panel the text sits on. */
+.ect-infra-cta__panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(1255px, 100%);
+  min-height: 450px;
+  padding: 48px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 44px;
+  background: rgba(10, 12, 10, 0.4);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.ect-infra-cta__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: min(891px, 100%);
+  text-align: center;
+}
+
+body.service-page .ect-infra-cta .ect-infra-cta__heading {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #fff !important;
+}
+
+.ect-infra-cta__text {
+  width: min(790px, 100%);
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.ect-infra-cta__link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.ect-infra-cta__btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  max-width: 100%;
+  height: 40px;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #f1f2ed;
+  color: #0c3c01;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.ect-infra-cta__btn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.ect-infra-cta__btn:focus-visible {
+  outline: 3px solid rgba(241, 242, 237, 0.5);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1199px) {
+  .ect-infra-cta {
+    min-height: 0;
+    margin: 56px auto;
+    padding: 40px 24px;
+  }
+
+  .ect-infra-cta__panel {
+    min-height: 0;
+    padding: 40px 24px;
+    border-radius: 32px;
+  }
+
+  body.service-page .ect-infra-cta .ect-infra-cta__heading {
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .ect-infra-cta {
+    width: calc(100% - 32px);
+    padding: 24px 12px;
+  }
+
+  .ect-infra-cta__panel {
+    padding: 32px 16px;
+    border-radius: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ect-infra-cta__band::before {
+    animation: none;
+  }
+
+  .ect-infra-cta__btn {
+    transition: none;
+  }
+}

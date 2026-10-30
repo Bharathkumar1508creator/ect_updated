@@ -1,0 +1,163 @@
+/* IT Infrastructure page: "Is Your Business IT Infrastructure Ready for Everyday Demands?" (Figma).
+   Same bordered step grid as the Zoho and HR process sections (zoho-process.css): two cells on top, three
+   below. In Figma the longer step content ran outside its cell border, so here the cells grow with their
+   content (bullet lists) and everything stays inside the border. */
+
+.ect-infra-app .ect-zoho-process__grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.ect-infra-app .ect-zoho-process__cell {
+  grid-column: span 2;
+  min-height: 0;
+  padding: 32px 28px 32px 32px;
+}
+
+.ect-infra-app .ect-zoho-process__cell:nth-child(-n + 2) {
+  grid-column: span 3;
+}
+
+.ect-infra-app .ect-zoho-process__cell:nth-child(1) {
+  border-top-left-radius: 15px;
+}
+
+.ect-infra-app .ect-zoho-process__icon {
+  margin-bottom: 28px;
+}
+
+.ect-infra-app .ect-zoho-process__text {
+  max-width: none;
+}
+
+.ect-infra-app .ect-zoho-process__list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ect-infra-app .ect-zoho-process__list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000;
+}
+
+.ect-infra-app .ect-zoho-process__list li::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5b6d49;
+}
+
+@media (max-width: 1199px) {
+  .ect-infra-app .ect-zoho-process__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ect-infra-app .ect-zoho-process__cell,
+  .ect-infra-app .ect-zoho-process__cell:nth-child(-n + 2) {
+    grid-column: auto;
+    padding: 28px 24px;
+  }
+
+  .ect-infra-app .ect-zoho-process__cell:nth-child(1) {
+    border-top-left-radius: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-infra-app .ect-zoho-process__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+body.service-page .ect-infra-app .ect-zoho-process__title {
+  margin-bottom: 8px;
+}
+
+/* Borders as in the website page's "Our Website Development Process": a light 2px outline with
+   rounded corners, light dividers, and a chevron on each divider between steps. */
+.ect-infra-app {
+  --border: #dfe3da;
+  --bw: 0.125rem;
+}
+
+.ect-infra-app .ect-zoho-process__grid {
+  overflow: hidden;
+  border: var(--bw) solid var(--border);
+  border-radius: 0.875rem;
+  background: #fff;
+}
+
+.ect-infra-app .ect-zoho-process__cell,
+.ect-infra-app .ect-zoho-process__cell:nth-child(n) {
+  z-index: auto;
+  border: 0;
+  border-radius: 0;
+}
+
+.ect-infra-app .ect-zoho-process__cell:nth-child(-n + 2) {
+  border-bottom: var(--bw) solid var(--border);
+}
+
+.ect-infra-app .ect-zoho-process__cell:nth-child(-n + 4):not(:nth-child(2)) {
+  border-right: var(--bw) solid var(--border);
+}
+
+/* The chevron on the divider (replaces the old notch). */
+.ect-infra-app .ect-zoho-process__cell:nth-child(1)::before,
+.ect-infra-app .ect-zoho-process__cell:nth-child(3)::before,
+.ect-infra-app .ect-zoho-process__cell:nth-child(4)::before {
+  display: none;
+}
+
+.ect-infra-app .ect-zoho-process__cell:nth-child(1)::after,
+.ect-infra-app .ect-zoho-process__cell:nth-child(3)::after,
+.ect-infra-app .ect-zoho-process__cell:nth-child(4)::after {
+  top: 50%;
+  right: -0.75rem;
+  left: auto;
+  width: 1.375rem;
+  height: 1.375rem;
+  margin: 0;
+  transform: translateY(-50%) rotate(45deg);
+  clip-path: none;
+  background: #fff;
+  border-top: var(--bw) solid var(--border);
+  border-right: var(--bw) solid var(--border);
+  z-index: 2;
+}
+
+.ect-infra-app .ect-zoho-process__cell:nth-child(1):hover::after,
+.ect-infra-app .ect-zoho-process__cell:nth-child(3):hover::after,
+.ect-infra-app .ect-zoho-process__cell:nth-child(4):hover::after {
+  background: #f8faf6;
+}
+
+@media (max-width: 1199px) {
+  .ect-infra-app .ect-zoho-process__cell,
+  .ect-infra-app .ect-zoho-process__cell:nth-child(n) {
+    border: 0;
+    border-top: var(--bw) solid var(--border);
+  }
+
+  .ect-infra-app .ect-zoho-process__cell:first-child {
+    border-top: 0;
+  }
+
+  .ect-infra-app .ect-zoho-process__cell:nth-child(even) {
+    border-left: var(--bw) solid var(--border);
+  }
+
+  .ect-infra-app .ect-zoho-process__cell::after {
+    display: none !important;
+  }
+}

@@ -1,0 +1,22 @@
+/* FAQ heading (Figma): 42px / 700, 911px wide box, nothing else in the header.
+   Website page and Digital Marketing page. */
+body.service-page .faq-head {
+  display: block;
+  margin-bottom: 48px;
+}
+
+body.service-page .faq-section .faq-title {
+  max-width: 911px;
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+@media (max-width: 1199px) {
+  body.service-page .faq-section .faq-title {
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+}
