@@ -217,6 +217,10 @@
 
 /* Tablet and mobile: keep the existing stacked layout, add the intro text. */
 @media (max-width: 1199px) {
+  body.service-page #website-services .ect-web-solutions__controls {
+    display: none !important;
+  }
+
   .ect-web-solutions__content {
     display: contents;
   }
@@ -423,20 +427,45 @@ body.service-page .work .work__nav--below {
 }
 
 @media (max-width: 1199px) {
-  body.service-page .work .work__head {
+  body.service-page .work .work__inner {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+  }
+
+  body.service-page .work .work__head {
+    display: contents;
   }
 
   body.service-page .work .work__title {
+    order: 1;
+    margin-bottom: 28px;
     font-size: clamp(28px, 4.4vw, 36px) !important;
   }
 
+  body.service-page .work .work__grid {
+    order: 2;
+  }
+
   body.service-page .work .work__intro {
+    order: 3;
     width: auto;
     max-width: 560px;
+    margin-top: 24px;
     font-size: 15px;
+  }
+
+  body.service-page .work .work__nav--below {
+    display: none !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1199px) {
+  body.service-page .work .work__grid {
+    gap: 16px;
+  }
+
+  body.service-page .work .card {
+    flex: 0 0 clamp(280px, 42vw, 320px);
   }
 }
 
@@ -449,7 +478,99 @@ body.service-page .work .work__nav--below {
     font-size: 26px !important;
   }
 
-  body.service-page .work .work__nav--below {
-    padding-top: 24px;
+}
+
+/* Website solutions: keep the existing tabs and change only each card's layout. */
+@media (max-width: 1199px) {
+body.service-page #website-services .ect-web-solutions__panel {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-rows: max-content max-content max-content;
+  align-self: start;
+  gap: 12px 22px;
+  padding: 24px;
+  align-items: start;
+  min-height: 488px;
+}
+
+body.service-page #website-services .ect-web-solutions__content { display: contents; }
+
+body.service-page #website-services .ect-web-solutions__media {
+  position: static !important;
+  grid-column: 1;
+  grid-row: 1 / 4;
+  width: 100% !important;
+  height: 440px !important;
+  aspect-ratio: auto !important;
+  margin: 0 !important;
+}
+
+body.service-page #website-services :is(.ect-web-solutions__content-title, .ect-web-solutions__description, .ect-web-solutions__perfect-label, .ect-web-solutions__audience, .ect-web-solutions__cta) {
+  position: static !important;
+  width: auto !important;
+  min-width: 0;
+  height: auto !important;
+  margin: 0 !important;
+  order: 0;
+}
+
+body.service-page #website-services .ect-web-solutions__content-title { grid-column: 2; grid-row: 1; }
+body.service-page #website-services .ect-web-solutions__description { grid-column: 2; grid-row: 2; font-size: 14px !important; line-height: 1.55 !important; }
+body.service-page #website-services .ect-web-solutions__perfect-label { grid-column: 3; grid-row: 1; }
+body.service-page #website-services .ect-web-solutions__audience { grid-column: 3; grid-row: 2; font-size: 14px !important; line-height: 1.55 !important; }
+body.service-page #website-services .ect-web-solutions__cta { grid-column: 2 / 4; grid-row: 3; justify-self: start; }
+
+  body.service-page #website-services .ect-web-solutions__panel {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-rows: repeat(5, auto);
+    gap: 12px 24px;
+    min-height: 0;
   }
+  body.service-page #website-services .ect-web-solutions__media {
+    grid-column: 1;
+    grid-row: 1 / 6;
+    height: 100% !important;
+    min-height: 300px;
+  }
+  body.service-page #website-services .ect-web-solutions__content-title { grid-column: 2; grid-row: 1; }
+  body.service-page #website-services .ect-web-solutions__description { grid-column: 2; grid-row: 2; }
+  body.service-page #website-services .ect-web-solutions__perfect-label { grid-column: 2; grid-row: 3; }
+  body.service-page #website-services .ect-web-solutions__audience { grid-column: 2; grid-row: 4; }
+  body.service-page #website-services .ect-web-solutions__cta { grid-column: 2; grid-row: 5; }
+
+@media (max-width: 640px) {
+  body.service-page #website-services .ect-web-solutions__panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: 12px;
+  }
+  body.service-page #website-services :is(.ect-web-solutions__media, .ect-web-solutions__content-title, .ect-web-solutions__description, .ect-web-solutions__perfect-label, .ect-web-solutions__audience, .ect-web-solutions__cta) {
+    grid-column: 1;
+    grid-row: auto;
+    order: 0;
+  }
+  body.service-page #website-services .ect-web-solutions__media {
+    height: auto !important;
+    min-height: 0;
+    aspect-ratio: 16 / 10 !important;
+  }
+}
+
+}
+
+@media (max-width: 640px) {
+  body.service-page #website-services .ect-web-solutions__header .ect-web-solutions__heading {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    line-height: 1.12 !important;
+  }
+}
+
+/* Process supporting copy belongs after the complete step sequence. */
+body.service-page .web-solutions-section .approach-closing {
+  display: block;
+  max-width: 760px;
+  margin: 24px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #3a3f3a;
 }

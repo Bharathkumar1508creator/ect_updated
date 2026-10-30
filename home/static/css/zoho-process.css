@@ -289,3 +289,178 @@ body.zoho-page .ect-zoho-process .ect-zoho-process__title {
   color: inherit;
   text-decoration: underline;
 }
+
+/* Match the Website Development Process on tablet/mobile only. */
+@media (max-width: 1199px) {
+  .ect-zoho-process {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ect-zoho-process__header {
+    display: contents;
+  }
+
+  body.service-page .ect-zoho-process .ect-zoho-process__heading,
+  body.zoho-page .ect-zoho-process .ect-zoho-process__heading {
+    order: 1;
+    max-width: 100%;
+    margin: 0 0 24px;
+    font-size: clamp(36px, 4.3vw, 44px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .ect-zoho-process__grid {
+    order: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .ect-zoho-process__intro {
+    order: 3;
+    max-width: 100%;
+    margin: 24px 0 0;
+    font-size: clamp(15px, 1.7vw, 16px);
+    line-height: 1.6;
+  }
+
+  .ect-zoho-process__cell,
+  .ect-zoho-process__cell--wide,
+  .ect-zoho-process__cell:first-child,
+  .ect-zoho-process__cell:nth-child(even) {
+    display: grid;
+    grid-column: auto;
+    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-areas:
+      "step step"
+      "icon title"
+      "desc desc";
+    column-gap: 14px;
+    row-gap: 10px;
+    align-items: center;
+    min-height: 0;
+    padding: 20px;
+    overflow: visible;
+    border: 1px solid #dfe3da;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .ect-zoho-process__step {
+    grid-area: step;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .ect-zoho-process__icon {
+    grid-area: icon;
+    width: 48px;
+    height: 48px;
+    margin: 0;
+    align-items: center;
+  }
+
+  .ect-zoho-process__icon img {
+    max-width: 48px;
+    max-height: 48px;
+  }
+
+  body.service-page .ect-zoho-process .ect-zoho-process__title,
+  body.zoho-page .ect-zoho-process .ect-zoho-process__title {
+    grid-area: title;
+    margin: 0;
+    font-size: clamp(22px, 2.5vw, 25px);
+    line-height: 1.25;
+  }
+
+  .ect-zoho-process__text,
+  .ect-zoho-process__cell--wide .ect-zoho-process__text {
+    grid-area: desc;
+    max-width: none;
+    margin: 0;
+    font-size: clamp(15px, 1.7vw, 16px);
+    line-height: 1.6;
+  }
+
+  .ect-zoho-process__cell::before {
+    display: none !important;
+  }
+
+  .ect-zoho-process__cell:not(:last-child)::after {
+    content: "│\A▼";
+    display: flex !important;
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: -30px;
+    left: 50%;
+    width: 24px;
+    height: 26px;
+    transform: translateX(-50%);
+    align-items: center;
+    justify-content: center;
+    white-space: pre;
+    clip-path: none;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 0.72;
+    text-align: center;
+    color: #0b5d1e;
+    background: transparent;
+    border: 0;
+    pointer-events: none;
+  }
+
+  .ect-zoho-process__cell:last-child::after {
+    display: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.service-page .ect-zoho-process .ect-zoho-process__heading,
+  body.zoho-page .ect-zoho-process .ect-zoho-process__heading {
+    font-size: clamp(22px, 6.5vw, 26px) !important;
+  }
+
+  .ect-zoho-process__grid {
+    gap: 32px;
+  }
+
+  .ect-zoho-process__cell,
+  .ect-zoho-process__cell--wide,
+  .ect-zoho-process__cell:first-child,
+  .ect-zoho-process__cell:nth-child(even) {
+    grid-template-columns: 42px minmax(0, 1fr);
+    column-gap: 12px;
+    padding: 18px 16px;
+  }
+
+  .ect-zoho-process__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .ect-zoho-process__icon img {
+    max-width: 42px;
+    max-height: 42px;
+  }
+
+  body.service-page .ect-zoho-process .ect-zoho-process__title,
+  body.zoho-page .ect-zoho-process .ect-zoho-process__title {
+    font-size: clamp(18px, 4.8vw, 22px);
+  }
+
+  .ect-zoho-process__text,
+  .ect-zoho-process__intro {
+    font-size: clamp(14px, 3.7vw, 15px);
+  }
+}

@@ -81,6 +81,11 @@ body.zoho-page .ect-zoho-custom .ect-zoho-custom__heading {
   margin-bottom: 24px;
 }
 
+/* The wrapper is transparent on desktop, preserving the existing Figma grid. */
+.ect-zoho-custom__rail {
+  display: contents;
+}
+
 .ect-zoho-custom__feature {
   display: flex;
   flex-direction: column;
@@ -235,5 +240,125 @@ body.zoho-page .ect-zoho-custom .ect-zoho-custom__title {
   body.service-page .ect-zoho-custom .ect-zoho-custom__title,
   body.zoho-page .ect-zoho-custom .ect-zoho-custom__title {
     font-size: 24px;
+  }
+}
+
+/* Approved mobile/tablet preview: all five items share one swipeable rail. */
+@media (max-width: 1199px) {
+  .ect-zoho-custom__rail {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    padding: 2px 0 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ect-zoho-custom__rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ect-zoho-custom__top,
+  .ect-zoho-custom__row {
+    display: contents;
+  }
+
+  .ect-zoho-custom__feature,
+  .ect-zoho-custom__card {
+    flex: 0 0 calc((100% - 16px) / 2);
+    min-width: 0;
+    min-height: 470px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 18px;
+    background-color: #f1f1ef;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .ect-zoho-custom__feature:nth-child(2),
+  .ect-zoho-custom__row .ect-zoho-custom__card:nth-child(2) {
+    background-color: #5b6d49;
+    background-image: url("../img/noise-on-green.png");
+    background-size: 320px 320px;
+    color: #fff;
+  }
+
+  .ect-zoho-custom__feature:nth-child(2) .ect-zoho-custom__title,
+  .ect-zoho-custom__row .ect-zoho-custom__card:nth-child(2) .ect-zoho-custom__title {
+    color: inherit;
+  }
+
+  .ect-zoho-custom__feature {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ect-zoho-custom__copy {
+    flex: 1;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .ect-zoho-custom__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 0 20px 20px;
+  }
+
+  .ect-zoho-custom__media--wide,
+  .ect-zoho-custom__media--small {
+    flex: none;
+    order: -1;
+    width: auto;
+    height: 190px;
+    min-height: 190px;
+    margin: 0 -20px;
+    background-color: #d9ded5;
+  }
+
+  .ect-zoho-custom__feature .ect-zoho-custom__media--wide {
+    width: 100%;
+    margin: 0;
+  }
+
+  body.service-page .ect-zoho-custom .ect-zoho-custom__title,
+  body.zoho-page .ect-zoho-custom .ect-zoho-custom__title {
+    font-size: clamp(18px, 2.4vw, 24px);
+    line-height: 1.2;
+  }
+
+  .ect-zoho-custom__text {
+    font-size: clamp(13px, 1.5vw, 15px);
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-zoho-custom__rail {
+    gap: 12px;
+  }
+
+  .ect-zoho-custom__feature,
+  .ect-zoho-custom__card {
+    flex-basis: 88%;
+    min-height: 500px;
+  }
+
+  body.service-page .ect-zoho-custom .ect-zoho-custom__title,
+  body.zoho-page .ect-zoho-custom .ect-zoho-custom__title {
+    font-size: 21px;
+  }
+
+  .ect-zoho-custom__text {
+    font-size: 14px;
   }
 }

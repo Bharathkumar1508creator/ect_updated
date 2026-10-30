@@ -3470,6 +3470,7 @@ body {
 }
 
 /* Website hero: wider heading and intro copy on desktop (Figma hero). */
+/* Website hero: wider heading and intro copy on desktop (Figma hero). */
 @media (min-width: 1025px) {
   .website-figma-hero .website-figma-hero__title {
     width: min(920px, 100%) !important;

@@ -165,7 +165,111 @@ body.service-page .ect-why .ect-why__heading {
   margin-top: 8px;
 }
 
+.ect-why__mobile-action {
+  display: none;
+}
+
+/* Mobile and tablet: compact swipe cards with one shared action below the rail. */
+@media (max-width: 1199px) {
+  .ect-why__scene {
+    padding-block: 48px;
+  }
+
+  .ect-why__content {
+    gap: 14px;
+  }
+
+  .ect-why__cta--intro,
+  .ect-why__card > .ect-why__cta {
+    display: none;
+  }
+
+  .ect-why__track {
+    margin-top: 8px;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .ect-why__card {
+    scroll-snap-align: start;
+  }
+
+  .ect-why__mobile-action {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1199px) {
+  .ect-why__card {
+    display: grid;
+    flex-basis: min(650px, 88%);
+    grid-template-columns: minmax(220px, 42%) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    gap: 12px 22px;
+    min-height: 330px;
+    padding: 20px;
+  }
+
+  .ect-why__title {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 0;
+    margin: 2px 0 0;
+    font-size: 23px;
+    line-height: 1.2;
+  }
+
+  .ect-why__media {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    height: 100%;
+    min-height: 285px;
+    margin: 0;
+    border-radius: 14px;
+  }
+
+  .ect-why__text {
+    grid-column: 2;
+    grid-row: 2;
+    min-height: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
 @media (max-width: 640px) {
+  .ect-why__scene {
+    width: calc(100% - 32px);
+    padding-block: 36px;
+  }
+
+  body.service-page .ect-why .ect-why__heading {
+    font-size: clamp(25px, 8.4vw, 30px) !important;
+    line-height: 1.15 !important;
+  }
+
+  .ect-why__lead {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .ect-why__track {
+    gap: 12px;
+    margin-inline: -16px;
+    padding-inline: 16px;
+    scroll-padding-inline: 16px;
+  }
+
+  .ect-why__card {
+    flex-basis: calc(100% - 14px);
+    gap: 12px;
+    padding: 15px;
+    border-radius: 14px;
+  }
+
   .ect-why__cta {
     white-space: normal;
     height: auto;
@@ -173,16 +277,26 @@ body.service-page .ect-why .ect-why__heading {
   }
 
   .ect-why__title {
-    font-size: 22px;
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.2;
     min-height: 0;
   }
 
   .ect-why__media {
-    height: 240px;
+    height: 160px;
+    margin: 0;
+    border-radius: 12px;
   }
 
   .ect-why__text {
     min-height: 0;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .ect-why__mobile-action .ect-why__cta {
+    width: 100%;
   }
 }
 
@@ -398,4 +512,20 @@ body.service-page .ect-why[data-mode="scene"] .ect-why__heading {
   .ect-why__card {
     transition: none;
   }
+}
+
+/* Keep the CTA in the animated introduction, but never show that same CTA in
+   the completed/static card layout. The component's inline-flex declaration
+   otherwise overrides the browser's default [hidden] rule. */
+.ect-why[data-completed="true"] .ect-why__cta--intro,
+.ect-why__cta--intro[hidden] {
+  display: none !important;
+}
+
+/* Keep the CTA in the animated introduction, but never show that same CTA in
+   the completed/static card layout. The component's inline-flex declaration
+   otherwise overrides the browser's default [hidden] rule. */
+.ect-why[data-completed="true"] .ect-why__cta--intro,
+.ect-why__cta--intro[hidden] {
+  display: none !important;
 }

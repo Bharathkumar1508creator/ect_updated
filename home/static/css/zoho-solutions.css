@@ -5,4 +5,156 @@
   .zoho-solutions__break {
     display: none;
   }
+
+  body.service-page #zoho-solutions .ect-web-solutions__controls {
+    display: none !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__header {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__heading,
+  body.service-page #zoho-solutions .ect-web-solutions__heading-group {
+    grid-column: 1 !important;
+    min-width: 0;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__tabs {
+    align-items: stretch !important;
+    padding-top: 4px !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__tab,
+  body.service-page #zoho-solutions .ect-web-solutions__tab.is-active {
+    height: auto !important;
+    min-height: 92px !important;
+    padding: 12px 18px !important;
+    overflow: visible !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__tab-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 66px;
+    padding: 0 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-wrap: balance;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__panel.is-active {
+    display: grid !important;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-rows: auto auto auto;
+    align-items: start;
+    gap: 12px 24px;
+    min-height: 0 !important;
+    padding: 24px !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__content {
+    display: contents;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__media {
+    position: static !important;
+    grid-column: 1;
+    grid-row: 1 / 4;
+    order: 0;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 300px;
+    margin: 0 !important;
+    aspect-ratio: auto !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__content-title,
+  body.service-page #zoho-solutions .ect-web-solutions__description,
+  body.service-page #zoho-solutions .ect-web-solutions__cta {
+    position: static !important;
+    grid-column: 2;
+    width: auto !important;
+    height: auto !important;
+    min-width: 0;
+    margin: 0 !important;
+    order: 0;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__content-title {
+    grid-row: 1;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__description {
+    grid-row: 2;
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__cta {
+    grid-row: 3;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page #zoho-solutions .ect-web-solutions__heading {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    line-height: 1.12 !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__panel.is-active {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: 12px;
+    padding: 20px !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__tab,
+  body.service-page #zoho-solutions .ect-web-solutions__tab.is-active {
+    min-height: 96px !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__tab-label {
+    min-height: 70px;
+    font-size: 14px !important;
+    line-height: 1.3 !important;
+  }
+
+  body.service-page #zoho-solutions :is(
+    .ect-web-solutions__media,
+    .ect-web-solutions__content-title,
+    .ect-web-solutions__description,
+    .ect-web-solutions__cta
+  ) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__media {
+    order: 1;
+    height: auto !important;
+    min-height: 0;
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__content-title {
+    order: 2;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__description {
+    order: 3;
+    font-size: 15px !important;
+  }
+
+  body.service-page #zoho-solutions .ect-web-solutions__cta {
+    order: 4;
+  }
 }

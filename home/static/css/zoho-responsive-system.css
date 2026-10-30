@@ -1,0 +1,167 @@
+/* Zoho page spacing and typography tokens, aligned with the Website service page. */
+
+body.service-page main#main-content > section:not(.zoho-figma-hero) {
+  margin-top: 0 !important;
+  margin-bottom: 72px !important;
+}
+
+body.service-page main#main-content > .zoho-figma-hero {
+  margin-bottom: 72px !important;
+}
+
+body.service-page :is(
+  .ect-zoho-req__heading,
+  .ect-web-solutions__heading,
+  #zoho-applications-title,
+  .ect-zoho-one__heading,
+  .ect-dm-ind__heading,
+  .ect-zoho-custom__heading,
+  .ect-zoho-process__heading,
+  .ect-why__heading,
+  .zoho-work .work__title,
+  .ect-zoho-cost__heading,
+  .ect-zoho-build-combined__heading,
+  .faq-title
+) {
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+}
+
+body.service-page :is(
+  .ect-zoho-req__intro,
+  .ect-zoho-req__text,
+  .ect-web-solutions__intro,
+  .ect-web-solutions__description,
+  #zoho-applications .website-benefits__intro > p,
+  #zoho-applications .website-benefits__body > p:not(.website-benefits__apps),
+  .ect-zoho-one__intro,
+  .ect-zoho-one__text,
+  .ect-dm-ind__intro,
+  .ect-dm-ind__text,
+  .ect-zoho-custom__intro,
+  .ect-zoho-custom__text,
+  .ect-zoho-process__intro,
+  .ect-zoho-process__text,
+  .ect-why__lead,
+  .ect-why__text,
+  .zoho-work .work__intro,
+  .ect-zoho-cost__intro,
+  .ect-zoho-cost__text,
+  .ect-zoho-build-combined__text,
+  .faq-a-inner p
+) {
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+}
+
+@media (min-width: 641px) and (max-width: 1199px) {
+  body.service-page main#main-content > section:not(.zoho-figma-hero) {
+    margin-bottom: 64px !important;
+  }
+
+  body.service-page main#main-content > .zoho-figma-hero {
+    margin-bottom: 64px !important;
+  }
+
+  body.service-page :is(
+    .ect-zoho-req__heading,
+    .ect-web-solutions__heading,
+    #zoho-applications-title,
+    .ect-zoho-one__heading,
+    .ect-dm-ind__heading,
+    .ect-zoho-custom__heading,
+    .ect-zoho-process__heading,
+    .ect-why__heading,
+    .zoho-work .work__title,
+    .ect-zoho-cost__heading,
+    .ect-zoho-build-combined__heading,
+    .faq-title
+  ) {
+    font-size: 32px !important;
+  }
+
+  body.service-page :is(
+    .ect-zoho-req__intro,
+    .ect-zoho-req__text,
+    .ect-web-solutions__intro,
+    .ect-web-solutions__description,
+    #zoho-applications .website-benefits__intro > p,
+    #zoho-applications .website-benefits__body > p:not(.website-benefits__apps),
+    .ect-zoho-one__intro,
+    .ect-zoho-one__text,
+    .ect-dm-ind__intro,
+    .ect-dm-ind__text,
+    .ect-zoho-custom__intro,
+    .ect-zoho-custom__text,
+    .ect-zoho-process__intro,
+    .ect-zoho-process__text,
+    .ect-why__lead,
+    .ect-why__text,
+    .zoho-work .work__intro,
+    .ect-zoho-cost__intro,
+    .ect-zoho-cost__text,
+    .ect-zoho-build-combined__text,
+    .faq-a-inner p
+  ) {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page main#main-content > section:not(.zoho-figma-hero) {
+    margin-bottom: 48px !important;
+  }
+
+  body.service-page main#main-content > .zoho-figma-hero {
+    margin-bottom: 48px !important;
+  }
+
+  body.service-page :is(
+    .ect-zoho-req__heading,
+    .ect-web-solutions__heading,
+    #zoho-applications-title,
+    .ect-zoho-one__heading,
+    .ect-dm-ind__heading,
+    .ect-zoho-custom__heading,
+    .ect-zoho-process__heading,
+    .ect-why__heading,
+    .zoho-work .work__title,
+    .ect-zoho-cost__heading,
+    .ect-zoho-build-combined__heading,
+    .faq-title
+  ) {
+    font-size: 26px !important;
+  }
+
+  body.service-page :is(
+    .ect-zoho-req__intro,
+    .ect-zoho-req__text,
+    .ect-web-solutions__intro,
+    .ect-web-solutions__description,
+    #zoho-applications .website-benefits__intro > p,
+    #zoho-applications .website-benefits__body > p:not(.website-benefits__apps),
+    .ect-zoho-one__intro,
+    .ect-zoho-one__text,
+    .ect-dm-ind__intro,
+    .ect-dm-ind__text,
+    .ect-zoho-custom__intro,
+    .ect-zoho-custom__text,
+    .ect-zoho-process__intro,
+    .ect-zoho-process__text,
+    .ect-why__lead,
+    .ect-why__text,
+    .zoho-work .work__intro,
+    .ect-zoho-cost__intro,
+    .ect-zoho-cost__text,
+    .ect-zoho-build-combined__text,
+    .faq-a-inner p
+  ) {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+}

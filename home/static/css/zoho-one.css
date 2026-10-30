@@ -134,15 +134,19 @@ body.zoho-page .ect-zoho-one .ect-zoho-one__title {
   }
 }
 
-/* Tablet and mobile: stacked. */
+/* Tablet and mobile: responsive layout approved in the interactive preview. */
 @media (max-width: 1199px) {
   .ect-zoho-one {
+    width: min(100% - 48px, 1024px);
     margin: 56px auto;
+    overflow: hidden;
   }
 
   .ect-zoho-one__header {
     flex-direction: column;
     gap: 12px;
+    max-width: 900px;
+    margin-bottom: 26px;
   }
 
   body.service-page .ect-zoho-one .ect-zoho-one__heading,
@@ -153,16 +157,78 @@ body.zoho-page .ect-zoho-one .ect-zoho-one__title {
 
   .ect-zoho-one__intro {
     flex: none;
-    max-width: 640px;
+    max-width: 850px;
   }
 
   .ect-zoho-one__body {
-    grid-template-columns: minmax(0, 1fr);
+    display: block;
   }
 
   .ect-zoho-one__media {
+    width: 100%;
     height: auto;
-    aspect-ratio: 608 / 563;
+    min-height: 0;
+    margin-bottom: 18px;
+    aspect-ratio: 16 / 9;
+    border-radius: 18px;
+  }
+
+  .ect-zoho-one__cards {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    padding: 2px 0 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ect-zoho-one__cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ect-zoho-one__card {
+    flex: 0 0 82%;
+    min-width: 0;
+    min-height: 280px;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 20px;
+    border-radius: 18px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  /* Preview sequence: green, gray, gray, green. Desktop keeps its Figma sequence. */
+  .ect-zoho-one__card:nth-child(1),
+  .ect-zoho-one__card:nth-child(4) {
+    background-color: #5b6d49;
+    background-image: url("../img/noise-on-green.png");
+    background-size: 320px 320px;
+    color: #fff;
+  }
+
+  .ect-zoho-one__card:nth-child(2),
+  .ect-zoho-one__card:nth-child(3) {
+    background-color: #f1f1ef;
+    background-image: url("../img/noise-on-gray.png");
+    background-size: 320px 320px;
+    color: #000;
+  }
+
+  body.service-page .ect-zoho-one .ect-zoho-one__title,
+  body.zoho-page .ect-zoho-one .ect-zoho-one__title {
+    font-size: clamp(18px, 2.4vw, 23px);
+    line-height: 1.2;
+  }
+
+  .ect-zoho-one__text {
+    font-size: clamp(13px, 1.45vw, 15px);
+    line-height: 1.5;
   }
 }
 
@@ -171,12 +237,49 @@ body.zoho-page .ect-zoho-one .ect-zoho-one__title {
     width: calc(100% - 32px);
   }
 
+  .ect-zoho-one__header {
+    margin-bottom: 22px;
+  }
+
+  body.service-page .ect-zoho-one .ect-zoho-one__heading,
+  body.zoho-page .ect-zoho-one .ect-zoho-one__heading {
+    font-size: clamp(26px, 7.2vw, 32px) !important;
+    line-height: 1.12 !important;
+  }
+
+  .ect-zoho-one__intro {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .ect-zoho-one__body {
+    display: block;
+  }
+
+  .ect-zoho-one__media {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin-bottom: 18px;
+    aspect-ratio: 16 / 10;
+  }
+
+  .ect-zoho-one__cards {
+    gap: 12px;
+    padding-bottom: 8px;
+  }
+
   body.service-page .ect-zoho-one .ect-zoho-one__title,
   body.zoho-page .ect-zoho-one .ect-zoho-one__title {
-    font-size: 24px;
+    font-size: 21px;
   }
 
   .ect-zoho-one__card {
-    min-height: 0;
+    flex: 0 0 88%;
+    min-height: 260px;
+  }
+
+  .ect-zoho-one__text {
+    font-size: 14px;
   }
 }

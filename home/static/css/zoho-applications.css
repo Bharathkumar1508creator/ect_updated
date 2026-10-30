@@ -22,6 +22,10 @@
   text-decoration: underline;
 }
 
+#zoho-applications .website-benefits__cta--after {
+  display: none;
+}
+
 /* The ERP card has the longest text. */
 .website-benefits--zoho.website-benefits--compact .website-benefits__card:nth-child(4) p {
   font-size: 12.5px;
@@ -29,7 +33,64 @@
 }
 
 @media (max-width: 1024px) {
+  #zoho-applications .website-benefits__number {
+    display: none;
+  }
+
+  #zoho-applications .website-benefits__intro {
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  #zoho-applications .website-benefits__intro h2,
+  #zoho-applications .website-benefits__intro p {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  #zoho-applications .website-benefits__intro .website-benefits__cta {
+    display: none;
+  }
+
+  #zoho-applications .website-benefits__cta--after {
+    display: inline-flex;
+    align-self: flex-start;
+    min-height: 48px;
+    margin: 8px 0 0 max(20px, calc((100% - 700px) / 2));
+    padding: 12px 22px;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  #zoho-applications .website-benefits__card {
+    height: 360px;
+    min-height: 360px;
+    scroll-snap-align: start;
+  }
+
   .website-benefits--zoho.website-benefits--compact .website-benefits__card:nth-child(n) p {
     font-size: 13px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  #zoho-applications .website-benefits__orbit {
+    padding-inline: max(20px, calc((100% - 700px) / 2));
+    scroll-padding-inline: max(20px, calc((100% - 700px) / 2));
+  }
+}
+
+@media (max-width: 600px) {
+  #zoho-applications .website-benefits__intro {
+    margin-bottom: 24px;
+  }
+
+  #zoho-applications .website-benefits__cta--after {
+    margin-left: 20px;
+  }
+
+  #zoho-applications .website-benefits__card {
+    height: 400px;
+    min-height: 400px;
   }
 }

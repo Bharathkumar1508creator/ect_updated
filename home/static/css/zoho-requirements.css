@@ -126,6 +126,7 @@ body.zoho-page .ect-zoho-req .ect-zoho-req__title {
 @media (max-width: 1199px) {
   .ect-zoho-req {
     margin: 56px auto;
+    overflow: hidden;
   }
 
   body.service-page .ect-zoho-req .ect-zoho-req__heading,
@@ -134,11 +135,42 @@ body.zoho-page .ect-zoho-req .ect-zoho-req__title {
   }
 
   .ect-zoho-req__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    grid-template-columns: none;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    touch-action: pan-x pan-y;
+    cursor: grab;
+  }
+
+  .ect-zoho-req__grid::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
   }
 
   .ect-zoho-req__card {
+    flex: 0 0 calc((100% - 16px) / 2);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     min-height: 0;
+    user-select: none;
+  }
+
+  .ect-zoho-req__grid.is-dragging {
+    scroll-behavior: auto;
+    cursor: grabbing;
+  }
+
+  .ect-zoho-req__card.is-held {
+    background-color: #5b6d49;
+    background-image: url("../img/noise-on-green.png");
+    color: #fff;
   }
 }
 
@@ -148,8 +180,12 @@ body.zoho-page .ect-zoho-req .ect-zoho-req__title {
   }
 
   .ect-zoho-req__grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
+    display: flex;
+    grid-template-columns: none;
+  }
+
+  .ect-zoho-req__card {
+    flex-basis: 100%;
   }
 
   body.service-page .ect-zoho-req .ect-zoho-req__title,

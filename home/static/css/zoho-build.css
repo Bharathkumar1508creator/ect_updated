@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+.ect-zoho-build[hidden] {
+  display: none !important;
+}
+
 .ect-zoho-build {
   display: flex;
   align-items: flex-start;
@@ -138,5 +142,82 @@ body.zoho-page .ect-zoho-build .ect-zoho-build__heading {
 
   .ect-zoho-build__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Combined section: heading, animated honeycomb, supporting copy and CTA. */
+.ect-zoho-build-combined {
+  display: flex;
+  flex-direction: column;
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  padding: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+body.service-page .ect-zoho-build-combined .ect-zoho-build-combined__heading,
+body.zoho-page .ect-zoho-build-combined .ect-zoho-build-combined__heading {
+  max-width: 900px;
+  margin: 0 0 36px;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-zoho-build-combined .honeycomb-wrap {
+  margin-bottom: 36px;
+}
+
+.ect-zoho-build-combined__copy {
+  width: 100%;
+  max-width: 1040px;
+}
+
+.ect-zoho-build-combined__text {
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.ect-zoho-build-combined .ect-zoho-build__cta {
+  margin-left: 0;
+}
+
+@media (max-width: 1199px) {
+  .ect-zoho-build-combined {
+    width: min(1240px, calc(100% - 48px));
+    margin: 56px auto;
+  }
+
+  body.service-page .ect-zoho-build-combined .ect-zoho-build-combined__heading,
+  body.zoho-page .ect-zoho-build-combined .ect-zoho-build-combined__heading {
+    margin-bottom: 28px;
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
+  .ect-zoho-build-combined .honeycomb-wrap {
+    margin-bottom: 28px;
+  }
+
+  .ect-zoho-build-combined__copy {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-zoho-build-combined {
+    width: calc(100% - 32px);
+  }
+
+  body.service-page .ect-zoho-build-combined .ect-zoho-build-combined__heading,
+  body.zoho-page .ect-zoho-build-combined .ect-zoho-build-combined__heading {
+    font-size: 26px !important;
+  }
+
+  .ect-zoho-build-combined .ect-zoho-build__cta {
+    width: 100%;
   }
 }

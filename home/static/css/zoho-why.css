@@ -3,3 +3,23 @@
 body.service-page .ect-why .ect-why__heading .ect-why__line {
   color: inherit !important;
 }
+
+/* Match the Website page's compact Why Choose presentation on tablets and phones only. */
+@media (max-width: 1199px) {
+  body.service-page #zoho-why-choose .ect-why__cta--intro,
+  body.service-page #zoho-why-choose .ect-why__card > .ect-why__cta {
+    display: none;
+  }
+
+  body.service-page #zoho-why-choose .ect-why__mobile-action {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2px;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page #zoho-why-choose .ect-why__mobile-action .ect-why__cta {
+    width: 100%;
+  }
+}

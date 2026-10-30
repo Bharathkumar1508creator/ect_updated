@@ -524,8 +524,7 @@ document.querySelectorAll('#ectHeading').forEach(function (heading) {
 // ── Floating Particles ──
 (function () {
   var section = document.querySelector('.ect-zoho-section');
-  var count = 22;
-
+  var count = 22; if (!section) return;
   for (var i = 0; i < count; i++) {
     var p = document.createElement('div');
     p.className = 'particle';

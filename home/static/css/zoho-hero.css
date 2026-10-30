@@ -49,3 +49,110 @@
     min-width: 231px;
   }
 }
+
+@media (min-width: 641px) and (max-width: 1199px) {
+  .zoho-page .zoho-figma-hero.zoho-figma-hero {
+    width: calc(100% - 48px);
+    max-width: 1240px;
+    margin-top: 112px !important;
+    margin-bottom: 32px !important;
+    padding: 0 !important;
+    text-align: center;
+  }
+
+  .zoho-page .zoho-figma-hero .zoho-figma-hero__content {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .zoho-page .zoho-figma-hero .zoho-figma-hero__title {
+    width: min(760px, 100%) !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    margin: 0 auto !important;
+    font-size: clamp(32px, 4.2vw, 40px) !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+  }
+
+  .zoho-page .zoho-figma-hero .zoho-figma-hero__desktop-break {
+    display: none !important;
+  }
+
+  .zoho-page .zoho-figma-hero .zoho-figma-hero__subtitle {
+    width: min(680px, 100%);
+    height: auto;
+    margin: 18px auto 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .zoho-page .zoho-figma-hero .zoho-figma-hero__cta {
+    width: auto;
+    min-width: 231px;
+    min-height: 40px;
+    height: auto;
+    margin-top: 22px;
+  }
+
+  .zoho-page .zoho-figma-hero .zoho-figma-hero__video-frame {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin-top: 28px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .zoho-page .zoho-figma-hero.zoho-figma-hero {
+    width: calc(100% - 32px);
+    margin-top: 94px !important;
+    margin-bottom: 24px !important;
+    padding-inline: 0 !important;
+    overflow-x: clip;
+    text-align: center;
+  }
+
+  .zoho-page .zoho-figma-hero .zoho-figma-hero__content {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .zoho-page .zoho-figma-hero .zoho-figma-hero__title {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    margin: 0 auto !important;
+    font-size: clamp(25px, 6.6vw, 32px) !important;
+    line-height: 1.22 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .zoho-page .zoho-figma-hero .zoho-figma-hero__desktop-break {
+    display: none !important;
+  }
+
+  .zoho-page .zoho-figma-hero .zoho-figma-hero__subtitle {
+    width: 100%;
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .zoho-page .zoho-figma-hero .zoho-figma-hero__cta {
+    width: auto;
+    min-width: 231px;
+    min-height: 40px;
+    height: auto;
+    margin-top: 22px;
+  }
+
+  .zoho-page .zoho-figma-hero .zoho-figma-hero__video-frame {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    margin-top: 28px;
+    border-radius: 16px;
+  }
+}

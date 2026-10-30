@@ -44,7 +44,7 @@
   const CARD_HEIGHT = Number(section.dataset.cardHeight) || 658;
   const MEDIA_HEIGHT = Number(section.dataset.mediaHeight) || 298;
   // How long each move takes, in ms: 1->2, 2->3, 3->4, 4->5, and the glide into the section.
-  const STATE_DURATIONS = [1800, 3000, 1900, 1900];
+  const STATE_DURATIONS = [1800, 2400, 1800, 1800];
   const ENTRY_MS = 1300;
   const EXIT_MS = 900;
 
@@ -71,6 +71,8 @@
   let lastAccepted = 0;
   let currentState = FIRST_STATE;
   let touchStartY = null;
+  let completed = false;
+  let completing = false;
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const lerp = (from, to, amount) => from + (to - from) * amount;
@@ -290,7 +292,13 @@
   // Glides the page to a scroll position. `kind` is only used to tell entry glides from step moves.
   function glideTo(endY, duration, easing, kind, targetState) {
     const startY = window.scrollY;
-    if (Math.abs(endY - startY) < 1) return;
+    if (Math.abs(endY - startY) < 1) {
+      window.cancelAnimationFrame(tween);
+      tween = 0;
+      tweenTarget = null;
+      glideKind = "";
+      return;
+    }
     window.cancelAnimationFrame(tween);
     tweenTarget = targetState;
     const startTime = performance.now();
@@ -302,6 +310,7 @@
       } else {
         tween = 0;
         tweenTarget = null;
+        glideKind = "";
       }
     };
     tween = window.requestAnimationFrame(run);
@@ -357,20 +366,26 @@
     if (!active || event.ctrlKey || event.deltaY === 0) return;
     const down = event.deltaY > 0;
     const info = runwayInfo();
-    const inZone = info.rect.top < window.innerHeight && info.rect.bottom > 0;
-    const playing = tween !== 0 && inZone;
-    if (!canIntercept(down) && !playing) return;
+
+    // At either boundary, leave scrolling completely native so the section can
+    // never trap the page. The final state's easing must finish before release.
+    if ((down && info.progress >= 0.999 && tween === 0) || (!down && info.progress <= 0.001 && tween === 0)) return;
+    if (!info.pinned && tween === 0) return;
+
     event.preventDefault();
 
+    // Finish one complete visual state before starting another. This prevents
+    // a trackpad stream from repeatedly retargeting the tween and rushing past
+    // cards before the current transition is visibly complete.
     const now = performance.now();
-    if (!isNewSwipe(event, now)) return;
-    if (now - lastAccepted < MIN_BETWEEN_MS) return;
-    if (glideKind === "entry" && tween !== 0) return; // let the logo finish dropping first
-
+    if (tween !== 0) return;
+    if (now - lastAccepted < 220) return;
     lastAccepted = now;
+
     const target = requestedState(down);
-    if (target === (tweenTarget !== null ? tweenTarget : Math.round(info.state))) return;
-    goToState(target, tween !== 0);
+    const settledTarget = tweenTarget !== null ? tweenTarget : Math.round(info.state);
+    if (target === settledTarget) return;
+    goToState(target, false);
   }
 
   function onKey(event) {
@@ -380,11 +395,12 @@
     const down = ["ArrowDown", "PageDown", " "].includes(event.key) && !event.shiftKey;
     const up = ["ArrowUp", "PageUp"].includes(event.key) || (event.key === " " && event.shiftKey);
     if (!down && !up) return;
-    const playing = tween !== 0;
-    if (!canIntercept(down) && !playing) return;
+    const info = runwayInfo();
+    if ((down && info.progress >= 0.999 && tween === 0) || (up && info.progress <= 0.001 && tween === 0)) return;
+    if (!info.pinned && tween === 0) return;
     event.preventDefault();
     if (glideKind === "entry" && tween !== 0) return;
-    goToState(requestedState(down), playing);
+    goToState(requestedState(down), tween !== 0);
   }
 
   function onTouchStart(event) {
@@ -395,9 +411,11 @@
     if (!active || touchStartY === null) return;
     const dy = touchStartY - event.touches[0].clientY;
     const down = dy > 0;
-    if (!canIntercept(down) && tween === 0) return;
+    const info = runwayInfo();
+    if ((down && info.progress >= 0.999 && tween === 0) || (!down && info.progress <= 0.001 && tween === 0)) return;
+    if ((!info.pinned && tween === 0) || Math.abs(dy) < 40) return;
     event.preventDefault();
-    if (Math.abs(dy) < 40 || (glideKind === "entry" && tween !== 0)) return;
+    if (glideKind === "entry" && tween !== 0) return;
     touchStartY = null;
     goToState(requestedState(down), tween !== 0);
   }
@@ -411,6 +429,15 @@
 
     const info = runwayInfo();
     const vh = window.innerHeight;
+
+    // Once the user has moved beyond the final card, replace the long pinned
+    // runway with the normal section. Compensating for the removed height keeps
+    // the following section at the same visual position, so there is no jump.
+    if (movingDown && info.progress >= 0.999 && info.rect.bottom < vh * 0.98) {
+      completeOnce();
+      return;
+    }
+
     if (info.rect.top >= vh * 0.98) armedDown = true;
     if (info.pinned) armedUp = true;
 
@@ -488,8 +515,27 @@
     updateSimpleHighlight();
   }
 
+  function completeOnce() {
+    if (completed || completing) return;
+    completing = true;
+    completed = true;
+    section.dataset.completed = "true";
+
+    const beforeBottom = section.getBoundingClientRect().bottom;
+    const beforeY = window.scrollY;
+    disable();
+    // The intro CTA belongs to the animated introduction only. Keep it visible
+    // during that state, then remove it from the completed/static card layout.
+    introCta.hidden = true;
+    const afterBottom = section.getBoundingClientRect().bottom;
+    const compensatedY = Math.max(0, beforeY + afterBottom - beforeBottom);
+    window.scrollTo({ top: compensatedY, behavior: "instant" });
+
+    completing = false;
+  }
+
   function sync() {
-    if (sceneQuery.matches) enable();
+    if (sceneQuery.matches && !completed) enable();
     else disable();
   }
 

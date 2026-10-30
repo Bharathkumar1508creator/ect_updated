@@ -14,9 +14,23 @@ body.zoho-page .ect-dm-ind--zoho .ect-dm-ind__heading {
 .ect-dm-ind--zoho .ect-dm-ind__intro {
   width: 413px;
   margin-top: 56px;
-  font-family: "Inter", "Montserrat", sans-serif;
-  font-size: 12px;
-  line-height: 15px;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Desktop: balance the header so the supporting copy wraps to roughly four lines. */
+@media (min-width: 1200px) {
+  body.service-page .ect-dm-ind--zoho .ect-dm-ind__heading,
+  body.zoho-page .ect-dm-ind--zoho .ect-dm-ind__heading {
+    max-width: 700px;
+  }
+
+  .ect-dm-ind--zoho .ect-dm-ind__intro {
+    width: 500px;
+    margin-top: 0;
+  }
 }
 
 /* In Figma the lower picture is mirrored. */
@@ -25,14 +39,67 @@ body.zoho-page .ect-dm-ind--zoho .ect-dm-ind__heading {
 }
 
 @media (max-width: 1199px) {
+  .ect-dm-ind--zoho {
+    display: flex;
+    flex-direction: column;
+    margin: 56px auto;
+  }
+
+  .ect-dm-ind--zoho .ect-dm-ind__header {
+    display: contents;
+  }
+
+  body.service-page .ect-dm-ind--zoho .ect-dm-ind__heading,
+  body.zoho-page .ect-dm-ind--zoho .ect-dm-ind__heading {
+    order: 1;
+    margin-bottom: 24px;
+    font-size: clamp(28px, 4.4vw, 36px) !important;
+  }
+
   .ect-dm-ind--zoho .ect-dm-ind__intro {
+    order: 3;
     width: auto;
-    margin-top: 0;
-    font-size: 14px;
+    max-width: 560px;
+    margin: 24px 0 0;
+    font-size: 16px;
+    font-weight: 400;
     line-height: 1.5;
   }
 
-  .ect-dm-ind--zoho .ect-dm-ind__image--bottom {
-    order: 99;
+  .ect-dm-ind--zoho .ect-dm-ind__grid {
+    order: 2;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .ect-dm-ind--zoho .ect-dm-ind__image {
+    display: none;
+  }
+
+  .ect-dm-ind--zoho .ect-dm-ind__card,
+  .ect-dm-ind--zoho .ect-dm-ind__card--wide {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-dm-ind--zoho {
+    width: calc(100% - 32px);
+  }
+
+  .ect-dm-ind--zoho .ect-dm-ind__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .ect-dm-ind--zoho .ect-dm-ind__card {
+    min-height: 0;
+    gap: 28px;
+  }
+
+  body.service-page .ect-dm-ind--zoho .ect-dm-ind__title,
+  body.zoho-page .ect-dm-ind--zoho .ect-dm-ind__title {
+    font-size: 24px;
   }
 }

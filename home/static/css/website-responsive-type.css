@@ -1,0 +1,198 @@
+/* Website page responsive type system.
+   Desktop (1200px+) intentionally keeps the approved section designs. */
+
+@media (max-width: 1199px) {
+  /* Wrapped section headings must grow naturally at phone/tablet widths.
+     Older component sizing must not crop their last line. */
+  body.service-page :is(
+    .ect-why__heading,
+    .ect-industries__heading
+  ) {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+  }
+
+  body.service-page :is(
+    .ect-why__content,
+    .ect-industries__header
+  ) {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__intro h2,
+    .ect-web-solutions__heading,
+    .ect-key-features__heading,
+    .web-solutions-section .header h2,
+    .tb-heading,
+    .ect-why__heading,
+    .ect-industries__heading,
+    .work__title,
+    .ect-consult__heading,
+    .faq-title
+  ) {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em;
+  }
+
+  body.service-page :is(
+    .website-benefits__intro p,
+    .ect-web-solutions__intro,
+    .ect-key-features__intro,
+    .web-solutions-section .header > p,
+    .tb-tagline,
+    .ect-why__lead,
+    .ect-industries__intro,
+    .work__intro,
+    .ect-consult__text,
+    .faq-sub
+  ) {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif;
+    font-size: 15px !important;
+    font-weight: 400;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__card h4,
+    .ect-web-solutions__content-title,
+    .ect-key-features__title,
+    .ect-why__title,
+    .ect-industries__title
+  ) {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif;
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em;
+  }
+
+  body.service-page :is(
+    .website-benefits__card p,
+    .website-benefits__card:nth-child(4) p,
+    .ect-web-solutions__description,
+    .ect-web-solutions__audience,
+    .ect-key-features__text,
+    .ect-why__text,
+    .ect-industries__text,
+    .web-solutions-section .cell p,
+    .faq-a-inner p
+  ) {
+    font-size: 15px !important;
+    font-weight: 400;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page .web-solutions-section .cell h3 {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__cta,
+    .ect-web-solutions__cta,
+    .ect-key-features__cta,
+    .ect-why__cta,
+    .ect-consult__cta,
+    .work .btn-view
+  ) {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+  }
+
+  body.service-page :is(.ect-web-solutions__tab-label, .faq-q) {
+    font-size: 15px !important;
+    font-weight: 600;
+    line-height: 1.4 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page .website-figma-hero .website-figma-hero__title {
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.025em;
+  }
+
+  body.service-page .website-figma-hero__subtitle {
+    font-size: 14px !important;
+    font-weight: 400;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__intro h2,
+    .ect-web-solutions__heading,
+    .ect-key-features__heading,
+    .web-solutions-section .header h2,
+    .tb-heading,
+    .ect-why__heading,
+    .ect-industries__heading,
+    .work__title,
+    .ect-consult__heading,
+    .faq-title
+  ) {
+    font-size: 26px !important;
+    line-height: 1.18 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__intro p,
+    .ect-web-solutions__intro,
+    .ect-key-features__intro,
+    .web-solutions-section .header > p,
+    .tb-tagline,
+    .ect-why__lead,
+    .ect-industries__intro,
+    .work__intro,
+    .ect-consult__text,
+    .faq-sub
+  ) {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__card h4,
+    .ect-web-solutions__content-title,
+    .ect-key-features__title,
+    .ect-why__title,
+    .ect-industries__title,
+    .web-solutions-section .cell h3
+  ) {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__card p,
+    .website-benefits__card:nth-child(4) p,
+    .ect-web-solutions__description,
+    .ect-web-solutions__audience,
+    .ect-key-features__text,
+    .ect-why__text,
+    .ect-industries__text,
+    .web-solutions-section .cell p,
+    .faq-a-inner p
+  ) {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(.ect-web-solutions__tab-label, .faq-q) {
+    font-size: 14px !important;
+  }
+}

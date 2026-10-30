@@ -1,0 +1,161 @@
+/* Website page vertical rhythm.
+   Each section owns the space after its content so adjacent margins/padding do not stack. */
+
+@media (max-width: 640px) {
+  body.service-page .website-figma-hero {
+    margin-bottom: 0;
+  }
+
+  body.service-page .website-benefits {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  body.service-page .ect-web-solutions,
+  body.service-page .ect-key-features,
+  body.service-page .ect-industries,
+  body.service-page .ect-consult {
+    margin-top: 0;
+    margin-bottom: 48px;
+  }
+
+  body.service-page .web-solutions-section {
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 48px;
+  }
+
+  body.service-page .tb-section {
+    margin-top: 0;
+    margin-bottom: 48px;
+    padding-top: 0;
+  }
+
+  body.service-page .ect-why__scene {
+    padding-top: 32px;
+    padding-bottom: 48px;
+  }
+
+  body.service-page .ect-industries {
+    padding-top: 32px;
+  }
+
+  body.service-page .work {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 48px !important;
+  }
+
+  body.service-page .faq-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* The consultation owns the full gap before FAQ. Do not stack the
+     wrapper and FAQ padding on top of its 48px bottom margin. */
+  body.service-page .tb-section-wrapper {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1199px) {
+  body.service-page .website-figma-hero {
+    margin-bottom: 0;
+  }
+
+  body.service-page .website-benefits {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  body.service-page .ect-web-solutions,
+  body.service-page .ect-key-features,
+  body.service-page .ect-industries,
+  body.service-page .ect-consult {
+    margin-top: 0;
+    margin-bottom: 64px;
+  }
+
+  body.service-page .web-solutions-section {
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 64px;
+  }
+
+  body.service-page .tb-section {
+    margin-top: 0;
+    margin-bottom: 64px;
+    padding-top: 0;
+  }
+
+  body.service-page .ect-why__scene {
+    padding-top: 40px;
+    padding-bottom: 64px;
+  }
+
+  body.service-page .ect-industries {
+    padding-top: 40px;
+  }
+
+  body.service-page .work {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 64px !important;
+  }
+
+  body.service-page .faq-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 64px !important;
+  }
+
+  /* The consultation owns the full gap before FAQ. Do not stack the
+     wrapper and FAQ padding on top of its 64px bottom margin. */
+  body.service-page .tb-section-wrapper {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  body.service-page .website-figma-hero {
+    margin-bottom: 0;
+  }
+
+  body.service-page .website-benefits {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  body.service-page .ect-web-solutions,
+  body.service-page .ect-key-features,
+  body.service-page .web-solutions-section,
+  body.service-page .tb-section {
+    margin-top: 0;
+    margin-bottom: 72px;
+  }
+
+  body.service-page .web-solutions-section,
+  body.service-page .tb-section {
+    padding-top: 0;
+  }
+
+  body.service-page .ect-industries,
+  body.service-page .ect-consult {
+    margin-top: 72px;
+    margin-bottom: 72px;
+  }
+
+  body.service-page .work {
+    margin-top: 0;
+    margin-bottom: 72px;
+  }
+
+  body.service-page .faq-section {
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 72px;
+  }
+}

@@ -216,3 +216,116 @@ body.service-page .ect-key-features .ect-key-features__title {
     transform: none !important;
   }
 }
+
+/* Keep the feature section to one card's height on phones and tablets. */
+@media (max-width: 1199px) {
+  .ect-key-features__stack {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ect-key-features__stack::-webkit-scrollbar { display: none; }
+
+  .ect-key-features__card {
+    flex: 0 0 100%;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 18px;
+  }
+
+  .ect-key-features__media {
+    flex: 0 0 40%;
+    width: 40%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .ect-key-features__body {
+    align-self: stretch;
+    gap: 12px;
+  }
+
+  body.service-page .ect-key-features .ect-key-features__title {
+    margin: 0;
+    font-size: clamp(22px, 3vw, 28px);
+    line-height: 1.25;
+  }
+
+  .ect-key-features__text { font-size: 15px; line-height: 1.5; }
+  .ect-key-features__cta {
+    min-height: 44px;
+    margin-top: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .ect-key-features__card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .ect-key-features__media {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  body.service-page .ect-key-features .ect-key-features__heading {
+    font-size: 26px !important;
+    line-height: 1.12 !important;
+  }
+
+  body.service-page .ect-key-features .ect-key-features__title { font-size: 21px; }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 1199px) {
+  .ect-key-features__stack { scroll-behavior: auto; }
+}
+
+@media (min-width: 641px) and (max-width: 1199px) {
+  .ect-key-features__card {
+    gap: 24px;
+    min-height: 330px;
+    padding: 22px;
+  }
+
+  .ect-key-features__media {
+    flex: 0 0 46%;
+    width: 46%;
+    height: 286px;
+    aspect-ratio: auto;
+  }
+
+  .ect-key-features__body {
+    align-self: center;
+    gap: 12px;
+  }
+
+  body.service-page .ect-key-features .ect-key-features__title {
+    font-size: clamp(22px, 3.25vw, 25px);
+  }
+
+  .ect-key-features__text {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .ect-key-features__cta {
+    margin-top: 2px;
+  }
+}
