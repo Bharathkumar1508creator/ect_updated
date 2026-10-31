@@ -306,7 +306,9 @@ class SecurityBoundaryTests(TestCase):
         self.assertNotIn('<script async src="https://www.googletagmanager.com', html)
         self.assertIn("salesIqUrl", html)
         self.assertIn("Zoho live chat remains available", html)
-        self.assertIn("id='wf_script' data-src='https://bigin.zoho.in", html)
+        # The Bigin form currently initializes its validation script directly;
+        # optional analytics remains gated by the visitor's consent choice.
+        self.assertIn('id="wf_script" src="https://bigin.zoho.in/crm/WebformScriptServlet?', html)
 
     def test_project_rich_text_removes_executable_markup(self):
         rendered = str(
@@ -439,7 +441,7 @@ class ProjectFunctionalityTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(
             response,
-            'content="http://testserver/media/projects/hero/images/project.jpg"',
+            'content="https://ecogcoretechnologies.com/media/projects/hero/images/project.jpg"',
             html=False,
         )
         self.assertNotContains(

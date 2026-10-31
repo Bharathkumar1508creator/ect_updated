@@ -105,7 +105,9 @@ mq.addEventListener('change', toggleBreak);
   "use strict";
 
   function initResponsiveTopicRail() {
-    var section = document.querySelector(".ect-web-solutions:not([data-panels])");
+    // Tablet/mobile only (guarded by the media query below). Also used for the services tabs section, whose
+    // own tab/panel engine is digital-solutions.js.
+    var section = document.querySelector(".ect-web-solutions");
     var rail = section && section.querySelector(".ect-web-solutions__tabs");
     var tabs = rail ? Array.prototype.slice.call(
       rail.querySelectorAll(".ect-web-solutions__tab")

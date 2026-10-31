@@ -1,0 +1,447 @@
+/* Software page: tablet and mobile fixes only (desktop rules are untouched; everything here sits inside
+   max-width media queries). The sections reuse the website, HR, Zoho and IT page sections, so the fixes
+   copy what those pages already do for the same sections. */
+
+/* "Understanding Custom Software Development Costs..." (same grid as the HR lifecycle): the cards keep a
+   298px minimum height from the desktop rule, which leaves a gap between each title and its text when the
+   cards stack. */
+@media (max-width: 1199px) {
+  .ect-sw-cost .ect-dm-ind__card:not(.ect-dm-ind__card--wide),
+  .ect-sw-cost .ect-dm-ind__card {
+    min-height: 0;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .ect-sw-cost .ect-dm-ind__card {
+    padding: 20px;
+  }
+}
+
+/* Headings that are sized in px on desktop (flex-basis in a row) must not keep that size when the header
+   stacks into a column on tablet and mobile, or the heading box becomes 700-800px tall and leaves a huge
+   empty gap above the section's content. */
+@media (max-width: 1199px) {
+  body.service-page .ect-sw-vs .ect-infra-sec__heading,
+  body.service-page .ect-sw-sec .ect-hr-perf__heading,
+  body.service-page .ect-sw-products .ect-zoho-one__heading {
+    flex: none;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------
+   Differences found by comparing each Software section with the matching section on the Website, HR
+   and Zoho pages at 390px and 820px. Rules below are copied from those pages' tablet/mobile styles.
+   ------------------------------------------------------------------------------------------------ */
+
+/* Challenges wheel = Website "Why Does Your Business Need a Professional Website?", copied from the
+   website page's tablet and phone rules: card numbers hidden, intro left-aligned above the swipe cards,
+   the button moved under the cards, fixed card heights, cards snapping to the left edge. */
+#software-challenges .website-benefits__intro {
+  background: #fff;
+}
+
+#software-challenges .website-benefits__cta--after {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  #software-challenges .website-benefits__number {
+    display: none;
+  }
+
+  #software-challenges .website-benefits__intro {
+    text-align: left;
+    margin-bottom: 28px;
+  }
+
+  #software-challenges .website-benefits__intro h2,
+  #software-challenges .website-benefits__intro p {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  #software-challenges .website-benefits__intro .website-benefits__cta {
+    display: none;
+  }
+
+  #software-challenges .website-benefits__cta--after {
+    display: inline-flex;
+    align-self: flex-start;
+    min-height: 48px;
+    margin: 8px 0 0 max(20px, calc((100% - 700px) / 2));
+    padding: 12px 22px;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  #software-challenges .website-benefits__card {
+    height: 360px;
+    min-height: 360px;
+    scroll-snap-align: start;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  #software-challenges .website-benefits__orbit {
+    padding-inline: max(20px, calc((100% - 700px) / 2));
+    scroll-padding-inline: max(20px, calc((100% - 700px) / 2));
+  }
+}
+
+@media (max-width: 600px) {
+  #software-challenges .website-benefits__intro {
+    margin-bottom: 24px;
+  }
+
+  #software-challenges .website-benefits__cta--after {
+    margin-left: 20px;
+  }
+
+  #software-challenges .website-benefits__orbit {
+    padding-inline: 20px;
+    scroll-padding-inline: 20px;
+  }
+
+  #software-challenges .website-benefits__card {
+    height: 400px;
+    min-height: 400px;
+  }
+}
+
+/* The website page sizes its card titles and texts in website-responsive-type.css; the Software page's own
+   type file did not list these two. */
+@media (max-width: 1199px) {
+  body.service-page #software-challenges .website-benefits__card h4,
+  body.service-page #software-why-choose .ect-why__title {
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em;
+  }
+
+  body.service-page #software-challenges .website-benefits__card p,
+  body.service-page #software-why-choose .ect-why__text {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page #software-challenges .website-benefits__card h4,
+  body.service-page #software-why-choose .ect-why__title {
+    font-size: 20px !important;
+  }
+
+  body.service-page #software-challenges .website-benefits__card p,
+  body.service-page #software-why-choose .ect-why__text {
+    font-size: 14px !important;
+  }
+}
+
+/* Process intro: the Website page leaves it left-aligned; software.css justifies it on touch sizes. */
+@media (max-width: 1199px) {
+  body.service-page #software-process .header > p,
+  body.service-page #software-process .approach-closing {
+    text-align: left !important;
+  }
+}
+
+/* Costs = HR "Building a Complete HR Lifecycle", which follows the Website industries section on touch sizes:
+   heading first, the cards in two columns (one on a phone) and the intro text underneath; the decorative
+   pictures are not shown. */
+@media (max-width: 1199px) {
+  body.service-page #software-costs {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 48px);
+    max-width: 1240px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  body.service-page #software-costs .ect-dm-ind__header {
+    display: contents;
+  }
+
+  body.service-page #software-costs .ect-dm-ind__heading {
+    order: 1;
+    margin-bottom: 24px !important;
+  }
+
+  body.service-page #software-costs .ect-dm-ind__grid {
+    order: 2;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  body.service-page #software-costs .ect-dm-ind__intro {
+    order: 3;
+    width: auto;
+    max-width: 560px;
+    margin: 24px 0 0;
+  }
+
+  body.service-page #software-costs .ect-dm-ind__image {
+    display: none;
+  }
+
+  body.service-page #software-costs :is(.ect-dm-ind__card, .ect-dm-ind__card--wide) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page #software-costs {
+    width: calc(100% - 32px);
+  }
+
+  body.service-page #software-costs .ect-dm-ind__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  body.service-page #software-costs .ect-dm-ind__card {
+    min-height: 0;
+    gap: 28px;
+  }
+}
+
+/* Security = HR "Strengthen Employee Performance": rows are 24px apart on touch sizes. */
+@media (max-width: 1199px) {
+  body.service-page #software-security .ect-hr-perf__list {
+    gap: 24px;
+  }
+}
+
+/* Vertical rhythm: the sections after the logo strip sit inside .tb-section-wrapper, so the page's spacing
+   rules (written for direct children of <main>) never reached them. They had 56px margins, a 24px logo
+   strip padding and a 28px/32px FAQ padding, while the sections above use the Website page's rhythm
+   (each section owns the space after it: 64px on tablet, 48px on a phone). */
+@media (max-width: 1199px) {
+  body.service-page .tb-section-wrapper {
+    padding-top: 0 !important;
+  }
+
+  body.service-page .tb-section-wrapper > .tb-section,
+  body.service-page .tb-section-wrapper > #software-products,
+  body.service-page .tb-section-wrapper > #software-costs,
+  body.service-page .tb-section-wrapper > #software-connect {
+    margin-top: 0 !important;
+    margin-bottom: 64px !important;
+  }
+
+  body.service-page .tb-section-wrapper > .tb-section {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  body.service-page .tb-section-wrapper > .faq-section {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 64px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page .tb-section-wrapper > .tb-section,
+  body.service-page .tb-section-wrapper > #software-products,
+  body.service-page .tb-section-wrapper > #software-costs,
+  body.service-page .tb-section-wrapper > #software-connect {
+    margin-bottom: 48px !important;
+  }
+
+  body.service-page .tb-section-wrapper > .faq-section {
+    padding-bottom: 48px !important;
+  }
+}
+
+/* Challenges wheel: same vertical rhythm and button text size as the Website page's section (the section owns
+   its own 64px / 48px of space; the page-wide margin is not added on top). */
+@media (max-width: 1199px) {
+  body.service-page main#main-content > #software-challenges {
+    margin-bottom: 0 !important;
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+
+  body.service-page #software-challenges .website-benefits__cta {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+  }
+
+}
+
+@media (max-width: 640px) {
+  body.service-page main#main-content > #software-challenges {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------
+   "Explore Our Custom Software Development Services" = Website "Our Website Development Solutions".
+   Copied from website-solutions.css (tablet and mobile only), with #website-services -> #software-services.
+   Differences from the website section: it has no "perfect for" label or audience line, so the button sits
+   under the description.
+   ------------------------------------------------------------------------------------------------ */
+@media (max-width: 1199px) {
+  body.service-page #software-services .ect-web-solutions__controls {
+    display: none !important;
+  }
+
+  body.service-page #software-services .ect-web-solutions__content {
+    display: contents;
+  }
+
+  body.service-page #software-services .ect-web-solutions__intro {
+    margin-top: 8px;
+    font-size: 15px;
+  }
+
+  body.service-page #software-services .ect-web-solutions__panel {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-rows: repeat(3, auto);
+    align-self: start;
+    align-items: start;
+    gap: 12px 24px;
+    padding: 24px;
+    min-height: 0;
+  }
+
+  body.service-page #software-services .ect-web-solutions__media {
+    position: static !important;
+    grid-column: 1;
+    grid-row: 1 / 4;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 300px;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+  }
+
+  body.service-page #software-services :is(.ect-web-solutions__content-title, .ect-web-solutions__description, .ect-web-solutions__cta) {
+    position: static !important;
+    width: auto !important;
+    min-width: 0;
+    height: auto !important;
+    margin: 0 !important;
+    order: 0;
+  }
+
+  body.service-page #software-services .ect-web-solutions__content-title { grid-column: 2; grid-row: 1; }
+  body.service-page #software-services .ect-web-solutions__description { grid-column: 2; grid-row: 2; }
+  body.service-page #software-services .ect-web-solutions__cta { grid-column: 2; grid-row: 3; justify-self: start; }
+}
+
+@media (max-width: 640px) {
+  body.service-page #software-services .ect-web-solutions__panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: 12px;
+  }
+
+  body.service-page #software-services :is(.ect-web-solutions__media, .ect-web-solutions__content-title, .ect-web-solutions__description, .ect-web-solutions__cta) {
+    grid-column: 1;
+    grid-row: auto;
+    order: 0;
+  }
+
+  body.service-page #software-services .ect-web-solutions__media {
+    height: auto !important;
+    min-height: 0;
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  body.service-page #software-services .ect-web-solutions__header .ect-web-solutions__heading {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    line-height: 1.12 !important;
+  }
+}
+
+/* Services tabs: text sizes as in the Website section (description 14px, button 14px). */
+@media (max-width: 1199px) {
+  body.service-page #software-services .ect-web-solutions__description {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page #software-services .ect-web-solutions__cta {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------
+   "Bringing Your Business Applications Together Through Software Integration" = Zoho "Find the Right Zoho
+   Solutions for Your Business Requirements". Copied from zoho-requirements.css (tablet and mobile only): no
+   arrow buttons, a swipe row with 16px gaps, two cards across on a tablet and one on a phone, cards snapping
+   to the left edge, and the larger card titles (the page's type file had shrunk them to 22px / 20px).
+   ------------------------------------------------------------------------------------------------ */
+@media (max-width: 1199px) {
+  body.service-page #software-integration .ect-infra-srv__controls {
+    display: none;
+  }
+
+  body.service-page #software-integration .ect-infra-srv__top {
+    margin-bottom: 16px;
+  }
+
+  body.service-page #software-integration .ect-zoho-req__grid {
+    gap: 16px;
+    padding-bottom: 0;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+  }
+
+  body.service-page #software-integration .ect-zoho-req__grid.is-dragging {
+    scroll-behavior: auto;
+  }
+
+  body.service-page #software-integration .ect-zoho-req__card {
+    flex: 0 0 calc((100% - 16px) / 2);
+    height: auto;
+    min-height: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    user-select: none;
+  }
+
+  body.service-page #software-integration .ect-zoho-req__title {
+    font-size: 30.51px !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.service-page #software-integration {
+    width: calc(100% - 32px);
+  }
+
+  body.service-page #software-integration .ect-zoho-req__card {
+    flex-basis: 100%;
+  }
+
+  body.service-page #software-integration .ect-zoho-req__title {
+    font-size: 24px !important;
+  }
+}
+
+/* Hero title: kept on one line by a desktop rule (white-space: nowrap), so at tablet widths it was 1500px
+   wide in a 772px column and ran off the screen. Let it wrap on tablet and mobile. */
+@media (max-width: 1199px) {
+  body.service-page .software-figma-hero .software-figma-hero__title {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+  }
+}

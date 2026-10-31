@@ -11,7 +11,7 @@
   {% include "components/seo_meta.html" %}
 
 <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=46">
-  <link rel="stylesheet" href="{% static 'css/hr.css' %}?v=23">
+  <link rel="stylesheet" href="{% static 'css/hr.css' %}?v=24">
   <link rel="stylesheet" href="{% static 'css/hr-hero.css' %}?v=2">
   <link rel="stylesheet" href="{% static 'css/website-benefits.css' %}?v=12">
   <link rel="stylesheet" href="{% static 'css/ect-web-solutions-base.css' %}?v=1">
@@ -33,7 +33,9 @@
   <link rel="stylesheet" href="{% static 'css/hr-costs.css' %}?v=1">
   <link rel="stylesheet" href="{% static 'css/hr-banner.css' %}?v=2">
   <link rel="stylesheet" href="{% static 'css/faq-heading.css' %}?v=1">
-  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=29">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=31">
+  <link rel="stylesheet" href="{% static 'css/hr-responsive-system.css' %}?v=1">
+  <link rel="stylesheet" href="{% static 'css/service-cta-interactions.css' %}?v=1">
 </head>
 
 <body class="hr-page service-page">
@@ -53,7 +55,7 @@
       HR Consulting Services That Build<br class="hero__break"> Stronger Teams and Smarter Workplaces
     </h1>
     <p class="hero__subtitle">Build a capable workforce with ECOG Core Technologies Private Limited, offering professional HR consulting services in Coimbatore. We help businesses improve recruitment, establish HR processes, and strengthen employee performance.</p>
-    <a href="javascript:void(0)" class="hero__cta popup-trigger">Get HR Consultation</a>
+    <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="hero__cta" target="_blank" rel="noopener noreferrer">Get HR Consultation</a>
 
     <div class="hero__image-wrap">
       <video class="hero__image" src="{% static 'video/hr-optimized.mp4' %}" autoplay loop muted playsinline poster="{% static 'video/hr-poster.webp' %}">
@@ -83,7 +85,7 @@
         <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
           <span class="website-benefits__number">04</span>
           <h4>Lack of Employee Performance Tracking</h4>
-          <p>Without defined expectations, measuring employee performance becomes difficult. Clear KPIs, regular reviews, and documented feedback make evaluations more meaningful. Software development solutions can also support automated performance tracking and employee reporting.</p>
+          <p>Without defined expectations, measuring employee performance becomes difficult. Clear KPIs, regular reviews, and documented feedback make evaluations more meaningful. <a href="{% url 'software' %}"><strong>Software development solutions</strong></a> can also support automated performance tracking and employee reporting.</p>
         </article>
         <article class="website-benefits__card" role="listitem" tabindex="0" data-benefit-card>
           <span class="website-benefits__number">05</span>
@@ -94,8 +96,9 @@
       <div class="website-benefits__intro">
         <h2 id="hr-challenges-title">Turn Your Workforce Challenges<br class="website-benefits__desktop-break"> into Opportunities for Growth</h2>
         <p>A business with ten people can manage HR over a cup of tea. At a hundred, that stops working. As businesses expand, people management becomes more complex. As an HR consultancy in Coimbatore, we provide human resource consulting services for recruitment</p>
-        <a href="javascript:void(0)" class="website-benefits__cta popup-trigger">Book A Consultation</a>
+        <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="website-benefits__cta" target="_blank" rel="noopener noreferrer">Book A Consultation</a>
       </div>
+      <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="website-benefits__cta website-benefits__cta--after" target="_blank" rel="noopener noreferrer">Book A Consultation</a>
     </div>
   </section>
 
@@ -150,7 +153,7 @@
 
         <div class="ect-web-solutions__panel is-active" id="ect-web-solutions-panel-0" role="tabpanel" aria-labelledby="ect-web-solutions-tab-0">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/Build-High-Performing-Teams.webp' %}" alt="Permanent Recruitment and Talent Acquisition" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="eager">
+            <img src="{% static 'img/hr-svc-1.webp' %}" alt="Permanent Recruitment and Talent Acquisition" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="eager">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">Permanent Recruitment and Talent Acquisition</h3>
@@ -170,7 +173,7 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-2" role="tabpanel" aria-labelledby="ect-web-solutions-tab-2">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/Strengthen-Your-Workforce.webp' %}" alt="Strategic HR Consulting and Advisory" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-svc-3.webp' %}" alt="Strategic HR Consulting and Advisory" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">Strategic HR Consulting and Advisory</h3>
@@ -180,7 +183,7 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-3" role="tabpanel" aria-labelledby="ect-web-solutions-tab-3">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/Optimize-HR-Operations.webp' %}" alt="HR Policy Development and Employee Handbooks" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-svc-4.webp' %}" alt="HR Policy Development and Employee Handbooks" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">HR Policy Development and Employee Handbooks</h3>
@@ -190,7 +193,7 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-4" role="tabpanel" aria-labelledby="ect-web-solutions-tab-4">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/Learning_and_Development.webp' %}" alt="HR Operations and Process Management" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-svc-5.webp' %}" alt="HR Operations and Process Management" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">HR Operations and Process Management</h3>
@@ -200,7 +203,7 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-5" role="tabpanel" aria-labelledby="ect-web-solutions-tab-5">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/Build-High-Performing-Teams.webp' %}" alt="Employee Onboarding and Lifecycle Management" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-svc-6.webp' %}" alt="Employee Onboarding and Lifecycle Management" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">Employee Onboarding and Lifecycle Management</h3>
@@ -210,7 +213,7 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-6" role="tabpanel" aria-labelledby="ect-web-solutions-tab-6">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/Build-High-Performing-Teams.webp' %}" alt="Performance Management and KPI Development" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-svc-7.webp' %}" alt="Performance Management and KPI Development" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">Performance Management and KPI Development</h3>
@@ -220,7 +223,7 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-7" role="tabpanel" aria-labelledby="ect-web-solutions-tab-7">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/Build-High-Performing-Teams.webp' %}" alt="Employee Training and Leadership Development" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-svc-8.webp' %}" alt="Employee Training and Leadership Development" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">Employee Training and Leadership Development</h3>
@@ -230,7 +233,7 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-8" role="tabpanel" aria-labelledby="ect-web-solutions-tab-8">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/Build-High-Performing-Teams.webp' %}" alt="Workforce Planning and Organizational Development" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/hr-svc-9.webp' %}" alt="Workforce Planning and Organizational Development" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">Workforce Planning and Organizational Development</h3>
@@ -250,7 +253,7 @@
 
       <div class="ect-key-features__stack">
         <article class="ect-key-features__card" data-feature-card>
-          <div class="ect-key-features__media"><img alt="Hiring manager reviewing a job description and candidate profile">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+          <div class="ect-key-features__media"><img src="{% static 'img/hr-feat-1.webp' %}" alt="Hiring manager reviewing a job description and candidate profile" width="503" height="369" decoding="async" loading="lazy"></div>
           <div class="ect-key-features__body">
             <h3 class="ect-key-features__title">Job Requirement Analysis and Candidate Profiling</h3>
             <p class="ect-key-features__text">Before a single CV is opened, we work out what the job really involves. That means the job responsibilities and the qualifications needed. It also means the experience expectations (is two years enough, or does the role need ten?) and the essential competencies nobody should be hired without. Put together, these give us clear candidate profiles to hire against.</p>
@@ -259,7 +262,7 @@
         </article>
 
         <article class="ect-key-features__card" data-feature-card>
-          <div class="ect-key-features__media"><img alt="Recruiter screening and shortlisting candidate CVs">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+          <div class="ect-key-features__media"><img src="{% static 'img/hr-feat-2.webp' %}" alt="Recruiter screening and shortlisting candidate CVs" width="503" height="369" decoding="async" loading="lazy"></div>
           <div class="ect-key-features__body">
             <h3 class="ect-key-features__title">Candidate Sourcing, Screening and Shortlisting</h3>
             <p class="ect-key-features__text">Then the applications come in. Relevant applications are reviewed against the hiring criteria, and the candidates who fit go forward for further evaluation and interviews.</p>
@@ -268,7 +271,7 @@
         </article>
 
         <article class="ect-key-features__card" data-feature-card>
-          <div class="ect-key-features__media"><img alt="Interview panel evaluating a candidate">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+          <div class="ect-key-features__media"><img src="{% static 'img/hr-feat-3.webp' %}" alt="Interview panel evaluating a candidate" width="503" height="369" decoding="async" loading="lazy"></div>
           <div class="ect-key-features__body">
             <h3 class="ect-key-features__title">Interview Coordination and Candidate Evaluation</h3>
             <p class="ect-key-features__text">Interview week is usually the busiest part. Somebody has to handle interview scheduling and keep candidate communication going. On top of that, each person needs a structured assessment, and feedback coordination has to happen between everyone who sat in. We support all of it, which makes the final hiring decisions simpler.</p>
@@ -277,7 +280,7 @@
         </article>
 
         <article class="ect-key-features__card" data-feature-card>
-          <div class="ect-key-features__media"><img alt="Executive candidate meeting a leadership hiring team">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+          <div class="ect-key-features__media"><img src="{% static 'img/hr-feat-4.webp' %}" alt="Executive candidate meeting a leadership hiring team" width="503" height="369" decoding="async" loading="lazy"></div>
           <div class="ect-key-features__body">
             <h3 class="ect-key-features__title">Executive and Specialized Talent Acquisition</h3>
             <p class="ect-key-features__text">Hiring a finance head is not like hiring a junior accountant. For leadership or specialized positions, recruitment focuses on role-specific expertise. We also look closely at professional capabilities, and at organizational suitability, meaning how well the person fits your company.</p>
@@ -286,7 +289,7 @@
         </article>
 
         <article class="ect-key-features__card" data-feature-card>
-          <div class="ect-key-features__media"><img alt="New employee being welcomed during onboarding">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+          <div class="ect-key-features__media"><img src="{% static 'img/hr-feat-5.webp' %}" alt="New employee being welcomed during onboarding" width="503" height="369" decoding="async" loading="lazy"></div>
           <div class="ect-key-features__body">
             <h3 class="ect-key-features__title">Hiring Support and Employee Onboarding</h3>
             <p class="ect-key-features__text">Once you’ve chosen someone, we stay involved. Following candidate selection, we assist with joining coordination and the documentation requirements, and we help with structured onboarding preparation.</p>
@@ -305,13 +308,13 @@
 
     <div class="ect-hr-base__stage">
       <article class="ect-hr-base__card ect-hr-base__card--a">
-        <div class="ect-hr-base__media"><img alt="Employee handbook and HR policy documents">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-hr-base__media"><img src="{% static 'img/hr-found-1.webp' %}" alt="Employee handbook and HR policy documents" width="364" height="443" decoding="async" loading="lazy"></div>
         <h3 class="ect-hr-base__title">HR Policy and Employee Handbook Development</h3>
         <p class="ect-hr-base__text">We prepare employee handbooks and workplace policies reflecting organizational requirements, management expectations, and relevant legal considerations.</p>
       </article>
 
       <article class="ect-hr-base__card ect-hr-base__card--b">
-        <div class="ect-hr-base__media"><img alt="HR standard operating procedure documents">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-hr-base__media"><img src="{% static 'img/hr-found-2.webp' %}" alt="HR standard operating procedure documents" width="431" height="277" decoding="async" loading="lazy"></div>
         <div class="ect-hr-base__copy">
           <h3 class="ect-hr-base__title">Standard Operating Procedures and HR Documentation</h3>
           <p class="ect-hr-base__text">Documented SOPs establish repeatable procedures for recruitment, employee requests, approvals, records, and routine HR administration.</p>
@@ -323,11 +326,11 @@
           <h3 class="ect-hr-base__title">Employee Roles, Responsibilities and Reporting Structures</h3>
           <p class="ect-hr-base__text">Defining job roles and reporting relationships reduces confusion, improves accountability, and supports effective departmental coordination.</p>
         </div>
-        <div class="ect-hr-base__media"><img alt="Employee roles and reporting structure chart">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-hr-base__media"><img src="{% static 'img/hr-found-3.webp' %}" alt="Employee roles and reporting structure chart" width="452" height="277" decoding="async" loading="lazy"></div>
       </article>
 
       <article class="ect-hr-base__card ect-hr-base__card--d">
-        <div class="ect-hr-base__media"><img alt="Attendance and leave guidelines">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-hr-base__media"><img src="{% static 'img/hr-found-4.webp' %}" alt="Attendance and leave guidelines" width="276" height="277" decoding="async" loading="lazy"></div>
         <div class="ect-hr-base__copy">
           <h3 class="ect-hr-base__title">Leave, Attendance and Workplace Guidelines</h3>
           <p class="ect-hr-base__text">Consistent guidelines clarify attendance expectations, leave requests, workplace behaviour, and employee communication procedures.</p>
@@ -339,7 +342,7 @@
           <h3 class="ect-hr-base__title">HR Process Standardization and Improvement</h3>
           <p class="ect-hr-base__text">We review existing practices and recommend structured processes that help teams manage recurring HR responsibilities more consistently.</p>
         </div>
-        <div class="ect-hr-base__media"><img alt="HR process standardization workflow">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-hr-base__media"><img src="{% static 'img/hr-found-5.webp' %}" alt="HR process standardization workflow" width="640" height="470" decoding="async" loading="lazy"></div>
       </article>
     </div>
   </section>
@@ -348,7 +351,7 @@
   <section class="ect-hr-perf" id="hr-performance" aria-labelledby="ect-hr-perf-title">
     <div class="ect-hr-perf__header">
       <h2 class="ect-hr-perf__heading" id="ect-hr-perf-title">Strengthen Employee Performance with Clear Goals and Accountability</h2>
-      <p class="ect-hr-perf__intro">Clear responsibilities, realistic expectations, and consistent feedback improve employee performance. Our HR consulting services help establish practical performance frameworks.</p>
+      <p class="ect-hr-perf__intro">Employee performance improves when responsibilities are understood, expectations are realistic, and feedback is consistent. Our <a href="{% url 'index' %}">HR consulting services</a> help establish practical performance-management frameworks.</p>
     </div>
 
     <div class="ect-hr-perf__body">
@@ -390,7 +393,7 @@
         </li>
       </ul>
 
-      <figure class="ect-hr-perf__media"><img alt="Manager and employee discussing performance goals">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</figure>
+      <figure class="ect-hr-perf__media"><img src="{% static 'img/hr-lc2.webp' %}" alt="Manager and employee reviewing performance goals and business results" width="778" height="518" decoding="async" loading="lazy"></figure>
     </div>
   </section>
 
@@ -403,13 +406,13 @@
 
     <div class="ect-hr-strat__grid">
       <article class="ect-hr-strat__card ect-hr-strat__card--tall">
-        <div class="ect-hr-strat__media ect-hr-strat__media--wide"><img alt="Traditional HR administration and documentation">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-hr-strat__media ect-hr-strat__media--wide"><img src="{% static 'img/hr-strat-1.webp' %}" alt="Traditional HR administration and documentation" width="471" height="333" decoding="async" loading="lazy"></div>
         <h3 class="ect-hr-strat__title">Traditional Hiring and Administrative HR Practices</h3>
         <p class="ect-hr-strat__text">Traditional HR activities include recruitment administration, employee documentation, attendance management, leave processing, and compliance-related recordkeeping.</p>
       </article>
 
       <article class="ect-hr-strat__card ect-hr-strat__card--green">
-        <div class="ect-hr-strat__media ect-hr-strat__media--a"><img alt="Strategic HR planning and workforce optimization">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-hr-strat__media ect-hr-strat__media--a"><img src="{% static 'img/hr-strat-2.webp' %}" alt="Strategic HR planning and workforce optimization" width="300" height="236" decoding="async" loading="lazy"></div>
         <div class="ect-hr-strat__copy">
           <h3 class="ect-hr-strat__title">Strategic HR Planning and Workforce Optimization</h3>
           <p class="ect-hr-strat__text">Strategic planning considers workforce capacity, hiring priorities, future skills, organizational structure, and employee development.</p>
@@ -421,7 +424,7 @@
           <h3 class="ect-hr-strat__title">Connecting People, Performance and Business Goals</h3>
           <p class="ect-hr-strat__text">An HR consulting company helps align employee responsibilities, performance expectations, and workforce initiatives with organizational priorities.</p>
         </div>
-        <div class="ect-hr-strat__media ect-hr-strat__media--b"><img alt="People, performance and business goals connected">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-hr-strat__media ect-hr-strat__media--b"><img src="{% static 'img/hr-strat-3.webp' %}" alt="People, performance and business goals connected" width="355" height="236" decoding="async" loading="lazy"></div>
       </article>
     </div>
   </section>
@@ -429,6 +432,7 @@
 
 
   <!-- Traditional HR vs Strategic HR -->
+  {% comment %}
   <section class="hr-compare">
     <div class="bg-layer">
       <div class="aurora aurora-1"></div>
@@ -612,6 +616,7 @@
       </div>
     </div>
   </section>
+  {% endcomment %}
 
 
   <!-- ===== HR PROCESS: TECHNOLOGY-ENABLED WORKFORCE MANAGEMENT ===== -->
@@ -665,7 +670,7 @@
 
     <div class="ect-dm-ind__grid">
       <figure class="ect-dm-ind__image">
-        <img src="{% static 'img/dmsol.webp' %}" alt="Social media creatives and a phone showing a brand profile" width="737" height="340" decoding="async" loading="lazy">
+        <img src="{% static 'img/hr-life-1.webp' %}" alt="Building a complete HR lifecycle" width="735" height="340" decoding="async" loading="lazy">
       </figure>
 
       <article class="ect-dm-ind__card ect-dm-ind__card--wide">
@@ -699,7 +704,7 @@
       </article>
 
       <figure class="ect-dm-ind__image ect-dm-ind__image--small">
-        <img src="{% static 'img/hr-lc2.webp' %}" alt="Two colleagues reviewing documents at a desk" width="396" height="298" decoding="async" loading="lazy">
+        <img src="{% static 'img/hr-life-2.webp' %}" alt="Employee lifecycle from recruitment to exit" width="396" height="298" decoding="async" loading="lazy">
       </figure>
     </div>
   </section>
@@ -715,11 +720,11 @@
     <article class="ect-zoho-req__card" tabindex="0">
       <h3 class="ect-zoho-req__title">HR Solutions for Startups and Growing Businesses</h3>
       <p class="ect-zoho-req__text">Startups often need help creating their first HR policies, organizing recruitment, defining employee responsibilities, and introducing basic performance reviews.</p>
-      <figure class="ect-zoho-req__media"><img src="{% static 'img/z1.webp' %}" alt="Hands sketching an HR process diagram for a growing business" width="349" height="228" decoding="async" loading="lazy"></figure>
+      <figure class="ect-zoho-req__media"><img src="{% static 'img/hr-flex-1.webp' %}" alt="HR solutions for startups and growing businesses" width="349" height="228" decoding="async" loading="lazy"></figure>
     </article>
 
     <article class="ect-zoho-req__card ect-zoho-req__card--media-first" tabindex="0">
-      <figure class="ect-zoho-req__media"><img src="{% static 'img/z2.webp' %}" alt="Colleague reviewing planning notes on a whiteboard" width="349" height="228" decoding="async" loading="lazy"></figure>
+      <figure class="ect-zoho-req__media"><img src="{% static 'img/hr-flex-2.webp' %}" alt="Recruitment and HR support for SMEs" width="349" height="228" decoding="async" loading="lazy"></figure>
       <h3 class="ect-zoho-req__title">Recruitment and HR Support for SMEs</h3>
       <p class="ect-zoho-req__text">Our HR services for small companies focus on practical hiring support, employee documentation, HR procedures, and manageable workforce systems.</p>
     </article>
@@ -727,11 +732,11 @@
     <article class="ect-zoho-req__card" tabindex="0">
       <h3 class="ect-zoho-req__title">Workforce Management for Established Enterprises</h3>
       <p class="ect-zoho-req__text">Larger organizations may require structured HR reporting, departmental performance frameworks, consistent policies, and coordinated employee management.</p>
-      <figure class="ect-zoho-req__media"><img src="{% static 'img/z3.webp' %}" alt="HR dashboard with hiring metrics and charts" width="349" height="228" decoding="async" loading="lazy"></figure>
+      <figure class="ect-zoho-req__media"><img src="{% static 'img/hr-flex-3.webp' %}" alt="Workforce management for established enterprises" width="349" height="228" decoding="async" loading="lazy"></figure>
     </article>
 
     <article class="ect-zoho-req__card ect-zoho-req__card--media-first" tabindex="0">
-      <figure class="ect-zoho-req__media"><img src="{% static 'img/z1.webp' %}" alt="Hands sketching an HR process diagram" width="349" height="228" decoding="async" loading="lazy"></figure>
+      <figure class="ect-zoho-req__media"><img src="{% static 'img/hr-flex-4.webp' %}" alt="Industry-specific hiring and HR process requirements" width="349" height="228" decoding="async" loading="lazy"></figure>
       <h3 class="ect-zoho-req__title">Industry-Specific Hiring and HR Process Requirements</h3>
       <p class="ect-zoho-req__text">Workforce requirements vary between retail, manufacturing, healthcare, technology, hospitality, and professional services. We consider each industry's roles and operational needs.</p>
     </article>
@@ -754,7 +759,7 @@
           </h2>
 
           <p class="ect-why__lead" data-why-lead>ECOG Core Technologies Private Limited provides HR consulting services designed around people, processes, and organizational goals. As an HR consultancy in Coimbatore, we focus on practical recommendations and business-relevant implementation.</p>
-          <a href="javascript:void(0)" class="ect-why__cta ect-why__cta--intro popup-trigger" data-why-intro-cta>Talk to Our HR Consultant</a>
+          <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="ect-why__cta ect-why__cta--intro" data-why-intro-cta target="_blank" rel="noopener noreferrer">Talk to Our HR Consultant</a>
 
           <div class="ect-why__controls" data-why-controls>
             <button type="button" class="ect-why__arrow" data-why-prev aria-label="Show previous reason">
@@ -770,37 +775,37 @@
 
             <article class="ect-why__card" data-why-card>
               <h3 class="ect-why__title">HR Strategies Aligned with Business Objectives</h3>
-              <div class="ect-why__media"><img class="ect-why__img" alt="HR team aligning workforce plans with business objectives">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+              <div class="ect-why__media"><img class="ect-why__img" src="{% static 'img/hr-why-1.webp' %}" alt="HR team aligning workforce plans with business objectives" width="418" height="323" decoding="async" loading="eager"></div>
               <p class="ect-why__text">We consider staffing needs, organizational priorities, and workforce challenges when developing HR recommendations.</p>
-              <a href="javascript:void(0)" class="ect-why__cta popup-trigger">Talk to Our HR Consultant</a>
+              <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="ect-why__cta" target="_blank" rel="noopener noreferrer">Talk to Our HR Consultant</a>
             </article>
 
             <article class="ect-why__card" data-why-card>
               <h3 class="ect-why__title">Customized Recruitment and HR Process Solutions</h3>
-              <div class="ect-why__media"><img class="ect-why__img" alt="Consultant adapting a hiring framework to a company">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+              <div class="ect-why__media"><img class="ect-why__img" src="{% static 'img/hr-why-2.webp' %}" alt="Consultant adapting a hiring framework to a company" width="418" height="323" decoding="async" loading="eager"></div>
               <p class="ect-why__text">Rather than applying identical procedures everywhere, we adapt hiring frameworks and HR processes to organizational requirements.</p>
-              <a href="javascript:void(0)" class="ect-why__cta popup-trigger">Talk to Our HR Consultant</a>
+              <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="ect-why__cta" target="_blank" rel="noopener noreferrer">Talk to Our HR Consultant</a>
             </article>
 
             <article class="ect-why__card" data-why-card>
               <h3 class="ect-why__title">Structured Performance and Employee Development</h3>
-              <div class="ect-why__media"><img class="ect-why__img" alt="Manager reviewing employee performance and development plans">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+              <div class="ect-why__media"><img class="ect-why__img" src="{% static 'img/hr-why-3.webp' %}" alt="Manager reviewing employee performance and development plans" width="418" height="323" decoding="async" loading="eager"></div>
               <p class="ect-why__text">Clear expectations, regular reviews, and development planning help establish a more consistent performance-management culture.</p>
-              <a href="javascript:void(0)" class="ect-why__cta popup-trigger">Talk to Our HR Consultant</a>
+              <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="ect-why__cta" target="_blank" rel="noopener noreferrer">Talk to Our HR Consultant</a>
             </article>
 
             <article class="ect-why__card" data-why-card>
               <h3 class="ect-why__title">Connected HR Technology and Business Systems</h3>
-              <div class="ect-why__media"><img class="ect-why__img" alt="HR software connected with business applications">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+              <div class="ect-why__media"><img class="ect-why__img" src="{% static 'img/hr-why-4.webp' %}" alt="HR software connected with business applications" width="418" height="323" decoding="async" loading="eager"></div>
               <p class="ect-why__text">Our broader digital capabilities allow businesses to explore HR automation and suitable connections with existing business applications.</p>
-              <a href="javascript:void(0)" class="ect-why__cta popup-trigger">Talk to Our HR Consultant</a>
+              <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="ect-why__cta" target="_blank" rel="noopener noreferrer">Talk to Our HR Consultant</a>
             </article>
 
             <article class="ect-why__card" data-why-card>
               <h3 class="ect-why__title">Practical Implementation and Ongoing Guidance</h3>
-              <div class="ect-why__media"><img class="ect-why__img" alt="Consultant guiding an HR team through new procedures">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+              <div class="ect-why__media"><img class="ect-why__img" src="{% static 'img/hr-why-5.webp' %}" alt="Consultant guiding an HR team through new procedures" width="418" height="323" decoding="async" loading="eager"></div>
               <p class="ect-why__text">Our approach focuses on usable policies, understandable procedures, employee guidance, and continued HR improvement where agreed.</p>
-              <a href="javascript:void(0)" class="ect-why__cta popup-trigger">Talk to Our HR Consultant</a>
+              <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="ect-why__cta" target="_blank" rel="noopener noreferrer">Talk to Our HR Consultant</a>
             </article>
           </div>
         </div>
@@ -826,7 +831,7 @@
       </article>
 
       <article class="ect-zoho-cost__card ect-zoho-cost__card--b">
-        <div class="ect-zoho-cost__media"><img alt="Factors that influence HR consulting fees">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-zoho-cost__media"><img src="{% static 'img/hr-cost-1.webp' %}" alt="Factors that influence HR consulting fees" width="456" height="292" decoding="async" loading="lazy"></div>
       </article>
 
       <article class="ect-zoho-cost__card ect-zoho-cost__card--c">
@@ -834,15 +839,15 @@
           <h3 class="ect-zoho-cost__title">HR Policy and Process Development Pricing</h3>
           <p class="ect-zoho-cost__text">Policy-development costs depend on the number of documents, required process reviews, customization, and implementation assistance.</p>
         </div>
-        <div class="ect-zoho-cost__media"><img alt="HR policy and process development pricing">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-zoho-cost__media"><img src="{% static 'img/hr-cost-2.webp' %}" alt="HR policy and process development pricing" width="300" height="311" decoding="async" loading="lazy"></div>
       </article>
 
       <article class="ect-zoho-cost__card ect-zoho-cost__card--d">
-        <div class="ect-zoho-cost__media"><img alt="HR recruitment and consulting cost overview">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-zoho-cost__media"><img src="{% static 'img/hr-cost-3.webp' %}" alt="HR recruitment and consulting cost overview" width="473" height="247" decoding="async" loading="lazy"></div>
       </article>
 
       <article class="ect-zoho-cost__card ect-zoho-cost__card--e">
-        <div class="ect-zoho-cost__media"><img alt="Recruitment cost based on hiring requirements">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-zoho-cost__media"><img src="{% static 'img/hr-cost-4.webp' %}" alt="Recruitment cost based on hiring requirements" width="300" height="311" decoding="async" loading="lazy"></div>
         <div class="ect-zoho-cost__copy">
           <h3 class="ect-zoho-cost__title">Recruitment Cost Based on Hiring Requirements</h3>
           <p class="ect-zoho-cost__text">Recruitment fees may vary according to the position, required experience, sourcing difficulty, and agreed hiring responsibilities.</p>
@@ -868,7 +873,7 @@
     <div class="ect-it-banner__container">
       <div class="ect-it-banner__content">
         <h2 class="ect-it-banner__title" id="ect-hr-banner-title">Build a Stronger Workforce with Strategic HR Consulting Solutions</h2>
-        <p class="ect-it-banner__desc">An effective HR function brings clarity to recruitment, employee responsibilities, policies, performance, and workforce planning.<br>ECOG Core Technologies Private Limited offers HR consulting services that help businesses organize people-management practices and support long-term operational improvement.<br>Businesses seeking HR support can also explore our wider digital capabilities, including website development services, digital marketing services, software development services, IT infrastructure, and Zoho consulting.</p>
+        <p class="ect-it-banner__desc">An effective HR function brings clarity to recruitment, employee responsibilities, policies, performance, and workforce planning.<br>ECOG Core Technologies Private Limited offers HR consulting services that help businesses organize people-management practices and support long-term operational improvement.<br>Businesses seeking HR support can also explore our wider digital capabilities, including <a href="{% url 'website' %}"><strong>website development services</strong></a>, digital marketing services, software development services, IT infrastructure, and Zoho consulting.</p>
         <a href="javascript:void(0)" class="ect-it-banner__cta popup-trigger">Talk to Our HR Experts</a>
       </div>
       <div class="ect-it-banner__image" aria-hidden="true"></div>
@@ -991,77 +996,13 @@
   <script src="{% static 'js/base.js' %}?v=33"></script>
 
   {% include 'components/contact_popup.html' %}
-  <script src="{% static 'js/contact-popup.js' %}?v=30"></script>
+  <script src="{% static 'js/contact-popup.js' %}?v=32"></script>
   <script src="{% static 'js/hr-flexible.js' %}?v=1" defer></script>
-  <script src="{% static 'js/website-why.js' %}?v=16" defer></script>
+  <script src="{% static 'js/website-why.js' %}?v=23" defer></script>
   <script src="{% static 'js/website-benefits.js' %}?v=9" defer></script>
   <script src="{% static 'js/digital-solutions.js' %}?v=1"></script>
   <script src="{% static 'js/website-features.js' %}?v=1" defer></script>
 {% include 'components/zoho_salesiq.html' %}
-
-<!-- ================= UNIFORM 100PX SECTION GAPS (hr page only) =================
-     Scoped to this template only — hr.css itself is untouched, so nothing
-     here affects any other page. -->
-<style>
-  .hr-page .hero { padding-bottom: 50px; }
-  .hr-page .software-section { padding-top: 50px; padding-bottom: 50px; margin-bottom: 0; }
-  .hr-page .hr-compare { margin-top: 50px; margin-bottom: 50px; }
-  .hr-page .zoho-implementation { padding-top: 50px; padding-bottom: 50px; margin-bottom: 0; }
-  .hr-page .ect-it-banner { margin-top: 50px; margin-bottom: 50px; }
-  .hr-page .faq-section { padding-top: 50px; }
-</style>
-
-<!-- Mobile/tablet only: reduce every section's gap further than the
-     uniform 50px above. Desktop keeps the rules above untouched. -->
-<style>
-  @media (max-width: 900px) {
-    .hr-page .hero { padding-bottom: 24px !important; }
-    .hr-page .software-section { padding-top: 24px !important; padding-bottom: 24px !important; }
-    .hr-page .hr-compare { margin-top: 24px !important; margin-bottom: 24px !important; }
-    .hr-page .zoho-implementation { padding-top: 24px !important; padding-bottom: 24px !important; }
-    .hr-page .ect-it-banner { margin-top: 24px !important; margin-bottom: 24px !important; }
-    .hr-page .faq-section { padding-top: 28px !important; padding-bottom: 32px !important; }
-  }
-</style>
-
-<!-- hr.css itself (independently of the gap-control blocks above) sets
-     "body.hr-page .software-section { margin: 72px auto !important }"
-     at <=1024px and "56px auto !important" at <=640px — its own
-     unrelated rule, so the two systems were fighting: this page's own
-     gap block above reduces the hero's padding fine, but the *next*
-     section was separately given a large top margin that made the
-     gap into it bigger on mobile/tablet than on desktop (where it's
-     effectively 0). Overriding just the top side here, matching this
-     selector's specificity/!important so it actually wins. Desktop is
-     untouched — these are the same <=1024px/<=640px breakpoints the
-     conflicting rule itself uses, not a new one. -->
-<style>
-  @media (max-width: 1024px) {
-    body.hr-page .software-section {
-      margin-top: 24px !important;
-    }
-  }
-
-  @media (max-width: 640px) {
-    body.hr-page .software-section {
-      margin-top: 24px !important;
-    }
-  }
-</style>
-
-<!-- The fixed-navbar-clearance rule on .hero (hr.css, "HR — PAGE-OWNED
-     TABLET/MOBILE LAYOUT" block) was a flat 128px -> 112px at every
-     width below 1024px, so it never shrank further for mobile the way
-     the Website page's hero gap does (112px tablet / 92px mobile).
-     Adding the matching mobile-only reduction here; tablet keeps the
-     112px set in hr.css, desktop's own 136px rule is untouched. -->
-<style>
-  @media (max-width: 640px) {
-    body.hr-page .hero {
-      padding-top: 92px !important;
-    }
-  }
-</style>
 </body>
 
 </html>

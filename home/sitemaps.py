@@ -1,3 +1,5 @@
+import datetime
+
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
@@ -8,6 +10,9 @@ class StaticViewSitemap(Sitemap):
     """The site's fixed marketing pages — everything that isn't a blog
     post or a project, none of which have a per-object slug."""
     changefreq = "monthly"
+    # These pages are plain templates with no updated_at, so bump this date when
+    # their content changes (it is the <lastmod> search engines see).
+    lastmod_date = datetime.date(2026, 10, 31)
 
     def items(self):
         return [
@@ -31,6 +36,9 @@ class StaticViewSitemap(Sitemap):
     def priority(self, item):
         _, priority = item
         return priority
+
+    def lastmod(self, item):
+        return self.lastmod_date
 
 
 class ProjectSitemap(Sitemap):

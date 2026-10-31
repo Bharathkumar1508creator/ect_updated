@@ -26,7 +26,7 @@ with sync_playwright() as playwright:
     blog_card_navigation = page.url.endswith(card_href)
 
     service_results = {}
-    for route in ("/zoho/", "/hr/"):
+    for route in ("/zoho-consulting-services/", "/hr-consulting-services/"):
         page.goto(f"{BASE_URL}{route}", wait_until="domcontentloaded")
         first_src = page.locator("#contentImage img").get_attribute("src")
         second_tab = page.locator("#tabsTrack .tab").nth(1)

@@ -1,0 +1,115 @@
+/* Shared micro-interaction for service-page action buttons. Existing colors,
+   dimensions, and destination behavior remain defined by each page's styles. */
+body.service-page :is(
+  .website-benefits__cta,
+  .ect-key-features__cta,
+  .ect-why__cta,
+  .ect-consult__cta,
+  .ect-dm-growth__cta,
+  .ect-dm-cta__btn,
+  .ect-infra-cta__btn,
+  .ect-sw-connect__cta,
+  .ect-zoho-build__cta
+) {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.service-page :is(
+  .website-benefits__cta,
+  .ect-key-features__cta,
+  .ect-why__cta,
+  .ect-consult__cta,
+  .ect-dm-growth__cta,
+  .ect-dm-cta__btn,
+  .ect-infra-cta__btn,
+  .ect-sw-connect__cta,
+  .ect-zoho-build__cta
+)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transform: scale(1.25) translateY(100%);
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.service-page :is(
+  .website-benefits__cta,
+  .ect-key-features__cta,
+  .ect-why__cta,
+  .ect-consult__cta,
+  .ect-dm-growth__cta,
+  .ect-dm-cta__btn,
+  .ect-infra-cta__btn,
+  .ect-sw-connect__cta,
+  .ect-zoho-build__cta
+):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(12, 60, 1, 0.18);
+}
+
+body.service-page :is(
+  .website-benefits__cta,
+  .ect-key-features__cta,
+  .ect-why__cta,
+  .ect-consult__cta,
+  .ect-dm-growth__cta,
+  .ect-dm-cta__btn,
+  .ect-infra-cta__btn,
+  .ect-sw-connect__cta,
+  .ect-zoho-build__cta
+):hover::after {
+  opacity: 1;
+  animation: sweep-move 1s linear infinite alternate;
+}
+
+body.service-page :is(
+  .website-benefits__cta,
+  .ect-key-features__cta,
+  .ect-why__cta,
+  .ect-consult__cta,
+  .ect-dm-growth__cta,
+  .ect-dm-cta__btn,
+  .ect-infra-cta__btn,
+  .ect-sw-connect__cta,
+  .ect-zoho-build__cta
+):active {
+  transform: scale(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.service-page :is(
+    .website-benefits__cta,
+    .ect-key-features__cta,
+    .ect-why__cta,
+    .ect-consult__cta,
+    .ect-dm-growth__cta,
+    .ect-dm-cta__btn,
+    .ect-infra-cta__btn,
+    .ect-sw-connect__cta,
+    .ect-zoho-build__cta
+  ),
+  body.service-page :is(
+    .website-benefits__cta,
+    .ect-key-features__cta,
+    .ect-why__cta,
+    .ect-consult__cta,
+    .ect-dm-growth__cta,
+    .ect-dm-cta__btn,
+    .ect-infra-cta__btn,
+    .ect-sw-connect__cta,
+    .ect-zoho-build__cta
+  )::after {
+    transition: none;
+    animation: none;
+  }
+}

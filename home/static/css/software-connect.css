@@ -1,0 +1,162 @@
+/* Software page: "Build a More Connected and Efficient Business with Custom Software" (Figma).
+   A 1240 x 621 light card with a 521 x 572 white picture on the left, the heading at the top of the right
+   column and the text and button at the bottom. Until a picture is added its img has no src, so the
+   alt text shows in the white box. */
+
+.ect-sw-connect,
+.ect-sw-connect * {
+  box-sizing: border-box;
+}
+
+.ect-sw-connect {
+  display: flex;
+  gap: 24px;
+  width: min(1240px, calc(100% - 48px));
+  min-height: 621px;
+  margin: 72px auto;
+  padding: 24px;
+  border-radius: 33px;
+  background-color: #f1f1ef;
+  background-image: url("../img/noise-on-gray.png");
+  background-size: 320px 320px;
+  color: #000;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-sw-connect__media {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 521px;
+  overflow: hidden;
+  border-radius: 33px;
+  background: #fff;
+}
+
+.ect-sw-connect__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* No src yet: the browser shows the alt text, centred, until a picture is added. */
+.ect-sw-connect__media img:not([src]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: #5b6d49;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.ect-sw-connect__body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  padding: 36px 8px 28px 0;
+}
+
+body.service-page .ect-sw-connect .ect-sw-connect__heading {
+  margin: 0;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 30.51px !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  color: #000 !important;
+}
+
+.ect-sw-connect__foot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.ect-sw-connect__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ect-sw-connect__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 8px 24px;
+  border-radius: 8px;
+  background: #0c3c01;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.ect-sw-connect__cta:hover {
+  background: #0f4a02;
+  transform: translateY(-2px);
+}
+
+.ect-sw-connect__cta:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.26);
+  outline-offset: 3px;
+}
+
+/* Tablet and mobile: picture on top, text below. */
+@media (max-width: 1199px) {
+  .ect-sw-connect {
+    flex-direction: column;
+    min-height: 0;
+    margin: 56px auto;
+    border-radius: 24px;
+  }
+
+  .ect-sw-connect__media {
+    width: 100%;
+    min-height: 320px;
+    border-radius: 20px;
+  }
+
+  .ect-sw-connect__body {
+    gap: 24px;
+    padding: 8px 4px 8px;
+  }
+
+  body.service-page .ect-sw-connect .ect-sw-connect__heading {
+    font-size: clamp(24px, 4vw, 30px) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .ect-sw-connect {
+    width: calc(100% - 32px);
+    padding: 16px;
+  }
+
+  .ect-sw-connect__media {
+    min-height: 240px;
+  }
+
+  .ect-sw-connect__cta {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ect-sw-connect__cta {
+    transition: none;
+  }
+}

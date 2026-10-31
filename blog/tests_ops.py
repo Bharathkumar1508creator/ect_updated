@@ -275,10 +275,10 @@ class InternalLinkPreservationTests(TestCase):
     @override_settings(SITE_URL="https://ecogcoretechnologies.com")
     def test_supported_link_formats_survive_normalization(self):
         cases = {
-            "/website/": "/website/",
+            "/website-development-services/": "/website-development-services/",
             "blog/what-is-seo/": "/blog/what-is-seo/",
-            "127.0.0.1:8000/website/": "/website/",
-            "https://ecogcoretechnologies.com/website/": "/website/",
+            "127.0.0.1:8000/website-development-services/": "/website-development-services/",
+            "https://ecogcoretechnologies.com/website-development-services/": "/website-development-services/",
         }
         for raw, expected in cases.items():
             with self.subTest(raw=raw):
@@ -297,11 +297,11 @@ class InternalLinkPreservationTests(TestCase):
             title="Link preservation check",
             category=category,
             article_content=(
-                '<p>See <a href="/website/">our website service</a> and '
+                '<p>See <a href="/website-development-services/">our website service</a> and '
                 '<a href="blog/what-is-seo/">this guide</a> and '
                 '<a href="https://example.com" target="_blank">an external source</a>.</p>'
             ),
         )
-        self.assertIn('href="/website/"', blog.article_content)
+        self.assertIn('href="/website-development-services/"', blog.article_content)
         self.assertIn('href="/blog/what-is-seo/"', blog.article_content)
         self.assertIn('href="https://example.com"', blog.article_content)

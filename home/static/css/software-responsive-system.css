@@ -1,0 +1,237 @@
+/* Software page responsive type and spacing, aligned with Website service standards.
+   Desktop rules remain owned by the existing page styles. */
+
+@media (max-width: 1199px) {
+  body.service-page :is(
+    #software-challenges-title,
+    #ect-web-solutions-title,
+    .ect-sw-flow__heading,
+    #ect-sw-features-title,
+    #ect-sw-vs-title,
+    #ect-sw-int-title,
+    .ect-sw-process .header h2,
+    #ect-sw-sec-title,
+    .ect-products__headline,
+    .tb-heading,
+    #ect-sw-products-title,
+    #ect-why-title,
+    #ect-sw-cost-title,
+    #ect-sw-connect-title,
+    .faq-title
+  ) {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+  }
+
+  body.service-page :is(
+    .website-benefits__intro p,
+    .ect-web-solutions__intro,
+    .ect-sw-flow__intro,
+    .ect-key-features__intro,
+    .ect-infra-sec__intro,
+    .ect-zoho-req__intro,
+    .approach-closing,
+    .ect-hr-perf__intro,
+    .web-solutions-section .header > p,
+    .ect-products__desc,
+    .tb-tagline,
+    .ect-zoho-one__intro,
+    .ect-why__lead,
+    .ect-dm-ind__intro,
+    .ect-sw-connect__intro,
+    .faq-sub
+  ) {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(
+    .ect-web-solutions__content-title,
+    .ect-sw-flow__title,
+    .ect-key-features__title,
+    .ect-infra-sec__title,
+    .ect-zoho-req__title,
+    .approach-closing-title,
+    .ect-hr-perf__title,
+    .web-solutions-section .cell h3,
+    .ect-pcard__title,
+    .ect-zoho-one__title,
+    .ect-dm-ind__title,
+    .ect-sw-connect__title
+  ) {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+  }
+
+  body.service-page :is(
+    .website-benefits__card p,
+    .ect-web-solutions__description,
+    .ect-web-solutions__services-text,
+    .ect-web-solutions__audience,
+    .ect-sw-flow__text,
+    .ect-key-features__text,
+    .ect-infra-sec__text,
+    .ect-zoho-req__text,
+    .ect-hr-perf__text,
+    .web-solutions-section .cell p,
+    .ect-pcard__desc,
+    .ect-zoho-one__text,
+    .ect-dm-ind__text,
+    .ect-sw-connect__text,
+    .faq-a-inner p
+  ) {
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(.faq-q, .ect-web-solutions__tab-label) {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+  }
+
+  body.service-page main#main-content > section:not(.software-figma-hero) {
+    margin-top: 0 !important;
+    margin-bottom: 64px !important;
+  }
+
+  body.service-page main#main-content > .software-figma-hero {
+    margin-bottom: 0 !important;
+  }
+
+  body.service-page main#main-content > #software-challenges {
+    padding-top: 64px !important;
+  }
+
+  body.service-page main#main-content > .faq-section {
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 64px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page .software-figma-hero .software-figma-hero__title {
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.025em !important;
+    white-space: normal !important;
+  }
+
+  body.service-page .software-figma-hero__subtitle {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(
+    #software-challenges-title,
+    #ect-web-solutions-title,
+    .ect-sw-flow__heading,
+    #ect-sw-features-title,
+    #ect-sw-vs-title,
+    #ect-sw-int-title,
+    .ect-sw-process .header h2,
+    #ect-sw-sec-title,
+    .ect-products__headline,
+    .tb-heading,
+    #ect-sw-products-title,
+    #ect-why-title,
+    #ect-sw-cost-title,
+    #ect-sw-connect-title,
+    .faq-title
+  ) {
+    font-size: 26px !important;
+    line-height: 1.18 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__intro p,
+    .ect-web-solutions__intro,
+    .ect-sw-flow__intro,
+    .ect-key-features__intro,
+    .ect-infra-sec__intro,
+    .ect-zoho-req__intro,
+    .approach-closing,
+    .ect-hr-perf__intro,
+    .web-solutions-section .header > p,
+    .ect-products__desc,
+    .tb-tagline,
+    .ect-zoho-one__intro,
+    .ect-why__lead,
+    .ect-dm-ind__intro,
+    .ect-sw-connect__intro,
+    .faq-sub
+  ) {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(
+    .ect-web-solutions__content-title,
+    .ect-sw-flow__title,
+    .ect-key-features__title,
+    .ect-infra-sec__title,
+    .ect-zoho-req__title,
+    .ect-hr-perf__title,
+    .web-solutions-section .cell h3,
+    .ect-pcard__title,
+    .ect-zoho-one__title,
+    .ect-dm-ind__title,
+    .ect-sw-connect__title
+  ) {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__card p,
+    .ect-web-solutions__description,
+    .ect-web-solutions__services-text,
+    .ect-web-solutions__audience,
+    .ect-sw-flow__text,
+    .ect-key-features__text,
+    .ect-infra-sec__text,
+    .ect-zoho-req__text,
+    .ect-hr-perf__text,
+    .web-solutions-section .cell p,
+    .ect-pcard__desc,
+    .ect-zoho-one__text,
+    .ect-dm-ind__text,
+    .ect-sw-connect__text,
+    .faq-a-inner p
+  ) {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(.faq-q, .ect-web-solutions__tab-label) {
+    font-size: 14px !important;
+  }
+
+  body.service-page main#main-content > section:not(.software-figma-hero) {
+    margin-bottom: 48px !important;
+    padding-top: 0 !important;
+  }
+
+  body.service-page main#main-content > #software-challenges {
+    padding-top: 48px !important;
+  }
+
+  body.service-page main#main-content > .faq-section {
+    padding-bottom: 48px !important;
+  }
+}

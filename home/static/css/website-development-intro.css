@@ -1,0 +1,167 @@
+/* Website development explainer — placed directly after the Website hero. */
+.website-development-intro {
+  --website-intro-ink: #000;
+  --website-intro-copy: #000;
+  --website-intro-green: #0b5d1e;
+  --website-intro-sage: #dce5d8;
+  --website-intro-surface: #f5f6f3;
+  --website-intro-line: #d8e0d5;
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
+  gap: clamp(36px, 7vw, 104px);
+  width: min(1240px, calc(100% - 48px));
+  margin: clamp(72px, 9vw, 136px) auto;
+  color: var(--website-intro-ink);
+}
+
+.website-development-intro__content { min-width: 0; }
+
+.website-development-intro__eyebrow {
+  margin: 0 0 16px;
+  color: var(--website-intro-green);
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+#website-development-services-intro .website-development-intro__heading {
+  max-width: 740px;
+  margin: 0;
+  color: var(--website-intro-ink) !important;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  line-height: 1.25 !important;
+}
+
+.website-development-intro__copy {
+  max-width: 760px;
+  margin-top: 28px;
+}
+
+.website-development-intro__copy p {
+  margin: 0;
+  color: var(--website-intro-copy);
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.website-development-intro__copy p + p { margin-top: 16px; }
+
+.website-development-intro__copy a {
+  color: var(--website-intro-ink);
+  font-weight: 600;
+  text-decoration-color: var(--website-intro-green);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.website-development-intro__copy a:hover { color: var(--website-intro-green); }
+
+.website-development-intro__copy a:focus-visible {
+  border-radius: 2px;
+  outline: 3px solid rgba(12, 75, 4, 0.28);
+  outline-offset: 3px;
+}
+
+.website-development-intro__visual {
+  display: grid;
+  min-width: 0;
+  place-items: center;
+  min-height: 374px;
+  margin: 0;
+  padding: clamp(28px, 4vw, 44px);
+  border-radius: 28px;
+  background: var(--website-intro-surface);
+}
+
+.website-development-intro__image-placeholder {
+  display: grid;
+  width: 100%;
+  min-height: 280px;
+  place-items: center;
+  border: 1px dashed #bdcbbb;
+  border-radius: 18px;
+  color: var(--website-intro-copy);
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.website-development-intro__image {
+  display: block;
+  width: 100%;
+  min-height: 280px;
+  height: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.website-development-intro__image-placeholder span { max-width: 180px; }
+
+@media (min-width: 1200px) {
+  .website-development-intro__visual { align-self: center; }
+}
+
+@media (min-width: 641px) and (max-width: 1199px) {
+  .website-development-intro {
+    grid-template-columns: minmax(0, 1fr) minmax(270px, 0.82fr);
+    gap: 34px;
+    width: calc(100% - 48px);
+    margin: 72px auto;
+  }
+
+  #website-development-services-intro .website-development-intro__heading {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+  }
+
+  .website-development-intro__copy { margin-top: 22px; }
+  .website-development-intro__copy p { font-size: 15px; line-height: 1.55; }
+  .website-development-intro__visual { min-height: 322px; padding: 26px; border-radius: 24px; }
+  .website-development-intro__image-placeholder,
+  .website-development-intro__image { min-height: 244px; }
+}
+
+@media (max-width: 640px) {
+  .website-development-intro {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 48px auto;
+  }
+
+  .website-development-intro__eyebrow { margin-bottom: 12px; font-size: 12px; }
+
+  #website-development-services-intro .website-development-intro__heading {
+    font-size: 26px !important;
+    line-height: 1.18 !important;
+  }
+
+  .website-development-intro__copy { margin-top: 20px; }
+  .website-development-intro__copy p { font-size: 14px; line-height: 1.55; }
+  .website-development-intro__copy p + p { margin-top: 14px; }
+
+  .website-development-intro__visual {
+    min-height: 286px;
+    margin-top: 28px;
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .website-development-intro__image-placeholder { min-height: 220px; border-radius: 14px; font-size: 13px; }
+  .website-development-intro__image { min-height: 220px; border-radius: 14px; }
+}
+
+@media (max-width: 359px) {
+  .website-development-intro { width: calc(100% - 32px); }
+  .website-development-intro__image-placeholder,
+  .website-development-intro__image { min-height: 190px; }
+}

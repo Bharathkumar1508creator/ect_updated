@@ -1,0 +1,27 @@
+/* Software page: "Discover Our Business Software Products and Digital Platforms".
+   Same section as the Zoho page's "Bring Your Entire Business Together with Zoho One" (zoho-one.css):
+   a 608px picture that stays pinned while the cards pin one after another and each next card slides up over
+   the one before it (desktop). Three cards: green, grey, green. */
+
+body.service-page .ect-sw-products .ect-zoho-one__heading {
+  flex: 0 1 700px;
+}
+
+.ect-sw-products .ect-zoho-one__intro {
+  flex: 0 0 479px;
+}
+
+/* The first card has two paragraphs. */
+.ect-sw-products .ect-zoho-one__card {
+  gap: 12px;
+}
+
+.ect-sw-products .ect-zoho-one__card .ect-zoho-one__title {
+  max-width: 567px;
+}
+
+@media (max-width: 1199px) {
+  .ect-sw-products .ect-zoho-one__intro {
+    flex: none;
+  }
+}

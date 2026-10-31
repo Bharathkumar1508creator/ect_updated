@@ -9,7 +9,7 @@ from .models import (
     DigitalMarketingOverview
 )
 from blog.models import Blog
-from .seo import build_page_seo, build_project_seo
+from .seo import absolute_url, build_page_seo, build_project_seo
 
 def get_common_context(request=None, page_name=None, **seo_options):
     # Footer data and consistent SEO metadata shared by public pages.
@@ -25,7 +25,8 @@ def get_project_social_image_url(request, project):
         if not field:
             continue
         try:
-            return request.build_absolute_uri(field.url)
+            # Built on the fixed SITE_URL like the canonical, never the request host (proxy-safe).
+            return absolute_url(field.url)
         except (ValueError, AttributeError):
             continue
     return ''

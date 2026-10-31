@@ -1,0 +1,1090 @@
+/* IT Infrastructure page: tablet and mobile only (desktop rules are untouched).
+   Starts from the Website page's own responsive type and spacing rules (website-responsive-type.css and
+   website-responsive-space.css, desktop block left out); per-section fixes follow. */
+
+/* ---- type: copied from website-responsive-type.css ---- */
+@media (max-width: 1199px) {
+  /* Wrapped section headings must grow naturally at phone/tablet widths.
+     Older component sizing must not crop their last line. */
+  body.service-page :is(
+    .ect-why__heading,
+    .ect-industries__heading
+  ) {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+  }
+
+  body.service-page :is(
+    .ect-why__content,
+    .ect-industries__header
+  ) {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__intro h2,
+    .ect-web-solutions__heading,
+    .ect-key-features__heading,
+    .web-solutions-section .header h2,
+    .tb-heading,
+    .ect-why__heading,
+    .ect-industries__heading,
+    .work__title,
+    .ect-consult__heading,
+    .faq-title
+  ) {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em;
+  }
+
+  body.service-page :is(
+    .website-benefits__intro p,
+    .ect-web-solutions__intro,
+    .ect-key-features__intro,
+    .web-solutions-section .header > p,
+    .tb-tagline,
+    .ect-why__lead,
+    .ect-industries__intro,
+    .work__intro,
+    .ect-consult__text,
+    .faq-sub
+  ) {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif;
+    font-size: 15px !important;
+    font-weight: 400;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__card h4,
+    .ect-web-solutions__content-title,
+    .ect-key-features__title,
+    .ect-why__title,
+    .ect-industries__title
+  ) {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif;
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em;
+  }
+
+  body.service-page :is(
+    .website-benefits__card p,
+    .website-benefits__card:nth-child(4) p,
+    .ect-web-solutions__description,
+    .ect-web-solutions__audience,
+    .ect-key-features__text,
+    .ect-why__text,
+    .ect-industries__text,
+    .web-solutions-section .cell p,
+    .faq-a-inner p
+  ) {
+    font-size: 15px !important;
+    font-weight: 400;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page .web-solutions-section .cell h3 {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__cta,
+    .ect-web-solutions__cta,
+    .ect-key-features__cta,
+    .ect-why__cta,
+    .ect-consult__cta,
+    .work .btn-view
+  ) {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+  }
+
+  body.service-page :is(.ect-web-solutions__tab-label, .faq-q) {
+    font-size: 15px !important;
+    font-weight: 600;
+    line-height: 1.4 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page .website-figma-hero .website-figma-hero__title {
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.025em;
+  }
+
+  body.service-page .website-figma-hero__subtitle {
+    font-size: 14px !important;
+    font-weight: 400;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__intro h2,
+    .ect-web-solutions__heading,
+    .ect-key-features__heading,
+    .web-solutions-section .header h2,
+    .tb-heading,
+    .ect-why__heading,
+    .ect-industries__heading,
+    .work__title,
+    .ect-consult__heading,
+    .faq-title
+  ) {
+    font-size: 26px !important;
+    line-height: 1.18 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__intro p,
+    .ect-web-solutions__intro,
+    .ect-key-features__intro,
+    .web-solutions-section .header > p,
+    .tb-tagline,
+    .ect-why__lead,
+    .ect-industries__intro,
+    .work__intro,
+    .ect-consult__text,
+    .faq-sub
+  ) {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__card h4,
+    .ect-web-solutions__content-title,
+    .ect-key-features__title,
+    .ect-why__title,
+    .ect-industries__title,
+    .web-solutions-section .cell h3
+  ) {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+  }
+
+  body.service-page :is(
+    .website-benefits__card p,
+    .website-benefits__card:nth-child(4) p,
+    .ect-web-solutions__description,
+    .ect-web-solutions__audience,
+    .ect-key-features__text,
+    .ect-why__text,
+    .ect-industries__text,
+    .web-solutions-section .cell p,
+    .faq-a-inner p
+  ) {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page :is(.ect-web-solutions__tab-label, .faq-q) {
+    font-size: 14px !important;
+  }
+}
+
+/* ---- vertical rhythm: copied from website-responsive-space.css (phone and tablet blocks) ---- */
+@media (max-width: 640px) {
+  body.service-page .website-figma-hero {
+    margin-bottom: 0;
+  }
+
+  body.service-page .website-benefits {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  body.service-page .ect-web-solutions,
+  body.service-page .ect-key-features,
+  body.service-page .ect-industries,
+  body.service-page .ect-consult {
+    margin-top: 0;
+    margin-bottom: 48px;
+  }
+
+  body.service-page .web-solutions-section {
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 48px;
+  }
+
+  body.service-page .tb-section {
+    margin-top: 0;
+    margin-bottom: 48px;
+    padding-top: 0;
+  }
+
+  body.service-page .ect-why__scene {
+    padding-top: 32px;
+    padding-bottom: 48px;
+  }
+
+  body.service-page .ect-industries {
+    padding-top: 32px;
+  }
+
+  body.service-page .work {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 48px !important;
+  }
+
+  body.service-page .faq-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* The consultation owns the full gap before FAQ. Do not stack the
+     wrapper and FAQ padding on top of its 48px bottom margin. */
+  body.service-page .tb-section-wrapper {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1199px) {
+  body.service-page .website-figma-hero {
+    margin-bottom: 0;
+  }
+
+  body.service-page .website-benefits {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  body.service-page .ect-web-solutions,
+  body.service-page .ect-key-features,
+  body.service-page .ect-industries,
+  body.service-page .ect-consult {
+    margin-top: 0;
+    margin-bottom: 64px;
+  }
+
+  body.service-page .web-solutions-section {
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 64px;
+  }
+
+  body.service-page .tb-section {
+    margin-top: 0;
+    margin-bottom: 64px;
+    padding-top: 0;
+  }
+
+  body.service-page .ect-why__scene {
+    padding-top: 40px;
+    padding-bottom: 64px;
+  }
+
+  body.service-page .ect-industries {
+    padding-top: 40px;
+  }
+
+  body.service-page .work {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 64px !important;
+  }
+
+  body.service-page .faq-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 64px !important;
+  }
+
+  /* The consultation owns the full gap before FAQ. Do not stack the
+     wrapper and FAQ padding on top of its 64px bottom margin. */
+  body.service-page .tb-section-wrapper {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* ================================================================================================
+   IT page sections: each block copies the tablet/mobile rules of the matching section on the Website, HR
+   or Zoho page (selectors swapped for the IT page ids and classes). Tablet and mobile only.
+   ================================================================================================ */
+
+/* ---- Hero = Website hero ---- */
+@media (max-width: 1199px) {
+  body.service-page .infra-figma-hero {
+    width: calc(100% - 48px);
+    max-width: 1240px;
+    margin: 112px auto 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  body.service-page .infra-figma-hero .infra-figma-hero__title {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0;
+    font-size: clamp(28px, 4.2vw, 40px) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    text-align: center !important;
+  }
+
+  body.service-page .infra-figma-hero .infra-figma-hero__subtitle {
+    width: min(680px, 100%);
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 16px;
+    line-height: 1.5 !important;
+    text-align: center;
+  }
+
+  body.service-page .infra-figma-hero .infra-figma-hero__video-frame {
+    margin-top: 28px;
+    border-radius: 20px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page .infra-figma-hero {
+    width: calc(100% - 32px);
+    margin-top: 94px;
+  }
+
+  body.service-page .infra-figma-hero .infra-figma-hero__title {
+    font-size: 30px !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.025em;
+  }
+
+  body.service-page .infra-figma-hero .infra-figma-hero__subtitle {
+    margin-top: 16px;
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page .infra-figma-hero .infra-figma-hero__cta {
+    margin-top: 20px;
+  }
+
+  body.service-page .infra-figma-hero .infra-figma-hero__video-frame {
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  body.service-page .infra-figma-hero .infra-figma-hero__title {
+    font-size: 27px !important;
+  }
+}
+
+/* ---- Digital foundation wheel = Website "Why Does Your Business Need a Professional Website?" ---- */
+#infra-foundation .website-benefits__cta--after {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  #infra-foundation .website-benefits__intro {
+    background: #fff;
+    text-align: left;
+    margin-bottom: 28px;
+  }
+
+  #infra-foundation .website-benefits__number {
+    display: none;
+  }
+
+  #infra-foundation .website-benefits__intro h2,
+  #infra-foundation .website-benefits__intro p {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  #infra-foundation .website-benefits__intro .website-benefits__cta {
+    display: none;
+  }
+
+  #infra-foundation .website-benefits__cta--after {
+    display: inline-flex;
+    align-self: flex-start;
+    min-height: 48px;
+    margin: 8px 0 0 max(20px, calc((100% - 700px) / 2));
+    padding: 12px 22px;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  #infra-foundation .website-benefits__card {
+    height: 360px;
+    min-height: 360px;
+    scroll-snap-align: start;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  #infra-foundation .website-benefits__orbit {
+    padding-inline: max(20px, calc((100% - 700px) / 2));
+    scroll-padding-inline: max(20px, calc((100% - 700px) / 2));
+  }
+}
+
+@media (max-width: 600px) {
+  #infra-foundation .website-benefits__intro {
+    margin-bottom: 24px;
+  }
+
+  #infra-foundation .website-benefits__cta--after {
+    margin-left: 20px;
+  }
+
+  #infra-foundation .website-benefits__orbit {
+    padding-inline: 20px;
+    scroll-padding-inline: 20px;
+  }
+
+  #infra-foundation .website-benefits__card {
+    height: 400px;
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 1199px) {
+  body.service-page #infra-foundation .website-benefits__cta,
+  body.service-page #infra-foundation .website-benefits__cta--after {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+  }
+}
+
+/* ---- Services tabs = Website "Our Website Development Solutions" ---- */
+@media (max-width: 1199px) {
+  body.service-page #infra-solutions .ect-web-solutions__heading {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__intro {
+    margin-top: 8px;
+    font-family: "Montserrat", "Montserrat Variable", sans-serif;
+    font-size: 15px !important;
+    font-weight: 400;
+    line-height: 1.55 !important;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__tab-label {
+    font-size: 15px !important;
+    font-weight: 600;
+    line-height: 1.4 !important;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__content-title {
+    font-family: "Montserrat", "Montserrat Variable", sans-serif;
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__controls {
+    display: none !important;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__content {
+    display: contents;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__panel:not(.is-active) {
+    display: none !important;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__panel {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-rows: repeat(3, auto);
+    align-self: start;
+    align-items: start;
+    gap: 12px 24px;
+    padding: 24px;
+    min-height: 0;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__media {
+    position: static !important;
+    grid-column: 1;
+    grid-row: 1 / 4;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 300px;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+  }
+
+  body.service-page #infra-solutions :is(.ect-web-solutions__content-title, .ect-web-solutions__description, .ect-web-solutions__cta) {
+    position: static !important;
+    width: auto !important;
+    min-width: 0;
+    height: auto !important;
+    margin: 0 !important;
+    order: 0;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__content-title { grid-column: 2; grid-row: 1; }
+  body.service-page #infra-solutions .ect-web-solutions__description { grid-column: 2; grid-row: 2; font-size: 14px !important; line-height: 1.55 !important; }
+  body.service-page #infra-solutions .ect-web-solutions__cta { grid-column: 2; grid-row: 3; justify-self: start; font-size: 14px !important; font-weight: 600 !important; line-height: 1.25 !important; }
+}
+
+@media (max-width: 640px) {
+  body.service-page #infra-solutions .ect-web-solutions__heading,
+  body.service-page #infra-solutions .ect-web-solutions__header .ect-web-solutions__heading {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    line-height: 1.12 !important;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__intro {
+    font-size: 14px !important;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__tab-label {
+    font-size: 14px !important;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__content-title {
+    font-size: 20px !important;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: 12px;
+  }
+
+  body.service-page #infra-solutions :is(.ect-web-solutions__media, .ect-web-solutions__content-title, .ect-web-solutions__description, .ect-web-solutions__cta) {
+    grid-column: 1;
+    grid-row: auto;
+    order: 0;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__media {
+    height: auto !important;
+    min-height: 0;
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  body.service-page #infra-solutions .ect-web-solutions__description {
+    font-size: 14px !important;
+  }
+}
+
+/* ---- Cloud workspace cards = Zoho "Bring Your Entire Business Together with Zoho One" ----
+   The heading was sized 770px wide on desktop (a flex-basis); in the stacked header that became 770px TALL. */
+@media (max-width: 1199px) {
+  body.service-page #infra-cloud .ect-zoho-one__heading {
+    flex: none;
+  }
+
+  body.service-page #infra-cloud .ect-zoho-one__intro {
+    flex: none;
+  }
+}
+
+/* ---- Hero: the section under it owns the space (as on the Website page) ---- */
+@media (max-width: 1199px) {
+  body.service-page .infra-figma-hero {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* ---- Type system for the IT-only sections: the Zoho/Website phone and tablet sizes
+   (headings 32px / 26px, text 15px / 14px), copied from zoho-responsive-system.css ---- */
+@media (min-width: 641px) and (max-width: 1199px) {
+  body.service-page :is(
+    #infra-cloud .ect-zoho-one__heading,
+    #infra-server .ect-zoho-req__heading,
+    #infra-network .ect-dm-ind__heading,
+    #infra-approach .ect-zoho-process__heading,
+    #infra-domain .ect-infra-dom__heading,
+    #infra-security .ect-infra-sec__heading,
+    #infra-support .ect-hr-perf__heading,
+    .ect-it-banner__title,
+    #infra-conclusion .ect-infra-cta__heading
+  ) {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+  }
+
+  body.service-page :is(
+    #infra-cloud .ect-zoho-one__intro,
+    #infra-cloud .ect-zoho-one__text,
+    #infra-server .ect-zoho-req__intro,
+    #infra-server .ect-zoho-req__text,
+    #infra-network .ect-dm-ind__intro,
+    #infra-network .ect-dm-ind__text,
+    #infra-approach .ect-zoho-process__intro,
+    #infra-approach .ect-zoho-process__text,
+    #infra-domain .ect-infra-dom__intro,
+    #infra-domain .ect-infra-dom__text,
+    #infra-security .ect-infra-sec__intro,
+    #infra-security .ect-infra-sec__text,
+    #infra-support .ect-hr-perf__intro,
+    #infra-support .ect-hr-perf__text,
+    .ect-it-banner__desc,
+    #infra-conclusion .ect-infra-cta__text
+  ) {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page :is(
+    #infra-cloud .ect-zoho-one__heading,
+    #infra-server .ect-zoho-req__heading,
+    #infra-network .ect-dm-ind__heading,
+    #infra-approach .ect-zoho-process__heading,
+    #infra-domain .ect-infra-dom__heading,
+    #infra-security .ect-infra-sec__heading,
+    #infra-support .ect-hr-perf__heading,
+    .ect-it-banner__title,
+    #infra-conclusion .ect-infra-cta__heading
+  ) {
+    font-size: 26px !important;
+    line-height: 1.18 !important;
+  }
+
+  body.service-page :is(
+    #infra-cloud .ect-zoho-one__intro,
+    #infra-cloud .ect-zoho-one__text,
+    #infra-server .ect-zoho-req__intro,
+    #infra-server .ect-zoho-req__text,
+    #infra-network .ect-dm-ind__intro,
+    #infra-network .ect-dm-ind__text,
+    #infra-approach .ect-zoho-process__intro,
+    #infra-approach .ect-zoho-process__text,
+    #infra-domain .ect-infra-dom__intro,
+    #infra-domain .ect-infra-dom__text,
+    #infra-security .ect-infra-sec__intro,
+    #infra-security .ect-infra-sec__text,
+    #infra-support .ect-hr-perf__intro,
+    #infra-support .ect-hr-perf__text,
+    .ect-it-banner__desc,
+    #infra-conclusion .ect-infra-cta__text
+  ) {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+/* ---- Vertical rhythm: each section owns the space after it, 64px on a tablet and 48px on a phone ---- */
+@media (max-width: 1199px) {
+  body.service-page :is(#infra-cloud, #infra-domain, #infra-server, #infra-network, #infra-security, #infra-approach, #infra-support, #infra-conclusion, .ect-it-banner) {
+    margin-top: 0 !important;
+    margin-bottom: 64px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page :is(#infra-cloud, #infra-domain, #infra-server, #infra-network, #infra-security, #infra-approach, #infra-support, #infra-conclusion, .ect-it-banner) {
+    margin-bottom: 48px !important;
+  }
+}
+
+/* ---- Server management row = Zoho "Find the Right Zoho Solutions for Your Business Requirements"
+   (zoho-requirements.css): no arrow buttons, a swipe row with 16px gaps, two cards across on a tablet and
+   one on a phone, cards snapping to the left edge ---- */
+@media (max-width: 1199px) {
+  body.service-page #infra-server .ect-infra-srv__controls {
+    display: none;
+  }
+
+  body.service-page #infra-server .ect-infra-srv__top {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  body.service-page #infra-server .ect-zoho-req__grid {
+    gap: 16px;
+    padding-bottom: 0;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+  }
+
+  body.service-page #infra-server .ect-zoho-req__grid.is-dragging {
+    scroll-behavior: auto;
+  }
+
+  body.service-page #infra-server .ect-zoho-req__card {
+    flex: 0 0 calc((100% - 16px) / 2);
+    height: auto;
+    min-height: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    user-select: none;
+  }
+
+  body.service-page #infra-server .ect-zoho-req__title {
+    font-size: 30.51px !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.service-page #infra-server {
+    width: calc(100% - 32px);
+  }
+
+  body.service-page #infra-server .ect-zoho-req__card {
+    flex-basis: 100%;
+  }
+
+  body.service-page #infra-server .ect-zoho-req__title {
+    font-size: 24px !important;
+  }
+}
+
+/* ---- Network section = HR "Building a Complete HR Lifecycle" (hr-responsive-system.css) ---- */
+@media (max-width: 1199px) {
+  body.service-page #infra-network {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 48px);
+    max-width: 1240px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  body.service-page #infra-network .ect-dm-ind__header {
+    display: contents;
+  }
+
+  body.service-page #infra-network .ect-dm-ind__heading {
+    order: 1;
+    max-width: none;
+    margin-bottom: 24px !important;
+  }
+
+  body.service-page #infra-network .ect-dm-ind__grid {
+    order: 2;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    gap: 24px;
+  }
+
+  body.service-page #infra-network .ect-dm-ind__intro {
+    order: 3;
+    width: auto;
+    max-width: 560px;
+    margin: 24px 0 0;
+  }
+
+  body.service-page #infra-network .ect-dm-ind__image {
+    display: none;
+  }
+
+  body.service-page #infra-network :is(.ect-dm-ind__card, .ect-dm-ind__card--wide) {
+    grid-column: auto;
+  }
+
+  body.service-page #infra-network .ect-dm-ind__title {
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body.service-page #infra-network {
+    width: calc(100% - 32px);
+  }
+
+  body.service-page #infra-network .ect-dm-ind__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  body.service-page #infra-network .ect-dm-ind__card {
+    min-height: 0;
+    gap: 28px;
+  }
+
+  body.service-page #infra-network .ect-dm-ind__title {
+    font-size: 20px !important;
+  }
+}
+
+/* ---- Support list = HR "Strengthen Employee Performance": rows 24px apart on touch sizes ---- */
+@media (max-width: 1199px) {
+  body.service-page #infra-support .ect-hr-perf__list {
+    gap: 24px;
+  }
+}
+
+/* ---- Closing banner ("Build a Secure IT Infrastructure for Future Growth"): the forced line breaks in the
+   title and text leave short orphan lines on a phone; let the text wrap naturally, as the same banner does
+   on the HR page. ---- */
+@media (max-width: 640px) {
+  body.service-page .ect-it-banner__title br,
+  body.service-page .ect-it-banner__desc br {
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) {
+  body.service-page .ect-it-banner__title {
+    font-weight: 700 !important;
+  }
+}
+
+/* ================================================================================================
+   "Is Your Business IT Infrastructure Ready for Everyday Demands?" = HR "Simplify HR Operations with
+   Technology-Enabled Workforce Management" on tablet and mobile (the stacked step cards joined by a small
+   arrow). Copied from the shared touch rules in zoho-process.css, which the HR page uses as they are;
+   the IT page's own desktop-style bordered grid (infra-approach.css) is switched off below 1200px.
+   Desktop is untouched.
+   ================================================================================================ */
+@media (max-width: 1199px) {
+  body.service-page #infra-approach {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__header {
+    display: contents;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__heading {
+    order: 1;
+    max-width: 100%;
+    margin: 0 0 24px;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__grid {
+    order: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__intro {
+    order: 3;
+    max-width: 100%;
+    margin: 24px 0 0;
+    line-height: 1.55;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__cell,
+  body.service-page #infra-approach .ect-zoho-process__cell:nth-child(n) {
+    position: relative;
+    display: grid;
+    grid-column: auto;
+    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-areas:
+      "step step"
+      "icon title"
+      "desc desc";
+    column-gap: 14px;
+    row-gap: 10px;
+    align-items: center;
+    min-height: 0;
+    padding: 20px;
+    overflow: visible;
+    border: 1px solid #dfe3da;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: none;
+    z-index: auto;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__cell::before {
+    display: none !important;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__step {
+    grid-area: step;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__icon {
+    grid-area: icon;
+    width: 48px;
+    height: 48px;
+    margin: 0;
+    align-items: center;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__icon img {
+    max-width: 48px;
+    max-height: 48px;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__title {
+    grid-area: title;
+    margin: 0;
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+  }
+
+  /* the steps here are short bullet lists instead of a paragraph */
+  body.service-page #infra-approach .ect-zoho-process__text,
+  body.service-page #infra-approach .ect-zoho-process__list {
+    grid-area: desc;
+    max-width: none;
+    margin: 0;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__list {
+    gap: 6px;
+    font-size: 15px;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__list li {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  /* small arrow between one step and the next */
+  body.service-page #infra-approach .ect-zoho-process__cell:not(:last-child)::after {
+    content: "│\A▼";
+    display: flex !important;
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: -30px;
+    left: 50%;
+    width: 24px;
+    height: 26px;
+    margin: 0;
+    transform: translateX(-50%);
+    align-items: center;
+    justify-content: center;
+    white-space: pre;
+    clip-path: none;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 0.72;
+    text-align: center;
+    color: #0b5d1e;
+    background: transparent;
+    border: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__cell:last-child::after {
+    display: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.service-page #infra-approach .ect-zoho-process__grid {
+    gap: 32px;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__cell,
+  body.service-page #infra-approach .ect-zoho-process__cell:nth-child(n) {
+    grid-template-columns: 42px minmax(0, 1fr);
+    column-gap: 12px;
+    padding: 18px 16px;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__icon img {
+    max-width: 42px;
+    max-height: 42px;
+  }
+
+  body.service-page #infra-approach .ect-zoho-process__title {
+    font-size: 20px !important;
+  }
+
+}
+
+/* ---- Support list: the third title ("Preventive IT Infrastructure Maintenance") was kept on one line by a
+   desktop rule that was not limited to desktop widths, so on a phone it ran past its box and off the
+   screen. Let the titles wrap on tablet and mobile. ---- */
+@media (max-width: 1199px) {
+  body.service-page #infra-support .ect-hr-perf__title,
+  body.service-page #infra-support .ect-hr-perf__item:nth-child(3) .ect-hr-perf__title {
+    max-width: 100%;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+  }
+}
+
+/* ---- Text that ran past its box on tablet and mobile ----
+   1) "Trusted Technologies Powering Our IT Infrastructure Solutions" is kept on one line (white-space: nowrap)
+      and was 820px wide inside a 320px column, so most of it sat off the screen.
+   2) The hero button ("Get IT Consultation") and the banner button ("Start Your IT Journey") have a fixed
+      width narrower than their text. ---- */
+@media (max-width: 1199px) {
+  body.service-page .tb-section .tb-heading,
+  body.service-page .tb-section .tb-top-left {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+  }
+
+  body.service-page .infra-figma-hero .infra-figma-hero__cta,
+  body.service-page .ect-it-banner__cta {
+    width: auto;
+    min-width: 178px;
+    padding-right: 24px;
+    padding-left: 24px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1199px) {
+  body.service-page .ect-it-banner__cta {
+    align-self: flex-start;
+  }
+}
+
+
+/* Inline reference links in the digital foundation and infrastructure service copy. */
+#infra-foundation .website-benefits__link,
+#infra-solutions .ect-web-solutions__link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+}

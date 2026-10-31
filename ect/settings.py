@@ -228,7 +228,7 @@ TEST_RUNNER = 'ect.test_runner.IsolatedMediaTestRunner'
 # trailing slash, when deploying (for example: https://www.example.com).
 SITE_URL = os.environ.get('SITE_URL', 'https://ecogcoretechnologies.com').rstrip('/')
 BLOG_PUBLISHER_NAME = os.environ.get('BLOG_PUBLISHER_NAME', 'ECOG Core Technologies')
-BLOG_PUBLISHER_LOGO = os.environ.get('BLOG_PUBLISHER_LOGO', '/static/img/ECT%20LOGO.png')
+BLOG_PUBLISHER_LOGO = os.environ.get('BLOG_PUBLISHER_LOGO', '/static/img/ecog-logo.png')
 BLOG_FALLBACK_IMAGE = os.environ.get(
     'BLOG_FALLBACK_IMAGE',
     '/media/blog/website-development-guide-2026/website-development-guide-cover.webp',

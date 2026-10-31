@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="{% static 'css/infra-costs.css' %}?v=1">
   <link rel="stylesheet" href="{% static 'css/infra-cta.css' %}?v=3">
   <link rel="stylesheet" href="{% static 'css/faq-heading.css' %}?v=1">
-  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=29">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=31">
   <style>
     body, html, .infra-figma-hero {
       background-color: #ffffff !important;
@@ -61,6 +61,8 @@
       display: none !important;
     }
   </style>
+  <link rel="stylesheet" href="{% static 'css/infra-responsive.css' %}?v=11">
+  <link rel="stylesheet" href="{% static 'css/service-cta-interactions.css' %}?v=1">
 </head>
 
 <body class="service-page">
@@ -76,8 +78,8 @@
     <h1 class="infra-figma-hero__title" id="infraHeroTitle">
       IT Infrastructure Services Built to Keep Your Business Connected, Secure and Ready to Grow
     </h1>
-    <p class="infra-figma-hero__subtitle">Keep your business running with ECOG Core Technologies Private Limited, offering IT infrastructure services in Coimbatore. From cloud workspaces and networking to server management and technical support, we help build reliable digital environments.</p>
-    <a href="javascript:void(0)" class="infra-figma-hero__cta popup-trigger">Get IT Consultation</a>
+    <p class="infra-figma-hero__subtitle">ECOG Core Technologies Private Limited provides <a href="{% url 'index' %}">IT infrastructure services in Coimbatore</a>, focusing on practical solutions suited to business requirements.</p>
+    <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="infra-figma-hero__cta" target="_blank" rel="noopener noreferrer">Get IT Consultation</a>
 
     <div class="infra-figma-hero__video-frame">
       <video class="infra-figma-hero__video" src="{% static 'video/IT_infrastructure-optimized.mp4' %}" autoplay loop muted playsinline poster="{% static 'video/IT_infrastructure-poster.webp' %}">
@@ -112,9 +114,10 @@
       </div>
       <div class="website-benefits__intro">
         <h2 id="infra-foundation-title">Build a Strong Digital Foundation<br class="website-benefits__desktop-break"> for Your Business Operations</h2>
-        <p>Your business depends on more than computers and internet connections. Reliable IT infrastructure connects networks, servers, business applications, and communication tools to support daily operations. It also provides the technical foundation for website development services, hosting, and other digital business solutions.</p>
-        <a href="javascript:void(0)" class="website-benefits__cta popup-trigger">Book A Consultation</a>
+        <p>Your business depends on more than computers and internet connections. Reliable IT infrastructure connects networks, servers, business applications, and communication tools to support daily operations. It also provides the technical foundation for <a class="website-benefits__link" href="{% url 'website' %}">website development services</a>, hosting, and other digital business solutions.</p>
+        <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="website-benefits__cta" target="_blank" rel="noopener noreferrer">Book A Consultation</a>
       </div>
+      <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="website-benefits__cta website-benefits__cta--after" target="_blank" rel="noopener noreferrer">Book A Consultation</a>
     </div>
   </section>
 
@@ -169,7 +172,7 @@
 
         <div class="ect-web-solutions__panel is-active" id="ect-web-solutions-panel-0" role="tabpanel" aria-labelledby="ect-web-solutions-tab-0">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/it1.webp' %}" alt="Cloud Workspace Setup and Management" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="eager">
+            <img src="{% static 'img/it-tab-1.webp' %}" alt="Cloud Workspace Setup and Management" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="eager">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">Cloud Workspace Setup and Management</h3>
@@ -179,7 +182,7 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-1" role="tabpanel" aria-labelledby="ect-web-solutions-tab-1">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/it2.webp' %}" alt="Business Email Setup and Migration" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/it-tab-2.webp' %}" alt="Business Email Setup and Migration" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">Business Email Setup and Migration</h3>
@@ -189,17 +192,17 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-2" role="tabpanel" aria-labelledby="ect-web-solutions-tab-2">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/it3.webp' %}" alt="Domain Registration and DNS Management" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/it-tab-3.webp' %}" alt="Domain Registration and DNS Management" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">Domain Registration and DNS Management</h3>
-            <p class="ect-web-solutions__description">Manage domain registration, renewals, DNS records, and technical settings that connect your website, email, and other online services. We help configure domain settings, maintain accurate DNS records, monitor renewal dates, and resolve connectivity issues. Our approach supports reliable website access, uninterrupted email communication, and smooth integration between essential digital services for your business operations.</p>
+            <p class="ect-web-solutions__description">Manage domain registration, renewals, <a class="ect-web-solutions__link" href="http://geeksforgeeks.org/computer-networks/details-on-dns/" target="_blank" rel="noopener noreferrer">DNS records</a>, and technical settings that connect your website, email, and other online services. We help configure domain settings, maintain accurate DNS records, monitor renewal dates, and resolve connectivity issues. Our approach supports reliable website access, uninterrupted email communication, and smooth integration between essential digital services for your business operations.</p>
             <a href="javascript:void(0)" class="ect-web-solutions__cta popup-trigger">Request a Consultation</a>
           </div>
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-3" role="tabpanel" aria-labelledby="ect-web-solutions-tab-3">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/it4.png' %}" alt="Web Hosting and Cloud Deployment Services" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/it-tab-4.webp' %}" alt="Web Hosting and Cloud Deployment Services" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">Web Hosting and Cloud Deployment Services</h3>
@@ -209,7 +212,7 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-4" role="tabpanel" aria-labelledby="ect-web-solutions-tab-4">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/it1.webp' %}" alt="Windows and Linux Server Management" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/it-tab-5.webp' %}" alt="Windows and Linux Server Management" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">Windows and Linux Server Management</h3>
@@ -219,7 +222,7 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-5" role="tabpanel" aria-labelledby="ect-web-solutions-tab-5">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/it1.webp' %}" alt="Network Setup and Connectivity Solutions" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/it-tab-6.webp' %}" alt="Network Setup and Connectivity Solutions" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">Network Setup and Connectivity Solutions</h3>
@@ -229,7 +232,7 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-6" role="tabpanel" aria-labelledby="ect-web-solutions-tab-6">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/it1.webp' %}" alt="IT Infrastructure Monitoring and Maintenance" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/it-tab-7.webp' %}" alt="IT Infrastructure Monitoring and Maintenance" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">IT Infrastructure Monitoring and Maintenance</h3>
@@ -239,7 +242,7 @@
         </div>
         <div class="ect-web-solutions__panel" id="ect-web-solutions-panel-7" role="tabpanel" aria-labelledby="ect-web-solutions-tab-7">
           <div class="ect-web-solutions__media">
-            <img src="{% static 'img/it1.webp' %}" alt="IT Technical Support and Troubleshooting" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
+            <img src="{% static 'img/it-tab-8.webp' %}" alt="IT Technical Support and Troubleshooting" class="ect-web-solutions__image" width="874" height="502" decoding="async" loading="lazy">
           </div>
           <div class="ect-web-solutions__content">
             <h3 class="ect-web-solutions__content-title">IT Technical Support and Troubleshooting</h3>
@@ -258,7 +261,7 @@
     </div>
 
     <div class="ect-zoho-one__body">
-      <figure class="ect-zoho-one__media"><img alt="Team using a secure cloud workspace">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</figure>
+      <figure class="ect-zoho-one__media"><img src="{% static 'img/it-cloud.webp' %}" alt="Team using a secure cloud workspace" width="608" height="563" decoding="async" loading="lazy"></figure>
       <div class="ect-zoho-one__cards">
         <article class="ect-zoho-one__card ect-zoho-one__card--green">
           <h3 class="ect-zoho-one__title">Google Workspace Setup and Administration</h3>
@@ -293,7 +296,7 @@
 
     <div class="ect-infra-dom__grid">
       <article class="ect-infra-dom__card ect-infra-dom__card--domain">
-        <div class="ect-infra-dom__media"><img alt="Domain registration and renewal">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-infra-dom__media"><img src="{% static 'img/it-dom-1.webp' %}" alt="Domain registration and renewal" width="364" height="443" decoding="async" loading="lazy"></div>
         <div class="ect-infra-dom__copy">
           <h3 class="ect-infra-dom__title">Domain Registration, Renewal and Management</h3>
           <p class="ect-infra-dom__text">We assist with domain registration, renewal tracking, administrative settings, and ownership-related configurations to help maintain your online identity.</p>
@@ -301,7 +304,7 @@
       </article>
 
       <article class="ect-infra-dom__card ect-infra-dom__card--dns">
-        <div class="ect-infra-dom__media"><img alt="DNS and email record configuration">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-infra-dom__media"><img src="{% static 'img/it-dom-2.webp' %}" alt="DNS and email record configuration" width="431" height="277" decoding="async" loading="lazy"></div>
         <div class="ect-infra-dom__copy">
           <h3 class="ect-infra-dom__title">DNS Configuration and Email Record Management</h3>
           <p class="ect-infra-dom__text">DNS management includes website records, MX settings, SPF, DKIM, and DMARC configuration where applicable, supporting email routing and authentication.</p>
@@ -313,14 +316,14 @@
           <h3 class="ect-infra-dom__title">Website Migration and Hosting Performance Optimization</h3>
           <p class="ect-infra-dom__text">Hosting migration requires careful planning. We review website files, databases, DNS changes, and performance settings to help limit avoidable disruptions.</p>
         </div>
-        <div class="ect-infra-dom__media"><img alt="Website migration and hosting performance">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-infra-dom__media"><img src="{% static 'img/it-dom-3.webp' %}" alt="Website migration and hosting performance" width="452" height="337" decoding="async" loading="lazy"></div>
       </article>
 
     </div>
 
     <div class="ect-infra-dom__row">
       <article class="ect-infra-dom__card ect-infra-dom__card--hosting">
-        <div class="ect-infra-dom__media"><img alt="Website hosting and server deployment">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-infra-dom__media"><img src="{% static 'img/it-dom-4.webp' %}" alt="Website hosting and server deployment" width="276" height="277" decoding="async" loading="lazy"></div>
         <div class="ect-infra-dom__copy">
           <h3 class="ect-infra-dom__title">Website Hosting and Server Deployment</h3>
           <p class="ect-infra-dom__text">Deploy websites and applications to suitable hosting environments based on expected traffic, storage requirements, technical compatibility, and maintenance needs.</p>
@@ -332,7 +335,7 @@
           <h3 class="ect-infra-dom__title">SSL Certificate Setup and Renewal</h3>
           <p class="ect-infra-dom__text">SSL certificates enable HTTPS connections. We help with certificate installation, renewal, and configuration checks for supported websites and applications.</p>
         </div>
-        <div class="ect-infra-dom__media"><img alt="SSL certificate setup and renewal">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+        <div class="ect-infra-dom__media"><img src="{% static 'img/it-dom-5.webp' %}" alt="SSL certificate setup and renewal" width="248" height="268" decoding="async" loading="lazy"></div>
       </article>
 
     </div>
@@ -359,11 +362,11 @@
     <article class="ect-zoho-req__card" tabindex="0">
       <h3 class="ect-zoho-req__title">Windows and Linux Server Configuration</h3>
       <p class="ect-zoho-req__text">We configure supported server environments based on application requirements, access needs and relevant operating system settings.</p>
-      <figure class="ect-zoho-req__media"><img src="{% static 'img/z1.webp' %}" alt="Server configuration planned on paper" width="349" height="228" decoding="async" loading="lazy"></figure>
+      <figure class="ect-zoho-req__media"><img src="{% static 'img/it-srv-1.webp' %}" alt="Server configuration planned on paper" width="349" height="228" decoding="async" loading="lazy"></figure>
     </article>
 
     <article class="ect-zoho-req__card ect-zoho-req__card--media-first" tabindex="0">
-      <figure class="ect-zoho-req__media"><img src="{% static 'img/z2.webp' %}" alt="Planning application deployment on a whiteboard" width="349" height="228" decoding="async" loading="lazy"></figure>
+      <figure class="ect-zoho-req__media"><img src="{% static 'img/it-srv-2.webp' %}" alt="Planning application deployment on a whiteboard" width="349" height="228" decoding="async" loading="lazy"></figure>
       <h3 class="ect-zoho-req__title">Server Installation and Application Deployment</h3>
       <p class="ect-zoho-req__text">Preparing hosting environments, installing supported applications and configuring necessary services are all included in our server management services.</p>
     </article>
@@ -371,11 +374,11 @@
     <article class="ect-zoho-req__card" tabindex="0">
       <h3 class="ect-zoho-req__title">Server Monitoring and Performance Management</h3>
       <p class="ect-zoho-req__text">Server resources, storage usage, service availability and operational logs are reviewed to identify potential performance concerns.</p>
-      <figure class="ect-zoho-req__media"><img src="{% static 'img/z3.webp' %}" alt="Server monitoring dashboard with metrics and charts" width="349" height="228" decoding="async" loading="lazy"></figure>
+      <figure class="ect-zoho-req__media"><img src="{% static 'img/it-srv-3.webp' %}" alt="Server monitoring dashboard with metrics and charts" width="349" height="228" decoding="async" loading="lazy"></figure>
     </article>
 
     <article class="ect-zoho-req__card ect-zoho-req__card--media-first" tabindex="0">
-      <figure class="ect-zoho-req__media"><img alt="System updates and preventive maintenance">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</figure>
+      <figure class="ect-zoho-req__media"><img src="{% static 'img/it-srv-4.webp' %}" alt="System updates and preventive maintenance" width="349" height="228" decoding="async" loading="lazy"></figure>
       <h3 class="ect-zoho-req__title">System Updates and Preventive Maintenance</h3>
       <p class="ect-zoho-req__text">Known issues can be addressed, and system functionality maintained, with the help of planned updates, configuration reviews and preventive checks.</p>
     </article>
@@ -383,7 +386,7 @@
     <article class="ect-zoho-req__card" tabindex="0">
       <h3 class="ect-zoho-req__title">Server Backup and Recovery Planning</h3>
       <p class="ect-zoho-req__text">Backup schedules and recovery procedures help businesses prepare for situations such as accidental deletion, system failures and other data-related incidents.</p>
-      <figure class="ect-zoho-req__media"><img alt="Server backup and recovery planning">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</figure>
+      <figure class="ect-zoho-req__media"><img src="{% static 'img/it-srv-5.webp' %}" alt="Server backup and recovery planning" width="349" height="228" decoding="async" loading="lazy"></figure>
     </article>
 
     </div>
@@ -398,7 +401,7 @@
 
     <div class="ect-dm-ind__grid">
       <figure class="ect-dm-ind__image">
-        <img src="{% static 'img/dmsol.webp' %}" alt="Social media creatives and a phone showing a brand profile" width="737" height="340" decoding="async" loading="lazy">
+        <img src="{% static 'img/it-net-1.webp' %}" alt="Reliable office network connectivity" width="735" height="340" decoding="async" loading="lazy">
       </figure>
 
       <article class="ect-dm-ind__card ect-dm-ind__card--wide">
@@ -427,7 +430,7 @@
       </article>
 
       <figure class="ect-dm-ind__image">
-        <img src="{% static 'img/dmsol.webp' %}" alt="Social media creatives and a phone showing a brand profile" width="737" height="340" decoding="async" loading="lazy">
+        <img src="{% static 'img/it-net-2.webp' %}" alt="Reliable office network connectivity" width="735" height="340" decoding="async" loading="lazy">
       </figure>
     </div>
   </section>
@@ -445,16 +448,16 @@
     </article>
     <article class="ect-infra-sec__card ect-infra-sec__card--auth">
       <div class="ect-infra-sec__copy"><h3 class="ect-infra-sec__title">User Authentication and Access Management</h3><p class="ect-infra-sec__text">Access can be restricted to authorized employees with the help of strong authentication, appropriate permissions and account management practices.</p></div>
-      <div class="ect-infra-sec__media"><img alt="User authentication and access management">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+      <div class="ect-infra-sec__media"><img src="{% static 'img/it-sec-auth.webp' %}" alt="User authentication and access management" width="300" height="311" decoding="async" loading="lazy"></div>
     </article>
     <article class="ect-infra-sec__card ect-infra-sec__card--pic-left">
-      <div class="ect-infra-sec__media"><img alt="Network security configuration">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+      <div class="ect-infra-sec__media"><img src="{% static 'img/it-sec-fw.webp' %}" alt="Network security configuration" width="456" height="292" decoding="async" loading="lazy"></div>
     </article>
     <article class="ect-infra-sec__card ect-infra-sec__card--pic-right">
-      <div class="ect-infra-sec__media"><img alt="Infrastructure security overview">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+      <div class="ect-infra-sec__media"><img src="{% static 'img/it-sec-upd.webp' %}" alt="Infrastructure security overview" width="473" height="284" decoding="async" loading="lazy"></div>
     </article>
     <article class="ect-infra-sec__card ect-infra-sec__card--endpoint">
-      <div class="ect-infra-sec__media"><img alt="Endpoint and server security configuration">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+      <div class="ect-infra-sec__media"><img src="{% static 'img/it-sec-end.webp' %}" alt="Endpoint and server security configuration" width="300" height="311" decoding="async" loading="lazy"></div>
       <div class="ect-infra-sec__copy"><h3 class="ect-infra-sec__title">Endpoint and Server Security Configuration</h3><p class="ect-infra-sec__text">The security posture of devices and servers can be improved through security settings, supported protection software and system hardening practices.</p></div>
     </article>
     <article class="ect-infra-sec__card ect-infra-sec__card--updates">
@@ -582,7 +585,7 @@
         </li>
       </ul>
 
-      <figure class="ect-hr-perf__media"><img alt="IT support engineer assisting a business team">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</figure>
+      <figure class="ect-hr-perf__media"><img src="{% static 'img/it-support.webp' %}" alt="IT support engineer assisting a business team" width="418" height="323" decoding="async" loading="lazy"></figure>
     </div>
   </section>
   <!-- ===== END ZOHO IMPLEMENTATION SECTION ===== -->
@@ -652,7 +655,7 @@
 
       <div class="ect-key-features__stack">
         <article class="ect-key-features__card" data-feature-card>
-          <div class="ect-key-features__media"><img alt="Cloud workspace and business email subscription plans">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+          <div class="ect-key-features__media"><img src="{% static 'img/it-cost-1.webp' %}" alt="Cloud workspace and business email subscription plans" width="503" height="369" decoding="async" loading="lazy"></div>
           <div class="ect-key-features__body">
             <h3 class="ect-key-features__title">Cloud Workspace and Business Email Subscription Costs</h3>
             <p class="ect-key-features__text">Subscription expenses depend on the provider, selected edition, number of users, storage, and billing arrangement.</p>
@@ -661,7 +664,7 @@
         </article>
 
         <article class="ect-key-features__card" data-feature-card>
-          <div class="ect-key-features__media"><img alt="Domain registration and web hosting">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+          <div class="ect-key-features__media"><img src="{% static 'img/it-cost-2.webp' %}" alt="Domain registration and web hosting" width="503" height="369" decoding="async" loading="lazy"></div>
           <div class="ect-key-features__body">
             <h3 class="ect-key-features__title">Domain Registration and Hosting Expenses</h3>
             <p class="ect-key-features__text">Domain renewals, hosting resources, storage, traffic, security features, and backup requirements influence recurring expenses.</p>
@@ -670,7 +673,7 @@
         </article>
 
         <article class="ect-key-features__card" data-feature-card>
-          <div class="ect-key-features__media"><img alt="Server setup and administration">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+          <div class="ect-key-features__media"><img src="{% static 'img/it-cost-3.webp' %}" alt="Server setup and administration" width="503" height="369" decoding="async" loading="lazy"></div>
           <div class="ect-key-features__body">
             <h3 class="ect-key-features__title">Server Setup and Administration Cost Factors</h3>
             <p class="ect-key-features__text">Server management services are priced according to configuration complexity, application needs, administration effort, and maintenance requirements.</p>
@@ -679,7 +682,7 @@
         </article>
 
         <article class="ect-key-features__card" data-feature-card>
-          <div class="ect-key-features__media"><img alt="Network infrastructure setup">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+          <div class="ect-key-features__media"><img src="{% static 'img/it-cost-4.webp' %}" alt="Network infrastructure setup" width="503" height="369" decoding="async" loading="lazy"></div>
           <div class="ect-key-features__body">
             <h3 class="ect-key-features__title">Network Infrastructure Setup Requirements</h3>
             <p class="ect-key-features__text">Network costs depend on coverage area, number of devices, cabling, equipment, configuration, and installation requirements.</p>
@@ -688,7 +691,7 @@
         </article>
 
         <article class="ect-key-features__card" data-feature-card>
-          <div class="ect-key-features__media"><img alt="IT maintenance and technical support">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+          <div class="ect-key-features__media"><img src="{% static 'img/it-cost-5.webp' %}" alt="IT maintenance and technical support" width="503" height="369" decoding="async" loading="lazy"></div>
           <div class="ect-key-features__body">
             <h3 class="ect-key-features__title">IT Maintenance and Technical Support Pricing</h3>
             <p class="ect-key-features__text">IT infrastructure maintenance costs vary with system size, support frequency, technical responsibilities, and agreed service coverage.</p>
@@ -697,7 +700,7 @@
         </article>
 
         <article class="ect-key-features__card" data-feature-card>
-          <div class="ect-key-features__media"><img alt="Discussing a customized IT infrastructure quote">{# To show a picture: put the file in static/img and add  src="{% static 'img/YOUR-IMAGE.webp' %}"  to this img tag #}</div>
+          <div class="ect-key-features__media"><img src="{% static 'img/it-cost-6.webp' %}" alt="Discussing a customized IT infrastructure quote" width="503" height="369" decoding="async" loading="lazy"></div>
           <div class="ect-key-features__body">
             <h3 class="ect-key-features__title">Request a Customized IT Infrastructure Quote</h3>
             <p class="ect-key-features__text">ECOG can review your requirements and discuss an appropriate scope for IT infrastructure consulting services, setup, or ongoing support.</p>
@@ -721,7 +724,7 @@
       <div class="ect-infra-cta__content">
         <h2 class="ect-infra-cta__heading" id="ect-infra-cta-title">Build a Reliable Digital Foundation with Professional IT Infrastructure Services</h2>
         <p class="ect-infra-cta__text">Reliable infrastructure allows employees to communicate, access applications, and manage everyday work with fewer technical obstacles. At ECOG Core Technologies Private Limited, our IT infrastructure services cover business email, cloud workspaces, networks, hosting, servers, and practical technical assistance. Our wider digital capabilities include website development services, <a href="{% url 'software' %}" class="ect-infra-cta__link">software development</a> services, digital marketing services, and Zoho consulting for businesses that need connected technology solutions.</p>
-        <a href="javascript:void(0)" class="ect-infra-cta__btn popup-trigger">Get IT Consultation</a>
+        <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="ect-infra-cta__btn" target="_blank" rel="noopener noreferrer">Get IT Consultation</a>
       </div>
     </div>
   </section>
@@ -839,10 +842,11 @@
 
   <script src="{% static 'js/it_Infrastructure.js' %}?v=6"></script>
   {% include 'components/contact_popup.html' %}
-  <script src="{% static 'js/contact-popup.js' %}?v=30"></script>
+  <script src="{% static 'js/contact-popup.js' %}?v=32"></script>
   <script src="{% static 'js/website-benefits.js' %}?v=9" defer></script>
   <script src="{% static 'js/digital-solutions.js' %}?v=1"></script>
   <script src="{% static 'js/infra-server.js' %}?v=1" defer></script>
+  <script src="{% static 'js/zoho-requirements.js' %}?v=1" defer></script>
   <script src="{% static 'js/website-features.js' %}?v=1" defer></script>
   <script src="{% static 'js/infra-cta.js' %}?v=2" defer></script>
 {% include 'components/zoho_salesiq.html' %}

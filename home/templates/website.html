@@ -23,7 +23,8 @@
   <link rel="stylesheet" href="{% static 'css/website-benefits.css' %}?v=12">
   <link rel="stylesheet" href="{% static 'css/website-responsive-type.css' %}?v=2">
   <link rel="stylesheet" href="{% static 'css/website-responsive-space.css' %}?v=3">
-  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=29">
+  <link rel="stylesheet" href="{% static 'css/website-development-intro.css' %}?v=2">
+  <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=31">
   <style>
     body, html, .website-figma-hero {
       background-color: #ffffff !important;
@@ -51,6 +52,7 @@
       display: none !important;
     }
   </style>
+  <link rel="stylesheet" href="{% static 'css/service-cta-interactions.css' %}?v=1">
 </head>
 <body class="service-page">
 
@@ -69,7 +71,7 @@
       Grow Your Business Online
     </h1>
     <p class="website-figma-hero__subtitle">ECOG Core Technologies Private Limited offers website development services in Coimbatore, creating responsive, SEO-friendly websites and custom solutions for business growth.</p>
-    <a href="#website-services" class="website-figma-hero__cta" data-smooth-scroll>Start Your Project</a>
+    <a href="javascript:void(0)" class="website-figma-hero__cta popup-trigger">Start Your Project</a>
 
     <div class="website-figma-hero__video-frame">
       <video
@@ -78,6 +80,23 @@
         autoplay loop muted playsinline poster="{% static 'video/website-poster.webp' %}">
       </video>
     </div>
+  </section>
+
+  <section class="website-development-intro" id="website-development-services-intro" aria-labelledby="website-development-intro-title">
+    <div class="website-development-intro__content">
+      <p class="website-development-intro__eyebrow">Website development</p>
+      <h2 class="website-development-intro__heading" id="website-development-intro-title">What Are Website Development Services?</h2>
+      <div class="website-development-intro__copy">
+        <p><a href="/blog/website-development-ultimate-guide-for-business/">Website development services</a> include the planning, design, coding, testing, deployment, and ongoing maintenance of websites. They help businesses establish an online presence, showcase products and services, attract potential customers, and support digital transactions.</p>
+        <p>Website development brings together user interface design, front-end work, back-end functions, content management, and technical connections.</p>
+        <p>Professional web design considers how a website looks and how easy it is to use. Development builds the technology that lets a website work.</p>
+        <p>Businesses may choose standard website solutions, custom website development services, or web app development depending on their operational needs.</p>
+      </div>
+    </div>
+
+    <aside class="website-development-intro__visual" aria-label="Website development services illustration">
+      <img class="website-development-intro__image" src="{% static 'img/What Are Website Development Services.png' %}" alt="Website development brings together UI/UX design, front-end and back-end development, and launch support" width="1254" height="1254" decoding="async" loading="lazy">
+    </aside>
   </section>
 
   <section class="website-benefits" id="website-benefits" aria-labelledby="website-benefits-title" data-website-benefits>
@@ -121,10 +140,10 @@
       </div>
       <div class="website-benefits__intro">
         <h2 id="website-benefits-title">Why Does Your Business Need a<br class="website-benefits__desktop-break"> Professional Website?</h2>
-        <p>A professional website offers customers a spot to discover your company and reach out to your team. A professional website also backs your digital marketing services by building a single hub for search traffic, ads and customer questions.</p>
-        <a href="#" class="website-benefits__cta popup-trigger">Book A Consultation</a>
+        <p>A professional website offers customers a spot to discover your company and reach out to your team. A professional website also backs your <a href="{% url 'digital' %}" class="website-benefits__link">digital marketing services</a> by building a single hub for search traffic, ads and customer questions.</p>
+        <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="website-benefits__cta" target="_blank" rel="noopener noreferrer">Book A Consultation</a>
       </div>
-      <a href="#" class="website-benefits__cta website-benefits__cta--after popup-trigger">Book A Consultation</a>
+      <a href="https://in.bigin.online/org60081571879/bookings/appointment" class="website-benefits__cta website-benefits__cta--after" target="_blank" rel="noopener noreferrer">Book A Consultation</a>
     </div>
   </section>
 
@@ -630,7 +649,7 @@
               <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
                 stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
             </svg>
-            <div class="card__cta"><a href="{% url 'under' %}" class="btn-view">View Projects</a></div>
+            <div class="card__cta"><a href="{% url 'project_list' %}" class="btn-view">View Projects</a></div>
           </div>
         </article>
 
@@ -649,7 +668,7 @@
               <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
                 stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
             </svg>
-            <div class="card__cta"><a href="{% url 'under' %}" class="btn-view">View Projects</a></div>
+            <div class="card__cta"><a href="{% url 'project_list' %}" class="btn-view">View Projects</a></div>
           </div>
         </article>
 
@@ -668,7 +687,7 @@
               <path d="M212,20 A20,20 0 0 1 192,40 L60,40 A28,28 0 0 0 32,68 L32,108 A20,20 0 0 1 12,128" fill="none"
                 stroke="#ECECEC" stroke-width="1" vector-effect="non-scaling-stroke" />
             </svg>
-            <div class="card__cta"><a href="{% url 'under' %}" class="btn-view">View Projects</a></div>
+            <div class="card__cta"><a href="{% url 'project_list' %}" class="btn-view">View Projects</a></div>
           </div>
         </article>
 
@@ -775,7 +794,7 @@
         Will my website be mobile-friendly and SEO-friendly?
         <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
       </button>
-      <div class="faq-a"><div class="faq-a-inner"><p>Responsive layouts and technical SEO fundamentals can be included in website development. These features support usability and search engine accessibility, although search rankings cannot be guaranteed.</p></div></div>
+      <div class="faq-a"><div class="faq-a-inner"><p>Responsive layouts and technical <a href="https://www.geeksforgeeks.org/techtips/search-engine-optimization-seo-basics/" target="_blank" rel="nofollow noopener noreferrer">SEO</a> fundamentals can be included in website development. These features support usability and search engine accessibility, although search rankings cannot be guaranteed.</p></div></div>
     </div>
 
     <div class="faq-item">
@@ -821,7 +840,7 @@
   <script src="{% static 'js/website.js' %}?v=8"></script>
   <script src="{% static 'js/website-benefits.js' %}?v=9" defer></script>
   <script src="{% static 'js/website-features.js' %}?v=3" defer></script>
-  <script src="{% static 'js/website-why.js' %}?v=22" defer></script>
+  <script src="{% static 'js/website-why.js' %}?v=23" defer></script>
 
   
   
@@ -830,7 +849,7 @@
 
 <script src="{% static 'js/base.js' %}?v=33"></script>
 {% include 'components/contact_popup.html' %}
-<script src="{% static 'js/contact-popup.js' %}?v=30"></script>
+<script src="{% static 'js/contact-popup.js' %}?v=32"></script>
 {% include 'components/zoho_salesiq.html' %}
 
 <!-- ================= UNIFORM 100PX SECTION GAPS (website page only) =================

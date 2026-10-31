@@ -8,8 +8,8 @@ from playwright.sync_api import sync_playwright
 
 BASE_URL = "http://127.0.0.1:8000"
 ROUTES = [
-    "/", "/about/", "/career/", "/contact/", "/projects/", "/digital/",
-    "/hr/", "/it-infrastructure/", "/software/", "/website/", "/zoho/",
+    "/", "/about/", "/career/", "/contact/", "/projects/", "/digital-marketing-agency/",
+    "/hr-consulting-services/", "/it-infrastructure-services/", "/custom-software-development/", "/website-development-services/", "/zoho-consulting-services/",
     "/blog/", "/under/",
 ]
 BROWSERS = {

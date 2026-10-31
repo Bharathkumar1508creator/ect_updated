@@ -1,0 +1,40 @@
+/* Software page: "Software Built for Security, Performance and Future Growth" (Figma).
+   Same section as the HR "Strengthen Employee Performance" (hr-performance.css): heading on the left, intro
+   on the right above the picture, five rows with a 93px circle icon, and a tall grey picture on the right.
+   Until a picture is added its img has no src, so the alt text shows in the grey box. */
+
+body.service-page .ect-sw-sec .ect-hr-perf__heading {
+  flex: 0 1 749px;
+}
+
+.ect-sw-sec .ect-hr-perf__header {
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.ect-sw-sec .ect-hr-perf__intro {
+  flex: 0 0 467px;
+  margin: 8px 0 0;
+}
+
+.ect-sw-sec .ect-hr-perf__list {
+  gap: 16px;
+}
+
+.ect-sw-sec .ect-hr-perf__item:last-child {
+  margin-top: 0;
+}
+
+@media (min-width: 1200px) {
+  /* Figma titles are one line each. */
+  .ect-sw-sec .ect-hr-perf__item .ect-hr-perf__title {
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1199px) {
+  .ect-sw-sec .ect-hr-perf__intro {
+    flex: none;
+  }
+}

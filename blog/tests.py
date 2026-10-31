@@ -64,10 +64,10 @@ class ArticleHtmlTests(TestCase):
     @override_settings(SITE_URL="https://ecogcoretechnologies.com")
     def test_normalizes_supported_internal_link_formats(self):
         self.assertEqual(normalize_article_url("blog/what-is-seo/"), "/blog/what-is-seo/")
-        self.assertEqual(normalize_article_url("127.0.0.1:8000/website/"), "/website/")
+        self.assertEqual(normalize_article_url("127.0.0.1:8000/website-development-services/"), "/website-development-services/")
         self.assertEqual(
-            normalize_article_url("https://ecogcoretechnologies.com/software/"),
-            "/software/",
+            normalize_article_url("https://ecogcoretechnologies.com/custom-software-development/"),
+            "/custom-software-development/",
         )
         self.assertEqual(normalize_article_url("javascript:alert(1)"), "")
 
@@ -84,7 +84,7 @@ class BlogSeoTests(TestCase):
             "title": "SEO Friendly Website Guide",
             "category": self.category,
             "hero_description": "A useful guide to SEO friendly websites.",
-            "article_content": '<p>Introduction.</p><h2>Technical SEO</h2><p><a href="/website/">Website service</a></p>',
+            "article_content": '<p>Introduction.</p><h2>Technical SEO</h2><p><a href="/website-development-services/">Website service</a></p>',
             "primary_keyword": "SEO Friendly Website",
             "status": Blog.Status.PUBLISHED,
         }
@@ -322,7 +322,7 @@ class BlogAdminTests(TestCase):
     def test_server_link_checker_validates_internal_routes(self):
         response = self.client.post(
             reverse("admin:blog_blog_validate_links"),
-            {"html": '<a href="/website/">Website</a><a href="/missing-page/">Missing</a>'},
+            {"html": '<a href="/website-development-services/">Website</a><a href="/missing-page/">Missing</a>'},
         )
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()["count"], 2)

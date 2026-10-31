@@ -1,0 +1,225 @@
+/* About page closing CTA: "Ready to Partner with ECT?" with two scrolling client-logo rows.
+   Everything is scoped to .ect-cta so it cannot affect other sections. */
+.ect-cta {
+  --card-w: 170px;
+  --card-h: 88px;
+  --gap: 20px;
+  --row-gap: 32px;
+
+  position: relative;
+  display: flex;
+  width: min(1241px, calc(100% - 48px));
+  margin: 50px auto 60px;
+  padding: 30px 0 36px;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f5f5f3;
+  font-family: "Montserrat", "Montserrat Variable", sans-serif;
+}
+
+.ect-cta *,
+.ect-cta *::before,
+.ect-cta *::after { box-sizing: border-box; }
+
+.ect-cta__content {
+  display: flex;
+  width: 100%;
+  max-width: 654px;
+  padding: 0 20px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ect-cta__heading {
+  max-width: 633px;
+  margin: 0;
+  color: #000;
+  font-family: inherit;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.ect-cta__text {
+  margin: 16px 0 0;
+  color: #000;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.ect-cta__button {
+  display: inline-flex;
+  width: 190px;
+  min-height: 40px;
+  margin-top: 24px;
+  padding: 8px 10px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background:
+    linear-gradient(#0c3c01, #0c3c01) padding-box,
+    radial-gradient(50% 130% at 50% 50%, #f1f1ef 0%, #5b6d49 100%) border-box;
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* hover lift, light sweep and press-down come from the site-wide .ect-micro-btn (base.css) */
+.ect-cta__button:focus-visible {
+  outline: 3px solid rgba(12, 60, 1, 0.3);
+  outline-offset: 4px;
+}
+
+/* ---- logo marquee ---- */
+.ect-cta__marquee {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-top: 40px;
+  flex-direction: column;
+  gap: var(--row-gap);
+}
+
+.ect-cta__row {
+  width: 100%;
+  padding: 8px 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+.ect-cta__track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  will-change: transform;
+  animation-duration: var(--duration, 40s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+.ect-cta__group {
+  display: flex;
+  margin: 0;
+  padding: 0 var(--gap) 0 0;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  gap: var(--gap);
+  list-style: none;
+}
+
+.ect-cta__row--ltr .ect-cta__track { animation-name: ect-cta-ltr; }
+.ect-cta__row--rtl .ect-cta__track { animation-name: ect-cta-rtl; }
+
+@keyframes ect-cta-ltr {
+  from { transform: translate3d(-50%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes ect-cta-rtl {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.ect-cta.is-paused .ect-cta__track { animation-play-state: paused; }
+
+.ect-cta__card {
+  display: flex;
+  width: var(--card-w);
+  height: var(--card-h);
+  padding: 8px 12px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.ect-cta__card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.ect-cta__card.logo-wide { padding: 10px; }
+.ect-cta__card.logo-landscape { padding: 8px 12px; }
+.ect-cta__card.logo-square { padding: 6px 16px; }
+.ect-cta__card.logo-tall { padding: 5px 20px; }
+
+@media (min-width: 1600px) {
+  .ect-cta { --card-w: 180px; --card-h: 92px; }
+}
+
+@media (max-width: 1199px) {
+  .ect-cta { width: calc(100% - 48px); }
+  .ect-cta__button { min-height: 44px; }
+}
+
+@media (max-width: 1024px) {
+  .ect-cta { --card-w: 150px; --card-h: 78px; --gap: 16px; --row-gap: 28px; }
+  .ect-cta__heading { font-size: 36px; }
+  .ect-cta__marquee { margin-top: 36px; }
+}
+
+@media (max-width: 768px) {
+  .ect-cta { --card-w: 132px; --card-h: 70px; --gap: 14px; --row-gap: 26px; padding: 28px 0 30px; margin: 24px auto 40px; }
+  .ect-cta__heading { font-size: 30px; }
+  .ect-cta__text { font-size: 15px; }
+}
+
+@media (max-width: 576px) {
+  .ect-cta { --card-w: 116px; --card-h: 62px; --gap: 12px; --row-gap: 22px; width: calc(100% - 32px); padding: 24px 0 26px; border-radius: 14px; }
+  .ect-cta__heading { font-size: 26px; }
+  .ect-cta__text { font-size: 14px; }
+  .ect-cta__marquee { margin-top: 30px; }
+  .ect-cta__card { border-radius: 8px; }
+  .ect-cta__card.logo-wide { padding: 8px; }
+  .ect-cta__card.logo-landscape { padding: 7px 10px; }
+  .ect-cta__card.logo-square { padding: 5px 12px; }
+  .ect-cta__card.logo-tall { padding: 4px 16px; }
+}
+
+@media (max-width: 425px) {
+  .ect-cta { --card-w: 104px; --card-h: 56px; --gap: 10px; --row-gap: 22px; }
+  .ect-cta__content { padding: 0 16px; }
+  .ect-cta__heading { font-size: 23px; }
+  .ect-cta__button { font-size: 15px; }
+}
+
+@media (max-width: 375px) {
+  .ect-cta { --card-w: 96px; --card-h: 52px; --row-gap: 20px; }
+  .ect-cta__heading { font-size: 22px; }
+  .ect-cta__text { font-size: 13.5px; }
+}
+
+@media (max-width: 320px) {
+  .ect-cta { --card-w: 88px; --card-h: 48px; --gap: 8px; --row-gap: 20px; }
+  .ect-cta__content { padding: 0 12px; }
+  .ect-cta__heading { font-size: 20px; }
+  .ect-cta__text { font-size: 13px; }
+  .ect-cta__button { width: 180px; font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ect-cta__track { animation-duration: calc(var(--duration, 40s) * 3); }
+}

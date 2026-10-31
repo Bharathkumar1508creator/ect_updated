@@ -527,8 +527,11 @@
     // The intro CTA belongs to the animated introduction only. Keep it visible
     // during that state, then remove it from the completed/static card layout.
     introCta.hidden = true;
+    // Removing the runway makes the page shorter. When little content follows the section the browser
+    // clamps the scroll position at that moment, so the offset must be measured from where the page
+    // is now (not from beforeY) or the visitor lands past the next section, on the footer.
     const afterBottom = section.getBoundingClientRect().bottom;
-    const compensatedY = Math.max(0, beforeY + afterBottom - beforeBottom);
+    const compensatedY = Math.max(0, window.scrollY + afterBottom - beforeBottom);
     window.scrollTo({ top: compensatedY, behavior: "instant" });
 
     completing = false;

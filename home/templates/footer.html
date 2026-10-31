@@ -1,4 +1,22 @@
 {% load static %}
+<style>
+  .ect-contact-section .ect-c-item--address {
+    max-width: 360px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .ect-contact-section .ect-c-item--address svg {
+    flex: 0 0 14px;
+    margin-top: 2px;
+  }
+  @media (max-width: 640px) {
+    .ect-social-bar .ect-contact-section { width: 100%; }
+    .ect-contact-section .ect-c-item--address {
+      width: min(100%, 360px);
+      max-width: 360px;
+    }
+  }
+</style>
 <!-- ========== ECOG Footer Section Start ========== -->
 <div class="ect-footer-section">
   <!-- Main Green Footer -->
@@ -113,6 +131,12 @@
         </svg>
         sales@ecogcoretechnologies.com
       </a>
+      <div class="ect-c-item ect-c-item--address">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2a7 7 0 0 0-7 7c0 5.1 7 13 7 13s7-7.9 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" />
+        </svg>
+        <span>Karattu Medu, Murugan Temple Ezhil nagar, Sathy Rd, Coimbatore, Tamil Nadu 641035</span>
+      </div>
     </div>
   </div>
 

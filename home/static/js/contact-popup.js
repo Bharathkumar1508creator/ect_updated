@@ -45,11 +45,10 @@
     }
   }
 
-  function init() {
-    const popup = document.getElementById("ectContactPopup");
+  function bindPopup(popup, triggerSelector, closeSelector) {
     if (!popup) return;
 
-    document.querySelectorAll("[data-contact-trigger], .popup-trigger").forEach(trigger => {
+    document.querySelectorAll(triggerSelector).forEach(trigger => {
       trigger.addEventListener("click", event => {
         event.preventDefault();
         event.stopPropagation();
@@ -57,7 +56,7 @@
       });
     });
 
-    popup.querySelectorAll("[data-contact-close]").forEach(control => {
+    popup.querySelectorAll(closeSelector).forEach(control => {
       control.addEventListener("click", () => closePopup(popup));
     });
 
@@ -81,6 +80,14 @@
         first.focus();
       }
     });
+  }
+
+  function init() {
+    bindPopup(
+      document.getElementById("ectContactPopup"),
+      "[data-contact-trigger], .popup-trigger",
+      "[data-contact-close]"
+    );
   }
 
   document.addEventListener("DOMContentLoaded", init);

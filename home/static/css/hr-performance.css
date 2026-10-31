@@ -143,19 +143,19 @@ body.hr-page .ect-hr-perf .ect-hr-perf__title {
   text-align: center;
 }
 
-/* Figma titles are one line each (their boxes are 540 to 635px wide). */
+/* Keep each item title inside the text column beside its icon. */
 @media (min-width: 1200px) {
   body.service-page .ect-hr-perf .ect-hr-perf__title,
   body.hr-page .ect-hr-perf .ect-hr-perf__title {
-    white-space: nowrap;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
-  /* "...and Training Programs" is longer than Figma's "...and Training" and would run under the picture,
-     so this one title wraps to a second line. */
+  /* Preserve the intended readable wrapping for longer titles. */
   body.service-page .ect-hr-perf .ect-hr-perf__item:nth-child(3) .ect-hr-perf__title,
   body.hr-page .ect-hr-perf .ect-hr-perf__item:nth-child(3) .ect-hr-perf__title {
-    max-width: 560px;
-    white-space: normal;
+    max-width: 100%;
   }
 }
 

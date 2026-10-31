@@ -9,8 +9,8 @@ from playwright.sync_api import sync_playwright
 
 BASE_URL = os.environ.get("ECT_TEST_BASE_URL", "http://127.0.0.1:8000").rstrip("/")
 ROUTES = [
-    "/", "/about/", "/career/", "/contact/", "/projects/", "/digital/",
-    "/hr/", "/it-infrastructure/", "/software/", "/website/", "/zoho/",
+    "/", "/about/", "/career/", "/contact/", "/projects/", "/digital-marketing-agency/",
+    "/hr-consulting-services/", "/it-infrastructure-services/", "/custom-software-development/", "/website-development-services/", "/zoho-consulting-services/",
     "/blog/", "/under/",
 ]
 BROWSERS = {
@@ -163,7 +163,7 @@ def interaction_checks(browser):
     page.wait_for_timeout(100)
     findings["contactPopupEscCloses"] = popup.get_attribute("aria-hidden") == "true"
 
-    page.goto(f"{BASE_URL}/website/", wait_until="domcontentloaded")
+    page.goto(f"{BASE_URL}/website-development-services/", wait_until="domcontentloaded")
     faq = page.locator(".faq-q").first
     faq.click()
     page.wait_for_timeout(100)

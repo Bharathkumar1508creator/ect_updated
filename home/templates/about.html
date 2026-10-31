@@ -15,6 +15,7 @@
 <!-- Manrope font -->
 
 <link rel="stylesheet" href="{% static 'css/about.css' %}?v=38">
+<link rel="stylesheet" href="{% static 'css/about-cta.css' %}?v=3">
   <link rel="stylesheet" href="{% static 'css/base.min.css' %}?v=46">
   <link rel="stylesheet" href="{% static 'css/contact-popup.css' %}?v=29">
 </head>
@@ -281,7 +282,7 @@
 
     <!-- Logo -->
     <div class="pillars-logo">
-      <img src="{% static 'img/ECT LOGO.png' %}" alt="ECOG CORE Technologies" class="pillars-logo__img" width="1124" height="296" decoding="async" loading="lazy" srcset="{% static 'img/ECT-LOGO-480.webp' %} 480w, {% static 'img/ECT-LOGO-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw">
+      <img src="{% static 'img/ecog-logo.png' %}" alt="ECOG CORE Technologies" class="pillars-logo__img" width="1860" height="491" decoding="async" loading="lazy" srcset="{% static 'img/ecog-logo-480.webp' %} 480w, {% static 'img/ecog-logo-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw">
     </div>
 
     <!-- Trusted banner -->
@@ -421,32 +422,57 @@
 
 
 <!-- ================= READY TO PARTNER SECTION START ================= -->
-<section class="ect-partner" id="ectPartner" aria-labelledby="ect-partner-title">
-  <div class="ect-partner__inner">
-    <div class="ect-partner__logos">
-      <div class="ect-partner__logo ect-partner__logo--1" aria-label="Client logo 1"><img src="{% static 'img/logo1.jpeg' %}" alt="Client logo 1" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo1-480.webp' %} 480w, {% static 'img/logo1-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-      <div class="ect-partner__logo ect-partner__logo--2" aria-label="Client logo 2"><img src="{% static 'img/logo2.jpeg' %}" alt="Client logo 2" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo2-480.webp' %} 480w, {% static 'img/logo2-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-      <div class="ect-partner__logo ect-partner__logo--3" aria-label="Client logo 3"><img src="{% static 'img/logo3.jpeg' %}" alt="Client logo 3" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo3-480.webp' %} 480w, {% static 'img/logo3-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-      <div class="ect-partner__logo ect-partner__logo--4" aria-label="Client logo 4"><img src="{% static 'img/logo4.png' %}" alt="Client logo 4" width="39" height="38" decoding="async" loading="lazy"></div>
-      <div class="ect-partner__logo ect-partner__logo--5" aria-label="Client logo 5"><img src="{% static 'img/logo5.jpeg' %}" alt="Client logo 5" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo5-480.webp' %} 480w, {% static 'img/logo5-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-      <div class="ect-partner__logo ect-partner__logo--6" aria-label="Client logo 6"><img src="{% static 'img/logo6.jpeg' %}" alt="Client logo 6" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo6-480.webp' %} 480w, {% static 'img/logo6-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-      <div class="ect-partner__logo ect-partner__logo--7" aria-label="Client logo 7"><img src="{% static 'img/logo7.jpeg' %}" alt="Client logo 7" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo7-480.webp' %} 480w, {% static 'img/logo7-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-      <div class="ect-partner__logo ect-partner__logo--8" aria-label="Client logo 8"><img src="{% static 'img/logo8.jpeg' %}" alt="Client logo 8" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo8-480.webp' %} 480w, {% static 'img/logo8-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
-      <div class="ect-partner__logo ect-partner__logo--9" aria-label="Client logo 9"><img src="{% static 'img/logo9.jpeg' %}" alt="Client logo 9" width="1600" height="1600" decoding="async" loading="lazy" srcset="{% static 'img/logo9-480.webp' %} 480w, {% static 'img/logo9-960.webp' %} 960w" sizes="(max-width: 768px) 100vw, 50vw"></div>
+<section class="ect-cta" id="ectCta" aria-labelledby="ectCtaHeading">
+  <div class="ect-cta__content">
+    <h2 class="ect-cta__heading" id="ectCtaHeading">Ready to Partner with ECT?</h2>
+    <p class="ect-cta__text">Whether you're planning a new website, custom software, Zoho implementation, digital marketing strategy, or IT infrastructure solution, our team is ready to help you turn ideas into measurable business success.</p>
+    <a href="javascript:void(0)" class="ect-cta__button ect-micro-btn popup-trigger">Talk to Our Experts</a>
+  </div>
+
+  <div class="ect-cta__marquee" role="region" aria-label="Our clients">
+    <div class="ect-cta__row ect-cta__row--ltr">
+      <div class="ect-cta__track">
+        <ul class="ect-cta__group">
+            <li class="ect-cta__card logo-wide"><img src="{% static 'img/cta-logos/logo-01.webp' %}" alt="Client logo 1" width="600" height="169" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-landscape"><img src="{% static 'img/cta-logos/logo-03.webp' %}" alt="Client logo 3" width="502" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-wide"><img src="{% static 'img/cta-logos/logo-04.webp' %}" alt="Client logo 4" width="600" height="253" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-landscape"><img src="{% static 'img/cta-logos/logo-05.webp' %}" alt="Client logo 5" width="545" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-landscape"><img src="{% static 'img/cta-logos/logo-06.webp' %}" alt="Client logo 6" width="433" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-landscape"><img src="{% static 'img/cta-logos/logo-07.webp' %}" alt="Client logo 7" width="421" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-wide"><img src="{% static 'img/cta-logos/logo-08.webp' %}" alt="Client logo 8" width="600" height="181" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-wide"><img src="{% static 'img/cta-logos/logo-09.webp' %}" alt="Client logo 9" width="600" height="219" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-wide"><img src="{% static 'img/cta-logos/logo-10.webp' %}" alt="Client logo 10" width="600" height="208" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-landscape"><img src="{% static 'img/cta-logos/logo-11.webp' %}" alt="Client logo 11" width="600" height="283" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-landscape"><img src="{% static 'img/cta-logos/logo-12.webp' %}" alt="Client logo 12" width="419" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-square"><img src="{% static 'img/cta-logos/logo-13.webp' %}" alt="Client logo 13" width="299" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-landscape"><img src="{% static 'img/cta-logos/logo-14.webp' %}" alt="Client logo 14" width="600" height="288" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-wide"><img src="{% static 'img/cta-logos/logo-15.webp' %}" alt="Client logo 15" width="600" height="269" decoding="async" loading="lazy"></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="ect-partner__content" data-partner-reveal>
-      <h2 class="ect-partner__title" id="ect-partner-title">Ready to Partner with ECT?</h2>
-      <p class="ect-partner__text">
-        Whether you're planning a new website, custom software, Zoho implementation, digital marketing strategy, or IT infrastructure solution, our team is ready to help you turn ideas into measurable business success.
-      </p>
-      <button class="ect-partner__cta popup-trigger" type="button">Get in Touch</button>
+    <div class="ect-cta__row ect-cta__row--rtl">
+      <div class="ect-cta__track">
+        <ul class="ect-cta__group">
+            <li class="ect-cta__card logo-landscape"><img src="{% static 'img/cta-logos/logo-16.webp' %}" alt="Client logo 16" width="411" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-square"><img src="{% static 'img/cta-logos/logo-17.webp' %}" alt="Client logo 17" width="335" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-wide"><img src="{% static 'img/cta-logos/logo-18.webp' %}" alt="Client logo 18" width="600" height="199" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-wide"><img src="{% static 'img/cta-logos/logo-19.webp' %}" alt="Client logo 19" width="600" height="182" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-wide"><img src="{% static 'img/cta-logos/logo-20.webp' %}" alt="Client logo 20" width="600" height="260" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-square"><img src="{% static 'img/cta-logos/logo-21.webp' %}" alt="Client logo 21" width="340" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-wide"><img src="{% static 'img/cta-logos/logo-22.webp' %}" alt="Client logo 22" width="600" height="226" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-square"><img src="{% static 'img/cta-logos/logo-23.webp' %}" alt="Client logo 23" width="347" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-square"><img src="{% static 'img/cta-logos/logo-24.webp' %}" alt="Client logo 24" width="317" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-landscape"><img src="{% static 'img/cta-logos/logo-25.webp' %}" alt="Client logo 25" width="394" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-wide"><img src="{% static 'img/cta-logos/logo-26.webp' %}" alt="Client logo 26" width="600" height="261" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-landscape"><img src="{% static 'img/cta-logos/logo-27.webp' %}" alt="Client logo 27" width="449" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-landscape"><img src="{% static 'img/cta-logos/logo-28.webp' %}" alt="Client logo 28" width="476" height="300" decoding="async" loading="lazy"></li>
+            <li class="ect-cta__card logo-square"><img src="{% static 'img/cta-logos/logo-29.webp' %}" alt="Client logo 29" width="281" height="300" decoding="async" loading="lazy"></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
-
-
-
 <!-- ================= READY TO PARTNER SECTION END ================= -->
 
 </main>
@@ -456,6 +482,7 @@
 
 
 <script src="{% static 'js/about.js' %}?v=14"></script>
+<script src="{% static 'js/about-cta.js' %}?v=2"></script>
   
 {% include 'footer.html' %}
 
@@ -474,7 +501,6 @@
   .about-ect { padding-top: 100px; padding-bottom: 50px; }
   .who-section { padding-top: 50px; padding-bottom: 50px; }
   .pillars-section { padding-top: 50px; padding-bottom: 50px; }
-  .ect-partner { padding-top: 50px; }
 </style>
 
 <!-- Mobile/tablet only: reduce every section's gap further than the
@@ -485,7 +511,6 @@
     .about-ect { padding-top: 24px !important; padding-bottom: 24px !important; }
     .who-section { padding-top: 24px !important; padding-bottom: 24px !important; }
     .pillars-section { padding-top: 24px !important; padding-bottom: 24px !important; }
-    .ect-partner { padding-top: 24px !important; }
   }
 </style>
 </body>
